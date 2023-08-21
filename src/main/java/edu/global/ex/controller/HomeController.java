@@ -46,6 +46,13 @@ public class HomeController {
 		// return "home";
 	}
 	
+	@GetMapping("/admin/company")
+	public String adminCompany() {
+		log.info("adminCompany..");
+		return "/admin/company";
+	}
+	
+	
 	@GetMapping("/login/index")
 	public String loginindex() {
 		log.info("loginindex");
