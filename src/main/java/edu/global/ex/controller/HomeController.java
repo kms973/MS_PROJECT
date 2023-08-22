@@ -67,16 +67,34 @@ public class HomeController {
 		return "/admin/board/qna";
 	}
 
+	@GetMapping("/admin/board/review")
+	public String adminBoardReview() {
+		log.info("adminBoardReview");
+		return "/admin/board/review";
+	}
+
 	@GetMapping("/admin/product/home")
 	public String adminProductHome() {
 		log.info("adminProductHome");
 		return "/admin/product/home";
 	}
+
+	@GetMapping("/admin/product/list")
+	public String adminProductList() {
+		log.info("adminProductList");
+		return "/admin/product/product_list";
+	}
+
+	@GetMapping("/admin/product/new")
+	public String adminProductNew() {
+		log.info("adminProductNew");
+		return "/admin/product/product_new";
+	}
 	
-	@GetMapping("/admin/board/review")
-	public String adminBoardReview() {
-		log.info("adminBoardReview");
-		return "/admin/board/review";
+	@GetMapping("/admin/order/list")
+	public String adminOrderList() {
+		log.info("adminOrderList");
+		return "/admin/order/order_list";
 	}
 
 	@GetMapping("/login/index")
