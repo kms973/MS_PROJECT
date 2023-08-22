@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<<!DOCTYPE html>
+
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8" />
@@ -21,7 +22,7 @@
 <body>
 <body class="sb-nav-fixed">
 	<!-- adm_header 부분  -->
-	<jsp:include page="../adm_header.jsp"></jsp:include>
+	<jsp:include page="adm_header.jsp"></jsp:include>
 	
 	<div id="layoutSidenav">
 		<!-- 왼쪽 사이드 바 -->
@@ -30,7 +31,7 @@
 	            <div class="sb-sidenav-menu">
 	                <div class="nav">
 	                    <div class="sb-sidenav-menu-heading">메인</div>
-	                    <a class="nav-link" href="/admin/company.jsp"><div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>회사정보</a>
+	                    <a class="nav-link" href="company"><div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>회사정보</a>
 	                    <div class="sb-sidenav-menu-heading">카테고리</div>
 	                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
 	                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>회원
@@ -173,10 +174,11 @@
 	        <div id="layoutSidenav_content">
 	            <main>
 	                <div class="container-fluid px-4">
-	                    <h1 class="mt-4">회사정보</h1>
+	                    <h1 class="mt-4">회사 정보</h1>
 	                    <ol class="breadcrumb mb-4">
-	                        <li class="breadcrumb-item active">회사정보</li>
+	                        <li class="breadcrumb-item active">회사 정보</li>
 	                    </ol>
+	                    
 	                </div>
 	            </main>
 	        </div>
