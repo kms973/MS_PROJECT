@@ -67,6 +67,12 @@ public class HomeController {
 		return "/admin/board/qna";
 	}
 
+	@GetMapping("/admin/product/home")
+	public String adminProductHome() {
+		log.info("adminProductHome");
+		return "/admin/product/home";
+	}
+	
 	@GetMapping("/admin/board/review")
 	public String adminBoardReview() {
 		log.info("adminBoardReview");
