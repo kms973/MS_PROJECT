@@ -42,6 +42,12 @@ public class HomeController {
 		log.info("adminHome()..");
 		// return "home";
 	}
+	
+	@GetMapping("/admin/index")
+	public String adminIndex() {
+		log.info("adminIndex()");
+		return "/admin/index";
+	}
 
 	@GetMapping("/admin/company")
 	public String adminCompany() {
