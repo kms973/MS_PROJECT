@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class HomeController {
 
-	//admin/company : 회사정보
+	// admin/company : 회사정보
 //	admin/admin : 관리자페이지 홈
 //	
 //	admin/board/home : 관리자용 게시판 홈
@@ -25,9 +25,7 @@ public class HomeController {
 //	
 //	admin/order : 관리자용 주문관리 홈
 //	
-	
-	
-	
+
 	@GetMapping("/")
 	public String home() {
 		return "home";
@@ -39,35 +37,57 @@ public class HomeController {
 		// return "home";
 	}
 
-
 	@GetMapping("/admin/admin")
 	public void adminHome() {
 		log.info("adminHome()..");
 		// return "home";
 	}
-	
+
 	@GetMapping("/admin/company")
 	public String adminCompany() {
 		log.info("adminCompany..");
 		return "/admin/company";
 	}
-	
-	
+
+	@GetMapping("/admin/board/home")
+	public String adminBoardHome() {
+		log.info("adminBoardHome");
+		return "/admin/board/home";
+	}
+
+	@GetMapping("/admin/board/notice")
+	public String adminBoardNotice() {
+		log.info("adminBoardNotice");
+		return "/admin/board/notice";
+	}
+
+	@GetMapping("/admin/board/qna")
+	public String adminBoardQNA() {
+		log.info("adminBoardQna");
+		return "/admin/board/qna";
+	}
+
+	@GetMapping("/admin/board/review")
+	public String adminBoardReview() {
+		log.info("adminBoardReview");
+		return "/admin/board/review";
+	}
+
 	@GetMapping("/login/index")
 	public String loginindex() {
 		log.info("loginindex");
-		 return "/login/index";
+		return "/login/index";
 	}
-	
+
 	@GetMapping("/login/signup")
 	public String loginsignUp() {
 		log.info("loginsignup");
-		 return "/login/signUp";
+		return "/login/signUp";
 	}
-	
+
 	@RequestMapping("/google-callback")
 	public String callback() {
 		return "/google-callback";
 	}
-	
+
 }
