@@ -172,18 +172,18 @@
         </div>
         
         <!-- 대쉬보드 영역 -->
-	        <div id="layoutSidenav_content">
-	            <main>
-	                <div class="container-fluid px-4">
-	                    <h1 class="mt-4">회사 정보</h1>
-	                    <ol class="breadcrumb mb-4">
-	                        <li class="breadcrumb-item active">회사 정보</li>
-	                    </ol>
-	                    
-	                </div>
-	            </main>
-	        </div>
-    </div>
+		<div id="layoutSidenav_content">
+			<main>
+				<div class="container-fluid px-4">
+					<h1 class="mt-4">회사 정보</h1>
+					<ol class="breadcrumb mb-4">
+						<li class="breadcrumb-item active">회사 정보</li>
+					</ol>
+
+				</div>
+			</main>
+		</div>
+	</div>
 	
 	<footer class="py-4 bg-light mt-auto">
 	  <div class="container-fluid px-4">
