@@ -21,7 +21,7 @@
 <body>
 <body class="sb-nav-fixed">
 	<!-- adm_header 부분  -->
-	<jsp:include page="/adm_header.jsp"></jsp:include>
+	<jsp:include page="../adm_header.jsp"></jsp:include>
 	
 	<div id="layoutSidenav">
 		<!-- 왼쪽 사이드 바 -->
@@ -30,7 +30,7 @@
 	            <div class="sb-sidenav-menu">
 	                <div class="nav">
 	                    <div class="sb-sidenav-menu-heading">메인</div>
-	                    <a class="nav-link" href="company"><div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>회사정보</a>
+	                    <a class="nav-link" href="../company"><div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>회사정보</a>
 	                    <div class="sb-sidenav-menu-heading">카테고리</div>
 	                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
 	                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>회원
@@ -49,10 +49,10 @@
 	                    </a>
 	                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 	                        <nav class="sb-sidenav-menu-nested nav">
-	                            <a class="nav-link" href="board/notice">공지사항</a>
-	                            <a class="nav-link" href="board/qna">FAQ 관리</a>
+	                            <a class="nav-link" href="notice">공지사항</a>
+	                            <a class="nav-link" href="qna">Q&A 관리</a>
 	                            <a class="nav-link" href="#!">1:1 문의 설정</a>
-	                            <a class="nav-link" href="board/review">리뷰 관리</a>
+	                            <a class="nav-link" href="review">리뷰 관리</a>
 	                        </nav>
 	                    </div>
 	                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
@@ -61,8 +61,8 @@
 	                    </a>
 	                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 	                        <nav class="sb-sidenav-menu-nested nav">
-	                            <a class="nav-link" href="product/product_list">전체 상품관리</a>
-	                            <a class="nav-link" href="product/product_new">상품 등록</a>
+	                            <a class="nav-link" href="../product/list">전체 상품관리</a>
+	                            <a class="nav-link" href="../product/new">상품 등록</a>
 	                            <a class="nav-link" href="#!">상품 재고 관리</a>
 	                        </nav>
 	                    </div>
@@ -72,7 +72,7 @@
 	                    </a>
 	                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 	                        <nav class="sb-sidenav-menu-nested nav">
-	                            <a class="nav-link" href="order/order_list">주문 내역</a>
+	                            <a class="nav-link" href="../order/list">주문 내역</a>
 	                            <a class="nav-link" href="#!">주문서 일괄출력</a>
 	                            <a class="nav-link" href="#!">개인 결제 관리</a>
 	                        </nav>
