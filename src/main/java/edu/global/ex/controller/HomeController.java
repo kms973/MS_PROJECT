@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class HomeController {
 
-	// admin/company : 회사정보
+//  admin/company : 회사정보
 //	admin/admin : 관리자페이지 홈
 //	
 //	admin/board/home : 관리자용 게시판 홈
@@ -28,7 +28,7 @@ public class HomeController {
 
 	@GetMapping("/")
 	public String home() {
-		return "home";
+		return "index";
 	}
 
 	@GetMapping("/user/userHome")
@@ -37,9 +37,11 @@ public class HomeController {
 		// return "home";
 	}
 
-	@GetMapping("/admin/admin")
-	public void adminHome() {
+	@GetMapping({"/admin/admin","/admin"})
+	public String adminHome() {
 		log.info("adminHome()..");
+		return "/admin/admin";
+
 		// return "home";
 	}
 	
