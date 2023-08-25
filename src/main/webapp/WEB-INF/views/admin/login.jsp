@@ -4,56 +4,52 @@
 <head>
 <meta charset="UTF-8">
 <title>Login</title>
-<!-- Custom fonts for this template-->
-<link href="/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-<!-- Custom styles for this template-->
-<link href="/css/sb-admin-2.min.css" rel="stylesheet">
-<!-- Bootstrap core JavaScript-->
-<script src="/jquery/jquery.min.js"></script>
-<script src="/js/bootstrap.bundle.min.js"></script>
-<!-- Core plugin JavaScript-->
-<script src="/jquery/jquery.easing.min.js"></script>
-<!-- Custom scripts for all pages-->
-<script src="/js/sb-admin-2.min.js"></script>
-<!-- Page level plugins -->
-<script src="/js/Chart.min.js"></script>
-<!-- Page level custom scripts -->
-<script src="/js/chart-area-demo.js"></script>
-<script src="/js/chart-pie-demo.js"></script>
+<link href="/css/styles.css" rel="stylesheet" />
+<link href="/css/style.css" rel="stylesheet" />
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/scripts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+<script src="assets/demo/chart-area-demo.js"></script>
+<script src="assets/demo/chart-bar-demo.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
+<script src="/js/datatables-simple-demo.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body class="bg-gradient-primary">
-	<div class="container">
-		<!-- Outer Row -->
-		<div class="row justify-content-center">
-		    <div class="col-xl-10 col-lg-12 col-md-9">
-		        <div class="card o-hidden border-0 shadow-lg my-5">
-		            <div class="card-body p-0">
-		                <!-- Nested Row within Card Body -->
-		                <div class="row">
-		                    <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-		                    <div class="col-lg-6">
-		                        <div class="p-5">
-		                            <div class="text-center">
-		                                <h1 class="h4 text-gray-900 mb-4">Admin</h1>
-		                            </div>
-		                            <form class="user" method="post" action="admin_login">
-		                                <div class="form-group">
-		                                    <input type="text" class="form-control form-control-user" id="id" name="id" placeholder="Enter ID">
-		                                </div>
-		                                <div class="form-group">
-		                                    <input type="password" class="form-control form-control-user" id="pwd" name="pwd" placeholder="Password">
-		                                </div>
-		                                <label>${message }</label>
-		                                <input type="submit" class="btn btn-primary btn-user btn-block" value="Login">
-		                            </form>
-		                        </div>
-		                    </div>
-		                </div>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-	</div>
+	<section class="vh-100 gradient-custom">
+	  <div class="container py-5 h-100">
+	    <div class="row d-flex justify-content-center align-items-center h-100">
+	      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+	        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+	          <div class="card-body p-5 text-center">
+	
+	            <div class="mb-md-5 mt-md-4 pb-5">
+	
+	              <h2 class="fw-bold mb-2 text-uppercase">관리자 로그인</h2>
+	              <!-- <p class="text-white-50 mb-5">Please enter your login and password!</p> -->
+	
+	              <div class="form-outline form-white mb-4">
+	                <label class="form-label" for="typeEmailX">아이디</label>
+	                <input type="email" id="typeEmailX" class="form-control form-control-lg" />
+	              </div>
+	
+	              <div class="form-outline form-white mb-4">
+	                <label class="form-label" for="typePasswordX">비밀번호</label>
+	                <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+	              </div>
+	
+	              <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+	
+	              <button class="btn btn-outline-light btn-lg px-5" type="submit">로그인하기</button>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</section>
 </body>
 </html>

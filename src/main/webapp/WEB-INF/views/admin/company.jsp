@@ -30,6 +30,13 @@
            <ol class="breadcrumb mb-4">
                <li class="breadcrumb-item active">회사정보</li>
            </ol>
+           
+           <table>
+           	<tr>
+           		<th>회사명</th>
+           		<td><input type="text" name="comName" id="comName" /></td>
+           	</tr>
+           </table>
         </div>
     </main>
 

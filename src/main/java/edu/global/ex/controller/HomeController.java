@@ -37,7 +37,7 @@ public class HomeController {
 		// return "home";
 	}
 
-	@GetMapping({"/admin/admin","/admin"})
+	@GetMapping("/admin/admin")
 	public String adminHome() {
 		log.info("adminHome()..");
 		return "/admin/admin";
@@ -45,11 +45,19 @@ public class HomeController {
 		// return "home";
 	}
 	
-	@GetMapping("/admin/index")
-	public String adminIndex() {
-		log.info("adminIndex()");
-		return "/admin/index";
+	@GetMapping("/admin")
+	public String admLogin() {
+		log.info("admLogin()..");
+		return "/admin/login";
+
+		// return "home";
 	}
+	
+//	@GetMapping("/admin/index")
+//	public String adminIndex() {
+//		log.info("adminIndex()");
+//		return "/admin/index";
+//	}
 
 	@GetMapping("/admin/company")
 	public String adminCompany() {
