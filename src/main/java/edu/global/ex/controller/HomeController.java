@@ -40,7 +40,8 @@ public class HomeController {
 		
 		
 		for(GrantedAuthority auth: authorities) {
-			if(auth.toString().equals("ROLE_ADMIN")) {
+			String authString = auth.toString();
+			if(authString.equals("ROLE_ADMIN")) {
 				return "redirect:/admin/admin";
 			}
 		}
