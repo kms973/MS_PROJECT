@@ -50,7 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/user/**").hasAnyRole("USER").antMatchers("/admin/**").hasAnyRole("ADMIN")
 				.antMatchers("/**").permitAll();
 
-		http.formLogin().loginPage("/login").defaultSuccessUrl("/")// loginPage()는 말 그대로 로그인 할 페이지 url
+		http.formLogin().loginPage("/login")// loginPage()는 말 그대로 로그인 할 페이지 url
 				.permitAll(); // 모든 유저가 로그인 화면은 볼 수 있다.
 	}
 }
