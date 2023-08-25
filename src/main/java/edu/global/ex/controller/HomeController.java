@@ -34,17 +34,21 @@ public class HomeController {
 
 	@GetMapping("/")
 	public String home(@AuthenticationPrincipal CustomUserDetailsVO customUserDetailsVO) {
-		List<GrantedAuthority> authorities = (List<GrantedAuthority>) customUserDetailsVO.getAuthorities();
-
-		
-		
-		for(GrantedAuthority auth: authorities) {
-			String authString = auth.toString();
-			if(authString.equals("ROLE_ADMIN")) {
-				return "redirect:/admin/admin";
-			}
-		}
-		return "index";
+//		if (customUserDetailsVO != null) {
+//        List<GrantedAuthority> authorities = (List<GrantedAuthority>) customUserDetailsVO.getAuthorities();
+//
+//        for (GrantedAuthority auth : authorities) {
+//            String authString = auth.toString();
+//            if (authString.equals("ROLE_ADMIN")) {
+//                return "redirect:/admin/admin";
+//            }
+//            // 추가적인 권한에 따른 리다이렉션 처리를 여기에 추가할 수 있습니다.
+//            // else if (authString.equals("ROLE_USER")) {
+//            //     return "redirect:/user/profile";
+//            // }
+//        }
+    
+    return "index";
 	}
 
 	@GetMapping("/user/userHome")
