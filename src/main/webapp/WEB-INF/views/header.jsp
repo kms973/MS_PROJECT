@@ -17,10 +17,35 @@
 <script src="assets/demo/chart-bar-demo.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
 <script src="/WEB-INF/js/datatables-simple-demo.js"></script>
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
 </head>
 <body class="sb-nav-fixed">
 	<header>
-	  헤드 영역
+            <div class="wrap">
+                <h1>MS Shop</h1>
+                <nav>
+                    <ul>
+                        <li><a href="#!">Shop</a></li>
+                        <li><a href="#!">Community</a></li>
+                    </ul>
+                </nav>
+                <div class="icon-btn">
+                    <ul>
+                        <li>
+                            <a href="#1"><i class="fa-solid fa-user"></i></a>
+                        </li>
+                        <li>
+                            <a href="#1"><i class="fa-solid fa-cart-shopping"></i></a>
+                        </li>
+                        <li>
+                            <a href="#1"><i class="fa-solid fa-magnifying-glass"></i></a>
+                        </li>
+                        <li>
+                            <a href="#1"><i class="fa-solid fa-globe"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>     
 	</header>
 </body>
 </html>

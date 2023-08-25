@@ -20,7 +20,15 @@
 </head>
 <body class="sb-nav-fixed">
 	<footer>
-		푸터 영역
-	</footer>
+        <div class="wrap">
+            <h1>MS Shop</h1>
+            <ul>
+                <li>Registration: 123-12-31231</li>
+                <li>Email: msshop@msshop.com</li>
+                <li>CEO: 김민성</li>
+                <li>Address: Yeongjung-ro 56, Yeongdeungpo-gu, Seoul, Republic of Korea</li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>
