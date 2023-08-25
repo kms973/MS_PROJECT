@@ -44,6 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		// 우선 CSRF설정을 해제한다.
 		// 초기 개발시만 해주는게 좋다.
 		http.csrf().disable();
+		
 
 		// 시큐리티란? = 인증과 권한
 		http.authorizeRequests().antMatchers("/user/**").hasAnyRole("USER").antMatchers("/admin/**").hasAnyRole("ADMIN")
