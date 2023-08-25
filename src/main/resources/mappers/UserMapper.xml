@@ -5,5 +5,25 @@
 
 <mapper namespace="edu.global.ex.mapper.UserMapper">
 
+	<!-- DB테이블하고 VO객체를 매핑 -->
+	<resultMap id="userMap" type="UserVO">
+		<result property="username" column="username" />
+		<result property="password" column="password" />
+		<result property="enabled" column="enabled" />
+		<collection property="authList" resultMap="authMap"></collection>
+	</resultMap>
+
+	<resultMap id="authMap" type="AuthVO">
+		<result property="username" column="username" />
+		<result property="authority" column="authority" />
+	</resultMap>
+
+	<select id="getUser" resultMap="userMap">
+		select * from users , authorities
+		where users.username = authorities.username and users.username =
+		#{username}
+	</select>
+
+
 
 </mapper>
