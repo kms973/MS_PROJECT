@@ -25,18 +25,84 @@
 
 	<!-- 메인보드 영역 -->
    	<main>
-        <div class="container-fluid px-4">
-           <h1 class="mt-4">회사정보</h1>
-           <ol class="breadcrumb mb-4">
-               <li class="breadcrumb-item active">회사정보</li>
-           </ol>
+		<div class="container-fluid px-4">
+			<h1 class="mt-4">회사정보</h1>
+           	<ol class="breadcrumb mb-4"><li class="breadcrumb-item active">회사정보</li></ol>
            
-           <table>
-           	<tr>
-           		<th>회사명</th>
-           		<td><input type="text" name="com" id="com" /></td>
-           	</tr>
-           </table>
+			<table>
+				<tr class="w-100 p-4 d-flex justify-content-center">
+					<th>회사명</th>
+					<td class="form-outline" style="width: 22rem">
+						<input type="text" class="form-control form-icon-trailing" id="form20" name="comName" placeholder="회사명">
+						<span class="trailing pe-auto clear d-none" tabindex="0">✕</span>
+						<div class="form-notch">
+							<div class="form-notch-leading" style="width: 9px;"></div>
+							<div class="form-notch-middle" style="width: 87.2px;"></div>
+							<div class="form-notch-trailing"></div>
+						</div>
+					</td>
+				</tr>
+				<tr class="w-100 p-4 d-flex justify-content-center">
+					<th>사업자번호</th>
+					<td class="form-outline" style="width: 22rem">
+						<input type="text" class="form-control form-icon-trailing" id="form20" name="comNum" placeholder="000-00-00000">
+						<span class="trailing pe-auto clear d-none" tabindex="0">✕</span>
+						<div class="form-notch">
+							<div class="form-notch-leading" style="width: 9px;"></div>
+							<div class="form-notch-middle" style="width: 87.2px;"></div>
+							<div class="form-notch-trailing"></div>
+						</div>
+					</td>
+				</tr>
+				<tr class="w-100 p-4 d-flex justify-content-center">
+					<th>대표자</th>
+					<td class="form-outline" style="width: 22rem">
+						<input type="text" class="form-control form-icon-trailing" id="form20" name="ceoName" placeholder="대표자">
+						<span class="trailing pe-auto clear d-none" tabindex="0">✕</span>
+						<div class="form-notch">
+							<div class="form-notch-leading" style="width: 9px;"></div>
+							<div class="form-notch-middle" style="width: 87.2px;"></div>
+							<div class="form-notch-trailing"></div>
+						</div>
+					</td>
+				</tr>
+				<tr class="w-100 p-4 d-flex justify-content-center">
+					<th>전화번호</th>
+					<td class="form-outline" style="width: 22rem">
+						<input type="text" class="form-control form-icon-trailing" id="form20" name="comTel" placeholder="전화번호">
+						<span class="trailing pe-auto clear d-none" tabindex="0">✕</span>
+						<div class="form-notch">
+							<div class="form-notch-leading" style="width: 9px;"></div>
+							<div class="form-notch-middle" style="width: 87.2px;"></div>
+							<div class="form-notch-trailing"></div>
+						</div>
+					</td>
+				</tr>
+				<tr class="w-100 p-4 d-flex justify-content-center">
+					<th>주소</th>
+					<td class="form-outline" style="width: 22rem">
+						<input type="text" class="form-control form-icon-trailing" id="form20" name="comAdress" placeholder="주소">
+						<span class="trailing pe-auto clear d-none" tabindex="0">✕</span>
+						<div class="form-notch">
+							<div class="form-notch-leading" style="width: 9px;"></div>
+							<div class="form-notch-middle" style="width: 87.2px;"></div>
+							<div class="form-notch-trailing"></div>
+						</div>
+					</td>
+				</tr>
+				<tr class="w-100 p-4 d-flex justify-content-center">
+					<th>고객센터</th>
+					<td class="form-outline" style="width: 22rem">
+						<input type="text" class="form-control form-icon-trailing" id="form20" name="comCS" placeholder="고객센터">
+						<span class="trailing pe-auto clear d-none" tabindex="0">✕</span>
+						<div class="form-notch">
+							<div class="form-notch-leading" style="width: 9px;"></div>
+							<div class="form-notch-middle" style="width: 87.2px;"></div>
+							<div class="form-notch-trailing"></div>
+						</div>
+					</td>
+				</tr>
+			</table>
         </div>
     </main>
 
@@ -44,4 +110,44 @@
 	<jsp:include page="adm_footer.jsp"></jsp:include>
 	
 </body>
+ <script>
+  const clearButton = document.querySelector('.trailing.clear');
+  const form20 = document.querySelector("#form20");
+
+  const showElement = (element) => {
+    if (element.classList.contains('d-none')) {
+      element.classList.remove('d-none');
+    }
+  }
+    
+  const hideElement = (element) => {
+    if (!element.classList.contains('d-none')) {
+      element.classList.add('d-none');
+    }
+  }
+
+  const clearInput = (button) => {
+      const evt = document.createEvent("HTMLEvents");
+      evt.initEvent("blur", false, true);
+        
+      const input = button.parentNode.querySelector(".form-icon-trailing");
+      input.value = null;
+      input.dispatchEvent(evt);
+      hideElement(button);
+  }
+
+  clearButton.addEventListener('click', () => clearInput(clearButton));
+  clearButton.addEventListener('keydown', (event) => {
+    if (event.code === "Enter") {
+      event.preventDefault();
+      clearButton.click();
+    }
+  });
+
+  form20.addEventListener('input', () => {
+    if (form20.value !== null) {
+      showElement(clearButton);
+    }
+  })
+</script>
 </html>
