@@ -1,10 +1,17 @@
 package edu.global.ex.controller;
 
+import java.util.List;
+
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.global.ex.vo.AuthVO;
+import edu.global.ex.vo.CustomUserDetailsVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -27,7 +34,14 @@ public class HomeController {
 //	
 
 	@GetMapping("/")
-	public String home() {
+	public String home(@AuthenticationPrincipal CustomUserDetailsVO customUserDetailsVO) {
+		List<GrantedAuthority> authorities = (List<GrantedAuthority>) customUserDetailsVO.getAuthorities();
+		log.info(customUserDetailsVO.getAuthorities().toString());
+		for(GrantedAuthority auth: authorities) {
+			if(auth.toString().equals("ROLE_ADMIN")) {
+				return "redirect:/admin/admin";
+			}
+		}
 		return "index";
 	}
 
