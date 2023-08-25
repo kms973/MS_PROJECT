@@ -34,7 +34,7 @@
            <table>
            	<tr>
            		<th>회사명</th>
-           		<td><input type="text" name="comName" id="comName" /></td>
+           		<td><input type="text" name="com" id="com" /></td>
            	</tr>
            </table>
         </div>

@@ -1,8 +1,7 @@
-/* com */
 * {margin : 0; padding: 0;}
 ul:aftet, .wrap:afer, .cl:after { content: ""; display: block; clear: both;}
 li { float: left; list-style: none; }
-a { text-decoration: none; color: inheirt;}
+a { text-decoration: none; }
 
 .fl_wrap > *{ float:left}
 .fl{ float: left;}
@@ -94,34 +93,3 @@ a { text-decoration: none; color: inheirt;}
 .mr30{ margin-right:30px !important;}
 .mr40{ margin-right:40px !important;}
 .mr50{ margin-right:50px !important;}
-
-.wrap { max-width: 1380px; margin: 0 auto; padding: 0; }
-
-
-/* header */
-
-
-/* footer */
-
-footer {
-    padding: 20px 20px;
-    text-align: left;
-}
-
-footer h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-footer ul {
-    list-style: none;
-    padding: 0;
-}
-
-footer li {
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-/* main */
-
