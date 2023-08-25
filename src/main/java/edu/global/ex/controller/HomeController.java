@@ -36,7 +36,9 @@ public class HomeController {
 	@GetMapping("/")
 	public String home(@AuthenticationPrincipal CustomUserDetailsVO customUserDetailsVO) {
 		List<GrantedAuthority> authorities = (List<GrantedAuthority>) customUserDetailsVO.getAuthorities();
-		log.info(customUserDetailsVO.getAuthorities().toString());
+
+		
+		
 		for(GrantedAuthority auth: authorities) {
 			if(auth.toString().equals("ROLE_ADMIN")) {
 				return "redirect:/admin/admin";
