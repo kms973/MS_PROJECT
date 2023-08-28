@@ -18,6 +18,8 @@
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
 <script src="/WEB-INF/js/datatables-simple-demo.js"></script>
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
+
+
 </head>
 <body class="sb-nav-fixed">
 	<header class="p-3 mb-3 border-bottom">
@@ -33,6 +35,8 @@
 	        <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
 	          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
 	        </form> -->
+	        
+	     
 
 	        <div class="icon-btn d-flex m-10">
 	        	<div class="dropdown text-end">
@@ -48,7 +52,7 @@
 		        <a href="#" class="d-block link-dark" id="dropdownUser3" aria-expanded="false"><i class="fa-solid fa-magnifying-glass"></i></a>
 		        <div class="dropdown text-end">
 		          <a href="#" class="d-block link-dark" id="dropdownUser4" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-globe"></i></a>
-		          <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
+		          <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser4" style="">
 		            <li><a class="dropdown-item" href="#">한국어</a></li>
 		            <li><a class="dropdown-item" href="#">日本語</a></li>
 		          </ul>
@@ -59,4 +63,3 @@
   </header>
 </body>
 </html>
-
