@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
 <html>
@@ -28,12 +30,12 @@
 		<div class="container-fluid px-4">
 			<h1 class="mt-4">회사정보</h1>
            	<ol class="breadcrumb mb-4"><li class="breadcrumb-item active">회사정보</li></ol>
-           
+           <form:form action="/admin/company" method="post">
 			<table>
 				<tr class="w-100 p-4 d-flex justify-content-center">
 					<th>회사명</th>
 					<td class="form-outline" style="width: 22rem">
-						<input type="text" class="form-control form-icon-trailing" id="form20" name="comName" placeholder="회사명">
+						<input type="text" class="form-control form-icon-trailing" id="form20" name="companyName" placeholder="회사명">
 						<span class="trailing pe-auto clear d-none" tabindex="0">✕</span>
 						<div class="form-notch">
 							<div class="form-notch-leading" style="width: 9px;"></div>
@@ -45,7 +47,7 @@
 				<tr class="w-100 p-4 d-flex justify-content-center">
 					<th>사업자번호</th>
 					<td class="form-outline" style="width: 22rem">
-						<input type="text" class="form-control form-icon-trailing" id="form20" name="comNum" placeholder="000-00-00000">
+						<input type="text" class="form-control form-icon-trailing" id="form20" name="companyNum" placeholder="000-00-00000">
 						<span class="trailing pe-auto clear d-none" tabindex="0">✕</span>
 						<div class="form-notch">
 							<div class="form-notch-leading" style="width: 9px;"></div>
@@ -103,6 +105,8 @@
 					</td>
 				</tr>
 			</table>
+			<button type="submit" class="btn btn-default">등록</button>
+			</form:form>
         </div>
     </main>
 

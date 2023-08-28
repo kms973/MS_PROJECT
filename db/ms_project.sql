@@ -83,3 +83,19 @@ create table ms_product (
     options VARCHAR2(200),                     -- 옵션
     product_img VARCHAR2(200)                  -- 이미지
 );
+
+-- 회사정보
+CREATE TABLE ms_company (
+    companyName VARCHAR2(100),              -- 회사명
+    companyNum VARCHAR2(20) PRIMARY KEY,    -- 사업자등록번호 
+    ceoName VARCHAR2(50),                   -- 대표자명
+    comTel VARCHAR2(20),                    -- 전화번호
+    comAddress VARCHAR2(100),               -- 회사주소
+    comCS VARCHAR2(20)                      -- 고객센터
+);
+
+INSERT INTO ms_company (companyName, companyNum, ceoName, comTel, comAddress, comCS)
+VALUES ('ABC Company', '123-45-67890', 'John Doe', '123-456-7890', '123 Main St', '123-456-7890');
+
+desc ms_company;
+select * from ms_company;

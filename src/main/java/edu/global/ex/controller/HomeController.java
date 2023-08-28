@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import edu.global.ex.vo.AuthVO;
+import edu.global.ex.vo.CompanyVO;
 import edu.global.ex.vo.CustomUserDetailsVO;
 import lombok.extern.slf4j.Slf4j;
 
@@ -86,6 +87,15 @@ public class HomeController {
 		return "/admin/company";
 	}
 
+	@PostMapping("/admin/company")
+	public String companyPost(CompanyVO cvo) {
+		log.info("companyPost()..");
+		
+		log.info(cvo.toString());
+		
+		return "redirect:/admin/company";
+	}
+	
 	@GetMapping("/admin/board/home")
 	public String adminBoardHome() {
 		log.info("adminBoardHome");

@@ -29,7 +29,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
 </head>
 <body class="sb-nav-fixed">
-	<header class="p-3">
+	<header class="p-3 fixed-top">
 	    <div class="container">
 	      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 	        <h1><a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark">MS</a></h1>
