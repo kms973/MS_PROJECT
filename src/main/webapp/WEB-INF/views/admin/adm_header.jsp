@@ -42,7 +42,10 @@
 	            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 	                <li><a class="dropdown-item" href="/">쇼핑몰가기</a></li>
 	                <li><hr class="dropdown-divider" /></li>
-	                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+	                <sec:authorize access="isAuthenticated()">
+						<!-- 로그인(인증된) 사용자인 경우 -->	
+						<li><a href="/logout" class="dropdown-item">로그아웃</a></li>
+					</sec:authorize>
 	            </ul>
 	        </li>
 	    </ul>
