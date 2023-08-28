@@ -6,10 +6,10 @@
 <html>
 <head>
     <meta charset="UTF-8"> <!-- 문자 인코딩 설정 -->
-    <title>편의점 매장 등록</title>
+    <title>회원등록</title>
 </head>
 <body>
-    <h1>편의점 매장 등록</h1>
+    <h1>회원등록</h1>
     <form action="process_registration.jsp" method="post">
         <!-- 사용자 ID 입력 -->
         <label for="userId">사용자 ID:</label>
