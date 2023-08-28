@@ -48,13 +48,9 @@ String name = userInfo.getName();
 String birthday = userInfo.getBirthday();
 List<Address> addresses = userInfo.getAddresses();
 
-// 사용자 아이디 추출 메소드
+//사용자 아이디 추출 메소드
 public String extractUserId(email) {
-    int atIndex = email.indexOf("@");
-    if (atIndex != -1) {
-        return email.substring(0, atIndex);
-    }
-    return email;
+    return email.split("@")[0];
 }
 %>
 <!DOCTYPE html>
@@ -67,8 +63,8 @@ public String extractUserId(email) {
     <p>이름 : <%= name %></p>
     <p>사용자 아이디 : <%= userId %></p>
     <p>생년월일 : <%= birthday %></p>
-    <% if (!addresses.isEmpty()) { %>
-        <p>주소 : <%= addresses.get(0).getFormatted() %></p>
-    <% } %>
+<% if (!addresses.isEmpty()) { %>
+    <p>주소 : <%= addresses.get(0).getFormatted() %></p>
+<% } %>
 </body>
 </html>
