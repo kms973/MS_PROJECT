@@ -86,11 +86,13 @@
 		</dependency>
 		
 		
-		    <dependency>
-        <groupId>com.zaxxer</groupId>
-        <artifactId>HikariCP</artifactId>
-        <version>4.0.3</version> <!-- HikariCP 버전은 최신 버전으로 업데이트해야 합니다. -->
-    </dependency>
+<!-- https://mvnrepository.com/artifact/com.googlecode.log4jdbc/log4jdbc -->
+<dependency>
+    <groupId>com.googlecode.log4jdbc</groupId>
+    <artifactId>log4jdbc</artifactId>
+    <version>1.2</version>
+</dependency>
+
 		
 
 		<!-- 스프링 시큐리티 -->
