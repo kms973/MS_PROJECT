@@ -7,6 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import edu.global.ex.vo.AuthVO;
@@ -139,7 +140,7 @@ public class HomeController {
 		return "/login/index";
 	}
 
-	@GetMapping("/login/signup")
+	@PostMapping("/login/signup")
 	public String loginsignUp() {
 		log.info("loginsignup");
 		return "/login/signUp";

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.io.*,java.util.*, javax.servlet.*, javax.servlet.http.*" %>
+<%@ page import="java.lang.*,java.io.*,java.util.*, javax.servlet.*, javax.servlet.http.*" %>
 <%@ page import="com.google.api.client.auth.oauth2.*, com.google.api.client.googleapis.auth.oauth2.*" %>
 <%@ page import="com.google.api.services.oauth2.*" %>
 <%
@@ -30,7 +30,7 @@ GoogleTokenResponse tokenResponse = flow.newTokenRequest(code)
 GoogleCredential credential = new GoogleCredential.Builder()
     .setTransport(GoogleNetHttpTransport.newTrustedTransport())
     .setJsonFactory(new JacksonFactory())
-    .setClientSecrets(clientSecrets)
+    .setClientSecrets(clientSecrets.getDetails().getClientId(), clientSecrets.getDetails().getClientSecret())
     .build()
     .setFromTokenResponse(tokenResponse);
 
@@ -46,11 +46,10 @@ String email = userInfo.getEmail();
 String userId = extractUserId(email); // 사용자 아이디 추출
 String name = userInfo.getName();
 String birthday = userInfo.getBirthday();
-Address address = userInfo.getAddress();
-String formattedAddress = address != null ? address.getFormatted() : "";
+List<Address> addresses = userInfo.getAddresses();
 
-// 사용자 아이디 추출
-private String extractUserId(String email) {
+// 사용자 아이디 추출 메소드
+public String extractUserId(email) {
     int atIndex = email.indexOf("@");
     if (atIndex != -1) {
         return email.substring(0, atIndex);
@@ -68,6 +67,8 @@ private String extractUserId(String email) {
     <p>이름 : <%= name %></p>
     <p>사용자 아이디 : <%= userId %></p>
     <p>생년월일 : <%= birthday %></p>
-    <p>주소 : <%= formattedAddress %></p>
+    <% if (!addresses.isEmpty()) { %>
+        <p>주소 : <%= addresses.get(0).getFormatted() %></p>
+    <% } %>
 </body>
 </html>
