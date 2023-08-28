@@ -150,7 +150,7 @@ public class HomeController {
 		return "/login/index";
 	}
 
-	@PostMapping("/login/signup")
+	@GetMapping("/login/signup")
 	public String loginsignUp() {
 		log.info("loginsignup");
 		return "/login/signUp";

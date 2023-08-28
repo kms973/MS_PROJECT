@@ -48,7 +48,8 @@
 				  <a class="d-block link-dark" id="dropdownMenu1" data-mdb-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
 				  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 				    <li><a class="dropdown-item" href="#">마이페이지</a></li>
-				    <sec:authorize access="hasRole('ROLE_ADMIN')"><!-- isAuthenticated() : 이 함 수는 로그인, 로그인이 된 상태라면 아래 내용 출력 -->
+				    <sec:authorize access="hasRole('ROLE_ADMIN')">
+   						<!-- admin 로그인일 경우 -->
 						<li><a class="dropdown-item" href="/admin">관리자페이지</a></li>
 					</sec:authorize>
 				    <li><hr class="dropdown-divider"></li>
@@ -56,7 +57,6 @@
 						<!-- 로그인 안 한 익명일 경우 -->
 		            	<li><a class="dropdown-item" href="#">로그인</a></li>
 					</sec:authorize>
-					
 					<sec:authorize access="isAuthenticated()">
 						<!-- 로그인(인증된) 사용자인 경우 -->	
 						<li><a href="/logout">로그아웃</a></li>
