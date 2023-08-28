@@ -1,7 +1,7 @@
 /* com */
 
 /* header */
-header { position: abosolute; top: 0; left: 0; z-index: 99999; width: 100%; }
+header { width: 100%; }
 .icon-btn { margin: 0 10px; }
 /* footer */
 footer {
