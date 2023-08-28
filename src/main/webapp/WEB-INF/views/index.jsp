@@ -35,19 +35,13 @@
     	</div>
 
     	<div class="carousel-inner">
-			<div class="carousel-item active">
-        		<img src="/img/bg0.jpg" class="d-block" style="width:100%">
-			</div>
-      		<div class="carousel-item">
-        		<img src="/img/bg1.jpg" class="d-block" style="width:100%">
-    		</div>
-      		<div class="carousel-item">
-        		<img src="/img/bg2.jpg" class="d-block" style="width:100%">
-    		</div>
+			<div class="carousel-item active"><img src="/img/bg0.jpg" class="d-block" style="width:100%"></div>
+      		<div class="carousel-item"><img src="/img/bg1.jpg" class="d-block" style="width:100%"></div>
+      		<div class="carousel-item"><img src="/img/bg2.jpg" class="d-block" style="width:100%"></div>
     	</div>
 	</div>
 </main>
 	<!-- footer 시작 -->
-	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+	<%-- <jsp:include page="/WEB-INF/views/footer.jsp" /> --%>
 </body>
 </html>

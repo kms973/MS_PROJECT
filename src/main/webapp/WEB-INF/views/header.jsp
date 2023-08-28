@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,20 +8,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MS Shop - Admin</title>
 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-<link href="/WEB-INF/css/styles.css" rel="stylesheet" />
-<link href="/WEB-INF/css/style.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<link href="/css/styles.css" rel="stylesheet" />
+<link href="/css/style.css" rel="stylesheet" />
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+<!-- MDB -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/WEB-INF/js/scripts.js"></script>
+<script src="/js/scripts.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 <script src="assets/demo/chart-area-demo.js"></script>
 <script src="assets/demo/chart-bar-demo.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
-<script src="/WEB-INF/js/datatables-simple-demo.js"></script>
+<script src="/js/datatables-simple-demo.js"></script>
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
 </head>
 <body class="sb-nav-fixed">
-	<header class="p-3 mb-3 border-bottom">
+	<header class="p-3">
 	    <div class="container">
 	      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 	        <h1><a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark">MS</a></h1>
@@ -35,24 +44,34 @@
 	        </form> -->
 
 	        <div class="icon-btn d-flex m-10">
-	        	<div class="dropdown text-end">
-		          <a href="#" class="d-block link-dark" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
-		          <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-		            <li><a class="dropdown-item" href="#">마이페이지</a></li>
-		            <li><a class="dropdown-item" href="#">Profile</a></li>
-		            <li><hr class="dropdown-divider"></li>
-		            <li><a class="dropdown-item" href="#">로그인</a></li>
-		          </ul>
-		        </div>
-		        <a href="#" class="d-block link-dark" id="dropdownUser2" aria-expanded="false"><i class="fa-solid fa-cart-shopping"></i></a>
-		        <a href="#" class="d-block link-dark" id="dropdownUser3" aria-expanded="false"><i class="fa-solid fa-magnifying-glass"></i></a>
 		        <div class="dropdown text-end">
-		          <a href="#" class="d-block link-dark" id="dropdownUser4" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-globe"></i></a>
-		          <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-		            <li><a class="dropdown-item" href="#">한국어</a></li>
-		            <li><a class="dropdown-item" href="#">日本語</a></li>
-		          </ul>
-		        </div>
+				  <a class="d-block link-dark" id="dropdownMenu1" data-mdb-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
+				  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+				    <li><a class="dropdown-item" href="#">마이페이지</a></li>
+				    <sec:authorize access="hasRole('ROLE_ADMIN')"><!-- isAuthenticated() : 이 함 수는 로그인, 로그인이 된 상태라면 아래 내용 출력 -->
+						<li><a class="dropdown-item" href="/admin">관리자페이지</a></li>
+					</sec:authorize>
+				    <li><hr class="dropdown-divider"></li>
+		            <sec:authorize access="isAnonymous()">
+						<!-- 로그인 안 한 익명일 경우 -->
+		            	<li><a class="dropdown-item" href="#">로그인</a></li>
+					</sec:authorize>
+					
+					<sec:authorize access="isAuthenticated()">
+						<!-- 로그인(인증된) 사용자인 경우 -->	
+						<li><a href="/logout">로그아웃</a></li>
+					</sec:authorize>
+				  </ul>
+				</div>
+		        <div><a href="#" class="d-block link-dark" id="dropdownUser2" aria-expanded="false"><i class="fa-solid fa-cart-shopping"></i></a></div>
+		        <div><a href="#" class="d-block link-dark" id="dropdownUser3" aria-expanded="false"><i class="fa-solid fa-magnifying-glass"></i></a></div>
+				<div class="dropdown text-end">
+				  <a href="#" class="d-block link-dark" type="button" id="dropdownMenu2" data-mdb-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-globe"></i></a>
+				  <ul class="dropdown-menu text-small" aria-labelledby="dropdownMenu2">
+				    <li><a href="#" class="dropdown-item" type="button">한국어</a></li>
+				    <li><a href="#" class="dropdown-item" type="button">日本語</a></li>
+				  </ul>
+				</div>
 		    </div>
 	      </div> 
 	    </div> 
