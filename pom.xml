@@ -85,6 +85,14 @@
 			<version>11.2.0.3</version>
 		</dependency>
 		
+<!-- <<<<<<< HEAD -->
+		<!--HikariCP  -->
+		    <dependency>
+        <groupId>com.zaxxer</groupId>
+        <artifactId>HikariCP</artifactId>
+        <version>4.0.3</version> <!-- HikariCP 버전은 최신 버전으로 업데이트해야 합니다. -->
+    </dependency>
+<!-- ======= -->
 		
 
 <dependency>
@@ -93,6 +101,7 @@
     <version>4.0.3</version>
 </dependency>
 
+<!-- >>>>>>> branch 'master' of https://github.com/kms973/MS_PROJECT.git -->
 		
 
 		<!-- 스프링 시큐리티 -->

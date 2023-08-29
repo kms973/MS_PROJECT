@@ -2,6 +2,7 @@ package edu.global.ex.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import edu.global.ex.mapper.CompanyMapper;
 import edu.global.ex.vo.AuthVO;
 import edu.global.ex.vo.CompanyVO;
 import edu.global.ex.vo.CustomUserDetailsVO;
@@ -18,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 public class HomeController {
-
+	
 //  admin/company : 회사정보
 //	admin/admin : 관리자페이지 홈
 //	
@@ -33,6 +35,8 @@ public class HomeController {
 //	
 //	admin/order : 관리자용 주문관리 홈
 //	
+	@Autowired
+	private CompanyMapper cmp;
 
 	@GetMapping("/")
 	public String home(@AuthenticationPrincipal CustomUserDetailsVO customUserDetailsVO) {
@@ -51,6 +55,12 @@ public class HomeController {
 //        }
     
     return "index";
+	}
+	
+	@GetMapping("/board")
+	public String board() {
+		log.info("board()..");
+		return "/board/allList";
 	}
 
 	@GetMapping("/user/userHome")
@@ -91,7 +101,9 @@ public class HomeController {
 	public String companyPost(CompanyVO cvo) {
 		log.info("companyPost()..");
 		
-		log.info(cvo.toString());
+	
+		
+		cmp.insert(cvo);
 		
 		return "redirect:/admin/company";
 	}
