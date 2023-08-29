@@ -17,8 +17,25 @@
 <script src="assets/demo/chart-bar-demo.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
 <script src="/WEB-INF/js/datatables-simple-demo.js"></script>
+<style>
+#top-link-block.affix-top {
+    position: absolute; /* allows it to "slide" up into view */
+    bottom: -82px;
+    right: 10px; /* right: 15px; 오른쪽에 위치시킬때 */
+}
+#top-link-block.affix {
+    position: fixed; /* keeps it on the bottom once in view */
+    bottom: 18px;
+    left: 10px;
+}
+</style>
 </head>
 <body class="sb-nav-fixed">
+	<span id="top-link-block" class="hidden">
+	    <a href="#top" class="well well-sm" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+	        <i class="glyphicon glyphicon-chevron-up"></i> Back to Top
+	    </a>
+	</span>
 	<footer>
         <div class="wrap">
             <h1>MS Shop</h1>
@@ -31,4 +48,12 @@
         </div>
     </footer>
 </body>
+<script>
+	if ( ($(window).height() + 100) < $(document).height() ) {
+	    $('#top-link-block').removeClass('hidden').affix({
+	        // how far to scroll down before link "slides" into view
+	        offset: {top:100}
+	    });
+	}
+</script>
 </html>

@@ -28,7 +28,7 @@
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
 </head>
-<body class="sb-nav-fixed">
+<body>
 	<header class="p-3 fixed-top">
 	    <div class="container">
 	      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -36,7 +36,7 @@
 	
 	        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 	          <li><a href="#!" class="nav-link px-2 link-secondary">Shop</a></li>
-              <li><a href="#!" class="nav-link px-2 link-secondary">Community</a></li>
+              <li><a href="/board" class="nav-link px-2 link-secondary">Community</a></li>
 	        </ul>
 	
 	        <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">

@@ -65,6 +65,12 @@ video{
 	cursor: pointer;
 	&:focus { color: #3b71ca; outline: none; }
 }
-    
 
+
+/* sub */
+#sub-bnr { height: 300px; }
+#sub-bnr .container { height : 100%; display: flex; align-items: center; }
+
+    
+/* board-allList */
 
