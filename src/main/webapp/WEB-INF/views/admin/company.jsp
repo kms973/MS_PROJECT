@@ -26,7 +26,7 @@
 	<jsp:include page="adm_header.jsp"></jsp:include>
 
 	<!-- 메인보드 영역 -->
-<<<<<<< HEAD
+
    	<main>
 		<div class="container-fluid px-4">
 			<h1 class="mt-4">회사정보</h1>
@@ -110,7 +110,7 @@
 			</form:form>
         </div>
     </main>
-=======
+
    	<section id="company">
    		 <div class="container-fluid px-4">
             <h1 class="mt-4"></h1>
@@ -188,7 +188,7 @@
 		      </div>
 	      </div>
     </section>
->>>>>>> branch 'master' of https://github.com/kms973/MS_PROJECT.git
+
 
 	<!-- adm_footer 부분  -->
 	<jsp:include page="adm_footer.jsp"></jsp:include>
