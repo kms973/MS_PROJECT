@@ -52,6 +52,12 @@ public class HomeController {
     
     return "index";
 	}
+	
+	@GetMapping("/board")
+	public String board() {
+		log.info("board()..");
+		return "/board/allList";
+	}
 
 	@GetMapping("/user/userHome")
 	public void userHome() {
