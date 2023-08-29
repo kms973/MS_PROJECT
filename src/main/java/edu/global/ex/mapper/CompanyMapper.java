@@ -10,10 +10,8 @@ import edu.global.ex.vo.UserVO;
 public interface CompanyMapper {
 
 //   public CompanyVO getCompany(String username);   
-   
-   @Insert("INSERT INTO ms_company (companyName, companyNum, ceoName, comTel, comAddress, comCS) VALUES (#{companyName},#{companyNum} , #{ceoName},#{comTel},#{comAddress},#{comCS})")
-   public void insert(CompanyVO CompanyVO);
 
-   
+	@Insert("INSERT INTO ms_company (companyName, companyNum, ceoName, comTel, comAddress1, comAddress2, comAddress3, comAddress4, comAddress5, comCS) VALUES (#{companyName},#{companyNum} , #{ceoName},#{comTel},#{comAddress1}, #{comAddress2}, #{comAddress3}, #{comAddress4}, #{comAddress5},#{comCS})")
+	public void insert(CompanyVO CompanyVO);
+
 }
-

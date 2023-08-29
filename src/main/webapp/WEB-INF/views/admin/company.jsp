@@ -27,89 +27,7 @@
 
 	<!-- 메인보드 영역 -->
 
-   	<main>
-		<div class="container-fluid px-4">
-			<h1 class="mt-4">회사정보</h1>
-           	<ol class="breadcrumb mb-4"><li class="breadcrumb-item active">회사정보</li></ol>
-           <form:form action="/admin/company" method="post">
-			<table>
-				<tr class="w-100 p-4 d-flex justify-content-center">
-					<th>회사명</th>
-					<td class="form-outline" style="width: 22rem">
-						<input type="text" class="form-control form-icon-trailing" id="form20" name="companyName" placeholder="회사명">
-						<span class="trailing pe-auto clear d-none" tabindex="0">✕</span>
-						<div class="form-notch">
-							<div class="form-notch-leading" style="width: 9px;"></div>
-							<div class="form-notch-middle" style="width: 87.2px;"></div>
-							<div class="form-notch-trailing"></div>
-						</div>
-					</td>
-				</tr>
-				<tr class="w-100 p-4 d-flex justify-content-center">
-					<th>사업자번호</th>
-					<td class="form-outline" style="width: 22rem">
-						<input type="text" class="form-control form-icon-trailing" id="form20" name="companyNum" placeholder="000-00-00000">
-						<span class="trailing pe-auto clear d-none" tabindex="0">✕</span>
-						<div class="form-notch">
-							<div class="form-notch-leading" style="width: 9px;"></div>
-							<div class="form-notch-middle" style="width: 87.2px;"></div>
-							<div class="form-notch-trailing"></div>
-						</div>
-					</td>
-				</tr>
-				<tr class="w-100 p-4 d-flex justify-content-center">
-					<th>대표자</th>
-					<td class="form-outline" style="width: 22rem">
-						<input type="text" class="form-control form-icon-trailing" id="form20" name="ceoName" placeholder="대표자">
-						<span class="trailing pe-auto clear d-none" tabindex="0">✕</span>
-						<div class="form-notch">
-							<div class="form-notch-leading" style="width: 9px;"></div>
-							<div class="form-notch-middle" style="width: 87.2px;"></div>
-							<div class="form-notch-trailing"></div>
-						</div>
-					</td>
-				</tr>
-				<tr class="w-100 p-4 d-flex justify-content-center">
-					<th>전화번호</th>
-					<td class="form-outline" style="width: 22rem">
-						<input type="text" class="form-control form-icon-trailing" id="form20" name="comTel" placeholder="전화번호">
-						<span class="trailing pe-auto clear d-none" tabindex="0">✕</span>
-						<div class="form-notch">
-							<div class="form-notch-leading" style="width: 9px;"></div>
-							<div class="form-notch-middle" style="width: 87.2px;"></div>
-							<div class="form-notch-trailing"></div>
-						</div>
-					</td>
-				</tr>
-				<tr class="w-100 p-4 d-flex justify-content-center">
-					<th>주소</th>
-					<td class="form-outline" style="width: 22rem">
-						<input type="text" class="form-control form-icon-trailing" id="form20" name="comAddress" placeholder="주소">
-						<span class="trailing pe-auto clear d-none" tabindex="0">✕</span>
-						<div class="form-notch">
-							<div class="form-notch-leading" style="width: 9px;"></div>
-							<div class="form-notch-middle" style="width: 87.2px;"></div>
-							<div class="form-notch-trailing"></div>
-						</div>
-					</td>
-				</tr>
-				<tr class="w-100 p-4 d-flex justify-content-center">
-					<th>고객센터</th>
-					<td class="form-outline" style="width: 22rem">
-						<input type="text" class="form-control form-icon-trailing" id="form20" name="comCS" placeholder="고객센터">
-						<span class="trailing pe-auto clear d-none" tabindex="0">✕</span>
-						<div class="form-notch">
-							<div class="form-notch-leading" style="width: 9px;"></div>
-							<div class="form-notch-middle" style="width: 87.2px;"></div>
-							<div class="form-notch-trailing"></div>
-						</div>
-					</td>
-				</tr>
-			</table>
-			<button type="submit" class="btn btn-default">등록</button>
-			</form:form>
-        </div>
-    </main>
+ 
 
    	<section id="company">
    		 <div class="container-fluid px-4">
@@ -130,7 +48,7 @@
 		                <div class="col-sm-10">
 		                  <div class="input-group input-group-merge">
 		                    <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-		                    <input type="text" class="form-control" id="basic-icon-default-fullname" placeholder="회사명" aria-describedby="basic-icon-default-fullname2">
+		                    <input type="text" name="companyName" class="form-control" id="basic-icon-default-fullname" placeholder="회사명" aria-describedby="basic-icon-default-fullname2">
 		                  </div>
 		                </div>
 		              </div>
@@ -139,7 +57,7 @@
 		                <div class="col-sm-10">
 		                  <div class="input-group input-group-merge">
 		                    <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
-		                    <input type="text" id="basic-icon-default-company" class="form-control" placeholder="대표자" aria-describedby="basic-icon-default-company2">
+		                    <input type="text" name="ceoName" id="basic-icon-default-company" class="form-control" placeholder="대표자" aria-describedby="basic-icon-default-company2">
 		                  </div>
 		                </div>
 		              </div>
@@ -148,7 +66,7 @@
 		                <div class="col-sm-10">
 		                  <div class="input-group input-group-merge">
 		                    <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-		                    <input type="text" id="basic-icon-default-email" class="form-control" placeholder="000-00-00000" aria-describedby="basic-icon-default-email2">
+		                    <input type="text" name="companyNum" id="basic-icon-default-email" class="form-control" placeholder="000-00-00000" aria-describedby="basic-icon-default-email2">
 		                  </div>
 		                </div>
 		              </div>
@@ -157,7 +75,7 @@
 		                <div class="col-sm-10">
 		                  <div class="input-group input-group-merge">
 		                    <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-phone"></i></span>
-		                    <input type="text" id="basic-icon-default-phone" class="form-control phone-mask" placeholder="대표번호" aria-describedby="basic-icon-default-phone2">
+		                    <input type="text" name="comTel" id="basic-icon-default-phone" class="form-control phone-mask" placeholder="대표번호" aria-describedby="basic-icon-default-phone2">
 		                  </div>
 		                </div>
 		              </div>
@@ -167,13 +85,22 @@
 		                  <div class="input-group input-group-merge">
 		                    <!-- <span id="basic-icon-default-message2" class="input-group-text"><i class="bx bx-comment"></i></span>
 		                    <textarea id="basic-icon-default-message" class="form-control" placeholder="도로명" aria-describedby="basic-icon-default-message2"></textarea> -->
-		                  	<input type="text" id="sample4_postcode" placeholder="우편번호" class="form-control phone-mask">
+		                  	<input type="text" name="comAddress1" id="sample4_postcode" placeholder="우편번호" class="form-control phone-mask">
 							<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" class="phone-mask"><br />
-							<input type="text" id="sample4_roadAddress" placeholder="도로명주소" class="form-control phone-mask"><br />
-							<input type="text" id="sample4_jibunAddress" placeholder="지번주소" class="form-control phone-mask"><br />
+							<input type="text" name="comAddress2" id="sample4_roadAddress" placeholder="도로명주소" class="form-control phone-mask"><br />
+							<input type="text" name="comAddress3" id="sample4_jibunAddress" placeholder="지번주소" class="form-control phone-mask"><br />
 							<span id="guide" style="color:#999;display:none"></span>
-							<input type="text" id="sample4_detailAddress" placeholder="상세주소" class="form-control phone-mask"><br />
-							<input type="text" id="sample4_extraAddress" placeholder="참고항목" class="form-control phone-mask">
+							<input type="text" name="comAddress4" id="sample4_detailAddress" placeholder="상세주소" class="form-control phone-mask"><br />
+							<input type="text" name="comAddress5" id="sample4_extraAddress" placeholder="참고항목" class="form-control phone-mask">
+		                  </div>
+		                </div>
+		              </div>
+		              <div class="row mb-3">
+		                <label class="col-sm-2 form-label" for="basic-icon-default-phone">고객센터</label>
+		                <div class="col-sm-10">
+		                  <div class="input-group input-group-merge">
+		                    <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-phone"></i></span>
+		                    <input type="text" name="comCS" id="basic-icon-default-phone" class="form-control phone-mask" placeholder="고객센터" aria-describedby="basic-icon-default-phone2">
 		                  </div>
 		                </div>
 		              </div>
