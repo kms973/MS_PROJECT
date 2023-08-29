@@ -86,11 +86,11 @@
 		</dependency>
 		
 		
-<!-- https://mvnrepository.com/artifact/com.googlecode.log4jdbc/log4jdbc -->
+
 <dependency>
-    <groupId>com.googlecode.log4jdbc</groupId>
-    <artifactId>log4jdbc</artifactId>
-    <version>1.2</version>
+    <groupId>com.zaxxer</groupId>
+    <artifactId>HikariCP</artifactId>
+    <version>4.0.3</version>
 </dependency>
 
 		

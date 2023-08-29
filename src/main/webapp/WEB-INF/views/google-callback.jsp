@@ -37,7 +37,7 @@ GoogleCredential credential = new GoogleCredential.Builder()
 // OAuth2 서비스 생성
 Oauth2 oauth2 = new Oauth2.Builder(
     GoogleNetHttpTransport.newTrustedTransport(), new JacksonFactory(), credential)
-    .setApplicationName("Your Application Name")
+    .setApplicationName("shopExample")
     .build();
 
 // 사용자 정보 가져오기

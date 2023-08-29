@@ -2,7 +2,6 @@ package edu.global.ex.modules;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -12,7 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.sf.log4jdbc.Log4jdbcProxyDataSource;
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 
 @WebServlet("/register")
 public class MemberRegistrationServlet extends HttpServlet {
@@ -20,12 +20,25 @@ public class MemberRegistrationServlet extends HttpServlet {
     private static final String DB_USER = "your_username";
     private static final String DB_PASS = "your_password";
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // log4jdbc를 사용하여 데이터소스를 래핑
-        Log4jdbcProxyDataSource dataSource = new Log4jdbcProxyDataSource(
-                DriverManager.getConnection(DB_URL, DB_USER, DB_PASS)
-        );
+    private HikariDataSource dataSource;
 
+    @Override
+    public void init() throws ServletException {
+        HikariConfig config = new HikariConfig();
+        config.setJdbcUrl(DB_URL);
+        config.setUsername(DB_USER);
+        config.setPassword(DB_PASS);
+        dataSource = new HikariDataSource(config);
+    }
+
+    @Override
+    public void destroy() {
+        if (dataSource != null) {
+            dataSource.close();
+        }
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userId = request.getParameter("userId");
         String name = request.getParameter("name");
         String birthday = request.getParameter("birthday");
@@ -42,7 +55,6 @@ public class MemberRegistrationServlet extends HttpServlet {
             preparedStatement.setString(5, password);
             preparedStatement.executeUpdate();
 
-            // 회원 정보를 request에 저장하여 registration_complete.jsp로 전달
             request.setAttribute("userId", userId);
             request.setAttribute("name", name);
             request.setAttribute("birthday", birthday);
