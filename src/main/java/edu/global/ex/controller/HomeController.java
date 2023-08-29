@@ -31,7 +31,8 @@ public class HomeController {
 //	
 //	
 //	admin/product/home : 관리자용 상품관리 홈
-//	admin/product/list :
+//	admin/product/list : 관리자용 상품관리 리스트
+//	admin/product/new : 관리자용 상품등록
 //	
 //	admin/order : 관리자용 주문관리 홈
 //	
