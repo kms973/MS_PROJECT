@@ -26,132 +26,144 @@
 	<jsp:include page="adm_header.jsp"></jsp:include>
 
 	<!-- 메인보드 영역 -->
-   	<main>
-		<div class="container-fluid px-4">
-			<h1 class="mt-4">회사정보</h1>
-           	<ol class="breadcrumb mb-4"><li class="breadcrumb-item active">회사정보</li></ol>
-           <form:form action="/admin/company" method="post">
-			<table>
-				<tr class="w-100 p-4 d-flex justify-content-center">
-					<th>회사명</th>
-					<td class="form-outline" style="width: 22rem">
-						<input type="text" class="form-control form-icon-trailing" id="form20" name="companyName" placeholder="회사명">
-						<span class="trailing pe-auto clear d-none" tabindex="0">✕</span>
-						<div class="form-notch">
-							<div class="form-notch-leading" style="width: 9px;"></div>
-							<div class="form-notch-middle" style="width: 87.2px;"></div>
-							<div class="form-notch-trailing"></div>
-						</div>
-					</td>
-				</tr>
-				<tr class="w-100 p-4 d-flex justify-content-center">
-					<th>사업자번호</th>
-					<td class="form-outline" style="width: 22rem">
-						<input type="text" class="form-control form-icon-trailing" id="form20" name="companyNum" placeholder="000-00-00000">
-						<span class="trailing pe-auto clear d-none" tabindex="0">✕</span>
-						<div class="form-notch">
-							<div class="form-notch-leading" style="width: 9px;"></div>
-							<div class="form-notch-middle" style="width: 87.2px;"></div>
-							<div class="form-notch-trailing"></div>
-						</div>
-					</td>
-				</tr>
-				<tr class="w-100 p-4 d-flex justify-content-center">
-					<th>대표자</th>
-					<td class="form-outline" style="width: 22rem">
-						<input type="text" class="form-control form-icon-trailing" id="form20" name="ceoName" placeholder="대표자">
-						<span class="trailing pe-auto clear d-none" tabindex="0">✕</span>
-						<div class="form-notch">
-							<div class="form-notch-leading" style="width: 9px;"></div>
-							<div class="form-notch-middle" style="width: 87.2px;"></div>
-							<div class="form-notch-trailing"></div>
-						</div>
-					</td>
-				</tr>
-				<tr class="w-100 p-4 d-flex justify-content-center">
-					<th>전화번호</th>
-					<td class="form-outline" style="width: 22rem">
-						<input type="text" class="form-control form-icon-trailing" id="form20" name="comTel" placeholder="전화번호">
-						<span class="trailing pe-auto clear d-none" tabindex="0">✕</span>
-						<div class="form-notch">
-							<div class="form-notch-leading" style="width: 9px;"></div>
-							<div class="form-notch-middle" style="width: 87.2px;"></div>
-							<div class="form-notch-trailing"></div>
-						</div>
-					</td>
-				</tr>
-				<tr class="w-100 p-4 d-flex justify-content-center">
-					<th>주소</th>
-					<td class="form-outline" style="width: 22rem">
-						<input type="text" class="form-control form-icon-trailing" id="form20" name="comAdress" placeholder="주소">
-						<span class="trailing pe-auto clear d-none" tabindex="0">✕</span>
-						<div class="form-notch">
-							<div class="form-notch-leading" style="width: 9px;"></div>
-							<div class="form-notch-middle" style="width: 87.2px;"></div>
-							<div class="form-notch-trailing"></div>
-						</div>
-					</td>
-				</tr>
-				<tr class="w-100 p-4 d-flex justify-content-center">
-					<th>고객센터</th>
-					<td class="form-outline" style="width: 22rem">
-						<input type="text" class="form-control form-icon-trailing" id="form20" name="comCS" placeholder="고객센터">
-						<span class="trailing pe-auto clear d-none" tabindex="0">✕</span>
-						<div class="form-notch">
-							<div class="form-notch-leading" style="width: 9px;"></div>
-							<div class="form-notch-middle" style="width: 87.2px;"></div>
-							<div class="form-notch-trailing"></div>
-						</div>
-					</td>
-				</tr>
-			</table>
-			<button type="submit" class="btn btn-default">등록</button>
-			</form:form>
-        </div>
-    </main>
+   	<section id="company">
+   		 <div class="container-fluid px-4">
+            <h1 class="mt-4"></h1>
+            <!-- <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">회사정보</li>
+            </ol> -->
+			<div class="col-xxl">
+		        <div class="card mb-4">
+		          <div class="card-header d-flex align-items-center justify-content-between">
+		            <h5 class="mb-0">회사 정보</h5>
+		            <!-- <small class="text-muted float-end">Merged input group</small> -->
+		          </div>
+		          <div class="card-body">
+		             <form:form action="/admin/company" method="post">
+		              <div class="row mb-3">
+		                <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">회사명</label>
+		                <div class="col-sm-10">
+		                  <div class="input-group input-group-merge">
+		                    <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
+		                    <input type="text" class="form-control" id="basic-icon-default-fullname" placeholder="회사명" aria-describedby="basic-icon-default-fullname2">
+		                  </div>
+		                </div>
+		              </div>
+		              <div class="row mb-3">
+		                <label class="col-sm-2 col-form-label" for="basic-icon-default-company">대표자</label>
+		                <div class="col-sm-10">
+		                  <div class="input-group input-group-merge">
+		                    <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
+		                    <input type="text" id="basic-icon-default-company" class="form-control" placeholder="대표자" aria-describedby="basic-icon-default-company2">
+		                  </div>
+		                </div>
+		              </div>
+		              <div class="row mb-3">
+		                <label class="col-sm-2 col-form-label" for="basic-icon-default-email">사업자</label>
+		                <div class="col-sm-10">
+		                  <div class="input-group input-group-merge">
+		                    <span class="input-group-text"><i class="bx bx-envelope"></i></span>
+		                    <input type="text" id="basic-icon-default-email" class="form-control" placeholder="000-00-00000" aria-describedby="basic-icon-default-email2">
+		                  </div>
+		                </div>
+		              </div>
+		              <div class="row mb-3">
+		                <label class="col-sm-2 form-label" for="basic-icon-default-phone">전화번호</label>
+		                <div class="col-sm-10">
+		                  <div class="input-group input-group-merge">
+		                    <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-phone"></i></span>
+		                    <input type="text" id="basic-icon-default-phone" class="form-control phone-mask" placeholder="대표번호" aria-describedby="basic-icon-default-phone2">
+		                  </div>
+		                </div>
+		              </div>
+		              <div class="row mb-3">
+		                <label class="col-sm-2 form-label" for="basic-icon-default-message">주소</label>
+		                <div class="col-sm-10">
+		                  <div class="input-group input-group-merge">
+		                    <!-- <span id="basic-icon-default-message2" class="input-group-text"><i class="bx bx-comment"></i></span>
+		                    <textarea id="basic-icon-default-message" class="form-control" placeholder="도로명" aria-describedby="basic-icon-default-message2"></textarea> -->
+		                  	<input type="text" id="sample4_postcode" placeholder="우편번호" class="form-control phone-mask">
+							<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" class="phone-mask"><br />
+							<input type="text" id="sample4_roadAddress" placeholder="도로명주소" class="form-control phone-mask"><br />
+							<input type="text" id="sample4_jibunAddress" placeholder="지번주소" class="form-control phone-mask"><br />
+							<span id="guide" style="color:#999;display:none"></span>
+							<input type="text" id="sample4_detailAddress" placeholder="상세주소" class="form-control phone-mask"><br />
+							<input type="text" id="sample4_extraAddress" placeholder="참고항목" class="form-control phone-mask">
+		                  </div>
+		                </div>
+		              </div>
+		              <div class="row justify-content-end">
+		                <div class="col-sm-10">
+		                  <button type="submit" class="btn btn-primary">저장</button>
+		                </div>
+		              </div>
+		            </form:form>
+		          </div>
+		        </div>
+		      </div>
+	      </div>
+    </section>
 
 	<!-- adm_footer 부분  -->
 	<jsp:include page="adm_footer.jsp"></jsp:include>
 	
 </body>
- <script>
-  const clearButton = document.querySelector('.trailing.clear');
-  const form20 = document.querySelector("#form20");
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+    //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
+    function sample4_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
-  const showElement = (element) => {
-    if (element.classList.contains('d-none')) {
-      element.classList.remove('d-none');
-    }
-  }
-    
-  const hideElement = (element) => {
-    if (!element.classList.contains('d-none')) {
-      element.classList.add('d-none');
-    }
-  }
+                // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var roadAddr = data.roadAddress; // 도로명 주소 변수
+                var extraRoadAddr = ''; // 참고 항목 변수
 
-  const clearInput = (button) => {
-      const evt = document.createEvent("HTMLEvents");
-      evt.initEvent("blur", false, true);
-        
-      const input = button.parentNode.querySelector(".form-icon-trailing");
-      input.value = null;
-      input.dispatchEvent(evt);
-      hideElement(button);
-  }
+                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                    extraRoadAddr += data.bname;
+                }
+                // 건물명이 있고, 공동주택일 경우 추가한다.
+                if(data.buildingName !== '' && data.apartment === 'Y'){
+                   extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                if(extraRoadAddr !== ''){
+                    extraRoadAddr = ' (' + extraRoadAddr + ')';
+                }
 
-  clearButton.addEventListener('click', () => clearInput(clearButton));
-  clearButton.addEventListener('keydown', (event) => {
-    if (event.code === "Enter") {
-      event.preventDefault();
-      clearButton.click();
-    }
-  });
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample4_postcode').value = data.zonecode;
+                document.getElementById("sample4_roadAddress").value = roadAddr;
+                document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
+                
+                // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
+                if(roadAddr !== ''){
+                    document.getElementById("sample4_extraAddress").value = extraRoadAddr;
+                } else {
+                    document.getElementById("sample4_extraAddress").value = '';
+                }
 
-  form20.addEventListener('input', () => {
-    if (form20.value !== null) {
-      showElement(clearButton);
+                var guideTextBox = document.getElementById("guide");
+                // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
+                if(data.autoRoadAddress) {
+                    var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
+                    guideTextBox.innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
+                    guideTextBox.style.display = 'block';
+
+                } else if(data.autoJibunAddress) {
+                    var expJibunAddr = data.autoJibunAddress;
+                    guideTextBox.innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
+                    guideTextBox.style.display = 'block';
+                } else {
+                    guideTextBox.innerHTML = '';
+                    guideTextBox.style.display = 'none';
+                }
+            }
+        }).open();
     }
-  })
 </script>
 </html>
