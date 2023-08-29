@@ -90,12 +90,18 @@ CREATE TABLE ms_company (
     companyNum VARCHAR2(20) PRIMARY KEY,    -- 사업자등록번호 
     ceoName VARCHAR2(50),                   -- 대표자명
     comTel VARCHAR2(20),                    -- 전화번호
-    comAddress VARCHAR2(100),               -- 회사주소
+    comAddress1 VARCHAR2(100),              -- 회사주소1
+    comAddress2 VARCHAR2(100),              -- 회사주소2
+    comAddress3 VARCHAR2(100),              -- 회사주소3
+    comAddress4 VARCHAR2(100),              -- 회사주소4
+    comAddress5 VARCHAR2(100),              -- 회사주소5
     comCS VARCHAR2(20)                      -- 고객센터
 );
 
-INSERT INTO ms_company (companyName, companyNum, ceoName, comTel, comAddress, comCS)
-VALUES ('ABC Company', '123-45-67890', 'John Doe', '123-456-7890', '123 Main St', '123-456-7890');
+INSERT INTO ms_company (companyName, companyNum, ceoName, comTel, comAddress1, comAddress2, comAddress3, comAddress4, comAddress5, comCS)
+VALUES ('ABC Company', '123-45-67890', 'John Doe', '123-456-7890', '08760', '서울 관악구 신림로65길 16-5', '서울 관악구 신림동 1432-97','402호','(신림동, 블루라군)','123-456-7890');
 
 desc ms_company;
 select * from ms_company;
+drop table ms_company;
+delete from ms_company;
