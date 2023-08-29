@@ -83,7 +83,7 @@
 				<tr class="w-100 p-4 d-flex justify-content-center">
 					<th>주소</th>
 					<td class="form-outline" style="width: 22rem">
-						<input type="text" class="form-control form-icon-trailing" id="form20" name="comAdress" placeholder="주소">
+						<input type="text" class="form-control form-icon-trailing" id="form20" name="comAddress" placeholder="주소">
 						<span class="trailing pe-auto clear d-none" tabindex="0">✕</span>
 						<div class="form-notch">
 							<div class="form-notch-leading" style="width: 9px;"></div>

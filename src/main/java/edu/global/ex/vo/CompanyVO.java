@@ -19,7 +19,7 @@ public class CompanyVO {
 	private String companyNum; //사업자번호 11자리
 	private String ceoName; //대표자
 	private String comTel; //전화번호 11자리
-	private String comAdress; //주소
+	private String comAddress; //주소
 	private String comCS; //고객센터
 
 }
