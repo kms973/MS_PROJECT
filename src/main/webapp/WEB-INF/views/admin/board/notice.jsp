@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,14 +26,63 @@
 	<!-- adm_header 부분  -->
 	<jsp:include page="/WEB-INF/views/admin/adm_header.jsp"></jsp:include>
 
-    <main>
+    <section id="board-notice">
         <div class="container-fluid px-4">
             <h1 class="mt-4">공지사항</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active">공지사항</li>
             </ol>
+            
+            <div class="card">
+			   <h5 class="card-header"><span class="">${idx}</span>개의 공지사항이 검색되었습니다.</h5>
+			   <div class="table-responsive text-nowrap">
+			     <table class="table">
+			       <caption class="ms-4">
+			         <c:if test="${pageMaker.prev}">
+					      <a href="${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
+					   </c:if>
+					   
+					   <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
+					      <%-- <c:out value="${pageMaker.cri.page == idx?'':''}" /> --%>
+					      <a href="${pageMaker.makeQuery(idx)}">${idx}</a>
+					   </c:forEach>
+					   
+					   <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+						<a href="${pageMaker.makeQuery(pageMaker.endPage +1) }"> » </a>
+					   </c:if>
+			       </caption>
+			       <thead>
+			         <tr>
+			           <th>No</th>
+			           <th>Title</th>
+			           <th>Writer</th>
+			           <th>Date</th>
+			         </tr>
+			       </thead>
+			       <tbody>
+			         <c:forEach var="board" items="${boardList}">
+			         <tr>
+			           <td><strong><c:forEach begin="1" end="${board.bindent}"></c:forEach></strong></td>
+			           <td>${board.btitle}</td>
+			           <td>${board.bname}</td>
+			           <td>${board.bdate}</td>
+			           <td>
+			             <div class="dropdown">
+			               <button class="btn p-0 hide-arrow" data-bs-toggle="dropdown"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+			               <div class="dropdown-menu">
+			                 <a class="dropdown-item" href="#"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+			                 <a class="dropdown-item" href="delete?bid=${content_view.bid}"><i class="bx bx-trash me-1"></i> Delete</a>
+			               </div>
+			             </div>
+			           </td>
+			         </tr>
+			         </c:forEach>
+			       </tbody>
+			     </table>
+			   </div>
+			 </div>
         </div>
-    </main>
+    </section>
     
     <!-- adm_footer 부분  -->
 	<jsp:include page="/WEB-INF/views/admin/adm_footer.jsp"></jsp:include>
