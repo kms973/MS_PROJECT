@@ -169,7 +169,7 @@ public class HomeController {
 		return "/google-callback";
 	}
 	
-	@GetMapping("/login/register")
+	@PostMapping("/login/register")
 	public String loginRegister() {
 		log.info("loginregister");
 		return "/login/registration_complete";

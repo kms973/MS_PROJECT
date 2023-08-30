@@ -61,14 +61,11 @@ public class MemberRegistrationServlet extends HttpServlet {
             preparedStatement.setString(5, address);
             preparedStatement.executeUpdate();
 
-            request.setAttribute("userId", userId);
-            request.setAttribute("name", name);
-            request.setAttribute("birthday", birthday);
-            request.setAttribute("address", address);
-
-            request.getRequestDispatcher("/registration_complete.jsp").forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        request.getRequestDispatcher("/registration_complete.jsp").forward(request, response);
     }
+
 }
