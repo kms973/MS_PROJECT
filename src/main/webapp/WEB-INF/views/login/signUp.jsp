@@ -8,7 +8,6 @@
 <body>
     <h1>회원 가입</h1>
     <form method="post" action="register">
-    <!-- TEST -->
         <label for="userId">사용자 ID:</label>
         <input type="text" id="userId" name="userId"><br>
         
