@@ -29,7 +29,7 @@
                 <li class="breadcrumb-item active">공지사항</li>
             </ol> -->
             <div>
-            	와이드레임 내용 들어가야할 부분
+            	와이드레임 내용 들어가야할 부분입니다.
             </div>
         </div>
     </section>
