@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.global.ex.mapper.ShopProductMapper">
+
+	<resultMap id="shopProductMap"
+		type="edu.global.ex.vo.ShopProductVO">
+		<result property="productNumber" column="product_number" />
+		<result property="productName" column="product_name" />
+		<result property="price" column="price" />
+		<result property="stock" column="stock_quantity" />
+		<result property="options" column="options" />
+		<result property="img" column="product_img" />
+	</resultMap>
+
+	<select id="getList" resultMap="shopProductMap">
+		select * from ms_product
+	</select>
+
+	<select id="getRingList" resultMap="shopProductMap">
+		select * from ms_product
+		where product_number like 'R%'
+	</select>
+
+	<select id="getEarringList" resultMap="shopProductMap">
+		select * from ms_product
+		where product_number like 'E%'
+	</select>
+
+	<select id="getNecklaceList" resultMap="shopProductMap">
+		select * from ms_product
+		where product_number like 'N%'
+	</select>
+
+	<select id="getBraceletList" resultMap="shopProductMap">
+		select * from ms_product
+		where product_number like 'B%'
+	</select>
+
+
+	<select id="getTotalCount" resultType="int">
+      <![CDATA[
+          select count(*) from ms_product
+      ]]>
+	</select>
+
+	<select id="getListWithPaging" resultMap="shopProductMap">
+      <![CDATA[
+        SELECT * FROM (
+              SELECT ROWNUM AS RNUM, A.* FROM (
+                       SELECT
+                             *
+                         FROM
+                             ms_product 
+                           
+             ) A WHERE ROWNUM <= #{pageNum} * #{amount}
+         ) WHERE RNUM > (#{pageNum}-1) * #{amount}
+      ]]>
+	</select>
+
+
+	<select id="getTotalRing" resultType="int">
+      <![CDATA[
+          select count(*) from ms_product where product_number like 'R%'
+      ]]>
+	</select>
+
+	<select id="getListWithPagingRing" resultMap="shopProductMap">
+      <![CDATA[
+        SELECT * FROM (
+              SELECT ROWNUM AS RNUM, A.* FROM (
+                       SELECT
+                             *
+                         FROM
+                             ms_product 
+                           where product_number like 'R%'
+             ) A WHERE ROWNUM <= #{pageNum} * #{amount}
+         ) WHERE RNUM > (#{pageNum}-1) * #{amount}
+      ]]>
+	</select>
+
+	<select id="getTotalEarring" resultType="int">
+      <![CDATA[
+          select count(*) from ms_product where product_number like 'E%'
+      ]]>
+	</select>
+
+	<select id="getListWithPagingEarring" resultMap="shopProductMap">
+      <![CDATA[
+        SELECT * FROM (
+              SELECT ROWNUM AS RNUM, A.* FROM (
+                       SELECT
+                             *
+                         FROM
+                             ms_product 
+                           where product_number like 'E%'
+             ) A WHERE ROWNUM <= #{pageNum} * #{amount}
+         ) WHERE RNUM > (#{pageNum}-1) * #{amount}
+      ]]>
+	</select>
+
+	<select id="getTotalNecklace" resultType="int">
+      <![CDATA[
+          select count(*) from ms_product where product_number like 'N%'
+      ]]>
+	</select>
+
+	<select id="getListWithPagingNecklace" resultMap="shopProductMap">
+      <![CDATA[
+        SELECT * FROM (
+              SELECT ROWNUM AS RNUM, A.* FROM (
+                       SELECT
+                             *
+                         FROM
+                             ms_product 
+                           where product_number like 'N%'
+             ) A WHERE ROWNUM <= #{pageNum} * #{amount}
+         ) WHERE RNUM > (#{pageNum}-1) * #{amount}
+      ]]>
+	</select>
+
+	<select id="getTotalBracelet" resultType="int">
+      <![CDATA[
+          select count(*) from ms_product where product_number like 'B%'
+      ]]>
+	</select>
+
+	<select id="getListWithPagingBracelet" resultMap="shopProductMap">
+      <![CDATA[
+        SELECT * FROM (
+              SELECT ROWNUM AS RNUM, A.* FROM (
+                       SELECT
+                             *
+                         FROM
+                             ms_product 
+                           where product_number like 'B%'
+             ) A WHERE ROWNUM <= #{pageNum} * #{amount}
+         ) WHERE RNUM > (#{pageNum}-1) * #{amount}
+      ]]>
+	</select>
+
+</mapper>

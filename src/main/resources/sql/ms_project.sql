@@ -7,7 +7,8 @@ create table ms_board (
     bdate date default sysdate,     -- 게시물 작성 일자
     bgroup number(4),
     bstep number(4),
-    bindent number(4)
+    bindent number(4),
+    selector number(1) not null --게시글구별 1:공지 2:qna 3:리뷰
 );
 
 -- 공지사항 게시판 테이블
