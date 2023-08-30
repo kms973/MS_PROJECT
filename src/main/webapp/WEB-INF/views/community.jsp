@@ -26,7 +26,7 @@
 	
 	<section id="sub-bnr">
 		<div class="container wrap">
-			<h1>Board</h1>
+			<h1>Community</h1>
 		</div>
 	</section>
 	<!-- index 메인 시작 -->

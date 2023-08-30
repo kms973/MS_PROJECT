@@ -53,10 +53,10 @@ public class HomeController {
     return "index";
 	}
 	
-	@GetMapping("/board")
-	public String board() {
-		log.info("board()..");
-		return "/board/allList";
+	@GetMapping("/community")
+	public String community() {
+		log.info("community()..");
+		return "/community";
 	}
 
 	@GetMapping("/user/userHome")
