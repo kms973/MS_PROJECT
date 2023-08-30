@@ -4,7 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class MemberRegistrationMemory {
-	private static final String FILE_PATH = "members.txt";
+	private static final String FILE_PATH = "/login/members.txt";
 
 	public static void saveMemberInfo(String userId, String name, String birthday, String address, String password) {
 		String memberInfo = String.format("User ID: %s, Name: %s, Birthday: %s, Address: %s, Password: %s",
