@@ -62,7 +62,7 @@
 	                    <!-- <div class="sb-sidenav-menu-heading">카테고리</div> -->
 	                    <a class="nav-link" href="/admin/company"><div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>회사정보</a>
 	                    <a class="nav-link collapsed" href="#!" data-bs-toggle="collapse" data-bs-target="#collapseMembers" aria-expanded="false" aria-controls="collapseMembers">
-	                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>회원
+	                        <div class="sb-nav-link-icon"><i class="fas fa-circle-user"></i></div>회원
 	                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
 	                    </a>
 	                    <div class="collapse" id="collapseMembers" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
@@ -72,19 +72,17 @@
 	                            <a class="nav-link" href="#!">회원 가입 약관</a>
 	                        </nav>
 	                    </div>
-	                    <a class="nav-link collapsed" href="/board/notice" data-bs-toggle="collapse" data-bs-target="#collapseBoards" aria-expanded="false" aria-controls="collapseBoards">
-	                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>게시판
-	                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-	                    </a>
-	                    <div class="collapse" id="collapseBoards" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+	                    <a class="nav-link" href="/admin/board"><div class="sb-nav-link-icon"><i class="fas fa-solid fa-list"></i></div>게시판</a>
+
+	                    <!-- <div class="collapse" id="collapseBoards" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 	                        <nav class="sb-sidenav-menu-nested nav">
 	                            <a class="nav-link" href="/admin/board/notice">공지사항</a>
 	                            <a class="nav-link" href="/admin/board/qna">Q&A 관리</a>
 	                            <a class="nav-link" href="#!">1:1 문의 설정</a>
 	                        </nav>
-	                    </div>
+	                    </div> -->
 	                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseProducts" aria-expanded="false" aria-controls="collapseProducts">
-	                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>상품
+	                        <div class="sb-nav-link-icon"><i class="fas fa-solid fa-gift"></i></div>상품
 	                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
 	                    </a>
 	                    <div class="collapse" id="collapseProducts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
@@ -95,7 +93,7 @@
 	                        </nav>
 	                    </div>
 	                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseOrders" aria-expanded="false" aria-controls="collapseOrders">
-	                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>주문
+	                        <div class="sb-nav-link-icon"><i class="fas fa-credit-card"></i></div>주문
 	                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
 	                    </a>
 	                    <div class="collapse" id="collapseOrders" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
@@ -106,7 +104,7 @@
 	                        </nav>
 	                    </div>
 	                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseReports" aria-expanded="false" aria-controls="collapseReports">
-	                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>리포트
+	                        <div class="sb-nav-link-icon"><i class="fas fa-chart-pie"></i></div>리포트
 	                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
 	                    </a>
 	                    <div class="collapse" id="collapseReports" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
@@ -117,7 +115,7 @@
 	                        </nav>
 	                    </div>
 	                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseTotals" aria-expanded="false" aria-controls="collapseTotals">
-	                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>쇼핑 통계
+	                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>쇼핑 통계
 	                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
 	                    </a>
 	                    <div class="collapse" id="collapseTotals" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
@@ -126,18 +124,7 @@
 	                            <a class="nav-link" href="#!">접속자 검색</a>
 	                        </nav>
 	                    </div>
-	                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePromotions" aria-expanded="false" aria-controls="collapsePromotions">
-	                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>프로모션
-	                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-	                    </a>
-	                    <div class="collapse" id="collapsePromotions" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-	                        <nav class="sb-sidenav-menu-nested nav">
-	                            <a class="nav-link" href="#!">매출현황</a>
-	                            <a class="nav-link" href="#!">매출 보고서</a>
-	                            <a class="nav-link" href="#!">원가/손익 보고서</a>
-	                        </nav>
-	                    </div>
-	                    <a class="nav-link" href="#!"><div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>고객 요청</a>
+	                    <a class="nav-link" href="#!"><div class="sb-nav-link-icon"><i class="fas fa-face-smlie"></i></div>고객 요청</a>
 	                    <!-- <a class="nav-link collapsed" href="#!" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
 	                        <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>1차 메뉴-2
 	                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>

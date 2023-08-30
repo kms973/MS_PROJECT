@@ -26,7 +26,7 @@
 	
 	<section id="sub-bnr">
 		<div class="container wrap">
-			<h1>Notice</h1>
+			<h1>Board</h1>
 		</div>
 	</section>
 	<!-- index 메인 시작 -->
@@ -72,6 +72,7 @@
 					           <td>${board.btitle}</td>
 					           <td>${board.bname}</td>
 					           <td>${board.bdate}</td>
+					           <sec:authorize access="hasRole('ROLE_ADMIN')">
 					           <td>
 					             <div class="dropdown">
 					               <button class="btn p-0 hide-arrow" data-bs-toggle="dropdown"><i class="fa-solid fa-ellipsis-vertical"></i></button>
@@ -81,6 +82,7 @@
 					               </div>
 					             </div>
 					           </td>
+					           </sec:authorize>
 					         </tr>
 					         </c:forEach>
 					       </tbody>
@@ -89,22 +91,38 @@
 					 </div>
 				</div>
 				<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
-					<div class="card">
-						<ul class="list-group">
-						  <li class="list-group-item">
-					  		<div class="btn-group">
-							  <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-					    		Q. 상품 환불 규정이 어떻게 되나요?
-							  </button>
-							  <ul class="dropdown-menu">
-							    <li>환불 규정 관련 내용</li>
-							  </ul>
-							</div>
-						  </li>
-						  <li class="list-group-item">A list item</li>
-						  <li class="list-group-item">A list item</li>
-						</ul>
-				 	</div>
+					<div class="accordion accordion-flush" id="accordionFlushExample">
+					  <div class="accordion-item">
+					    <h2 class="accordion-header" id="flush-headingOne">
+					      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+					      	Q. 상품 환불 규정에 대해 알고 싶습니다.
+					      </button>
+					    </h2>
+					    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+					      <div class="accordion-body">환불규정에 대한 답변입니다.</div>
+					    </div>
+					  </div>
+					  <div class="accordion-item">
+					    <h2 class="accordion-header" id="flush-headingTwo">
+					      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+					        Q. 배송은 얼마나 걸리나요?
+					      </button>
+					    </h2>
+					    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+					      <div class="accordion-body">배송에 대한 답번입니다.</div>
+					    </div>
+					  </div>
+					  <div class="accordion-item">
+					    <h2 class="accordion-header" id="flush-headingThree">
+					      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+					        Q. 고객센터는 어디로 연락해야합니까?
+					      </button>
+					    </h2>
+					    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+					      <div class="accordion-body">고객센터에 관한 답변입니다.</div>
+					    </div>
+					  </div>
+					</div>
 				</div>
 				<div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
 					<div class="card">

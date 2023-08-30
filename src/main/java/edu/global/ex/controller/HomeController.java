@@ -109,10 +109,10 @@ public class HomeController {
 		return "redirect:/admin/company";
 	}
 	
-	@GetMapping("/admin/board/home")
+	@GetMapping("/admin/board")
 	public String adminBoardHome() {
 		log.info("adminBoardHome");
-		return "/admin/board/home";
+		return "/admin/board/list";
 	}
 
 	@GetMapping("/admin/board/notice")

@@ -27,23 +27,24 @@
 <script src="/js/datatables-simple-demo.js"></script>
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
 	<header class="p-3 fixed-top">
 	    <div class="container">
 	      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-	        <h1><a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark">MS</a></h1>
+	        <h1 class="logo"><a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark">MS</a></h1>
 	
-	        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-	          <li><a href="#!" class="nav-link px-2 link-secondary">Shop</a></li>
-              <li><a href="/board" class="nav-link px-2 link-secondary">Community</a></li>
+	        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 ms-10">
+	          <li><a href="#!" class="nav-link px-2 text-black">Shop</a></li>
+              <li><a href="/board" class="nav-link px-2 text-black">Community</a></li>
 	        </ul>
 	
 	        <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
 	          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
 	        </form> -->
 
-	        <div class="icon-btn d-flex m-10">
+	        <div class="icon-btn d-flex">
 		        <div class="dropdown text-end">
 				  <a class="d-block link-dark" id="dropdownMenu1" data-mdb-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
 				  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -63,12 +64,18 @@
 					</sec:authorize>
 				  </ul>
 				</div>
+		    </div>
+		    <div class="icon-btn d-flex">
 		        <div><a href="#" class="d-block link-dark" id="dropdownUser2" aria-expanded="false"><i class="fa-solid fa-cart-shopping"></i></a></div>
-		        <div><a href="#" class="d-block link-dark" id="dropdownUser3" aria-expanded="false"><i class="fa-solid fa-magnifying-glass"></i></a></div>
-				<div class="dropdown text-end">
+		    </div>
+		    <div class="icon-btn d-flex">
+		    	<div><a href="#" class="d-block link-dark" id="dropdownUser3" aria-expanded="false"><i class="fa-solid fa-magnifying-glass"></i></a></div>
+		    </div>
+		    <div class="icon-btn d-flex">
+		        <div class="dropdown text-end">
 				  <a href="#" class="d-block link-dark" type="button" id="dropdownMenu2" data-mdb-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-globe"></i></a>
 				  <ul class="dropdown-menu text-small" aria-labelledby="dropdownMenu2">
-				    <li><a href="#" class="dropdown-item" type="button">한국어</a></li>
+				    <li><a href="/" class="dropdown-item" type="button">한국어</a></li>
 				    <li><a href="#" class="dropdown-item" type="button">日本語</a></li>
 				  </ul>
 				</div>

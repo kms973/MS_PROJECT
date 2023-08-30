@@ -48,7 +48,7 @@
 		                <div class="col-sm-10">
 		                  <div class="input-group input-group-merge">
 		                    <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
-		                    <input type="text" name="companyName" class="form-control" id="basic-icon-default-fullname" placeholder="회사명" aria-describedby="basic-icon-default-fullname2">
+		                    <input type="text" name="companyName" class="form-control" id="basic-icon-default-fullname" placeholder="회사명" aria-describedby="basic-icon-default-fullname2" disabled>
 		                  </div>
 		                </div>
 		              </div>
