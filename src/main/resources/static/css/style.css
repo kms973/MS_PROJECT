@@ -66,3 +66,7 @@ video{
     
 /* board-allList */
 
+/* board-write */
+.form-select{height: 33px;width:10%; vertical-align: middle; }
+button {float: right; margin-right: 5px;}
+
