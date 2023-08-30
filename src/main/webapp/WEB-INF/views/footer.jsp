@@ -17,43 +17,71 @@
 <script src="assets/demo/chart-bar-demo.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
 <script src="/WEB-INF/js/datatables-simple-demo.js"></script>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <style>
-#top-link-block.affix-top {
-    position: absolute; /* allows it to "slide" up into view */
-    bottom: -82px;
-    right: 10px; /* right: 15px; 오른쪽에 위치시킬때 */
-}
-#top-link-block.affix {
-    position: fixed; /* keeps it on the bottom once in view */
-    bottom: 18px;
-    left: 10px;
-}
+#top-link-block.affix-top { position: absolute; bottom: -82px; right: 10px; }
+#top-link-block.affix { position: fixed; bottom: 18px; right: 10px; }
 </style>
 </head>
-<body class="sb-nav-fixed">
-	<span id="top-link-block" class="hidden">
-	    <a href="#top" class="well well-sm" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
-	        <i class="glyphicon glyphicon-chevron-up"></i> Back to Top
-	    </a>
-	</span>
-	<footer>
-        <div class="wrap">
-            <h1>MS Shop</h1>
-            <ul>
-                <li>Registration: 123-12-31231</li>
-                <li>Email: msshop@msshop.com</li>
-                <li>CEO: 김민성</li>
-                <li>Address: Yeongjung-ro 56, Yeongdeungpo-gu, Seoul, Republic of Korea</li>
-            </ul>
+<body>
+	<footer class="my-5 text-center text-lg-start text-white" style="background-color: #929fba">
+    	<div class="container p-4 pb-0">
+        	<!--Grid row-->
+        	<div class="row">
+        	
+          	<div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            	<h6 class="text-uppercase mb-4 font-weight-bold">MS Shop</h6>
+	            <p><a href="/">회사명</a></p>
+	            <p>대표자 : 김아무개</p>
+	            <p>사업자 : 000-00-00000</p>
+	            <p>전화번호 : 02-1234-4567</p>
+          	</div>
+          	<hr class="w-100 clearfix d-md-none" />
+
+			<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+            	<h6 class="text-uppercase mb-4 font-weight-bold">CUSTOMER CENTER</h6>
+	            <p><i class="fas fa-home mr-3"></i> 평일 09:30 - 18:00</p>
+	            <p><i class="fas fa-envelope mr-3"></i>점심 12:00 - 13:00</p>
+	            <p><i class="fas fa-phone mr-3"></i>070-123-4567</p>
+	            <p><i class="fas fa-phone mr-3"></i>휴무 토, 일, 공휴일</p>
+          	</div>
+
+          	<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+            	<h6 class="text-uppercase mb-4 font-weight-bold">Follow us</h6>
+	            <!-- Facebook -->
+	            <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
+	            <!-- Twitter -->
+	            <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee" href="#!" role="button"><i class="fab fa-twitter"></i></a>
+	            <!-- Instagram -->
+	            <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac" href="#!" role="button"><i class="fab fa-instagram"></i></a>
+          	</div>
         </div>
-    </footer>
+    </div>
+
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">© 2023 Copyright: MS Shop</div>
+  </footer>
+    
+    <div class="fbtn">
+         <a href="#none" class="up pc">
+             <p class="blind"><i class="xi-arrow-up"></i></p>
+         </a>
+    </div>
 </body>
 <script>
-	if ( ($(window).height() + 100) < $(document).height() ) {
-	    $('#top-link-block').removeClass('hidden').affix({
-	        // how far to scroll down before link "slides" into view
-	        offset: {top:100}
-	    });
-	}
+	$(window).scroll(function(){
+	    var sc = $(window).scrollTop();
+	    var ft = $("footer").offset().top - $(window).height();
+	    console.log(sc, ft); 
+	
+	    if (sc>=ft){
+            $(".fbtn").addClass("stop");
+        } else {
+            $(".fbtn").removeClass("stop");
+        }
+	});
+	
+	$(".fbtn .up").click(function(){
+	   $("html").animate({"scrollTop":0},"slow");
+	});
 </script>
 </html>

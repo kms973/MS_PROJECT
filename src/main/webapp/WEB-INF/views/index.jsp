@@ -23,7 +23,11 @@
 <script src="assets/demo/chart-area-demo.js"></script>
 <script src="assets/demo/chart-bar-demo.js"></script>
 <script src="/js/scripts.js"></script>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+header{background: none; border-bottom: none;}
+</style>
 </head>
 <body>
 	<!-- header 시작 -->
@@ -58,4 +62,7 @@
 	<!-- footer 시작 -->
 	<%-- <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include> --%>
 </body>
+<script>
+	$("header").css({"background":"none","border-bottom":"none"});
+</script>
 </html>
