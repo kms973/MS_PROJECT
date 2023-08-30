@@ -36,26 +36,17 @@ header{background: none; border-bottom: none;}
 	<!-- index 메인 시작 -->
 	<main>
 		<div id="demo" class="carousel slide" data-bs-ride="carousel">
-	
-	    	<!-- <div class="carousel-indicators">
-	      		<button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-	      		<button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-	    	</div> -->
-	
 	    	<div class="carousel-inner">
 				<div class="carousel-item active">
 	        		<video data-videoautoplay="true" playsinline preload="none" muted loop autoplay src="/video/vd0.mp4" class="d-block"></video>
 	        		<div class="text">
-	        		<h1>#MS Shop</h1>
+	        		<p>There is nothing that</p>
+	        		<p>makes its way more directly</p> 
+	        		<p>to the soul than beauty.</p>
 	        		<br>
-	        		<p>2023 New Collection</p>
-	        		
+	        		<p>- Joseph Addison</p>        		
 	        		</div>
-				</div>
-				
-	      		<!-- <div class="carousel-item">
-	        		<img src="/img/bg3.png" class="d-block" style="width:100%">
-	    		</div> -->
+				</div>      		
 	    	</div>
 		</div>
 	</main>

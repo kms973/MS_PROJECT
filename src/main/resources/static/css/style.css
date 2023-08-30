@@ -36,20 +36,14 @@ video{
   left: 50%;
   transform: translate(-50%,-50%);
 }
-.text h1 {
-  text-align: right;
-  font-size: 40px;
-  color: #000000;
-  margin: 0 200px; 0 0;
-  font-family: 'Montserrat', sans-serif;
-}
-
 .text p {
   text-align: right;
   font-size: 24px;
   color: #000000;
   margin: 0 200px; 0 0;
   font-family: 'Montserrat', sans-serif;
+  text-shadow: 0 0 10px #fff;
+  
 }
 
 /* admin company */
@@ -65,4 +59,8 @@ video{
 
     
 /* board-allList */
+
+/* board-write */
+.form-select{height: 33px;width:10%; vertical-align: middle; }
+button {float: right; margin-right: 5px;}
 
