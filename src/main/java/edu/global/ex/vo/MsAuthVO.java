@@ -1,6 +1,6 @@
 package edu.global.ex.vo;
 
-import java.util.List;
+import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,12 +13,9 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class UserVO {
+public class MsAuthVO {
 
 	private String username;
-	private String password;
-	private int enabled;
-	
-	private List<AuthVO> authList;
+	private String authority;
 	
 }
