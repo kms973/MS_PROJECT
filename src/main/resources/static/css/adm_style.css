@@ -1,3 +1,4 @@
+/* admin-login */
 body#LoginForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; height: 100vh !important; display: flex; justify-content: center; align-items: center; }
 
 .form-heading { color:#fff; font-size:23px; }
@@ -14,3 +15,6 @@ body#LoginForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-2
 .login-form .btn.btn-primary.reset { background: #ff9900 none repeat scroll 0 0; }
 .back { text-align: left; margin-top:10px; }
 .back a {color: #444444; font-size: 13px;text-decoration: none; }
+
+/* admin company */
+.trailing.clear { cursor: pointer; &:focus { color: #3b71ca; outline: none; } }

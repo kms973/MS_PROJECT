@@ -58,6 +58,13 @@ public class HomeController {
 		log.info("community()..");
 		return "/community";
 	}
+	
+	@GetMapping("/shop")
+	public String shop() {
+		log.info("shop()..");
+		return "/shop";
+	}
+
 
 	@GetMapping("/user/userHome")
 	public void userHome() {

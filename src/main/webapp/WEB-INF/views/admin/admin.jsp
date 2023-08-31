@@ -77,13 +77,13 @@
                 <div class="col-xl-6">
                     <div class="card mb-4">
                         <div class="card-header">
-                            <i class="fas fa-chart-bar me-1"></i>게시판</div>
+                            <i class="fas fa-solid fa-list me-1"></i>게시판</div>
                         <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
                     </div>
                 </div>
             </div>
             <div class="card mb-4">
-                <div class="card-header"><i class="fas fa-table me-1"></i>주문 내역</div>
+                <div class="card-header"><i class="fas fa-credit-card me-1"></i>주문 내역</div>
                 <div class="card-body">
                     <table id="datatablesSimple">
                         <thead>
