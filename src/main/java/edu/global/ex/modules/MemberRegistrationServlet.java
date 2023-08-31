@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import oracle.jdbc.pool.OracleDataSource;
 
-@WebServlet("/register")
+@WebServlet("/login/register")
 public class MemberRegistrationServlet extends HttpServlet {
     private static final String DB_URL = "jdbc:oracle:thin:@localhost:1521:xe";
     private static final String DB_USER = "scott";
@@ -65,7 +65,7 @@ public class MemberRegistrationServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        request.getRequestDispatcher("/registration_complete.jsp").forward(request, response);
+        request.getRequestDispatcher("/login/registration_complete.jsp").forward(request, response);
     }
 
 }
