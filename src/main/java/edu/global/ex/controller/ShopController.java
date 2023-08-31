@@ -1,7 +1,5 @@
 package edu.global.ex.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,12 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import edu.global.ex.page.Criteria;
 import edu.global.ex.page.PageVO;
 import edu.global.ex.service.ShopProductService;
-import edu.global.ex.vo.ShopProductVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/shop/product/*")
+@RequestMapping("/shop/*")
 public class ShopController {
 
 	@Autowired
@@ -42,7 +39,7 @@ public class ShopController {
 
 		model.addAttribute("pageMaker", new PageVO(cri, total));
 		
-		return "/shop/product/home";
+		return "/shop/home";
 	}
 
 	@GetMapping("/ring")
@@ -59,7 +56,7 @@ public class ShopController {
 
 		model.addAttribute("pageMakerRing", new PageVO(cri, total));
 		
-		return "/shop/product/ring";
+		return "/shop/ring";
 	}
 
 	@GetMapping("/earring")
@@ -76,7 +73,7 @@ public class ShopController {
 
 		model.addAttribute("pageMaker", new PageVO(cri, total));
 		
-		return "/shop/product/earring";
+		return "/shop/earring";
 	}
 
 	@GetMapping("/necklace")
@@ -93,7 +90,7 @@ public class ShopController {
 
 		model.addAttribute("pageMaker", new PageVO(cri, total));
 		
-		return "/shop/product/necklace";
+		return "/shop/necklace";
 	}
 
 	@GetMapping("/bracelet")
@@ -110,7 +107,7 @@ public class ShopController {
 
 		model.addAttribute("pageMaker", new PageVO(cri, total));
 		
-		return "/shop/product/bracelet";
+		return "/shop/bracelet";
 	}
 
 }
