@@ -63,7 +63,12 @@ public class HomeController {
 		log.info("shop()..");
 		return "/shop";
 	}
-
+	
+	@GetMapping("/ring")
+	public String ring() {
+		log.info("ring()..");
+		return "/shop/ring";
+	}
 
 	@GetMapping("/user/userHome")
 	public void userHome() {
