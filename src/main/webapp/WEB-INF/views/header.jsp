@@ -30,13 +30,13 @@
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
-	<header class="p-3 fixed-top">
+	<header id="header" class="p-2 fixed-top">
 	    <div class="container">
 	      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 	        <h1 class="logo"><a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark">MS</a></h1>
 	
 	        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 ms-10">
-	          <li><a href="#!" class="nav-link px-2 text-black">Shop</a></li>
+	          <li><a href="shop" class="nav-link px-2 text-black">Shop</a></li>
               <li><a href="community" class="nav-link px-2 text-black">Community</a></li>
 	        </ul>
 	
