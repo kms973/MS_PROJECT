@@ -18,3 +18,6 @@ body#LoginForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-2
 
 /* admin company */
 .trailing.clear { cursor: pointer; &:focus { color: #3b71ca; outline: none; } }
+
+/* admin product */
+div.datatable-wrapper.datatable-loading.no-footer.sortable.searchable.fixed-columns { display: none; }
