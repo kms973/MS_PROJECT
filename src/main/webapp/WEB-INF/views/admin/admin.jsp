@@ -156,6 +156,5 @@
 
 	<!-- adm_footer 부분  -->
 	<jsp:include page="/WEB-INF/views/admin/adm_footer.jsp"></jsp:include>
-	
 </body>
 </html>

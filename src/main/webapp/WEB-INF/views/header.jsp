@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MS Shop - Admin</title>
 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" />
 <link href="/css/styles.css" rel="stylesheet" />
 <link href="/css/style.css" rel="stylesheet" />
 <!-- Font Awesome -->
@@ -20,14 +20,10 @@
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/js/scripts.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-<script src="assets/demo/chart-area-demo.js"></script>
-<script src="assets/demo/chart-bar-demo.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
-<script src="/js/datatables-simple-demo.js"></script>
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
 	<header id="header" class="p-2 fixed-top">
@@ -56,11 +52,11 @@
 				    <li><hr class="dropdown-divider"></li>
 		            <sec:authorize access="isAnonymous()">
 						<!-- 로그인 안 한 익명일 경우 -->
-		            	<li><a class="dropdown-item" href="#">로그인</a></li>
+		            	<li><a class="dropdown-item" href="/login/login">로그인</a></li>
 					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
 						<!-- 로그인(인증된) 사용자인 경우 -->	
-						<li><a href="/logout">로그아웃</a></li>
+						<li><a class="dropdown-item" href="/logout">로그아웃</a></li>
 					</sec:authorize>
 				  </ul>
 				</div>
@@ -83,5 +79,4 @@
 	      </div> 
 	    </div> 
   </header>
-</body>
-</html>
+  <div class="h-box" style="height:73px;width:100%;background:none;"></div>

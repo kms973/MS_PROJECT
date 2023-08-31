@@ -1,6 +1,9 @@
 /* com */
-body { color: #333; font-size: 14px; overflow-x: hidden; }
-body > main, body>section { min-height: 500px; }
+body { color: #333; font-size: 14px; overflow-x: hidden;
+ -ms-overflow-style: none;
+} 
+::-webkit-scrollbar { display: none; }
+div.h-box { height:73px; width:100%; background:none; }
 
 /* header */
 header#header { width: 100%; background: #fff; border-bottom: 1px solid #ccc; }
@@ -9,7 +12,10 @@ header#header .logo { margin-right: 20px; }
 .icno-btn > div { margin-left: 10px; }
 
 /* footer */
-.footer { margin-top: 3rem;}
+.footer { }
+
+#top-link-block.affix-top { position: absolute; bottom: -82px; right: 10px; }
+#top-link-block.affix { position: fixed; bottom: 18px; right: 10px; }
 
 .scroll-top-wrapper { position: fixed; opacity: 0; visibility: hidden; overflow: hidden; text-align: center; z-index: 99999999; background-color: #777; color: #eee; width: 50px; height: 48px; line-height: 48px; right: 30px; bottom: 30px; padding-top: 2px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;
 	-webkit-transition: all 0.5s ease-in-out;
@@ -29,22 +35,28 @@ video { width: 100%; height: 100vh; object-fit: cover; }
 .text p { text-align: right; font-size: 24px; color: #000; margin: 0 200px;  font-family: 'Montserrat', sans-serif; text-shadow: 0 0 10px #fff; }
 
 /* sub */
-#sub-bnr { height: 200px; }
-#sub-bnr .container { height : 100%; display: flex; align-items: flex-end; padding-bottom: 50px; }
+#sub-bnr { height: 100px; }
+#sub-bnr>*{ height : 100%; display: flex; align-items: flex-end; padding-bottom: 25px; }
 
+section#community { height: calc(100vh - 130px); }
+
+
+.accordion-body::-webkit-scrollbar{
+	
+  display: none;
+
+}
     
 /* board */
 /*탭메뉴 */
-.tab ul { list-style: none; margin: 0; padding: 0; }
-.tab ul.title li:first-child {margin-left: 0; }
+.tab ul { list-style: none; margin: 0 0 30px; padding: 0; }
+.tab ul.title li:first-child { margin-left: 0; }
 .tab ul.title li { float: left; margin-left: 5px; }
-.tab ul.title li a { display: block; background: #ccc; padding: 5px 10px; color: #fff; }
-
-.tab ul.title li a.show { background: #ddd; }
-
+.tab ul.title li a { display: block; padding: 5px 10px; color: #999; }
+.tab ul.title li a.show { color: #400080; font-weight:bold; }
 .tab ul.title:after {content:""; display:block; clear:both; }
 
-.tab ul.panel li{ display: none; background: #fff; height: auto; overflow: hidden; }
+.tab ul.panel li{ display: none; background: #fcc; height: auto; overflow: hidden; }
 
 
 /* board-write */

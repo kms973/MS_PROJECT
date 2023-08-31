@@ -71,7 +71,6 @@
 					</form>
 				</div>
 			</div>
-			
 			<div class="card mb-4">
 	            <div class="card-header d-flex justify-content-between">
 	            	<div><span class="strong">N</span>개의 상품이 검색되었습니다.</div>
