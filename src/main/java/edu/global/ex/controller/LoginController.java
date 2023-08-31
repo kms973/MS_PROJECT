@@ -8,6 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -67,6 +68,12 @@ public class LoginController {
 	    	return "/login/registration_complete"; // 회원 등록 성공 페이지로 이동
 	    }
 	}
+	
+	@GetMapping("/login/login")
+	public String userlogin() {
+		
+		return "/login/login";
+	}
 
 	@GetMapping("/login/index")
 	public String loginindex() {
@@ -91,6 +98,7 @@ public class LoginController {
 	// 	log.info("loginregister");
 	// 	return "/login/registration_complete";
 	// }
+	
 	
 	@GetMapping("/login/signuptest")
 	public String signuptest() {
