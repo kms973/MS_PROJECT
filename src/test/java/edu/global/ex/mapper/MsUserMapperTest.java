@@ -24,8 +24,8 @@ class MsUserMapperTest {
 	@Test
 	void testInsertUser() {
 		MsUserVO user = new MsUserVO();
-		user.setUsername("testuser2");
-		user.setPassword(new BCryptPasswordEncoder().encode("testuser2"));
+		user.setUsername("admin");
+		user.setPassword(new BCryptPasswordEncoder().encode("admin"));
 		user.setEnabled(1);
 //		---
 		user.setCname("이름");

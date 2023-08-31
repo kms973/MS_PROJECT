@@ -30,7 +30,7 @@ public class LoginController {
 	
 	@GetMapping("/login")
 	public String login() {
-		return "admin/login";
+		return "/admin/login";
 	}
 
 	@GetMapping("/loginInfo")
@@ -72,8 +72,15 @@ public class LoginController {
 	@GetMapping("/login/login")
 	public String userlogin() {
 		
-		return "/login/login";
+		return "/login/login_regacy";
 	}
+	
+	@GetMapping("/logout")
+	public String userlogout() {
+		
+		return "/login/login_regacy";
+	}
+	
 
 	@GetMapping("/login/index")
 	public String loginindex() {

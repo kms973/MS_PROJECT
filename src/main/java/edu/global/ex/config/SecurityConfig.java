@@ -15,7 +15,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import edu.global.ex.security.CustomUserDetailsService;
+import edu.global.ex.security.MsCustomUserDetailsService;
 import lombok.extern.slf4j.Slf4j;
 
 @Configuration // @component + 설정
@@ -24,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	private CustomUserDetailsService customUserDetailsService;
+	private MsCustomUserDetailsService customUserDetailsService;
 
 	@Bean
 	public PasswordEncoder passwordEncoder() {
@@ -73,7 +73,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				response.sendRedirect("/");
 			}
 
-        });// loginPage()는 말 그대로 로그인 할 페이지 url
+		});// loginPage()는 말 그대로 로그인 할 페이지 url
+		http.logout().logoutSuccessUrl("/login/login");
+			
+			
 //				.permitAll(); // 모든 유저가 로그인 화면은 볼 수 있다.
 	}
 }
