@@ -5,7 +5,6 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import edu.global.ex.mapper.CompanyMapper;
 import edu.global.ex.vo.CompanyVO;
@@ -165,28 +164,6 @@ public class HomeController {
 		return "/admin/order/order_list";
 	}
 
-	@GetMapping("/login/index")
-	public String loginindex() {
-		log.info("loginindex");
-		return "/login/index";
-	}
-
-	@GetMapping("/login/signup")
-	public String loginsignUp() {
-		log.info("loginsignup");
-		return "/login/signUp";
-	}
-
-	@RequestMapping("/google-callback")
-	public String callback() {
-		return "/google-callback";
-	}
-	
-	@PostMapping("/login/register")
-	public String loginRegister() {
-		log.info("loginregister");
-		return "/login/registration_complete";
-	}
 	
 
 }
