@@ -30,7 +30,6 @@ public class LoginController {
 //		org.springframework.security.core.Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		// user_id = auth.getName();
 		// System.out.println("유저 아이디:" + user_id);
-
 		// 2.authentication 객체로 가져오는 방법(많은 )
 		System.out.println("authentication 유저 아이디:" + authentication.getName());
 		System.out.println("authentication 권한들:" + authentication.getAuthorities());
@@ -61,11 +60,17 @@ public class LoginController {
 		log.info("loginindex");
 		return "/login/index";
 	}
-
+	
 	@GetMapping("/login/signup")
 	public String loginsignUp() {
 		log.info("loginsignup");
 		return "/login/signUp";
+	}	
+	
+	@GetMapping("/login/google")
+	public String googlelogin() {
+		log.info("googlelogin");
+		return "/login/googleLogin";
 	}
 
 	@RequestMapping("/google-callback")
