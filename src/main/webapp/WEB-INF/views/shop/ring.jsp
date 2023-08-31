@@ -1,53 +1,41 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!-- C태그 쓰기 위해 넣은 taglib므로 반드시 확인 -->
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+<title>MS Shop</title>
+<!-- css 링크 연결 -->
+<link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/styles.css" rel="stylesheet" />
+<link href="/css/style.css" rel="stylesheet" />
+<!-- script 링크 연결 -->
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+<script src="assets/demo/chart-area-demo.js"></script>
+<script src="assets/demo/chart-bar-demo.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/scripts.js"></script>
 </head>
 <body>
-	<table width="1000" border="1">
-		<tr>
-			<td>번호</td>
-			<td>이름</td>
-			<td>가격</td>
-			<td>재고</td>
-			<td>옵션</td>
-			<td>사진</td>
-		</tr>
+	<!-- header 시작 -->
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+	
+	<!-- <section id="sub-bnr">
+		<div class="container wrap"><h5>Shop</h5></div>
+	</section> -->
 
-		<!--이때 list는 BListCommand에서 메모리에 올린 list를 뜻함. 포워딩시까지 살아있으므로-->
-		<!--forEach문을 이용해 데이터를 꺼낼 수 있다.-->
-		<c:forEach var="shop" items="${ShopProductRingList}">
-			<tr>
-				<td>${shop.productNumber}</td>
-				<td>${shop.productName}</td>
-				
-				<td>${shop.price}</td>
-				<td>${shop.stock}</td>
-				<td>${shop.options}</td>
-				<td><img src="${shop.img }" style="width:100px; height:100px;"></td>
-			</tr>
-		</c:forEach>
-
-		
-	</table>
-
-	<c:if test="${pageMakerRing.prev}">
-      <a href="ring${pageMakerRing.makeQuery(pageMakerRing.startPage - 1) }">«</a>
-   </c:if>
-   
-    <c:forEach begin="${pageMakerRing.startPage }" end="${pageMakerRing.endPage }" var="idx">
-      <a href="ring${pageMakerRing.makeQuery(idx)}">${idx}</a>
-   </c:forEach> 
-   
-   <c:if test="${pageMakerRing.next && pageMakerRing.endPage > 0}">
-            <a href="ring${pageMakerRing.makeQuery(pageMakerRing.endPage +1) }"> » </a>
-   </c:if> 
-
+	<!-- index 메인 시작 -->
+	<section id="board-all">
+    	<div class="container wrap">
+    		제품 상세페이지
+        </div>
+    </section>
+	<!-- footer 시작 -->
+	<jsp:include page="/WEB-INF/views/footer.jsp" />
 </body>
+
 </html>

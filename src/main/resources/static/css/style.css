@@ -1,5 +1,6 @@
 /* com */
-body { color: #333; }
+body { color: #333; font-size: 14px; overflow-x: hidden; }
+body > main, body>section { min-height: 500px; }
 
 /* header */
 header#header { width: 100%; background: #fff; border-bottom: 1px solid #ccc; }

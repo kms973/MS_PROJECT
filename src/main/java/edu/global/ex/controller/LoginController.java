@@ -2,22 +2,35 @@ package edu.global.ex.controller;
 
 import java.security.Principal;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import edu.global.ex.mapper.MsUserMapper;
+import edu.global.ex.vo.MsUserVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
 public class LoginController {
 
+	@Autowired
+	private MsUserMapper userMapper;
+
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
 	@GetMapping("/login")
 	public String login() {
-		return "admin/login";
+		return "/admin/login";
 	}
 
 	@GetMapping("/loginInfo")
@@ -54,6 +67,19 @@ public class LoginController {
 	    	return "/login/registration_complete"; // 회원 등록 성공 페이지로 이동
 	    }
 	}
+	
+	@GetMapping("/login/login")
+	public String userlogin() {
+		
+		return "/login/login_regacy";
+	}
+	
+	@GetMapping("/logout")
+	public String userlogout() {
+		
+		return "/login/login_regacy";
+	}
+	
 
 	@GetMapping("/login/index")
 	public String loginindex() {
@@ -77,12 +103,31 @@ public class LoginController {
 	public String callback() {
 		return "/google-callback";
 	}
-	/*
-	// 구 회원가입성공페이지 
-	@PostMapping("/login/registration_complete")
-	public String loginRegister() {
-		log.info("loginregister");
-		return "/login/registration_complete";
+	
+	// // 구 회원가입성공페이지 
+	// @PostMapping("/login/registration_complete")
+	// public String loginRegister() {
+	// 	log.info("loginregister");
+	// 	return "/login/registration_complete";
+	// }
+	
+	
+	@GetMapping("/login/signuptest")
+	public String signuptest() {
+		
+		
+		return "/login/signuptest";
 	}
-	*/
+	
+	@PostMapping("/login/signuptest")
+	public String signuptest(MsUserVO user) {
+		
+		user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+		
+		userMapper.insertUser(user);
+		userMapper.insertAuthorities(user);
+		
+		return "index";
+	}
+
 }

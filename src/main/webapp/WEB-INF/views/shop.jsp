@@ -45,7 +45,7 @@
     	<div class="container wrap px-4 px-lg-5 mt-5">
     		<div class="row mt-n5">
 	            <div class="col-md-6 col-lg-4 mt-5 wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-               		<a href="#!" class="text-center">
+               		<a href="detail" class="text-center">
 		                <div class="blog-grid">
 		                    <div class="blog-grid-img position-relative"><img alt="img" src="https://www.bootdey.com/image/480x480/00FFFF/000000"></div>
 		                    <div class="blog-grid-text p-4">

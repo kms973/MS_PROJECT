@@ -42,6 +42,7 @@ integrity="sha256-IKhQVXDfwbVELwiR0ke6dX+pJt0RSmWky3WB2pNx9Hg=" crossorigin="ano
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active">글 작성</li>
             </ol>
+            <div class="wrap-write">
             <select class="form-select form-select-sm" aria-label="Default select example">
 			  <option selected>공지사항</option>
 			  <option value="2">Q&A</option>
@@ -70,6 +71,7 @@ integrity="sha256-IKhQVXDfwbVELwiR0ke6dX+pJt0RSmWky3WB2pNx9Hg=" crossorigin="ano
 		<br>
 		<button type="button" class="btn btn-outline-secondary">작성 완료</button>
 		<button type="button" class="btn btn-secondary btn">취소</button>
+        </div>
         </div>
     </section>   
     <!-- adm_footer 부분  -->

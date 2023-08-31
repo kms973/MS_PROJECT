@@ -6,49 +6,34 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import edu.global.ex.vo.UserVO;
+import edu.global.ex.vo.MsUserVO;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @SpringBootTest
-class UserMapperTest {
+class MsUserMapperTest {
 
 	@Autowired
-	private UserMapper userMapper;
+	private MsUserMapper userMapper;
 
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
-//	@Test
-//	void testGetList() {
-//		UserVO user = userMapper.getUser("admin");
-//		System.out.println(user);
-//	}
-
+	
 	@Test
 	void testInsertUser() {
-		UserVO user = new UserVO();
+		MsUserVO user = new MsUserVO();
 		user.setUsername("admin");
 		user.setPassword(new BCryptPasswordEncoder().encode("admin"));
 		user.setEnabled(1);
+//		---
+		user.setCname("이름");
+		user.setCaddress1("집");
 
-	//		log.info(user.toString());
+			log.info(user.toString());
 		userMapper.insertUser(user);
 		userMapper.insertAuthorities(user);
 	}
-	
-//	@Test
-//	void testMatchUser() {
-//		UserVO user = new UserVO();
-//		user.setUsername("admin");
-//		user.setPassword(passwordEncoder.encode("admin"));
-//		user.setEnabled(1);
-//		
-//		System.out.println(user);
-//		
-//		boolean bool = passwordEncoder.matches("admin", user.getPassword());
-//		
-//		System.out.println(bool);
-//		
-//		
-//	}
+
 }
