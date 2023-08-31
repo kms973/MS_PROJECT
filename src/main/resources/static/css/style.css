@@ -52,7 +52,10 @@ video{
 	&:focus { color: #3b71ca; outline: none; }
 }
 
-
+/*admin product_new */
+.wrap-box{width: 96%; margin: 0 auto;}
+.productcodenum{font-size: 12px; font-weight: lighter;}
+.productoption{font-size: 12px; font-weight: lighter; color: #999;}
 /* sub */
 #sub-bnr { height: 300px; }
 #sub-bnr .container { height : 100%; display: flex; align-items: center; }
@@ -63,4 +66,5 @@ video{
 /* board-write */
 .form-select{height: 33px;width:10%; vertical-align: middle; }
 button {float: right; margin-right: 5px;}
+.wrap-write{width: 96%; margin: 0 auto;}
 
