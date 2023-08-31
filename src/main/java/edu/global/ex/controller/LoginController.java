@@ -2,18 +2,30 @@ package edu.global.ex.controller;
 
 import java.security.Principal;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import edu.global.ex.mapper.MsUserMapper;
+import edu.global.ex.vo.MsUserVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
 public class LoginController {
 
+	@Autowired
+	private MsUserMapper userMapper;
+
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
 	@GetMapping("/login")
 	public String login() {
 		return "admin/login";
@@ -62,5 +74,23 @@ public class LoginController {
 	public String loginRegister() {
 		log.info("loginregister");
 		return "/login/registration_complete";
+	}
+	
+	@GetMapping("/login/signuptest")
+	public String signuptest() {
+		
+		
+		return "/login/signuptest";
+	}
+	
+	@PostMapping("/login/signuptest")
+	public String signuptest(MsUserVO user) {
+		
+		user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+		
+		userMapper.insertUser(user);
+		userMapper.insertAuthorities(user);
+		
+		return "index";
 	}
 }
