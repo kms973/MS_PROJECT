@@ -14,7 +14,7 @@
 			  <li class="nav-item">
 			    <a id="tab-1" class="nav-link show" aria-current="page" href="#">공지사항</a>
 			  </li>
-			  <li class="nav-item">
+			  <li class="nav-item ">
 			    <a id="tab-2" class="nav-link" href="#">자주묻는질문</a>
 			  </li>
 			  <li class="nav-item">
@@ -26,7 +26,7 @@
 			</ul>
 		    <ul class="panel">
 		      <li id="content-1">
-		      	
+		      	공지사항 내용입니다.
 		      </li>
 		      <li id="content-2">
 		      	<div class="accordion accordion-flush" id="accordionFlushExample">
