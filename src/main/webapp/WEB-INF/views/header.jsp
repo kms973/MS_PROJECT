@@ -11,6 +11,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" />
 <link href="/css/styles.css" rel="stylesheet" />
 <link href="/css/style.css" rel="stylesheet" />
+<link href="/css/login_style.css" rel="stylesheet" />
 <!-- Font Awesome -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
 <!-- Google Fonts -->
@@ -24,6 +25,7 @@
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="/js/login_scripts.js"></script>
 </head>
 <body>
 	<header id="header" class="p-2 fixed-top">

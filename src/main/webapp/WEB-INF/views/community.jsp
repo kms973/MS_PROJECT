@@ -25,7 +25,9 @@
 			  </li>
 			</ul>
 		    <ul class="panel">
-		      <li id="content-1">탭 내용1</li>
+		      <li id="content-1">
+		      	
+		      </li>
 		      <li id="content-2">
 		      	<div class="accordion accordion-flush" id="accordionFlushExample">
 	  			  <div class="accordion-item">
@@ -66,7 +68,7 @@
 		</div>
 		<!--  -->
 	</div>
-   </section>
+ </section>
 <!-- footer 시작 -->
 <jsp:include page="/WEB-INF/views/footer.jsp" />
 <script>
