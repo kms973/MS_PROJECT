@@ -26,8 +26,8 @@
         const fs = require('fs');
 
         const OAuth2Client = new google.auth.OAuth2(
-            YOUR_CLIENT_ID,
-            YOUR_CLIENT_SECRET,
+            "471214335308-gl60imc2jdeseit0nfvdo8k51qdjvo10.apps.googleusercontent.com",
+            "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",
             "http://localhost:8008/login/google-callback" // Redirect URI
         );
 
