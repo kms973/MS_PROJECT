@@ -97,6 +97,11 @@ public class LoginController {
 	public String googlelogin() {
 		log.info("googlelogin");
 		return "/login/googleLogin";
+	}	
+	@GetMapping("/login/social")
+	public String sociallogin() {
+		log.info("sociallogin");
+		return "/login/socialLogin";
 	}
 
 	@RequestMapping("/login/google-callback")
