@@ -37,7 +37,7 @@ GoogleCredential credential = new GoogleCredential.Builder()
 // OAuth2 서비스 생성
 Oauth2 oauth2 = new Oauth2.Builder(
     GoogleNetHttpTransport.newTrustedTransport(), new JacksonFactory(), credential)
-    .setApplicationName("shopExample")
+    .setApplicationName("Your Application Name")
     .build();
 
 // 사용자 정보 가져오기
@@ -48,9 +48,13 @@ String name = userInfo.getName();
 String birthday = userInfo.getBirthday();
 List<Address> addresses = userInfo.getAddresses();
 
-//사용자 아이디 추출 메소드
-public String extractUserId(email) {
-    return email.split("@")[0];
+// 사용자 아이디 추출 메소드
+public String extractUserId(String email) {
+    int atIndex = email.indexOf("@");
+    if (atIndex != -1) {
+        return email.substring(0, atIndex);
+    }
+    return email;
 }
 %>
 <!DOCTYPE html>
