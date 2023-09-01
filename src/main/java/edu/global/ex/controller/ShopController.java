@@ -26,10 +26,13 @@ public class ShopController {
 	// /shop/product/bracelet 상품 목록 보기(팔찌)
 
 	@GetMapping("/home")
-	public String productHome(Model model,Criteria cri) {
+	public String productHome(//String category,
+			Model model,Criteria cri) {
 		log.info("shopProductHome() ..");
 		log.info("shopProductHome() 크리테리아값 확인" + cri);
-
+//		if("".equals(category)) {
+//			model.addAttribute("ShopProductList", shopProductService.getListWithPaging(cri));
+//		}
 		System.out.println(shopProductService.getListWithPaging(cri).size());
 		
 		model.addAttribute("ShopProductList", shopProductService.getListWithPaging(cri));
@@ -49,14 +52,14 @@ public class ShopController {
 
 		System.out.println(shopProductService.getListWithPagingRing(cri).size());
 		
-		model.addAttribute("ShopProductRingList", shopProductService.getListWithPagingRing(cri));
+		model.addAttribute("ShopProductList", shopProductService.getListWithPagingRing(cri));
 		
 		int total = shopProductService.getTotalRing();
 		log.info("shopproductRing() 전체 갯수" + total);
 
-		model.addAttribute("pageMakerRing", new PageVO(cri, total));
+		model.addAttribute("pageMaker", new PageVO(cri, total));
 		
-		return "/shop/ring";
+		return "/shop/home";
 	}
 
 	@GetMapping("/earring")
@@ -66,14 +69,14 @@ public class ShopController {
 
 		System.out.println(shopProductService.getListWithPagingEarring(cri).size());
 		
-		model.addAttribute("ShopProductEarringList", shopProductService.getListWithPagingEarring(cri));
+		model.addAttribute("ShopProductList", shopProductService.getListWithPagingEarring(cri));
 		
 		int total = shopProductService.getTotalEarring();
 		log.info("shopproductEarring() 전체 갯수" + total);
 
 		model.addAttribute("pageMaker", new PageVO(cri, total));
 		
-		return "/shop/earring";
+		return "/shop/home";
 	}
 
 	@GetMapping("/necklace")
@@ -83,14 +86,14 @@ public class ShopController {
 
 		System.out.println(shopProductService.getListWithPagingNecklace(cri).size());
 		
-		model.addAttribute("ShopProductNecklaceList", shopProductService.getListWithPagingNecklace(cri));
+		model.addAttribute("ShopProductList", shopProductService.getListWithPagingNecklace(cri));
 		
 		int total = shopProductService.getTotalNecklace();
 		log.info("shopproductNecklace() 전체 갯수" + total);
 
 		model.addAttribute("pageMaker", new PageVO(cri, total));
 		
-		return "/shop/necklace";
+		return "/shop/home";
 	}
 
 	@GetMapping("/bracelet")
@@ -100,14 +103,14 @@ public class ShopController {
 
 		System.out.println(shopProductService.getListWithPagingBracelet(cri).size());
 		
-		model.addAttribute("ShopProductBraceletList", shopProductService.getListWithPagingBracelet(cri));
+		model.addAttribute("ShopProductList", shopProductService.getListWithPagingBracelet(cri));
 		
 		int total = shopProductService.getTotalBracelet();
 		log.info("shopproductBracelet() 전체 갯수" + total);
 
 		model.addAttribute("pageMaker", new PageVO(cri, total));
 		
-		return "/shop/bracelet";
+		return "/shop/home";
 	}
 
 }
