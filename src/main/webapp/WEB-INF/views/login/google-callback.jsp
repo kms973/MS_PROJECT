@@ -18,6 +18,12 @@ GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
     .setAccessType("offline")
     .build();
 
+// OAuth2 서비스 생성
+Oauth2 oauth2 = new Oauth2.Builder(
+    GoogleNetHttpTransport.newTrustedTransport(), new JacksonFactory(), credential)
+    .setApplicationName("Your Application Name")
+    .build();
+    
 // 인증 코드를 가져옴
 String code = request.getParameter("code");
 
@@ -33,12 +39,6 @@ GoogleCredential credential = new GoogleCredential.Builder()
     .setClientSecrets(clientSecrets.getDetails().getClientId(), clientSecrets.getDetails().getClientSecret())
     .build()
     .setFromTokenResponse(tokenResponse);
-
-// OAuth2 서비스 생성
-Oauth2 oauth2 = new Oauth2.Builder(
-    GoogleNetHttpTransport.newTrustedTransport(), new JacksonFactory(), credential)
-    .setApplicationName("Your Application Name")
-    .build();
 
 // 사용자 정보 가져오기
 Person userInfo = oauth2.userinfo().get().execute();
