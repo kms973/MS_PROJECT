@@ -129,5 +129,10 @@ public class LoginController {
 		
 		return "index";
 	}
+	@GetMapping("/login/userprofile")
+	public String userprofile() {
+		log.info("userprofile");
+		return "/login/profile_page";
+	}
 
 }

@@ -8,7 +8,7 @@ create table ms_board (
     bgroup number(4),
     bstep number(4),
     bindent number(4),
-    selector number(1) not null --게시글구별 1:공지 2:qna 3:리뷰
+    selecter number(1) not null     -- 게시글구분 1:공지 2:qna 3:리뷰
 );
 
 -- 공지사항 게시판 테이블
@@ -74,9 +74,13 @@ create table ms_pay (
     foreign key (pid) references ms_customer (cid),
     foreign key (product_number) references ms_product (product_number)
     );
+    
+drop table ms_pay;
 
 -- 상품
 create table ms_product (
+    product_code number(5),
+    product_category varchar2(1),
     product_number VARCHAR2(20) PRIMARY KEY,   -- 상품 번호
     product_name VARCHAR2(100),                -- 상품명
     price NUMBER,                              -- 가격
@@ -84,6 +88,32 @@ create table ms_product (
     options VARCHAR2(200),                     -- 옵션
     product_img VARCHAR2(200)                  -- 이미지
 );
+
+drop table ms_product;
+select * from ms_product;
+
+---------------------------------------------------------------
+-- 상품 삽입
+DECLARE
+    v_product_code NUMBER := 22; -- 상품 코드 입력
+    v_product_category VARCHAR2(1) := 'A'; -- 상품 카테고리 입력
+    v_product_number VARCHAR2(20); -- 상품 번호 생성을 위한 변수
+    
+BEGIN
+    -- 상품 번호 생성
+    v_product_number := v_product_category || LPAD(v_product_code, 3, '0'); -- product_number 생성
+    
+    -- 상품 테이블에 데이터 삽입
+    INSERT INTO ms_product (product_code, product_category, product_number, product_name, price, stock_quantity, options, product_img)
+    VALUES (v_product_code, v_product_category, v_product_number, '상품 1', 10000, 50, '옵션1, 옵션2', '상품1.jpg');
+    
+    -- 필요한 만큼 데이터 추가할 수 있습니다.
+    -- 추가 작업을 여기에 추가할 수 있습니다.
+    
+END;
+/
+-------------------------------------------------
+
 
 -- 회사정보
 CREATE TABLE ms_company (
