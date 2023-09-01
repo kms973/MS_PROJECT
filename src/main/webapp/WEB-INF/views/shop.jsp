@@ -47,7 +47,7 @@
                    		<div class="blog-grid-img position-relative"><img alt="img" src="https://www.bootdey.com/image/480x480/00FFFF/000000"></div>
                    		<div class="blog-grid-text p-3">
                        		<h3 class="h5 mb-3">제품명</h3>
-                       		<p class="display-30">\580,000</p>
+                       		<p class="display-30">\1,200,000</p>
                			</div>
        				</div>
 				</a>
