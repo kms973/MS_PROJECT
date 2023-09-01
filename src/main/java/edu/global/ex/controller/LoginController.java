@@ -99,9 +99,9 @@ public class LoginController {
 		return "/login/googleLogin";
 	}
 
-	@RequestMapping("/google-callback")
+	@RequestMapping("/login/google-callback")
 	public String callback() {
-		return "/google-callback";
+		return "/login/google-callback";
 	}
 	
 	// // 구 회원가입성공페이지 

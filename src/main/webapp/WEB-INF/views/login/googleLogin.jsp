@@ -12,7 +12,7 @@
             var email = profile.getEmail();
  
             // 리디렉션 페이지로 이동하고, 이름과 이메일 정보를 전달
-            window.location.href = "/google-callback?name=" + encodeURIComponent(name) + "&email=" + encodeURIComponent(email);
+            window.location.href = "/login/userprofile?name=" + encodeURIComponent(name) + "&email=" + encodeURIComponent(email);
         }
 
         function onFailure(error) {

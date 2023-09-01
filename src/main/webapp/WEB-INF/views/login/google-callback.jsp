@@ -23,7 +23,7 @@ String code = request.getParameter("code");
 
 // 인증 코드로 토큰을 받아옴
 GoogleTokenResponse tokenResponse = flow.newTokenRequest(code)
-    .setRedirectUri("http://localhost:8008/google-callback")
+    .setRedirectUri("http://localhost:8008/login/google-callback")
     .execute();
 
 // 토큰으로 Credential 생성
