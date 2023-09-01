@@ -1,53 +1,66 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!-- C태그 쓰기 위해 넣은 taglib므로 반드시 확인 -->
+<!-- header 시작 -->
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+	
+<div class="container wrap">
+	<div id="sub-bnr"><h5>Shop</h5></div>
+	<div class="selec-box d-flex align-items-center justify-content-end">
+		<select class="form-select" aria-label="Default select example" style="width:10%">
+		  <option value="1" selected>추천순</option>
+		  <option value="2">신상순</option>
+		  <option value="3">판매순</option>
+		  <option value="4">리뷰순</option>
+		</select>
+	</div>
+</div>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-	<table width="1000" border="1">
-		<tr>
-			<td>번호</td>
-			<td>이름</td>
-			<td>가격</td>
-			<td>재고</td>
-			<td>옵션</td>
-			<td>사진</td>
-		</tr>
+<section id="board-all">
+   	<div class="container wrap px-4 px-lg-5 mt-5">
+   		<div class="row mt-n5">
+   		<c:forEach var="shop" items="${ShopProductList}">
+            <div class="col-md-6 col-lg-4 mt-5 wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+              		<a href="#!" class="text-center">
+	                <div class="blog-grid">
+	                    <div class="blog-grid-img position-relative"><img alt="img" src="https://www.bootdey.com/image/480x480/00FFFF/000000"></div>
+	                    <div class="blog-grid-text p-3">
+	                        <h3 class="h5 mb-3">${shop.productName}</h3>
+	                        <p class="display-30">\ ${shop.price}</p>
+	                    </div>
+	                </div>
+                  	</a>
+            </div>
+            </c:forEach>
+           </div>
+           
+           <!-- paging -->
+           <nav aria-label="Page navigation example">
+		  <ul class="pagination justify-content-center">
+		    <li class="page-item">
+		      <a class="page-link" href="#" aria-label="Previous">
+		        <span aria-hidden="true">&laquo;</span>
+		      </a>
+		    </li>
+		    <c:if test="${pageMaker.prev}">
+		    <li class="page-item"><a class="page-link" href="home${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a></li>
+		    </c:if>
+		    <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
+		    <li class="page-item"><a class="page-link" href="home${pageMaker.makeQuery(idx)}">${idx}</a></li>
+		    </c:forEach>
+		    <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+		    <li class="page-item"><a class="page-link" href="home${pageMaker.makeQuery(pageMaker.endPage +1) }">»</a></li>
+		      </c:if> 
+		    <li class="page-item">
+		      <a class="page-link" href="#" aria-label="Next">
+		        <span aria-hidden="true">&raquo;</span>
+		      </a>
+		    </li>
+		  </ul>
+		</nav>
+       </div>
+   </section>
+<!-- footer 시작 -->
+<jsp:include page="/WEB-INF/views/footer.jsp" />
 
-		<!--이때 list는 BListCommand에서 메모리에 올린 list를 뜻함. 포워딩시까지 살아있으므로-->
-		<!--forEach문을 이용해 데이터를 꺼낼 수 있다.-->
-		<c:forEach var="shop" items="${ShopProductList}">
-			<tr>
-				<td>${shop.productNumber}</td>
-				<td>${shop.productName}</td>
-				
-				<td>${shop.price}</td>
-				<td>${shop.stock}</td>
-				<td>${shop.options}</td>
-				<td><img src="${shop.img }" style="width:100px; height:100px;"></td>
-			</tr>
-		</c:forEach>
 
-		
-	</table>
-
-	<c:if test="${pageMaker.prev}">
-      <a href="home${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
-   </c:if>
-   
-    <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
-      <a href="home${pageMaker.makeQuery(idx)}">${idx}</a>
-   </c:forEach> 
-   
-   <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-            <a href="home${pageMaker.makeQuery(pageMaker.endPage +1) }"> » </a>
-   </c:if> 
-
-</body>
-</html>
