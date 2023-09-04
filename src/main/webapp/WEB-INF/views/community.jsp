@@ -30,36 +30,66 @@
 		      </li>
 		      <li id="content-2">
 		      	<div class="accordion accordion-flush" id="accordionFlushExample">
-	  			  <div class="accordion-item">
-				    <h2 class="accordion-header" id="flush-headingOne">
-				      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-				        Q. 환불관련 규정입니다.
-				      </button>
-				    </h2>
-				    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-				      <div class="accordion-body">구매하신 날로부터 영업일 기준 일주일 이내 구매 영수증을 지참하시어 방문하시면 환불이 가능합니다.<br>영수증 미지참 또는 시일이 경과할 경우 환불이 어렵기 때문에 참고 부탁드리겠습니다.</div>
-				    </div>
-				  </div>
-				  <div class="accordion-item">
-				    <h2 class="accordion-header" id="flush-headingTwo">
-				      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-				        Q. 배송을 얼마나 걸리나요?
-				      </button>
-				    </h2>
-				    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-				      <div class="accordion-body">배송은 구매일 기준으로 3-5일 소요됩니다.<br>(단, 주말을 포함하지 않고 평일 기준입니다.)</div>
-				    </div>
-				  </div>
-				  <div class="accordion-item">
-				    <h2 class="accordion-header" id="flush-headingThree">
-				      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-				        Q. 세번째 질문 입니다.
-				      </button>
-				    </h2>
-				    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-				      <div class="accordion-body">세번째 질문의 대한 답변입니다. </div>
-				    </div>
-				  </div>
+		      		<div id="Accordion_wrap">
+		      			<div class="que d-flex justify-contents-between">
+		      				<span>This is first question.</span>
+		      				<div class="arrow-wrap">
+				         		<span class="arrow-top"><i class="xi-angle-up"></i></span>
+				        		<span class="arrow-bottom"><i class="xi-angle-down"></i></span>
+				       		</div>
+				     	</div>
+				     	<div class="anw">
+					     	<span>This is first answer.</span>
+				     	</div>
+					</div>
+					<div id="Accordion_wrap">
+		      			<div class="que d-flex justify-contents-between">
+		      				<span>This is first question.</span>
+		      				<div class="arrow-wrap">
+				         		<span class="arrow-top"><i class="xi-angle-up"></i></span>
+				        		<span class="arrow-bottom"><i class="xi-angle-down"></i></span>
+				       		</div>
+				     	</div>
+				     	<div class="anw">
+					     	<span>This is first answer.</span>
+				     	</div>
+					</div>
+					<div id="Accordion_wrap">
+		      			<div class="que d-flex justify-contents-between">
+		      				<span>This is first question.</span>
+		      				<div class="arrow-wrap">
+				         		<span class="arrow-top"><i class="xi-angle-up"></i></span>
+				        		<span class="arrow-bottom"><i class="xi-angle-down"></i></span>
+				       		</div>
+				     	</div>
+				     	<div class="anw">
+					     	<span>This is first answer.</span>
+				     	</div>
+					</div>
+					<div id="Accordion_wrap">
+		      			<div class="que d-flex justify-contents-between">
+		      				<span>This is first question.</span>
+		      				<div class="arrow-wrap">
+				         		<span class="arrow-top"><i class="xi-angle-up"></i></span>
+				        		<span class="arrow-bottom"><i class="xi-angle-down"></i></span>
+				       		</div>
+				     	</div>
+				     	<div class="anw">
+					     	<span>This is first answer.</span>
+				     	</div>
+					</div>
+					<div id="Accordion_wrap">
+		      			<div class="que d-flex justify-contents-between">
+		      				<span>This is first question.</span>
+		      				<div class="arrow-wrap">
+				         		<span class="arrow-top"><i class="xi-angle-up"></i></span>
+				        		<span class="arrow-bottom"><i class="xi-angle-down"></i></span>
+				       		</div>
+				     	</div>
+				     	<div class="anw">
+					     	<span>This is first answer.</span>
+				     	</div>
+					</div>
 				</div>
 		      </li>
 		      <li id="content-3">탭 내용3</li> 
@@ -72,8 +102,11 @@
 <!-- footer 시작 -->
 <jsp:include page="/WEB-INF/views/footer.jsp" />
 <script>
-const dropdownElementList = document.querySelectorAll('.dropdown-toggle')
-const dropdownList = [...dropdownElementList].map(dropdownToggleEl => new bootstrap.Dropdown(dropdownToggleEl))
+$(".que").click(function() {
+	$(this).next(".anw").stop().slideToggle(300);
+	$(this).toggleClass('on').siblings().removeClass('on');
+	$(this).next(".anw").siblings(".anw").slideUp(300); // 1개씩 펼치기
+});
 </script>
 <script>
 $('.tab').each(function(i) {
@@ -97,5 +130,5 @@ $('.tab').each(function(i) {
       return false;
     });
 
-  });
+});
 </script>

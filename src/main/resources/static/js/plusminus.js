@@ -21,10 +21,10 @@ function count(type) {
   const totalPrice = quantity * price;
   
   // 가격 업데이트
-  priceElement.innerHTML = '<h5>₩ ' + (price * quantity).toLocaleString() + '</h5>'; // 가격 업데이트
+  priceElement.innerHTML = '<h5 class="mb-0">₩ ' + (price * quantity).toLocaleString() + '</h5>'; // 가격 업데이트
   
   // 총 상품금액 업데이트
-  totalPriceElement.innerHTML = '<h5><strong>₩ ' + totalPrice.toLocaleString() + '</strong></h5>'; // 금액을 포맷팅하여 표시
+  totalPriceElement.innerHTML = '<h5 class="mb-0"><strong>₩ ' + totalPrice.toLocaleString() + '</strong></h5>'; // 금액을 포맷팅하여 표시
   
   // 수량 업데이트
   quantityElement.innerText = quantity;
