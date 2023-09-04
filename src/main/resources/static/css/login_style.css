@@ -1,83 +1,27 @@
 /* Sections */
-.accounts_container {
-			width: 500px;
-            height: 480px;
-            max-height: 100%;
-            border-radius: 10px;
-            box-shadow: 8px 8px 8px rgba(0,0,0,0.1);
-            background-color: #fcfcfc;
-            overflow: hidden; 
-        }
-
-
-.accounts_col form .form-group{ position: relative !important; }
-.accounts_col form .form-control { font-size:1.2rem; padding:10px 10px; margin-bottom: 10px; background:transparent !important; }
-.accounts_col form label,
-.accounts_col form .form-group i {
-    position:absolute;
-    z-index: 1;
-    pointer-events: none;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size:1.2rem;
-    left:10px;
-
-}
-.accounts_col form label{
-    transition: .2s linear;
-}
-.change_label{
-    background-color:#fcfcfc;
-    transition: .2s linear;
-    transform: scale(0.8);
-    top:0 !important;
-}
-.accounts_col form .form-group i{
-    left:90% !important;
-    cursor: pointer;
-    pointer-events:visible;
+.form-signin {
+  max-width: 500px;
+  padding: 1rem;
 }
 
-.already_member_box p,
-.already_member_box span{
-    cursor: pointer;
-}
-.login_form{
-    display:none;
+.form-signin .form-floating:focus-within {
+  z-index: 2;
 }
 
-.separator{
-  display:block;
-  margin:20px auto 10px;
-  text-align:center;
-  height:20px;
-  position:relative;
-  background:transparent;
-  color: rgba(#0f132a,.4);
-  font-size:13px;
-  width:90%;
-  max-width:680px;
-  &::before{
-    content:"";
-    position:absolute;
-    top:8px;
-    left:0;
-    background: rgba(#0f132a,.2);
-    height:1px;
-    width:45%;
-  }
-  &::after{
-    content:"";
-    position:absolute;
-    top:8px;
-    right:0;
-    background: rgba(#0f132a,.2);
-    height:1px;
-    width:45%;
-  }
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
-input#checkId {
-	position: relative;
-	top: 2px;
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.fz-75 { font-size: .75rem; }
+
+.was-validated {
+	.invalid-feedback, .valid-tooltip { display: block; position: static; font-size: .75rem; }
 }
