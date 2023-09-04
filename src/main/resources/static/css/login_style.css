@@ -1,6 +1,6 @@
 /* Sections */
 .form-signin {
-  max-width: 500px;
+  max-width: 380px;
   padding: 1rem;
 }
 
@@ -23,5 +23,6 @@
 .fz-75 { font-size: .75rem; }
 
 .was-validated {
-	.invalid-feedback, .valid-tooltip { display: block; position: static; font-size: .75rem; }
+	.invalid-feedback, .valid-tooltip {  position: static; font-size: .75rem; }
 }
+.form-check-input:valid, .form-check-input.is-valid { border-color: none; }
