@@ -13,8 +13,8 @@
     <h1>구글 로그인 정보</h1>
     <p>이름 : <span id="name"></span></p>
     <p>사용자 아이디 : <span id="userId"></span></p>
-    <p>생년월일 : <span id="birthday"></span></p>
-    <p>주소 : <span id="address"></span></p>
+  	<!--<p>생년월일 : <span id="birthday"></span></p>
+    <p>주소 : <span id="address"></span></p>-->
 
     <!-- 구글 로그인 버튼 -->
     <button onclick="signInWithGoogle()">구글로 로그인</button>
@@ -39,14 +39,14 @@
                 var email = profile.getEmail();
                 var userId = extractUserId(email);
                 var name = profile.getName();
-                var birthday = ""; // Google API에서 직접 생년월일을 가져오는 방법은 없습니다.
-                var address = ""; // Google API에서 주소 정보를 가져오는 방법은 없습니다.
+                //var birthday = ""; 
+                //var address = ""; 
 
                 // 정보를 화면에 표시
                 document.getElementById('name').textContent = name;
                 document.getElementById('userId').textContent = userId;
-                document.getElementById('birthday').textContent = birthday;
-                document.getElementById('address').textContent = address;
+                //document.getElementById('birthday').textContent = birthday;
+                //document.getElementById('address').textContent = address;
             });
         }
 
