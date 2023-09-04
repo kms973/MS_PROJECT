@@ -148,10 +148,13 @@
     </dependency>
     <dependency>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-security</artifactId>
     </dependency>
     <dependency>
+=======
+>>>>>>> parent of c76d345 (오류 복원)
 =======
 >>>>>>> parent of c76d345 (오류 복원)
         <groupId>org.springframework.security.oauth.boot</groupId>
