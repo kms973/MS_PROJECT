@@ -147,10 +147,13 @@
         <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
     <dependency>
+<<<<<<< HEAD
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-security</artifactId>
     </dependency>
     <dependency>
+=======
+>>>>>>> parent of c76d345 (오류 복원)
         <groupId>org.springframework.security.oauth.boot</groupId>
         <artifactId>spring-security-oauth2-autoconfigure</artifactId>
     </dependency>
