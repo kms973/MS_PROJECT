@@ -69,7 +69,7 @@
 				</div>
 		    </div>
 		    <div class="icon-btn d-flex">
-		        <div><a href="#" class="d-block link-dark" id="dropdownUser2" aria-expanded="false"><i class="fa-solid fa-cart-shopping"></i></a></div>
+		        <div><a href="cart" class="d-block link-dark" id="dropdownUser2" aria-expanded="false"><i class="fa-solid fa-cart-shopping"></i></a></div>
 		    </div>
 		    <div class="icon-btn d-flex">
 		    	<div><a href="#" class="d-block link-dark" id="dropdownUser3" aria-expanded="false"><i class="fa-solid fa-magnifying-glass"></i></a></div>

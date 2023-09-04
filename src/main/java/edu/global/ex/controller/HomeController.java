@@ -64,6 +64,18 @@ public class HomeController {
 		return "/shop";
 	}
 	
+	@GetMapping("/cart")
+	public String cart() {
+		log.info("cart()..");
+		return "/cart";
+	}
+	
+	@GetMapping("/pay")
+	public String pay() {
+		log.info("pay()..");
+		return "/pay";
+	}
+	
 	@GetMapping("/ring")
 	public String ring() {
 		log.info("ring()..");
