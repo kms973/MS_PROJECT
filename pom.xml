@@ -92,10 +92,6 @@
 			<artifactId>HikariCP</artifactId>
 			<version>4.0.3</version>
 		</dependency>
-
-		<!-- >>>>>>> branch 'master' of https://github.com/kms973/MS_PROJECT.git -->
-
-
 		<!-- 스프링 시큐리티 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -138,10 +134,19 @@
 			<version>v2-rev157-1.25.0</version>
 		</dependency>
 
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-thymeleaf</artifactId>-->
-<!--		</dependency>-->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+    <!--<dependency>
+        <groupId>org.springframework.security.oauth.boot</groupId>
+        <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+    </dependency>-->
+
 	</dependencies>
 
 	<build>
