@@ -42,7 +42,7 @@
 				</a>
             </div>
             <div class="data_item col-md-6 col-lg-4 mt-5 wow fadeInUp" data-type="R" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-            	<a href="/shop/ring" class="text-center">
+            	<a href="#!" class="text-center">
                		<div class="blog-grid">
                    		<div class="blog-grid-img position-relative"><img alt="img" src="https://www.bootdey.com/image/480x480/00FFFF/000000"></div>
                    		<div class="blog-grid-text p-3">
