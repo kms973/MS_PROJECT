@@ -14,8 +14,8 @@
     <h1>구글 로그인 정보</h1>
     <p id="name">이름 : </p>
     <p id="userId">사용자 아이디 : </p>
-    <p id="birthday">생년월일 : </p>
-    <p id="address">주소 : </p>
+    <!--<p id="birthday">생년월일 : </p>
+    <p id="address">주소 : </p>-->
 
     <script>
         // client_secret JSON 파일의 경로
@@ -41,16 +41,16 @@
             const email = userInfo.data.email;
             const userId = extractUserId(email); // 사용자 아이디 추출
             const name = userInfo.data.name;
-            const birthday = userInfo.data.birthday;
-            const addresses = userInfo.data.addresses;
+            //const birthday = userInfo.data.birthday;
+            //const addresses = userInfo.data.addresses;
 
             document.getElementById('name').textContent += name;
             document.getElementById('userId').textContent += userId;
-            document.getElementById('birthday').textContent += birthday;
+            //document.getElementById('birthday').textContent += birthday;
 
-            if (addresses && addresses.length > 0) {
-                document.getElementById('address').textContent += addresses[0].formatted;
-            }
+            //if (addresses && addresses.length > 0) {
+            //    document.getElementById('address').textContent += addresses[0].formatted;
+            //}
         }
 
         // 사용자 아이디 추출 메소드
