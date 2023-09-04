@@ -52,6 +52,12 @@ public class HomeController {
     return "index";
 	}
 	
+	@GetMapping("/shop/ring")
+	public String shopRing() {
+		log.info("shopRing()..");
+		return "/shop/ring";
+	}
+	
 	@GetMapping("/community")
 	public String community() {
 		log.info("community()..");
