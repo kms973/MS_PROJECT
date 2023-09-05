@@ -1,0 +1,34 @@
+.fa-trash-can{
+	font-size:16px;
+	line-height:16px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+table{border-top: 1px solid #000000;
+border-color: #000 !important;
+}
+
+thead th {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    padding-right: 0 !important;
+    padding-left: 22 !important;
+}
+
+.rightarea{
+	border:1px solid #000000;
+	margin-bottom: 20px;
+}
+.costline{margin-top: 20px;
+		  margin-left: 10px;
+		  margin-right: 10px;}
+.costtext{margin-top: 10px;
+		  margin-left: 10px;
+		  margin-right: 10px;}
+.cost{float:right;}
+.line{border: 1px solid #000000; margin-top: 20px;}
+#bttn{font-size:16px; width:100%; background-color:#fff; font-weight:lighter;}

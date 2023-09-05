@@ -18,6 +18,7 @@
 <link href="/css/style.css" rel="stylesheet" />
 <link href="/css/login_style.css" rel="stylesheet" />
 <link href="/css/detail.css" rel="stylesheet" />
+<link href="/css/cart.css" rel="stylesheet" />
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
 <!-- MDB -->
@@ -31,6 +32,7 @@
 <script src="/js/plusminus.js"></script>
 <script src="/js/scripts.js"></script>
 <script src="/js/login_scripts.js"></script>
+<script src="/js/cart.js"></script>
 </head>
 <body>
 	<header id="header" class="p-2 fixed-top">
