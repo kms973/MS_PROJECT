@@ -29,7 +29,42 @@
 			<id>oracle</id>
 			<url>http://www.datanucleus.org/downloads/maven2/</url>
 		</repository>
+		<repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
 	</repositories>
+	
+	 <pluginRepositories>
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
 
 	<!-- 의존성 라이브러리 -->
 	<dependencies>
@@ -142,7 +177,12 @@
 			<artifactId>google-api-services-oauth2</artifactId>
 			<version>v2-rev157-1.25.0</version>
 		</dependency>
+	
+	
+	
 	</dependencies>
+	
+	
 
 	<!-- Maven 빌드 설정 -->
 	<build>
