@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!-- header 시작 -->
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
@@ -31,15 +33,15 @@ margin-bottom :100px;
 	<div class="form-signup m-auto">
 		<h2 class="mt-5 text-center">회원가입</h2>
 
-		<form>
+		<form:form method="post" action="/login/signuptest">
 			<div class="form-floating form-group my-2">
-				<input type="email" class="form-control" id="username"
+				<input type="email" class="form-control" id="username" name="username"
 					placeholder="name@example.com" required> <label
 					for="floatingInput">이메일</label>
 				<div class="invalid-feedback">이메일을 입력해주세요.</div>
 			</div>
 			<div class="form-floating my-2">
-				<input type="password" class="form-control" id="password"
+				<input type="password" class="form-control" id="password" name="password"
 					placeholder="Password" required> <label
 					for="floatingPassword">비밀번호</label>
 				<div class="invalid-feedback">비밀번호를 입력해주세요.</div>
@@ -51,13 +53,13 @@ margin-bottom :100px;
 				<div class="invalid-feedback">비밀번호를 입력해주세요.</div>
 			</div>
 			<div class="form-floating my-2">
-				<input type="text" class="form-control" id="cname"
+				<input type="text" class="form-control" id="cname" name="cname"
 					placeholder="name" required> <label for="floatingname">이름</label>
 				<div class="invalid-feedback">이름을 입력해주세요.</div>
 			</div>
 	
 			<div class="form-floating d-flex my-2">
-				<input type="text" name="comAddress" id="caddress1"
+				<input type="text" name="caddress1" id="caddress1"
 					placeholder="주소" class="form-control phone-mask"> <label
 					for="floatingname">주소</label>
 				<div class="invalid-feedback">주소를 입력해주세요.</div>
@@ -65,22 +67,22 @@ margin-bottom :100px;
 					value="우편번호" class="phone-mask">
 			</div>
 			<div class="form-floating my-2">
-				<input type="text" id="caddress2" placeholder="도로명주소"
+				<input type="text" id="caddress2" name="caddress2" placeholder="도로명주소"
 					class="form-control phone-mask"> <label for="floatingname">도로명주소</label>
 				<div class="invalid-feedback">도로명주소를 입력해주세요.</div>
 			</div>
 			<div class="form-floating my-2">
-				<input type="text" id="caddress3" placeholder="지번주소"
+				<input type="text" id="caddress3" name="caddress3" placeholder="지번주소"
 					class="form-control phone-mask"> <label for="floatingname">지번주소</label>
 				<div class="invalid-feedback">지번주소를 입력해주세요.</div>
 			</div>
 			<div class="form-floating my-2">
-				<input type="text" id="caddress5" placeholder="상세주소"
+				<input type="text" id="caddress5" name="caddress5" placeholder="상세주소"
 					class="form-control phone-mask"> <label for="floatingname">상세주소</label>
 				<div class="invalid-feedback">상세주소를 입력해주세요.</div>
 			</div>
 			<div class="form-floating my-2">
-				<input type="text" id="caddress4" placeholder="참고항목"
+				<input type="text" id="caddress4" name="caddress4" placeholder="참고항목"
 					class="form-control phone-mask"> <label for="floatingname">참고항목</label>
 				<div class="invalid-feedback">참고헝목을 입력해주세요.</div>
 				<span id="guide" style="color: #999; display: none"></span>
@@ -201,7 +203,7 @@ margin-bottom :100px;
 				</tr>
 			</table>
 			<button type="submit" class="btn btn-primary">회원가입</button>
-		</form>
+		</form:form>
 
 		<script>
 			const checkboxes = document.querySelectorAll('.form-check-input');
