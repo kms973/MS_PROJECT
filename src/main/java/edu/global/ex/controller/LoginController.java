@@ -98,7 +98,6 @@ public class LoginController {
 		log.info("googlelogin");
 		return "/login/googleLogin";
 	}	
-	
 	@GetMapping("/login/social")
 	public String sociallogin() {
 		log.info("sociallogin");
@@ -108,12 +107,6 @@ public class LoginController {
 	@RequestMapping("/login/google-callback")
 	public String callback() {
 		return "/login/google-callback";
-	}
-	
-	@GetMapping("/login/google2")
-	public String google2() {
-		log.info("google2");
-		return "/login/google2";
 	}
 	
 	// // 구 회원가입성공페이지 
