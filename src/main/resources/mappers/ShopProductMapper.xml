@@ -7,6 +7,8 @@
 
 	<resultMap id="shopProductMap"
 		type="edu.global.ex.vo.ShopProductVO">
+		<result property="productCode" column="product_code" />
+		<result property="productCategory" column="product_category" />
 		<result property="productNumber" column="product_number" />
 		<result property="productName" column="product_name" />
 		<result property="price" column="price" />

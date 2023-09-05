@@ -6,41 +6,57 @@
 <section id="login" class="board container wrap">
 	<!-- <div id="sub-bnr"><h5>Commuunity</h5></div> -->
 	<!-- TAB 메뉴 -->
-   	<div class="container wrap">
-		<div class="col justify-contant-center col-sm-5 col-md-5 m-0 p-0 accounts_col">
-			<div id="sub-bnr"><h5 class="justify-content-center">Login</h5></div>
-			<!--accounts_forms-->
-			<div class="accounts_forms  w-100 h-100" id="login">
-			  	<!--title-->
-			  	<form method="post" name="form" class="form p-4" id="form">
-					<div class="form-group"><input type="email" placeholder="이메일" name="email" class="form-control" id="id" onfocus="labelUp(this)" onblur="labelDown(this)" required /></div>
-					<div class="form-group">
-				  		<i class="fa fa-eye-slash" id="eye_icon_login"></i>
-				  		<input type="password" placeholder="비밀번호" name="pass" class="form-control" id="login_password" onfocus="labelUp(this)" onblur="labelDown(this)" required />
-						</div>
+   	<div class="form-signin w-100 m-auto">
+	  	<form class="needs-validation" novalidate>
+	    	<div id="sub-bnr"><h5 class="justify-content-center">Login</h5></div>
+		    <div class="form-floating form-group">
+		      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+		      <label for="floatingInput">이메일</label>
+		      <div class="invalid-feedback">이메일을 입력해주세요.</div>
+		    </div>
+		    <div class="form-floating">
+		      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+		      <label for="floatingPassword">비밀번호</label>
+		      <div class="invalid-feedback">비밀번호를 입력해주세요.</div>
+		    </div>
 
-						<div class="box d-flex align-items-center justify-content-between my-4">
-						<span class="input-wrap">
-							<input type="checkbox" id="checkId" name="checkId">
-							<label for="checkId"></label>아이디 저장
-						</span>
-						<ul class="find d-flex align-items-center mb-0" style="list-style-type: none; padding-left: 0;">
-							<li class="idSearch mr-4" id="idSearch" style="cursor: pointer">아이디 찾기</li>
-							<li class="pwSearch mr-4" id="pwSearch" style="cursor: pointer">비밀번호 찾기</li>
-							<li class="signUp" id="signUp" style="cursor: pointer">회원가입</li>
-						</ul>
-					</div>
-					<div class="form-group"><button type="submit" class="btn btn-primary register_btn w-100">로그인</button></div>
-				
-			    	<!-- separator -->
-					<div class="separator"><p>OR</p></div>
-
-					<!-- google button -->
-					<div class="form-group"><button class="btn btn-primary w-100 google__btn"><i class="fa fa-google"></i>Sign in with Google</button></div>
-				</form>
+		    <div class="box d-flex align-items-center justify-content-between my-3 fz-75">
+			    <span class="input-wrap"><input type="checkbox" id="checkId" name="checkId" class="form-check-input" value="remember-me" style="position:relative; top: -2px;"><label for="checkId"></label>아이디 저장</span>
+				<ul class="find d-flex align-items-center mb-0" style="list-style-type: none; padding-left: 0;">
+			    	<li class="idSearch mr-4" id="idSearch" style="cursor: pointer">아이디 찾기</li>
+			    	<li class="pwSearch mr-4" id="pwSearch" style="cursor: pointer">비밀번호 찾기</li>
+			    	<li class="signUp" id="signUp" style="cursor: pointer">회원가입</li>
+				</ul>
 			</div>
-		  </div>
+	    	<button class="btn btn-primary w-100 my-1 py-2" type="submit">Sign in</button>
+	    	<div class="d-flex justify-content-center align-items-center w-100 text-center my-1 py-1">OR</div>
+	    	<button class="btn btn-dark w-100 my-1 py-2" type="">Sign in with Google</button>
+	    	<button class="btn btn-dark w-100 my-1 py-2" type="">Sign in with KakaoTalk</button>
+	  	</form>
 	</div>
- </section>
+</section>
+<script>
+//Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+   'use strict'
+
+   // Fetch all the forms we want to apply custom Bootstrap validation styles to
+   var forms = document.querySelectorAll('.needs-validation')
+
+   // Loop over them and prevent submission
+   Array.prototype.slice.call(forms)
+     .forEach(function (form) {
+       form.addEventListener('submit', function (event) {
+         if (!form.checkValidity()) {
+           event.preventDefault()
+           event.stopPropagation()
+         }
+
+         form.classList.add('was-validated')
+         // 서버 연동 처리
+       }, false);
+     }, false);
+   }());
+ </script>
 <!-- footer 시작 -->
 <jsp:include page="/WEB-INF/views/footer.jsp" />

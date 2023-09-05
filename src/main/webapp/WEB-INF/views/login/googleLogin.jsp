@@ -13,7 +13,9 @@
  
             // 리디렉션 페이지로 이동하고, 이름과 이메일 정보를 전달
             window.location.href = "/login/userprofile?name=" + encodeURIComponent(name) + "&email=" + encodeURIComponent(email);
-        }
+            console.log(name);
+            }
+        
 
         function onFailure(error) {
             console.log(error);
