@@ -39,6 +39,13 @@
 						</tr>
 					</thead>
 					<tbody>
+					<c:forEach var="boardList" items="${boardList}">
+			         <tr>
+			         
+			           <td>${boardList.bid}</td>			         
+			           <td>${boardList.btitle}</td>
+			           <td>${boardList.bname}</td>
+			           <td>${boardList.bdate}</td>
 						<tr>
 			                <td class="no-no table-no">1</td>
 			                <td class="no-tit table-tit"><a href="#">첫 번째 공지</a></td>
@@ -51,6 +58,7 @@
 			                </td>
 			                </sec:authorize>
 			            </tr>
+			             </c:forEach>
 						<%--><c:choose>
 				            <c:when test="${not empty noticeList}">
 				                <c:forEach items="${noticeList}" var="faqItem">
