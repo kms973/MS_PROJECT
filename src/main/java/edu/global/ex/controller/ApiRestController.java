@@ -58,7 +58,7 @@ public class ApiRestController {
 	    }
 
 	    // 구글에서 리다이렉션
-	    @GetMapping(value = "/login/oauth_google_check")
+	    @GetMapping(value = "/login/google-callback")
 	    public String oauth_google_check(HttpServletRequest request,
 	                                     @RequestParam(value = "code") String authCode,
 	                                     HttpServletResponse response) throws Exception{

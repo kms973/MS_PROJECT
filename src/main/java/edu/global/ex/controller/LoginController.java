@@ -24,10 +24,9 @@ public class LoginController {
 	@Autowired
 	private MsUserMapper userMapper;
 
-	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-	
+
 	@GetMapping("/login")
 	public String login() {
 		return "/admin/login";
@@ -38,9 +37,8 @@ public class LoginController {
 
 		String user_id;
 
-		
 		// 1.SpringContextHolder를 통하여 가져오는 방법(일반적인 빈에서 사용 할수있음 )
-//		org.springframework.security.core.Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		//		org.springframework.security.core.Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		// user_id = auth.getName();
 		// System.out.println("유저 아이디:" + user_id);
 		// 2.authentication 객체로 가져오는 방법(많은 )
@@ -53,52 +51,40 @@ public class LoginController {
 		return "redirect:/";
 
 	}
+
 	public class RegisterController {
 
-	    @RequestMapping(value = "/login/register", method = RequestMethod.POST)
-	    public String MemberRegistrationServlet(@RequestParam("userId") String userId, 
-	                               @RequestParam("name") String name, 
-	                               @RequestParam("birthday") String birthday,
-	                               @RequestParam("address") String address,
-	                               @RequestParam("password") String password) {
-	        // 회원 등록 로직 구현
-	        // 데이터베이스 저장 등의 작업 수행
-	        
-	    	return "/login/registration_complete"; // 회원 등록 성공 페이지로 이동
-	    }
+		@RequestMapping(value = "/login/register", method = RequestMethod.POST)
+		public String MemberRegistrationServlet(@RequestParam("userId") String userId,
+				@RequestParam("name") String name,
+				@RequestParam("birthday") String birthday,
+				@RequestParam("address") String address,
+				@RequestParam("password") String password) {
+			// 회원 등록 로직 구현
+			// 데이터베이스 저장 등의 작업 수행
+
+			return "/login/registration_complete"; // 회원 등록 성공 페이지로 이동
+		}
 	}
-	
+
 	@GetMapping("/login/login")
 	public String userlogin() {
-		
+
 		return "/login/login";
 	}
-	
+
 	@GetMapping("/logout")
 	public String userlogout() {
-		
-		return "/login/login_regacy";
-	}
-	
 
-	@GetMapping("/login/index")
-	public String loginindex() {
-		log.info("loginindex");
-		return "/login/index";
+		return "/login/login";
 	}
-	
-	@GetMapping("/login/signup")
-	public String loginsignUp() {
-		log.info("loginsignup");
-		return "/login/signUp";
-	}	
-	
+
 	@GetMapping("/login/google")
 	public String googlelogin() {
 		log.info("googlelogin");
 		return "/login/googleLogin";
-	}	
-	
+	}
+
 	@GetMapping("/login/social")
 	public String sociallogin() {
 		log.info("sociallogin");
@@ -109,38 +95,30 @@ public class LoginController {
 	public String callback() {
 		return "/login/google-callback";
 	}
-	
+
 	@GetMapping("/login/google2")
 	public String google2() {
 		log.info("google2");
 		return "/login/google2";
 	}
-	
-	// // 구 회원가입성공페이지 
-	// @PostMapping("/login/registration_complete")
-	// public String loginRegister() {
-	// 	log.info("loginregister");
-	// 	return "/login/registration_complete";
-	// }
-	
-	
-	@GetMapping("/login/signuptest")
+
+	@GetMapping("/login/signup")
 	public String signuptest() {
-		
-		
+
 		return "/login/signuptest";
 	}
-	
+
 	@PostMapping("/login/signuptest")
 	public String signuptest(MsUserVO user) {
-		
+
 		user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
-		
+
 		userMapper.insertUser(user);
 		userMapper.insertAuthorities(user);
-		
+
 		return "index";
 	}
+
 	@GetMapping("/login/userprofile")
 	public String userprofile() {
 		log.info("userprofile");
