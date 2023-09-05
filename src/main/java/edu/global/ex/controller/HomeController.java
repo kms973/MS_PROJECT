@@ -149,6 +149,16 @@ public class HomeController {
 
 	///// 게시판
 	
+	@PostMapping("/admin/write")
+	public String write(BoardVO boardVO) {
+
+		log.info("write()..");
+
+
+
+		return "board/write";
+	}
+	
 	@PostMapping("/admin/modify")
 	public String modify(BoardVO boardVO) {
 		log.info("modify()..");

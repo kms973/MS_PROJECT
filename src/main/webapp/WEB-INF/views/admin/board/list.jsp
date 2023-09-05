@@ -113,6 +113,11 @@
 			     </table>
 			   </div>
 			 </div>
+			<div class="row justify-content-end w-100 mx-0">
+		                <div class="d-flex justify-content-end px-0">
+		                  	<a href="write" class="btn btn-primary ">글쓰기</a>
+		                </div>
+		              </div>
         </div>
     </section>
     
