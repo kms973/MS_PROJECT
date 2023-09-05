@@ -33,13 +33,13 @@ margin-bottom :100px;
 
 		<form>
 			<div class="form-floating form-group my-2">
-				<input type="email" class="form-control" id="floatingInput"
+				<input type="email" class="form-control" id="username"
 					placeholder="name@example.com" required> <label
 					for="floatingInput">이메일</label>
 				<div class="invalid-feedback">이메일을 입력해주세요.</div>
 			</div>
 			<div class="form-floating my-2">
-				<input type="password" class="form-control" id="floatingPassword"
+				<input type="password" class="form-control" id="password"
 					placeholder="Password" required> <label
 					for="floatingPassword">비밀번호</label>
 				<div class="invalid-feedback">비밀번호를 입력해주세요.</div>
@@ -51,13 +51,13 @@ margin-bottom :100px;
 				<div class="invalid-feedback">비밀번호를 입력해주세요.</div>
 			</div>
 			<div class="form-floating my-2">
-				<input type="text" class="form-control" id="floatingname"
+				<input type="text" class="form-control" id="cname"
 					placeholder="name" required> <label for="floatingname">이름</label>
 				<div class="invalid-feedback">이름을 입력해주세요.</div>
 			</div>
 	
 			<div class="form-floating d-flex my-2">
-				<input type="text" name="comAddress" id="sample4_postcode"
+				<input type="text" name="comAddress" id="caddress1"
 					placeholder="주소" class="form-control phone-mask"> <label
 					for="floatingname">주소</label>
 				<div class="invalid-feedback">주소를 입력해주세요.</div>
@@ -65,22 +65,22 @@ margin-bottom :100px;
 					value="우편번호" class="phone-mask">
 			</div>
 			<div class="form-floating my-2">
-				<input type="text" id="sample4_roadAddress" placeholder="도로명주소"
+				<input type="text" id="caddress2" placeholder="도로명주소"
 					class="form-control phone-mask"> <label for="floatingname">도로명주소</label>
 				<div class="invalid-feedback">도로명주소를 입력해주세요.</div>
 			</div>
 			<div class="form-floating my-2">
-				<input type="text" id="sample4_jibunAddress" placeholder="지번주소"
+				<input type="text" id="caddress3" placeholder="지번주소"
 					class="form-control phone-mask"> <label for="floatingname">지번주소</label>
 				<div class="invalid-feedback">지번주소를 입력해주세요.</div>
 			</div>
 			<div class="form-floating my-2">
-				<input type="text" id="sample4_detailAddress" placeholder="상세주소"
+				<input type="text" id="caddress5" placeholder="상세주소"
 					class="form-control phone-mask"> <label for="floatingname">상세주소</label>
 				<div class="invalid-feedback">상세주소를 입력해주세요.</div>
 			</div>
 			<div class="form-floating my-2">
-				<input type="text" id="sample4_extraAddress" placeholder="참고항목"
+				<input type="text" id="caddress4" placeholder="참고항목"
 					class="form-control phone-mask"> <label for="floatingname">참고항목</label>
 				<div class="invalid-feedback">참고헝목을 입력해주세요.</div>
 				<span id="guide" style="color: #999; display: none"></span>
@@ -245,15 +245,15 @@ margin-bottom :100px;
 					}
 	
 					// 우편번호와 주소 정보를 해당 필드에 넣는다.
-					document.getElementById('sample4_postcode').value = data.zonecode;
-					document.getElementById("sample4_roadAddress").value = roadAddr;
-					document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
+					document.getElementById('caddress1').value = data.zonecode;
+					document.getElementById("caddress2").value = roadAddr;
+					document.getElementById("caddress3").value = data.jibunAddress;
 					
 					// 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
 					if(roadAddr !== ''){
-						document.getElementById("sample4_extraAddress").value = extraRoadAddr;
+						document.getElementById("caddress4").value = extraRoadAddr;
 					} else {
-						document.getElementById("sample4_extraAddress").value = '';
+						document.getElementById("caddress4").value = '';
 					}
 	
 					var guideTextBox = document.getElementById("guide");

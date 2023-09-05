@@ -2,7 +2,8 @@
 <%@ page import="java.lang.*,java.io.*,java.util.*, javax.servlet.*, javax.servlet.http.*" %>
 <%@ page import="com.google.api.client.auth.oauth2.*, com.google.api.client.googleapis.auth.oauth2.*" %>
 <%@ page import="com.google.api.services.oauth2.*" %>
-
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 <!DOCTYPE html>
@@ -11,11 +12,30 @@
     <title>구글 로그인</title>
 </head>
 <body>
-    <h1>구글 로그인 정보</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Response</title>
+
+</head>
+
+<body>
+    <h1>Google Response</h1>
+		<c:forEach var="json" items="${resultJson}">
+       {$json}
+       </c:forEach> 
+    <div id="responseContainer">
+        <!-- JSON 응답을 여기에 표시할 것입니다. -->
+       
+    </div>
+
+   
+
+    <!--  <h1>구글 로그인 정보</h1>
     <p id="name">이름 : </p>
     <p id="userId">사용자 아이디 : </p>
-    <!--<p id="birthday">생년월일 : </p>
-    <p id="address">주소 : </p>-->
+    <p id="birthday">생년월일 : </p>
+    <p id="address">주소 : </p>
 
     <script>
         // client_secret JSON 파일의 경로
@@ -65,6 +85,21 @@
         // 여기서 인증 코드를 얻어와서 getUserInfo 함수 호출
         const code = "사용자로부터 얻은 인증 코드"; // 사용자로부터 받은 코드
         getUserInfo(code);
-    </script>
+    </script> --> 
 </body>
+ <script>
+        // 서버로부터 받은 JSON 응답을 JavaScript 객체로 파싱합니다.
+        var responseData = ${resultJson}; // resultJson은 서버에서 전달한 JSON 응답입니다.
+
+        // 원하는 데이터를 추출하고 표시합니다.
+        var email = responseData.email; // 예시: JSON 응답에서 이메일 정보 추출
+        var name = responseData.name;   // 예시: JSON 응답에서 이름 정보 추출
+
+        // 표시할 HTML을 생성합니다.
+        var responseHtml = "<p>Email: " + email + "</p>";
+        responseHtml += "<p>Name: " + name + "</p>";
+
+        // HTML을 responseContainer에 추가합니다.
+        document.getElementById("responseContainer").innerHTML = responseHtml;
+    </script>
 </html>
