@@ -115,6 +115,11 @@ public class LoginController {
 		log.info("google2");
 		return "/login/google2";
 	}
+	@GetMapping("/login/googleSiballom")
+	public String googleSiballom() {
+		log.info("googleSiballom");
+		return "/login/googleSiballom";
+	}
 	
 	// // 구 회원가입성공페이지 
 	// @PostMapping("/login/registration_complete")
