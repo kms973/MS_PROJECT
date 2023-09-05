@@ -115,6 +115,14 @@ public class LoginController {
 		log.info("google2");
 		return "/login/google2";
 	}
+<<<<<<< HEAD
+=======
+	@GetMapping("/login/googleSiballom")
+	public String googleSiballom() {
+		log.info("googleSiballom");
+		return "/login/googleSiballom";
+	}
+>>>>>>> branch 'master' of https://github.com/kms973/MS_PROJECT
 	
 	// // 구 회원가입성공페이지 
 	// @PostMapping("/login/registration_complete")
