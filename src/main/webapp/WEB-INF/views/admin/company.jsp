@@ -47,7 +47,7 @@
 		                <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">회사명</label>
 		                <div class="col-sm-10">
 		                  <div class="input-group input-group-merge">
-		                    <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
+		                    <span id="basic-icon-default-fullname2" class="input-group-text"><i class="fa-regular fa-building"></i></span>
 		                    <input type="text" name="companyName" class="form-control" id="basic-icon-default-fullname" placeholder="회사명" aria-describedby="basic-icon-default-fullname2" disabled>
 		                  </div>
 		                </div>
@@ -56,8 +56,8 @@
 		                <label class="col-sm-2 col-form-label" for="basic-icon-default-company">대표자</label>
 		                <div class="col-sm-10">
 		                  <div class="input-group input-group-merge">
-		                    <span id="basic-icon-default-company2" class="input-group-text"><i class="bx bx-buildings"></i></span>
-		                    <input type="text" name="ceoName" id="basic-icon-default-company" class="form-control" placeholder="대표자" aria-describedby="basic-icon-default-company2">
+		                    <span id="basic-icon-default-company2" class="input-group-text"><i class="fa-solid fa-user"></i></span>
+		                    <input type="text" name="ceoName" id="basic-icon-default-company" class="form-control" placeholder="대표자" aria-describedby="basic-icon-default-company2" disabled>
 		                  </div>
 		                </div>
 		              </div>
@@ -65,8 +65,8 @@
 		                <label class="col-sm-2 col-form-label" for="basic-icon-default-email">사업자</label>
 		                <div class="col-sm-10">
 		                  <div class="input-group input-group-merge">
-		                    <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-		                    <input type="text" name="companyNum" id="basic-icon-default-email" class="form-control" placeholder="000-00-00000" aria-describedby="basic-icon-default-email2">
+		                    <span class="input-group-text"><i class="fa-solid fa-file-lines"></i></span>
+		                    <input type="text" name="companyNum" id="basic-icon-default-email" class="form-control" placeholder="000-00-00000" aria-describedby="basic-icon-default-email2" disabled>
 		                  </div>
 		                </div>
 		              </div>
@@ -74,24 +74,8 @@
 		                <label class="col-sm-2 form-label" for="basic-icon-default-phone">전화번호</label>
 		                <div class="col-sm-10">
 		                  <div class="input-group input-group-merge">
-		                    <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-phone"></i></span>
-		                    <input type="text" name="comTel" id="basic-icon-default-phone" class="form-control phone-mask" placeholder="대표번호" aria-describedby="basic-icon-default-phone2">
-		                  </div>
-		                </div>
-		              </div>
-		              <div class="row mb-3">
-		                <label class="col-sm-2 form-label" for="basic-icon-default-message">주소</label>
-		                <div class="col-sm-10">
-		                  <div class="input-group input-group-merge">
-		                    <!-- <span id="basic-icon-default-message2" class="input-group-text"><i class="bx bx-comment"></i></span>
-		                    <textarea id="basic-icon-default-message" class="form-control" placeholder="도로명" aria-describedby="basic-icon-default-message2"></textarea> -->
-		                  	<input type="text" name="comAddress1" id="sample4_postcode" placeholder="우편번호" class="form-control phone-mask">
-							<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" class="phone-mask"><br />
-							<input type="text" name="comAddress2" id="sample4_roadAddress" placeholder="도로명주소" class="form-control phone-mask"><br />
-							<input type="text" name="comAddress3" id="sample4_jibunAddress" placeholder="지번주소" class="form-control phone-mask"><br />
-							<span id="guide" style="color:#999;display:none"></span>
-							<input type="text" name="comAddress4" id="sample4_detailAddress" placeholder="상세주소" class="form-control phone-mask"><br />
-							<input type="text" name="comAddress5" id="sample4_extraAddress" placeholder="참고항목" class="form-control phone-mask">
+		                    <span id="basic-icon-default-phone2" class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+		                    <input type="text" name="comTel" id="basic-icon-default-phone" class="form-control phone-mask" placeholder="대표번호" aria-describedby="basic-icon-default-phone2" disabled>
 		                  </div>
 		                </div>
 		              </div>
@@ -99,14 +83,35 @@
 		                <label class="col-sm-2 form-label" for="basic-icon-default-phone">고객센터</label>
 		                <div class="col-sm-10">
 		                  <div class="input-group input-group-merge">
-		                    <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-phone"></i></span>
-		                    <input type="text" name="comCS" id="basic-icon-default-phone" class="form-control phone-mask" placeholder="고객센터" aria-describedby="basic-icon-default-phone2">
+		                    <span id="basic-icon-default-phone2" class="input-group-text"><i class="fa-solid fa-headset"></i></span>
+		                    <input type="text" name="comCS" id="basic-icon-default-phone" class="form-control phone-mask" placeholder="고객센터" aria-describedby="basic-icon-default-phone2" disabled>
 		                  </div>
 		                </div>
 		              </div>
-		              <div class="row justify-content-end">
+		              <div class="row mb-3">
+		                <label class="col-sm-2 form-label" for="basic-icon-default-message">주소</label>
 		                <div class="col-sm-10">
-		                  <button type="submit" class="btn btn-primary">저장</button>
+		                  <div class="com-add row g-2">
+		                    <div class="col-sm-10">
+			                  <div class="input-group input-group-merge w-75">
+			                    <span id="basic-icon-default-phone2" class="input-group-text"><i class="fa-solid fa-location-dot"></i></span>
+		                  		<input type="text" name="comAddress1" id="sample4_postcode" placeholder="우편번호" class="form-control phone-mask w-25 me-2" disabled>
+								<!-- <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" class="phone-mask w-25"> -->
+			                  </div>	
+			                </div>
+							<div class="input-group input-group-merge w-100"><input type="text" name="comAddress2" id="sample4_roadAddress" placeholder="도로명주소" class="form-control phone-mask col-sm-10" disabled></div>
+							<div class="input-group input-group-merge w-100"><input type="text" name="comAddress3" id="sample4_jibunAddress" placeholder="지번주소" class="form-control phone-mask col-sm-10" disabled></div>
+							<span id="guide" style="color:#999;display:none"></span>
+							<div class="input-group input-group-merge w-100">
+								<input type="text" name="comAddress4" id="sample4_detailAddress" placeholder="상세주소" class="form-control phone-mask w-50 me-2" disabled>
+								<input type="text" name="comAddress5" id="sample4_extraAddress" placeholder="참고항목" class="form-control phone-mask w-auto" disabled>
+		                  	</div>
+		                  </div>
+		                </div>
+		              </div>
+		              <div class="row justify-content-end w-100 mx-0">
+		                <div class="d-flex justify-content-end px-0">
+		                  	<a href="company_write" class="btn btn-primary ">수정</a>
 		                </div>
 		              </div>
 		            </form:form>
@@ -121,62 +126,4 @@
 	<jsp:include page="adm_footer.jsp"></jsp:include>
 	
 </body>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-    //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
-    function sample4_execDaumPostcode() {
-        new daum.Postcode({
-            oncomplete: function(data) {
-                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-
-                // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
-                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-                var roadAddr = data.roadAddress; // 도로명 주소 변수
-                var extraRoadAddr = ''; // 참고 항목 변수
-
-                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-                    extraRoadAddr += data.bname;
-                }
-                // 건물명이 있고, 공동주택일 경우 추가한다.
-                if(data.buildingName !== '' && data.apartment === 'Y'){
-                   extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                }
-                // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-                if(extraRoadAddr !== ''){
-                    extraRoadAddr = ' (' + extraRoadAddr + ')';
-                }
-
-                // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('sample4_postcode').value = data.zonecode;
-                document.getElementById("sample4_roadAddress").value = roadAddr;
-                document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
-                
-                // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
-                if(roadAddr !== ''){
-                    document.getElementById("sample4_extraAddress").value = extraRoadAddr;
-                } else {
-                    document.getElementById("sample4_extraAddress").value = '';
-                }
-
-                var guideTextBox = document.getElementById("guide");
-                // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
-                if(data.autoRoadAddress) {
-                    var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
-                    guideTextBox.innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
-                    guideTextBox.style.display = 'block';
-
-                } else if(data.autoJibunAddress) {
-                    var expJibunAddr = data.autoJibunAddress;
-                    guideTextBox.innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
-                    guideTextBox.style.display = 'block';
-                } else {
-                    guideTextBox.innerHTML = '';
-                    guideTextBox.style.display = 'none';
-                }
-            }
-        }).open();
-    }
-</script>
 </html>

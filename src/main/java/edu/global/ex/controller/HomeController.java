@@ -128,6 +128,12 @@ public class HomeController {
 		log.info("adminCompany..");
 		return "/admin/company";
 	}
+	
+	@GetMapping("/admin/company_write")
+	public String adminCompanyWrite() {
+		log.info("adminCompanyWrite..");
+		return "/admin/company_write";
+	}
 
 	@PostMapping("/admin/company")
 	public String companyPost(CompanyVO cvo) {
