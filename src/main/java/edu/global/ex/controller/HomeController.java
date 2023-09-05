@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import edu.global.ex.mapper.CompanyMapper;
 import edu.global.ex.page.Criteria;
 import edu.global.ex.service.BoardService;
+import edu.global.ex.service.CompanyService;
 import edu.global.ex.vo.BoardVO;
 import edu.global.ex.vo.CompanyVO;
 import edu.global.ex.vo.CustomUserDetailsVO;
@@ -36,6 +37,9 @@ public class HomeController {
 //	
 	@Autowired
 	private CompanyMapper cmp;
+	
+	@Autowired
+	private CompanyService companyService;
 	
 	@Autowired
 	private BoardService boardService;
@@ -124,8 +128,10 @@ public class HomeController {
 //	}
 
 	@GetMapping("/admin/company")
-	public String adminCompany() {
+	public String adminCompany(CompanyVO companyVO, Model model) {
 		log.info("adminCompany..");
+		
+		model.addAttribute("company", companyService.getCompany(companyVO));
 		return "/admin/company";
 	}
 	
