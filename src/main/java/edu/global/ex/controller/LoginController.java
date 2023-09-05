@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.global.ex.mapper.MsUserMapper;
 import edu.global.ex.vo.MsUserVO;
@@ -26,7 +28,6 @@ public class LoginController {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
-	//어드민로그인
 	@GetMapping("/login")
 	public String login() {
 		return "/admin/login";
@@ -52,34 +53,45 @@ public class LoginController {
 		return "redirect:/";
 
 	}
-//	public class RegisterController {
-//
-//	    @RequestMapping(value = "/login/register", method = RequestMethod.POST)
-//	    public String MemberRegistrationServlet(@RequestParam("userId") String userId, 
-//	                               @RequestParam("name") String name, 
-//	                               @RequestParam("birthday") String birthday,
-//	                               @RequestParam("address") String address,
-//	                               @RequestParam("password") String password) {
-//	        // 회원 등록 로직 구현
-//	        // 데이터베이스 저장 등의 작업 수행
-//	        
-//	    	return "/login/registration_complete"; // 회원 등록 성공 페이지로 이동
-//	    }
-//	}
+	public class RegisterController {
+
+	    @RequestMapping(value = "/login/register", method = RequestMethod.POST)
+	    public String MemberRegistrationServlet(@RequestParam("userId") String userId, 
+	                               @RequestParam("name") String name, 
+	                               @RequestParam("birthday") String birthday,
+	                               @RequestParam("address") String address,
+	                               @RequestParam("password") String password) {
+	        // 회원 등록 로직 구현
+	        // 데이터베이스 저장 등의 작업 수행
+	        
+	    	return "/login/registration_complete"; // 회원 등록 성공 페이지로 이동
+	    }
+	}
 	
-	//회원 로그인
 	@GetMapping("/login/login")
 	public String userlogin() {
 		
 		return "/login/login";
 	}
 	
-	//로그아웃
 	@GetMapping("/logout")
 	public String userlogout() {
 		
 		return "/login/login_regacy";
 	}
+	
+
+	@GetMapping("/login/index")
+	public String loginindex() {
+		log.info("loginindex");
+		return "/login/index";
+	}
+	
+	@GetMapping("/login/signup")
+	public String loginsignUp() {
+		log.info("loginsignup");
+		return "/login/signUp";
+	}	
 	
 	@GetMapping("/login/google")
 	public String googlelogin() {
@@ -111,15 +123,14 @@ public class LoginController {
 	// 	return "/login/registration_complete";
 	// }
 	
-	//회원가입
-	@GetMapping("/login/signup")
+	
+	@GetMapping("/login/signuptest")
 	public String signuptest() {
 		
 		
 		return "/login/signuptest";
 	}
 	
-	//회원가입완료
 	@PostMapping("/login/signuptest")
 	public String signuptest(MsUserVO user) {
 		
@@ -130,8 +141,6 @@ public class LoginController {
 		
 		return "index";
 	}
-	
-	//마이페이지
 	@GetMapping("/login/userprofile")
 	public String userprofile() {
 		log.info("userprofile");
