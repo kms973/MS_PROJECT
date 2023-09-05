@@ -26,6 +26,7 @@ public class ShopController {
 	// /shop/product/bracelet 상품 목록 보기(팔찌)
 
 	@GetMapping("/home")
+<<<<<<< HEAD
 	public String productHome(//String category,
 			Model model,Criteria cri) {
 		log.info("shopProductHome() ..");
@@ -33,6 +34,12 @@ public class ShopController {
 //		if("".equals(category)) {
 //			model.addAttribute("ShopProductList", shopProductService.getListWithPaging(cri));
 //		}
+=======
+	public String productHome(Model model,Criteria cri) {
+		log.info("shopProductHome() ..");
+		log.info("shopProductHome() 크리테리아값 확인" + cri);
+
+>>>>>>> parent of 3bd3c12 (풀하지마세요)
 		System.out.println(shopProductService.getListWithPaging(cri).size());
 		
 		model.addAttribute("ShopProductList", shopProductService.getListWithPaging(cri));
@@ -45,6 +52,7 @@ public class ShopController {
 		return "/shop/home";
 	}
 
+<<<<<<< HEAD
 //	@GetMapping("/ring")
 //	public String productRing(Model model,Criteria cri) {
 //		log.info("shopring()..");
@@ -61,6 +69,24 @@ public class ShopController {
 //		
 //		return "/shop/home";
 //	}
+=======
+	@GetMapping("/ring")
+	public String productRing(Model model,Criteria cri) {
+		log.info("shopring()..");
+		log.info("shopproductRing() 크리테리아값 확인" + cri);
+
+		System.out.println(shopProductService.getListWithPagingRing(cri).size());
+		
+		model.addAttribute("ShopProductRingList", shopProductService.getListWithPagingRing(cri));
+		
+		int total = shopProductService.getTotalRing();
+		log.info("shopproductRing() 전체 갯수" + total);
+
+		model.addAttribute("pageMakerRing", new PageVO(cri, total));
+		
+		return "/shop/ring";
+	}
+>>>>>>> parent of 3bd3c12 (풀하지마세요)
 
 	@GetMapping("/earring")
 	public String productEarring(Model model,Criteria cri) {
@@ -69,14 +95,22 @@ public class ShopController {
 
 		System.out.println(shopProductService.getListWithPagingEarring(cri).size());
 		
+<<<<<<< HEAD
 		model.addAttribute("ShopProductList", shopProductService.getListWithPagingEarring(cri));
+=======
+		model.addAttribute("ShopProductEarringList", shopProductService.getListWithPagingEarring(cri));
+>>>>>>> parent of 3bd3c12 (풀하지마세요)
 		
 		int total = shopProductService.getTotalEarring();
 		log.info("shopproductEarring() 전체 갯수" + total);
 
 		model.addAttribute("pageMaker", new PageVO(cri, total));
 		
+<<<<<<< HEAD
 		return "/shop/home";
+=======
+		return "/shop/earring";
+>>>>>>> parent of 3bd3c12 (풀하지마세요)
 	}
 
 	@GetMapping("/necklace")
@@ -86,14 +120,22 @@ public class ShopController {
 
 		System.out.println(shopProductService.getListWithPagingNecklace(cri).size());
 		
+<<<<<<< HEAD
 		model.addAttribute("ShopProductList", shopProductService.getListWithPagingNecklace(cri));
+=======
+		model.addAttribute("ShopProductNecklaceList", shopProductService.getListWithPagingNecklace(cri));
+>>>>>>> parent of 3bd3c12 (풀하지마세요)
 		
 		int total = shopProductService.getTotalNecklace();
 		log.info("shopproductNecklace() 전체 갯수" + total);
 
 		model.addAttribute("pageMaker", new PageVO(cri, total));
 		
+<<<<<<< HEAD
 		return "/shop/home";
+=======
+		return "/shop/necklace";
+>>>>>>> parent of 3bd3c12 (풀하지마세요)
 	}
 
 	@GetMapping("/bracelet")
@@ -103,14 +145,22 @@ public class ShopController {
 
 		System.out.println(shopProductService.getListWithPagingBracelet(cri).size());
 		
+<<<<<<< HEAD
 		model.addAttribute("ShopProductList", shopProductService.getListWithPagingBracelet(cri));
+=======
+		model.addAttribute("ShopProductBraceletList", shopProductService.getListWithPagingBracelet(cri));
+>>>>>>> parent of 3bd3c12 (풀하지마세요)
 		
 		int total = shopProductService.getTotalBracelet();
 		log.info("shopproductBracelet() 전체 갯수" + total);
 
 		model.addAttribute("pageMaker", new PageVO(cri, total));
 		
+<<<<<<< HEAD
 		return "/shop/home";
+=======
+		return "/shop/bracelet";
+>>>>>>> parent of 3bd3c12 (풀하지마세요)
 	}
 
 }

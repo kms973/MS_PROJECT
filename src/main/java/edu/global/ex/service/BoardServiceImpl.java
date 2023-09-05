@@ -18,33 +18,6 @@ public class BoardServiceImpl implements BoardService {
 	private BoardMapper boardMapper;
 
 	@Override
-	public List<BoardVO> getNotice() {
-
-		log.info("getNotice()..");
-
-		return boardMapper.getNotice();
-
-	};
-	
-	@Override
-	public List<BoardVO> getQna() {
-
-		log.info("getQna()..");
-
-		return boardMapper.getQna();
-
-	};
-	
-	@Override
-	public List<BoardVO> getReview() {
-
-		log.info("getReview()..");
-
-		return boardMapper.getReview();
-
-	};
-	
-	@Override
 	public List<BoardVO> getList() {
 
 		log.info("getList()..");
@@ -101,22 +74,11 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BoardVO> getQnaWithPaging(Criteria cri) {
+	public List<BoardVO> getListWithPaging(Criteria cri) {
 		
-		return boardMapper.getQnaWithPaging(cri);
+		return boardMapper.getListWithPaging(cri);
 	}
-	
-	@Override
-	public List<BoardVO> getReviewWithPaging(Criteria cri) {
-		
-		return boardMapper.getReviewWithPaging(cri);
-	}
-	
-	@Override
-	public List<BoardVO> getNoticeWithPaging(Criteria cri) {
-		
-		return boardMapper.getNoticeWithPaging(cri);
-	}
+
 
 
 }

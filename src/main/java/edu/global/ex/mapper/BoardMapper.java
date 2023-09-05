@@ -11,10 +11,6 @@ import edu.global.ex.vo.BoardVO;
 public interface BoardMapper {
 
 	
-	public List<BoardVO> getNotice();
-	public List<BoardVO> getQna();
-	public List<BoardVO> getReview();
-	
 	public List<BoardVO> getList();
 	public BoardVO read(int bid);//파라미터 = rul로 넘어오는 bid값
 	public int update(BoardVO board);
@@ -26,9 +22,5 @@ public interface BoardMapper {
 	
 	//paging관련
 	int getTotalCount();
-	public List<BoardVO> getNoticeWithPaging(Criteria cri);
-	public List<BoardVO> getQnaWithPaging(Criteria cri);
-	public List<BoardVO> getReviewWithPaging(Criteria cri);
-	
-	
+	public List<BoardVO> getListWithPaging(Criteria cri);
 }

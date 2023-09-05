@@ -7,10 +7,6 @@ import edu.global.ex.vo.BoardVO;
 
 public interface BoardService {
 
-	public List<BoardVO> getNotice();
-	public List<BoardVO> getQna();
-	public List<BoardVO> getReview();
-	
 	public List<BoardVO> getList(); // 리스트메소드
 	public BoardVO read(int bid);  // 글보기메소드
 	public int modify(BoardVO board); // 글수정
@@ -19,8 +15,6 @@ public interface BoardService {
 	public void registerReply(BoardVO boardVO); //답글달기
 	
 	public int getTotal();
-	public List<BoardVO> getNoticeWithPaging(Criteria cri);
-	public List<BoardVO> getQnaWithPaging(Criteria cri);
-	public List<BoardVO> getReviewWithPaging(Criteria cri);
+	public List<BoardVO> getListWithPaging(Criteria cri);
 
 }

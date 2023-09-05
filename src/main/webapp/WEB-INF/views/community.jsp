@@ -29,50 +29,38 @@
 		      	공지사항 내용입니다.
 		      </li>
 		      <li id="content-2">
-		      	<div class="accordion" id="faqAccordion">
-			        <!-- FAQ 아이템 1 -->
-			        <div class="accordion-item">
-			            <h2 class="accordion-header" id="heading1">
-			                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
-			                    질문 1: 이것은 무엇인가요?
-			                </button>
-			            </h2>
-			            <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1" data-bs-parent="#faqAccordion">
-			                <div class="accordion-body">
-			                    답변: 이것은 부트스트랩을 사용한 FAQ 페이지 예제입니다.
-			                </div>
-			            </div>
-			        </div>
-			
-			        <!-- FAQ 아이템 2 -->
-			        <div class="accordion-item">
-			            <h2 class="accordion-header" id="heading2">
-			                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
-			                    질문 2: 어떻게 이용하나요?
-			                </button>
-			            </h2>
-			            <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#faqAccordion">
-			                <div class="accordion-body">
-			                    답변: 이용하려면 부트스트랩과 HTML, CSS, JavaScript를 사용하세요.
-			                </div>
-			            </div>
-			        </div>
-			
-			        <!-- 추가 FAQ 아이템들을 위한 템플릿 -->
-			        <!-- <div class="accordion-item">
-			            <h2 class="accordion-header" id="headingX">
-			                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseX">
-			                    질문 X: 여기에 질문을 입력하세요.
-			                </button>
-			            </h2>
-			            <div id="collapseX" class="accordion-collapse collapse" aria-labelledby="headingX" data-bs-parent="#faqAccordion">
-			                <div class="accordion-body">
-			                    답변: 여기에 답변을 입력하세요.
-			                </div>
-			            </div>
-			        </div> -->
-			
-			    </div>
+		      	<div class="accordion accordion-flush" id="accordionFlushExample">
+	  			  <div class="accordion-item">
+				    <h2 class="accordion-header" id="flush-headingOne">
+				      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+				        Q. 환불관련 규정입니다.
+				      </button>
+				    </h2>
+				    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+				      <div class="accordion-body">구매하신 날로부터 영업일 기준 일주일 이내 구매 영수증을 지참하시어 방문하시면 환불이 가능합니다.<br>영수증 미지참 또는 시일이 경과할 경우 환불이 어렵기 때문에 참고 부탁드리겠습니다.</div>
+				    </div>
+				  </div>
+				  <div class="accordion-item">
+				    <h2 class="accordion-header" id="flush-headingTwo">
+				      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+				        Q. 배송을 얼마나 걸리나요?
+				      </button>
+				    </h2>
+				    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+				      <div class="accordion-body">배송은 구매일 기준으로 3-5일 소요됩니다.<br>(단, 주말을 포함하지 않고 평일 기준입니다.)</div>
+				    </div>
+				  </div>
+				  <div class="accordion-item">
+				    <h2 class="accordion-header" id="flush-headingThree">
+				      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+				        Q. 세번째 질문 입니다.
+				      </button>
+				    </h2>
+				    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+				      <div class="accordion-body">세번째 질문의 대한 답변입니다. </div>
+				    </div>
+				  </div>
+				</div>
 		      </li>
 		      <li id="content-3">탭 내용3</li> 
 		    </ul>
@@ -84,23 +72,8 @@
 <!-- footer 시작 -->
 <jsp:include page="/WEB-INF/views/footer.jsp" />
 <script>
-$(document).ready(function() {    
-	var accordion_tab = $('.accordion p'), accordion_content = $('.accordion div');
-	//accordion p tag click
-	accordion_tab.on('click', function(e){
-		//tab link 비활성화
-		e.preventDefault();
-		//활성화 된 class 제거
-		accordion_tab.removeClass('active');
-		//accordion div 내용 숨기기
-		accordion_content.slideUp('normal');
-		//tab이 숨겨져 있으면 활성화 시키고 div 내용 펼치기
-		if($(this).next().is(':hidden') == true) {
-			$(this).addClass('active');
-			$(this).next().slideDown('normal');
-		} 			  
-	});
-});
+const dropdownElementList = document.querySelectorAll('.dropdown-toggle')
+const dropdownList = [...dropdownElementList].map(dropdownToggleEl => new bootstrap.Dropdown(dropdownToggleEl))
 </script>
 <script>
 $('.tab').each(function(i) {
@@ -124,5 +97,5 @@ $('.tab').each(function(i) {
       return false;
     });
 
-});
+  });
 </script>
