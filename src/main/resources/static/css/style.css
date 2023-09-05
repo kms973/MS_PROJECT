@@ -1,4 +1,4 @@
-/* com */
+/* common */
 body { color: #333; font-size: 14px; overflow-x: hidden;
  -ms-overflow-style: none;
 } 
@@ -32,7 +32,7 @@ header#header .logo { margin-right: 20px; }
 
 /* index-main */
 video { width: 100%; height: 100vh; object-fit: cover; }
-.carousel-item { opacity: 0.8; }
+.item { opacity: 0.8; }
 .text { position: absolute; width: 100%; top: 50%; left: 50%; transform: translate(-50%,-50%); }
 .text p { text-align: right; font-size: 24px; color: #000; margin: 0 200px;  font-family: 'Montserrat', sans-serif; text-shadow: 0 0 10px #fff; }
 
@@ -108,3 +108,9 @@ a, a:active, a:focus {
 .pagination .disabled a:hover { color: #999; background-color: transparent; cursor: default; }
 .pagination li:first-child a { border-left-width: 1px; }
 .mt-6, .my-6 { margin-top: 3.5rem; }
+
+
+/* community */
+.accordion-item { margin-bottom: 15px; }
+
+
