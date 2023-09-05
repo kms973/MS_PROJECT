@@ -205,7 +205,7 @@ public class HomeController {
 		return "/admin/board/list";
 	}
 
-	@GetMapping("/admin/board/write")
+	@GetMapping("/admin/write")
 	public String adminBoardWrite() {
 		log.info("adminBoardWrite");
 		return "/admin/board/write";
