@@ -11,19 +11,15 @@ div.h-box { height: 0 !important; }
 
 <!-- 메인 시작 -->
 <main>
-	<div id="demo" class="carousel slide" data-bs-ride="carousel">
-    	<div class="carousel-inner">
-			<div class="carousel-item active">
-        		<video data-videoautoplay="true" playsinline preload="none" muted loop autoplay src="/video/vd0.mp4" class="d-block"></video>
-        		<div class="text">
-        		<p>There is nothing that</p>
-        		<p>makes its way more directly</p> 
-        		<p>to the soul than beauty.</p>
-        		<br>
-        		<p>- Joseph Addison</p>        		
-        		</div>
-			</div>      		
-    	</div>
-	</div>
+	<div class="item active">
+       <video data-videoautoplay="true" playsinline preload="none" muted loop autoplay src="/video/vd0.mp4" class="d-block"></video>
+        <div class="text">
+        	<p>There is nothing that</p>
+        	<p>makes its way more directly</p> 
+        	<p>to the soul than beauty.</p>
+        	<br>
+        	<p>- Joseph Addison</p>        		
+        </div>
+	</div>      		
 </main>
 <!-- 메인 끝 -->

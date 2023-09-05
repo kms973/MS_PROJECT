@@ -52,6 +52,12 @@ public class HomeController {
     return "index";
 	}
 	
+	@GetMapping("/shop/ring")
+	public String shopRing() {
+		log.info("shopRing()..");
+		return "/shop/ring";
+	}
+	
 	@GetMapping("/community")
 	public String community() {
 		log.info("community()..");
@@ -62,6 +68,18 @@ public class HomeController {
 	public String shop() {
 		log.info("shop()..");
 		return "/shop";
+	}
+	
+	@GetMapping("/cart")
+	public String cart() {
+		log.info("cart()..");
+		return "/cart";
+	}
+	
+	@GetMapping("/pay")
+	public String pay() {
+		log.info("pay()..");
+		return "/pay";
 	}
 	
 	@GetMapping("/ring")

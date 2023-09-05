@@ -13,6 +13,7 @@
     <h1>구글 로그인 정보</h1>
     <p>이름 : <span id="name"></span></p>
     <p>사용자 아이디 : <span id="userId"></span></p>
+<<<<<<< HEAD
     <p>생년월일 : <span id="birthday"></span></p>
     <p>주소 : <span id="address"></span></p>
 
@@ -47,6 +48,42 @@
                 document.getElementById('userId').textContent = userId;
                 document.getElementById('birthday').textContent = birthday;
                 document.getElementById('address').textContent = address;
+=======
+  	<!--<p>생년월일 : <span id="birthday"></span></p>
+    <p>주소 : <span id="address"></span></p>-->
+
+    <!-- 구글 로그인 버튼 -->
+    <button onclick="signInWithGoogle()">구글로 로그인</button>
+
+    <script>
+        // 클라이언트 ID 설정
+        var clientId = '471214335308-gl60imc2jdeseit0nfvdo8k51qdjvo10.apps.googleusercontent.com';
+        var scopes = 'openid email profile https://www.googleapis.com/auth/userinfo.profile';
+
+        // Google API 초기화
+        gapi.load('auth2', function () {
+            gapi.auth2.init({
+                client_id: clientId,
+            });
+        });
+
+        // 구글 로그인 버튼 클릭 시 실행되는 함수
+        function signInWithGoogle() {
+            gapi.auth2.getAuthInstance().signIn().then(function (googleUser) {
+                // 로그인 성공 시 사용자 정보 가져오기
+                var profile = googleUser.getBasicProfile();
+                var email = profile.getEmail();
+                var userId = extractUserId(email);
+                var name = profile.getName();
+                //var birthday = ""; 
+                //var address = ""; 
+
+                // 정보를 화면에 표시
+                document.getElementById('name').textContent = name;
+                document.getElementById('userId').textContent = userId;
+                //document.getElementById('birthday').textContent = birthday;
+                //document.getElementById('address').textContent = address;
+>>>>>>> branch 'master' of https://github.com/kms973/MS_PROJECT.git
             });
         }
 

@@ -1,0 +1,11 @@
+#bttn{font-size: 17px; width:100%; background-color: #d3d3d3; font-weight:bold;}
+.carousel-inner a {display: block; width:100%; height:100%; overflow:hidden; position: relative;}
+.carousel-inner figure{width: 100%; height: 100%; }
+.carousel-inner figcaption{  width: 100%; height: 95%; background-color: #707070; position: absolute; top: 0; left: 0; color: #fff;  opacity: 0; transition: .3s; padding: 10px; }
+.carousel-inner a:hover figcaption, .carousel-inner a:focus figcaption{opacity: 1;}
+
+items .data_item .detail-img { width: 100%; height: 600px; }
+
+.option-txt > .num { font-size : 1.125rem; }
+.option-txt > .num a { font-size : 1.25rem; }
+.option-txt > .num #quantity { position: relative; top: 2px; }
