@@ -98,6 +98,7 @@ public class LoginController {
 		log.info("googlelogin");
 		return "/login/googleLogin";
 	}	
+	
 	@GetMapping("/login/social")
 	public String sociallogin() {
 		log.info("sociallogin");
@@ -109,7 +110,6 @@ public class LoginController {
 		return "/login/google-callback";
 	}
 	
-<<<<<<< HEAD
 	@GetMapping("/login/google2")
 	public String google2() {
 		log.info("google2");
@@ -124,8 +124,6 @@ public class LoginController {
 	}
 >>>>>>> branch 'master' of https://github.com/kms973/MS_PROJECT
 	
-=======
->>>>>>> parent of 3bd3c12 (풀하지마세요)
 	// // 구 회원가입성공페이지 
 	// @PostMapping("/login/registration_complete")
 	// public String loginRegister() {

@@ -21,7 +21,6 @@ public class BoardController {
 
 	@Autowired
 	private BoardService boardService;
-<<<<<<< HEAD
 	
 	@GetMapping("/notice")
 	public String notice(Criteria cri, Model model) {
@@ -111,33 +110,6 @@ public class BoardController {
 		model.addAttribute("content_view", boardService.read(bid));
 
 		return "/board/content_view_qna";
-=======
-
-	@GetMapping("/list")
-	public String list(Model model) {
-		log.info("list()..");
-
-		model.addAttribute("boardList", boardService.getList());
-
-		return "/board/list";
-	}
-
-	@GetMapping("/list2")
-	public String list2(Criteria cri, Model model) {
-		log.info("list2() ..");
-		log.info("list2() 크리테리아값 확인" + cri);
-
-		System.out.println(boardService.getListWithPaging(cri).size());
-		
-		model.addAttribute("boardList", boardService.getListWithPaging(cri));
-
-		int total = boardService.getTotal();
-		log.info("list2() 게시판 전체 갯수" + total);
-
-		model.addAttribute("pageMaker", new PageVO(cri, total));
-
-		return "/board/list2";
->>>>>>> parent of 3bd3c12 (풀하지마세요)
 	}
 
 	@GetMapping("/content_view")
@@ -161,7 +133,6 @@ public class BoardController {
 
 		return "redirect:list";
 	}
-<<<<<<< HEAD
 	
 	@GetMapping("/delete_notice")
 	public String delete_notice(BoardVO bid, Model model) {
@@ -195,9 +166,6 @@ public class BoardController {
 	}
 	
 	
-=======
-
->>>>>>> parent of 3bd3c12 (풀하지마세요)
 	@GetMapping("/delete")
 	public String delete(BoardVO bid, Model model) {
 
@@ -208,7 +176,6 @@ public class BoardController {
 		return "redirect:list";
 	}
 
-<<<<<<< HEAD
 	@GetMapping("/write_view_notice")
 	public String write_view_notice() {
 
@@ -233,8 +200,6 @@ public class BoardController {
 		return "board/write_view_review";
 	}
 	
-=======
->>>>>>> parent of 3bd3c12 (풀하지마세요)
 	@GetMapping("/write_view")
 	public String write_view() {
 
@@ -243,7 +208,6 @@ public class BoardController {
 		return "board/write_view";
 	}
 
-<<<<<<< HEAD
 	@PostMapping("/write_notice")
 	public String write_notice(BoardVO boardVO) {
 
@@ -274,8 +238,6 @@ public class BoardController {
 		return "redirect:review";
 	}
 	
-=======
->>>>>>> parent of 3bd3c12 (풀하지마세요)
 	@PostMapping("/write")
 	public String write(BoardVO boardVO) {
 
@@ -285,7 +247,6 @@ public class BoardController {
 
 		return "redirect:list";
 	}
-<<<<<<< HEAD
 	
 	@GetMapping("/reply_view_notice")
 	public String reply_view_notice(BoardVO boardVO, Model model) {
@@ -317,9 +278,6 @@ public class BoardController {
 		return "board/reply_view_qna";
 	}
 	
-=======
-
->>>>>>> parent of 3bd3c12 (풀하지마세요)
 	@GetMapping("/reply_view")
 	public String reply_view(BoardVO boardVO, Model model) {
 
@@ -329,7 +287,6 @@ public class BoardController {
 
 		return "board/reply_view";
 	}
-<<<<<<< HEAD
 	
 	@PostMapping("/reply_notice")
 	public String reply_notice(BoardVO boardVO) {
@@ -361,9 +318,6 @@ public class BoardController {
 		return "redirect:qna";
 	}
 	
-=======
-
->>>>>>> parent of 3bd3c12 (풀하지마세요)
 	@PostMapping("/reply")
 	public String reply(BoardVO boardVO) {
 
@@ -373,9 +327,5 @@ public class BoardController {
 
 		return "redirect:list";
 	}
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> parent of 3bd3c12 (풀하지마세요)
 }
