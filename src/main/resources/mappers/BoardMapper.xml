@@ -27,7 +27,7 @@
 	
 <select id="getList" resultType="edu.global.ex.vo.BoardVO">
     <![CDATA[
-      select * from ms_board order by bGroup desc, bStep asc
+      select * from ms_board order by bid desc, bStep asc
    ]]>    
     </select>
     

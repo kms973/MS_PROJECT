@@ -3,10 +3,14 @@ package edu.global.ex.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import edu.global.ex.mapper.CompanyMapper;
+import edu.global.ex.page.Criteria;
+import edu.global.ex.service.BoardService;
+import edu.global.ex.vo.BoardVO;
 import edu.global.ex.vo.CompanyVO;
 import edu.global.ex.vo.CustomUserDetailsVO;
 import lombok.extern.slf4j.Slf4j;
@@ -32,6 +36,9 @@ public class HomeController {
 //	
 	@Autowired
 	private CompanyMapper cmp;
+	
+	@Autowired
+	private BoardService boardService;
 
 	@GetMapping("/")
 	public String home(@AuthenticationPrincipal CustomUserDetailsVO customUserDetailsVO) {
@@ -133,9 +140,46 @@ public class HomeController {
 		return "redirect:/admin/company";
 	}
 	
+
+	///// 게시판
+	
+	@PostMapping("/admin/modify")
+	public String modify(BoardVO boardVO) {
+		log.info("modify()..");
+
+		int rn = boardService.modify(boardVO);
+
+		log.info("modify().. result number :: " + rn);
+
+		return "redirect:board";
+	}
+	
+	@GetMapping("/admin/content_view")
+	public String content_view(BoardVO boardVO, Model model) {
+		log.info("content_view()..");
+
+		int bid = boardVO.getBid();
+
+		model.addAttribute("content_view", boardService.read(bid));
+
+		return "/admin/board/content_view";
+	}
+	
+	@GetMapping("/admin/delete")
+	public String delete(BoardVO bid, Model model) {
+
+		log.info("delete()..");
+
+		model.addAttribute("delete", boardService.delete(bid));
+
+		return "redirect:board";
+	}
+	
 	@GetMapping("/admin/board")
-	public String adminBoardHome() {
+	public String adminBoardHome(Criteria cri, Model model) {
 		log.info("adminBoardHome");
+		
+		model.addAttribute("boardList", boardService.getList());
 		return "/admin/board/list";
 	}
 
