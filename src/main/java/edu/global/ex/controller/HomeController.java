@@ -136,8 +136,10 @@ public class HomeController {
 	}
 	//정보수정
 	@GetMapping("/admin/company_write")
-	public String adminCompanyWrite() {
+	public String adminCompanyWrite(CompanyVO companyVO, Model model) {
 		log.info("adminCompanyWrite..");
+		
+		model.addAttribute("company", companyService.getCompany(companyVO));
 		return "/admin/company_write";
 	}
 	//정보수정

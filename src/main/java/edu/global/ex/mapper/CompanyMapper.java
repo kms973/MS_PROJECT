@@ -19,5 +19,5 @@ public interface CompanyMapper {
 	public CompanyVO getCompany(CompanyVO companyVO); //가져오기
 
 	@Update("update ms_company set companyName = #{companyName}, companyNum = #{companyNum}, ceoName = #{ceoName}, comTel = #{comTel}, comAddress1 = #{comAddress1},comAddress2 = #{comAddress2},comAddress3 = #{comAddress3},comAddress4 = #{comAddress4},comAddress5 = #{comAddress5},comCS = #{comCS}")
-	public CompanyVO update(CompanyVO companyVO);
+	public int update(CompanyVO companyVO);
 }
