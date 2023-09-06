@@ -30,7 +30,8 @@
 	<!-- 메인보드 영역 -->
 
 <section id="customer" class="board-all container wrap">
-	<div id="sub-bnr"><h5>회원관리</h5></div>
+	<h1 class="mt-4">회원관리</h1>
+	    
 	<table class="table mt-5">
 		<thead class="table-light">
 			<tr>
@@ -65,12 +66,12 @@
 						<input class="form-check-input" type="checkbox" id="selectAll">
 					</div>
 				</th>
-				<td>회원아이디</td>
-				<td>이름</td>
-				<td>전체주문/금액</td>
-				<td>고객등급</td>
-				<td>게시글</td>
-				<td>옵션</td>
+				<td><b>회원아이디</b></td>
+				<td><b>이름</b></td>
+				<td><b>전체주문/금액</b></td>
+				<td><b>고객등급</b></td>
+				<td><b>게시글</b></td>
+				<td><b>옵션</b></td>
 			</tr>
 			<tr>
 				<th scope="row">
@@ -88,13 +89,9 @@
 				<td>-<br/>
 					-<br/>
 					-</td>
-				<td>
-					<div class="dropdown">
-						<button class="btn p-0 hide-arrow" data-bs-toggle="dropdown"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-						<div class="dropdown-menu">
-						<a class="dropdown-item" href="#"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-						<a class="dropdown-item" href="#"><i class="bx bx-trash me-1"></i> Delete</a>
-					</div>
+				<td class="table-op" style="width: 5% !important;">
+               		<a class="btn btn-sm btn-primary" href="content_view?bid=${boardList.bid}"><i class="fas fa-edit"></i></a>
+		            <a class="btn btn-sm btn-danger" href="delete?bid=${boardList.bid}"><i class="fas fa-trash"></i></a>
 				</td>
 			</tr>
 			<tr>
@@ -115,13 +112,9 @@
 					-<br/>
 					-
 				</td>
-				<td>
-					<div class="dropdown">
-						<button class="btn p-0 hide-arrow" data-bs-toggle="dropdown"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-						<div class="dropdown-menu">
-						<a class="dropdown-item" href="#"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-						<a class="dropdown-item" href="#"><i class="bx bx-trash me-1"></i> Delete</a>
-					</div>
+				<td class="table-op" style="width: 5% !important;">
+               		<a class="btn btn-sm btn-primary" href="content_view?bid=${boardList.bid}"><i class="fas fa-edit"></i></a>
+		            <a class="btn btn-sm btn-danger" href="delete?bid=${boardList.bid}"><i class="fas fa-trash"></i></a>
 				</td>
 			</tr>
 			<tr>
@@ -141,13 +134,9 @@
 					-<br/>
 					-
 				</td>
-				<td>
-					<div class="dropdown">
-						<button class="btn p-0 hide-arrow" data-bs-toggle="dropdown"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-						<div class="dropdown-menu">
-						<a class="dropdown-item" href="#"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-						<a class="dropdown-item" href="#"><i class="bx bx-trash me-1"></i> Delete</a>
-					</div>
+				<td class="table-op" style="width: 5% !important;">
+               		<a class="btn btn-sm btn-primary" href="content_view?bid=${boardList.bid}"><i class="fas fa-edit"></i></a>
+		            <a class="btn btn-sm btn-danger" href="delete?bid=${boardList.bid}"><i class="fas fa-trash"></i></a>
 				</td>
 			</tr>
 		</tbody>
@@ -157,6 +146,15 @@
 
 	<!-- adm_footer 부분  -->
 	<jsp:include page="/WEB-INF/views/admin/adm_footer.jsp"></jsp:include>
+	
+<script>
+	const checkboxes = document.querySelectorAll('.form-check-input');
 
+	document.getElementById('selectAll').addEventListener('change', function () {
+		checkboxes.forEach(checkbox => {
+			checkbox.checked = this.checked;
+		});
+	});
+</script>
 </body>
 </html>
