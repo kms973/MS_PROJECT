@@ -10,7 +10,7 @@
 <head>
     <title>구글 로그인</title>
 </head>
-<body>
+<body><!--
     <h1>Google Response</h1>
     <div id="responseContainer"></div>
     <script>
@@ -27,9 +27,7 @@
 
         // HTML을 responseContainer에 추가합니다.
         document.getElementById("responseContainer").innerHTML = responseHtml;
-    </script>
-
-    <!--
+    </script>-->
     <h1>구글 로그인 정보</h1>
     <p id="name">이름 : </p>
     <p id="userId">사용자 아이디 : </p>
@@ -85,6 +83,5 @@
         const code = "사용자로부터 얻은 인증 코드"; // 사용자로부터 받은 코드
         getUserInfo(code);
     </script>
-    -->
 </body>
 </html>
