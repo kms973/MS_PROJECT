@@ -9,7 +9,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import edu.global.ex.mapper.MsUserMapper;
 import edu.global.ex.vo.MsUserVO;
@@ -89,10 +88,10 @@ public class LoginController {
 		return "/login/socialLogin";
 	}
 
-	@RequestMapping("/login/google-callback")
-	public String callback() {
-		return "/login/google-callback";
-	}
+//	@RequestMapping("/login/google-callback")
+//	public String callback() {
+//		return "/login/google-callback";
+//	}
 
 	@GetMapping("/login/google2")
 	public String google2() {
