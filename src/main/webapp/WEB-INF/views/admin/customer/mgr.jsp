@@ -28,121 +28,132 @@
 	<jsp:include page="/WEB-INF/views/admin/adm_header.jsp"></jsp:include>
 
 	<!-- 메인보드 영역 -->
-
 <section id="customer" class="board-all container wrap">
-	<h1 class="mt-4">회원관리</h1>
-	    
-	<table class="table mt-5">
-		<thead class="table-light">
-			<tr>
-				<th scope="col" colspan="7">
-					<nav class="navbar-expand-lg navbar-light bg-light">
-						<div class="container-fluid">
-							<div class="collapse navbar-collapse" id="navbarSupportedContent">
-								<ul class="navbar-nav me-auto">
-								</ul>
-								<form class="d-flex">
-									<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-									<button class="btn btn-outline-dark me-2" type="submit">Search</button>
-									<div class="selec-box">
-										<select class="form-select" aria-label="Default select example" style="width: fit-content;">
-											<option value="1" selected>정렬선택</option>
-											<option value="2">이름순</option>
-											<option value="3">금액순</option>
-											<option value="4">고객등급순</option>
-										</select>
+	<div class="container-fluid px-4">
+		<h1 class="mt-4">회원관리</h1>
+		<ol class="breadcrumb mb-4">
+			<li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
+			<li class="breadcrumb-item active">회원</li>
+			<li class="breadcrumb-item active">회원관리</li>
+		</ol>
+		<div class="card mb-4">
+			<div class="card-header">
+				<i class="fas fa-circle-user me-1"></i>회원관리</div>
+           	<div class="card-body">
+               	<table id="datatablesSimple" class="table table-bordered">
+                   	<thead>
+                       	<tr>
+							<th scope="col" colspan="7">
+								<nav class="navbar-expand-lg">
+ 									<div class="collapse navbar-collapse" id="navbarSupportedContent">
+										<ul class="navbar-nav me-auto">
+										</ul>
+										<form class="d-flex">
+											<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+											<button class="btn btn-outline-dark me-2" type="submit">Search</button>
+											<div class="selec-box">
+												<select class="form-select" aria-label="Default select example" style="width: fit-content;">
+													<option value="1" selected>정렬선택</option>
+													<option value="2">이름순</option>
+													<option value="3">금액순</option>
+													<option value="4">고객등급순</option>
+												</select>
+											</div>
+										</form>
 									</div>
-								</form>
+								</nav>
+							</th>
+						</tr>
+               		</thead>
+                   	<tbody>
+						<tr>
+							<th scope="row">
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="selectAll">
+								</div>
+							</th>
+							<td><b>회원아이디</b></td>
+							<td><b>이름</b></td>
+							<td><b>전체주문/금액</b></td>
+							<td><b>고객등급</b></td>
+							<td><b>게시글</b></td>
+							<td><b>옵션</b></td>
+						</tr>
+						<tr>
+							<th scope="row">
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="checkbox1">
+								</div>
+							</th>
+							<td>
+								<img class="fit-picture me-2" src="https://png.pngtree.com/png-vector/20191009/ourmid/pngtree-user-icon-png-image_1796659.jpg" 
+								style="width:30px; height:30px;"/>admin
+							</td>
+							<td>최고관리자</td>
+							<td></td>
+							<td>관리자</td>
+							<td>
+								<p>&#45;</p>
+								<p>&#45;</p>
+								<p>&#45;</p>
+							</td>
+							<td class="table-op" style="width: 5% !important;">
+			               		<a class="btn btn-sm btn-primary" href="#!"><i class="fas fa-edit"></i></a>
+					            <a class="btn btn-sm btn-danger" href="#!"><i class="fas fa-trash"></i></a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" id="checkbox2">
+								</div>
+							</th>
+							<td>
+								<img class="fit-picture me-2" src="https://png.pngtree.com/png-vector/20191009/ourmid/pngtree-user-icon-png-image_1796659.jpg" 
+								style="width:30px; height:30px;"/>hong000
+							</td>
+							<td>홍길동</td>
+							<td></td>
+							<td>일반</td>
+							<td>
+								<p>&#45;</p>
+								<p>&#45;</p>
+								<p>&#45;</p>
+							</td>
+							<td class="table-op" style="width: 5% !important;">
+			               		<a class="btn btn-sm btn-primary" href="#!"><i class="fas fa-edit"></i></a>
+					            <a class="btn btn-sm btn-danger" href="#!"><i class="fas fa-trash"></i></a>
+							</td>
+						</tr>
+						<tr>
+						<th scope="row">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="checkbox3">
 							</div>
-						</div>
-					</nav>
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<th scope="row">
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" id="selectAll">
-					</div>
-				</th>
-				<td><b>회원아이디</b></td>
-				<td><b>이름</b></td>
-				<td><b>전체주문/금액</b></td>
-				<td><b>고객등급</b></td>
-				<td><b>게시글</b></td>
-				<td><b>옵션</b></td>
-			</tr>
-			<tr>
-				<th scope="row">
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" id="checkbox1">
-					</div>
-				</th>
-				<td>
-					<img class="fit-picture me-2" src="https://png.pngtree.com/png-vector/20191009/ourmid/pngtree-user-icon-png-image_1796659.jpg" 
-					style="width:30px; height:30px;"/>admin
-				</td>
-				<td>최고관리자</td>
-				<td></td>
-				<td>관리자</td>
-				<td>-<br/>
-					-<br/>
-					-</td>
-				<td class="table-op" style="width: 5% !important;">
-               		<a class="btn btn-sm btn-primary" href="#!"><i class="fas fa-edit"></i></a>
-		            <a class="btn btn-sm btn-danger" href="#!"><i class="fas fa-trash"></i></a>
-				</td>
-			</tr>
-			<tr>
-				<th scope="row">
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" id="checkbox2">
-					</div>
-				</th>
-				<td>
-					<img class="fit-picture me-2" src="https://png.pngtree.com/png-vector/20191009/ourmid/pngtree-user-icon-png-image_1796659.jpg" 
-					style="width:30px; height:30px;"/>hong000
-				</td>
-				<td>홍길동</td>
-				<td></td>
-				<td>일반</td>
-				<td>
-					-<br/>
-					-<br/>
-					-
-				</td>
-				<td class="table-op" style="width: 5% !important;">
-               		<a class="btn btn-sm btn-primary" href="#!"><i class="fas fa-edit"></i></a>
-		            <a class="btn btn-sm btn-danger" href="#!"><i class="fas fa-trash"></i></a>
-				</td>
-			</tr>
-			<tr>
-				<th scope="row">
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" id="checkbox3">
-					</div>
-				</th>
-				<td>
-					<img class="fit-picture me-2" src="https://png.pngtree.com/png-vector/20191009/ourmid/pngtree-user-icon-png-image_1796659.jpg" 
-					style="width:30px; height:30px;"/>suuoo99
-				</td>
-				<td>홍길순</td>
-				<td></td>
-				<td>VIP</td>
-				<td>-<br/>
-					-<br/>
-					-
-				</td>
-				<td class="table-op" style="width: 5% !important;">
-               		<a class="btn btn-sm btn-primary" href="#!"><i class="fas fa-edit"></i></a>
-		            <a class="btn btn-sm btn-danger" href="#!"><i class="fas fa-trash"></i></a>
-				</td>
-			</tr>
-		</tbody>
-    </table>
-
-</section>   	
+						</th>
+						<td>
+							<img class="fit-picture me-2" src="https://png.pngtree.com/png-vector/20191009/ourmid/pngtree-user-icon-png-image_1796659.jpg" 
+							style="width:30px; height:30px;"/>suuoo99
+						</td>
+						<td>홍길순</td>
+						<td></td>
+						<td>VIP</td>
+							<td>
+								<p>&#45;</p>
+								<p>&#45;</p>
+								<p>&#45;</p>
+							</td>
+							<td class="table-op" style="width: 5% !important;">
+			               		<a class="btn btn-sm btn-primary" href="#!"><i class="fas fa-edit"></i></a>
+					            <a class="btn btn-sm btn-danger" href="#!"><i class="fas fa-trash"></i></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+       		</div>
+		</div>	
+	</div>
+</section>
 
 	<!-- adm_footer 부분  -->
 	<jsp:include page="/WEB-INF/views/admin/adm_footer.jsp"></jsp:include>
