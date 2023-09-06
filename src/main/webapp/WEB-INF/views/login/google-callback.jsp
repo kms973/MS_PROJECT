@@ -14,6 +14,7 @@
     <h1>Google Response</h1>
     <div id="responseContainer"></div>
     <script>
+    //TEST
         // 서버로부터 받은 JSON 응답을 JavaScript 객체로 파싱합니다.
         var responseData = ${resultJson}; // resultJson은 서버에서 전달한 JSON 응답입니다.
 
