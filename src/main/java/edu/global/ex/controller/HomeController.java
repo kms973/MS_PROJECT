@@ -202,7 +202,7 @@ public class HomeController {
 		return "/admin/order/order_list";
 	}
 	
-	// 관리자 주문 목록 페이지
+	// 관리자 회원관리 페이지
 		@GetMapping("/admin/customer/mgr")
 		public String adminCustomerMGR() {
 			log.info("adminCustomerMGR");

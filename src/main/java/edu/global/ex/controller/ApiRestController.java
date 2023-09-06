@@ -63,6 +63,7 @@ public class ApiRestController {
 	                                     @RequestParam(value = "code") String authCode,
 	                                     HttpServletResponse response) throws Exception{
 
+	    	
 	        //2.구글에 등록된 설정정보를 보내어 약속된 토큰을 받위한 객체 생성
 	        GoogleOAuthRequest googleOAuthRequest = GoogleOAuthRequest
 	                .builder()
@@ -71,6 +72,7 @@ public class ApiRestController {
 	                .code(authCode)
 	                .redirectUri(googleRedirectUrl)
 	                .grantType("authorization_code")
+	                .scope("email profile openid") // 스코프 설정
 	                .build();
 
 	        RestTemplate restTemplate = new RestTemplate();
@@ -95,4 +97,6 @@ public class ApiRestController {
 	        
 	        return resultJson;
 	    }
+	    
+	    
 }
