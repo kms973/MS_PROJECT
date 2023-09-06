@@ -20,19 +20,20 @@ body#LoginForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-2
 .trailing.clear { cursor: pointer; &:focus { color: #3b71ca; outline: none; } }
 
 /* admin product */
-div.datatable-wrapper.datatable-loading.no-footer.sortable.searchable.fixed-columns { display: none; }
+/* div.datatable-wrapper.datatable-loading.no-footer.sortable.searchable.fixed-columns { display: none; } */
 
 /* admin product_new */
 .productcodenum{font-size: 12px; font-weight: lighter;}
 .productoption{font-size: 12px; font-weight: lighter; color: #999;}
 
 /* admin board */
-#board-notice div.card table.table tr > .table-no { width: 10%; text-align:center; }
-#board-notice div.card table.table tr > .table-tit { width: 50%; text-align:center; }
-#board-notice div.card table.table tr > .table-write { width: 10%; text-align:center; }
-#board-notice div.card table.table tr > .table-date { width: 15%; text-align:center; }
-#board-notice div.card table.table tr > .option { width: 10%; text-align:center; }
+div.tab.board-nav > .title.nav { mar}
 
+#board-notice div.card table.datatable-table tr > .table-no { width: 10% !important; text-align:center; }
+#board-notice div.card table.datatable-table tr > .table-tit { width: 50% !important; text-align:center; }
+#board-notice div.card table.datatable-table tr > .table-write { width: 10% !important; text-align:center; }
+#board-notice div.card table.datatable-table tr > .table-date { width: 15% !important; text-align:center; }
+#board-notice div.card table.datatable-table tr > .table-op { width: 10% !important; text-align:center; }
 
 
 
