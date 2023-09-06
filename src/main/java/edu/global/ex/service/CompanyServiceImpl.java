@@ -32,4 +32,12 @@ public class CompanyServiceImpl implements CompanyService {
 		return companyMapper.getCompany(companyVO);
 	}
 
+	@Override
+	public CompanyVO update(CompanyVO companyVO) {
+		
+		return companyMapper.update(companyVO);
+	}
+	
+	
+
 }

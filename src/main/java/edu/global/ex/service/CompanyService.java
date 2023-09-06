@@ -9,4 +9,6 @@ public interface CompanyService {
 
 	public CompanyVO getCompany(CompanyVO companyVO); //가져오기
 	
+	public CompanyVO update(CompanyVO companyVO); //회사정보업데이트
+	
 }

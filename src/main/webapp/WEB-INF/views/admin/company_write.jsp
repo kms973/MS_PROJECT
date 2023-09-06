@@ -48,7 +48,9 @@
 		                <div class="col-sm-10">
 		                  <div class="input-group input-group-merge">
 		                    <span id="basic-icon-default-fullname2" class="input-group-text"><i class="fa-regular fa-building"></i></span>
-		                    <input type="text" name="companyName" class="form-control" id="basic-icon-default-fullname" placeholder="회사명" aria-describedby="basic-icon-default-fullname2">
+		                    <c:if test="${company != null}">
+		                    <input value="${company.companyName }"type="text" name="companyName" class="form-control" id="basic-icon-default-fullname" placeholder="회사명" aria-describedby="basic-icon-default-fullname2">
+		                  </c:if>
 		                  </div>
 		                </div>
 		              </div>
@@ -57,7 +59,9 @@
 		                <div class="col-sm-10">
 		                  <div class="input-group input-group-merge">
 		                    <span id="basic-icon-default-company2" class="input-group-text"><i class="fa-solid fa-user"></i></span>
-		                    <input type="text" name="ceoName" id="basic-icon-default-company" class="form-control" placeholder="대표자" aria-describedby="basic-icon-default-company2">
+		                     <c:if test="${ company != null}">
+		                    <input value="${company.ceoName }" type="text" name="ceoName" id="basic-icon-default-company" class="form-control" placeholder="대표자" aria-describedby="basic-icon-default-company2" >
+		                  </c:if>
 		                  </div>
 		                </div>
 		              </div>
@@ -66,7 +70,9 @@
 		                <div class="col-sm-10">
 		                  <div class="input-group input-group-merge">
 		                    <span class="input-group-text"><i class="fa-solid fa-file-lines"></i></span>
-		                    <input type="text" name="companyNum" id="basic-icon-default-email" class="form-control" placeholder="000-00-00000" aria-describedby="basic-icon-default-email2">
+		                    <c:if test="${ company != null}">
+		                    <input value="${company.companyNum }" type="text" name="companyNum" id="basic-icon-default-email" class="form-control" placeholder="000-00-00000" aria-describedby="basic-icon-default-email2" >
+		                  </c:if>
 		                  </div>
 		                </div>
 		              </div>
@@ -75,7 +81,9 @@
 		                <div class="col-sm-10">
 		                  <div class="input-group input-group-merge">
 		                    <span id="basic-icon-default-phone2" class="input-group-text"><i class="fa-solid fa-phone"></i></span>
-		                    <input type="text" name="comTel" id="basic-icon-default-phone" class="form-control phone-mask" placeholder="대표번호" aria-describedby="basic-icon-default-phone2">
+		                    <c:if test="${ company != null}">
+		                    <input value="${company.comTel }" type="text" name="comTel" id="basic-icon-default-phone" class="form-control phone-mask" placeholder="대표번호" aria-describedby="basic-icon-default-phone2" >
+		                  </c:if>
 		                  </div>
 		                </div>
 		              </div>
@@ -84,7 +92,9 @@
 		                <div class="col-sm-10">
 		                  <div class="input-group input-group-merge">
 		                    <span id="basic-icon-default-phone2" class="input-group-text"><i class="fa-solid fa-headset"></i></span>
-		                    <input type="text" name="comCS" id="basic-icon-default-phone" class="form-control phone-mask" placeholder="고객센터" aria-describedby="basic-icon-default-phone2">
+		                    <c:if test="${ company != null}">
+		                    <input value="${company.comCS }"type="text" name="comCS" id="basic-icon-default-phone" class="form-control phone-mask" placeholder="고객센터" aria-describedby="basic-icon-default-phone2" >
+		                  </c:if>
 		                  </div>
 		                </div>
 		              </div>
@@ -95,15 +105,17 @@
 		                    <div class="col-sm-10">
 			                  <div class="input-group input-group-merge w-75">
 			                    <span id="basic-icon-default-phone2" class="input-group-text"><i class="fa-solid fa-location-dot"></i></span>
-		                  		<input type="text" name="comAddress1" id="sample4_postcode" placeholder="우편번호" class="form-control phone-mask w-25 me-2">
+		                  		<c:if test="${ company != null}">
+		                  		<input value="${company.comAddress1}"type="text" name="comAddress1" id="sample4_postcode" placeholder="우편번호" class="form-control phone-mask w-25 me-2">
 								<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" class="phone-mask w-25">
 			                  </div>	
 			                </div>
-							<input type="text" name="comAddress2" id="sample4_roadAddress" placeholder="도로명주소" class="form-control phone-mask">
-							<input type="text" name="comAddress3" id="sample4_jibunAddress" placeholder="지번주소" class="form-control phone-mask">
+							<input value="${company.comAddress2}"type="text" name="comAddress2" id="sample4_roadAddress" placeholder="도로명주소" class="form-control phone-mask">
+							<input value="${company.comAddress3}"type="text" name="comAddress3" id="sample4_jibunAddress" placeholder="지번주소" class="form-control phone-mask">
 							<span id="guide" style="color:#999;display:none"></span>
-							<input type="text" name="comAddress4" id="sample4_detailAddress" placeholder="상세주소" class="form-control phone-mask w-75 pe-2">
-							<input type="text" name="comAddress5" id="sample4_extraAddress" placeholder="참고항목" class="form-control phone-mask w-25">
+							<input value="${company.comAddress4}"type="text" name="comAddress4" id="sample4_detailAddress" placeholder="상세주소" class="form-control phone-mask w-75 pe-2">
+							<input value="${company.comAddress5}" type="text" name="comAddress5" id="sample4_extraAddress" placeholder="참고항목" class="form-control phone-mask w-25">
+		                  </c:if>
 		                  </div>
 		                </div>
 		              </div>
