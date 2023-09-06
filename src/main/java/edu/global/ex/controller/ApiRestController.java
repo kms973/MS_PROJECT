@@ -80,6 +80,7 @@ public class ApiRestController {
 	        //3.토큰요청을 한다.
 	        ResponseEntity<GoogleLoginResponse> apiResponse = restTemplate.postForEntity(googleAuthUrl + "/token", googleOAuthRequest, GoogleLoginResponse.class);
 	        //4.받은 토큰을 토큰객체에 저장
+	        log.info(apiResponse.toString());
 	        GoogleLoginResponse googleLoginResponse = apiResponse.getBody();
 
 	        log.info("responseBody {}",googleLoginResponse.toString());
@@ -97,6 +98,6 @@ public class ApiRestController {
 	        
 	        return resultJson;
 	    }
-	    
+	
 	    
 }
