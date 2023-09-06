@@ -46,7 +46,8 @@
 			           <td>${boardList.btitle}</td>
 			           <td>${boardList.bname}</td>
 			           <td>${boardList.bdate}</td>
-						<tr>
+			           </tr>
+<%-- 						<tr>
 			                <td class="no-no table-no">1</td>
 			                <td class="no-tit table-tit"><a href="#">첫 번째 공지</a></td>
 			                <td class="no-write table-write">관리자</td>
@@ -57,7 +58,7 @@
 			                    <button class="btn-sm border-0"><i class="fas fa-trash"></i></button>
 			                </td>
 			                </sec:authorize>
-			            </tr>
+			            </tr> --%>
 			             </c:forEach>
 						<%--><c:choose>
 				            <c:when test="${not empty noticeList}">

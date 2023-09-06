@@ -49,7 +49,7 @@ integrity="sha256-IKhQVXDfwbVELwiR0ke6dX+pJt0RSmWky3WB2pNx9Hg=" crossorigin="ano
 			  <option value="3">Review</option>
 			</select> 
 		<div class="my-3">
-		  <input class="form-control" type="text" placeholder="제목" aria-label="default input example">
+		  <input class="form-control" id="input_btitle" name="btitle" type="text" placeholder="제목" aria-label="default input example" value="${content_view.btitle}">
 		</div>    
 		
 		<div id="summernote"></div>
@@ -96,7 +96,25 @@ $('#summernote').summernote({
 	    ['view', ['fullscreen', 'help']]
 	  ],
 	fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
-	fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']
+	fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],
+	
+	
+	// ${content_view.bcontent} 값을 Summernote 에디터에 설정
+	/* var content = '${content_view.bcontent}'; */
+	/* $('#summernote').summernote('code', content); */
 });
+var node = document.createElement('div');
+const attr = 'content_view.bcontent';
+node.setAttribute('value',attr);
+$('#summernote').summernote('insertNode', node);
+
+$('#summernote').summernote('insertText','내용을 입력해주세요');
+const range = $.summernote.range;
+const rng = range.createFromSelection(node);
+rng.select();
+
+console.log(rng.select());
+
+console.log($('.note-editable').innerHTML);
 </script>
 </html>

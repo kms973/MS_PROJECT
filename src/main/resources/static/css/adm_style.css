@@ -25,3 +25,21 @@ div.datatable-wrapper.datatable-loading.no-footer.sortable.searchable.fixed-colu
 /* admin product_new */
 .productcodenum{font-size: 12px; font-weight: lighter;}
 .productoption{font-size: 12px; font-weight: lighter; color: #999;}
+
+/* admin board */
+#board-notice div.card table.table tr > .table-no { width: 10%; text-align:center; }
+#board-notice div.card table.table tr > .table-tit { width: 50%; text-align:center; }
+#board-notice div.card table.table tr > .table-write { width: 10%; text-align:center; }
+#board-notice div.card table.table tr > .table-date { width: 15%; text-align:center; }
+#board-notice div.card table.table tr > .option { width: 10%; text-align:center; }
+
+
+
+
+
+
+
+
+
+
+
