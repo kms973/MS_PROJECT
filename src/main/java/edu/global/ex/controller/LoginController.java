@@ -87,7 +87,7 @@ public class LoginController {
 
 	@GetMapping("/login/social")
 	public String sociallogin() {
-		log.info("sociallogin");
+		log.info("sociallogin");	
 		return "/login/socialLogin";
 	}
 
