@@ -126,7 +126,7 @@ public class HomeController {
 //		log.info("adminIndex()");
 //		return "/admin/index";
 //	}
-
+	//정보확인
 	@GetMapping("/admin/company")
 	public String adminCompany(CompanyVO companyVO, Model model) {
 		log.info("adminCompany..");
@@ -134,20 +134,20 @@ public class HomeController {
 		model.addAttribute("company", companyService.getCompany(companyVO));
 		return "/admin/company";
 	}
-	
+	//정보수정
 	@GetMapping("/admin/company_write")
 	public String adminCompanyWrite() {
 		log.info("adminCompanyWrite..");
 		return "/admin/company_write";
 	}
-
+	//정보수정
 	@PostMapping("/admin/company")
 	public String companyPost(CompanyVO cvo) {
 		log.info("companyPost()..");
 		
 	
 		
-		cmp.insert(cvo);
+		cmp.update(cvo);
 		
 		return "redirect:/admin/company";
 	}

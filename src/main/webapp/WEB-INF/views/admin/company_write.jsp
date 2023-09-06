@@ -48,7 +48,9 @@
 		                <div class="col-sm-10">
 		                  <div class="input-group input-group-merge">
 		                    <span id="basic-icon-default-fullname2" class="input-group-text"><i class="fa-regular fa-building"></i></span>
-		                    <input type="text" name="companyName" class="form-control" id="basic-icon-default-fullname" placeholder="회사명" aria-describedby="basic-icon-default-fullname2">
+		                    <c:if test="${company != null}">
+		                    <input value="${company.companyName }"type="text" name="companyName" class="form-control" id="basic-icon-default-fullname" placeholder="회사명" aria-describedby="basic-icon-default-fullname2">
+		                  </c:if>
 		                  </div>
 		                </div>
 		              </div>
