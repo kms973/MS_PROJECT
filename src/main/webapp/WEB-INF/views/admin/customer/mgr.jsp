@@ -90,8 +90,8 @@
 					-<br/>
 					-</td>
 				<td class="table-op" style="width: 5% !important;">
-               		<a class="btn btn-sm btn-primary" href="content_view?bid=${boardList.bid}"><i class="fas fa-edit"></i></a>
-		            <a class="btn btn-sm btn-danger" href="delete?bid=${boardList.bid}"><i class="fas fa-trash"></i></a>
+               		<a class="btn btn-sm btn-primary" href="#!"><i class="fas fa-edit"></i></a>
+		            <a class="btn btn-sm btn-danger" href="#!"><i class="fas fa-trash"></i></a>
 				</td>
 			</tr>
 			<tr>
@@ -113,8 +113,8 @@
 					-
 				</td>
 				<td class="table-op" style="width: 5% !important;">
-               		<a class="btn btn-sm btn-primary" href="content_view?bid=${boardList.bid}"><i class="fas fa-edit"></i></a>
-		            <a class="btn btn-sm btn-danger" href="delete?bid=${boardList.bid}"><i class="fas fa-trash"></i></a>
+               		<a class="btn btn-sm btn-primary" href="#!"><i class="fas fa-edit"></i></a>
+		            <a class="btn btn-sm btn-danger" href="#!"><i class="fas fa-trash"></i></a>
 				</td>
 			</tr>
 			<tr>
@@ -135,8 +135,8 @@
 					-
 				</td>
 				<td class="table-op" style="width: 5% !important;">
-               		<a class="btn btn-sm btn-primary" href="content_view?bid=${boardList.bid}"><i class="fas fa-edit"></i></a>
-		            <a class="btn btn-sm btn-danger" href="delete?bid=${boardList.bid}"><i class="fas fa-trash"></i></a>
+               		<a class="btn btn-sm btn-primary" href="#!"><i class="fas fa-edit"></i></a>
+		            <a class="btn btn-sm btn-danger" href="#!"><i class="fas fa-trash"></i></a>
 				</td>
 			</tr>
 		</tbody>
