@@ -34,9 +34,11 @@ public class CompanyServiceImpl implements CompanyService {
 
 	@Override
 	public CompanyVO update(CompanyVO companyVO) {
-		
-		return companyMapper.update(companyVO);
+		// TODO 自動生成されたメソッド・スタブ
+		return null;
 	}
+
+	
 	
 	
 

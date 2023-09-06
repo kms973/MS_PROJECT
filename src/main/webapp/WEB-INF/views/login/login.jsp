@@ -7,15 +7,15 @@
 	<!-- <div id="sub-bnr"><h5>Commuunity</h5></div> -->
 	<!-- TAB 메뉴 -->
    	<div class="form-signin w-100 m-auto">
-	  	<form class="needs-validation" novalidate>
+	  	<form method="post" action="/login"class="needs-validation" novalidate>
 	    	<div id="sub-bnr"><h5 class="justify-content-center">Login</h5></div>
 		    <div class="form-floating form-group">
-		      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+		      <input name="username"type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
 		      <label for="floatingInput">이메일</label>
 		      <div class="invalid-feedback">이메일을 입력해주세요.</div>
 		    </div>
 		    <div class="form-floating">
-		      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+		      <input name="password"type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
 		      <label for="floatingPassword">비밀번호</label>
 		      <div class="invalid-feedback">비밀번호를 입력해주세요.</div>
 		    </div>
@@ -25,7 +25,7 @@
 				<ul class="find d-flex align-items-center mb-0" style="list-style-type: none; padding-left: 0;">
 			    	<li class="idSearch mr-4" id="idSearch" style="cursor: pointer">아이디 찾기</li>
 			    	<li class="pwSearch mr-4" id="pwSearch" style="cursor: pointer">비밀번호 찾기</li>
-			    	<li class="signUp" id="signUp" style="cursor: pointer">회원가입</li>
+			    	<li class="signUp" id="signUp" style="cursor: pointer"><a href="/login/signup">회원가입</a></li>
 				</ul>
 			</div>
 	    	<button class="btn btn-primary w-100 my-1 py-2" type="submit">Sign in</button>

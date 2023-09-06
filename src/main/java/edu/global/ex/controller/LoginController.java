@@ -10,8 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.global.ex.mapper.MsUserMapper;
 import edu.global.ex.vo.MsUserVO;
@@ -52,20 +50,20 @@ public class LoginController {
 
 	}
 
-	public class RegisterController {
-
-		@RequestMapping(value = "/login/register", method = RequestMethod.POST)
-		public String MemberRegistrationServlet(@RequestParam("userId") String userId,
-				@RequestParam("name") String name,
-				@RequestParam("birthday") String birthday,
-				@RequestParam("address") String address,
-				@RequestParam("password") String password) {
-			// 회원 등록 로직 구현
-			// 데이터베이스 저장 등의 작업 수행
-
-			return "/login/registration_complete"; // 회원 등록 성공 페이지로 이동
-		}
-	}
+//	public class RegisterController {
+//
+//		@RequestMapping(value = "/login/register", method = RequestMethod.POST)
+//		public String MemberRegistrationServlet(@RequestParam("userId") String userId,
+//				@RequestParam("name") String name,
+//				@RequestParam("birthday") String birthday,
+//				@RequestParam("address") String address,
+//				@RequestParam("password") String password) {
+//			// 회원 등록 로직 구현
+//			// 데이터베이스 저장 등의 작업 수행
+//
+//			return "/login/registration_complete"; // 회원 등록 성공 페이지로 이동
+//		}
+//	}
 
 	@GetMapping("/login/login")
 	public String userlogin() {
@@ -108,7 +106,7 @@ public class LoginController {
 		return "/login/signuptest";
 	}
 
-	@PostMapping("/login/signuptest")
+	@PostMapping("/login/signup")
 	public String signuptest(MsUserVO user) {
 
 		user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
