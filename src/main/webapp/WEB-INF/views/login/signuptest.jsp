@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- header 시작 -->
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
@@ -30,12 +31,18 @@ margin-bottom :100px;
 <div class="container-signup">
 	<div class="form-signup m-auto">
 		<h2 class="mt-5 text-center">회원가입</h2>
-
 		<form method="post" action ="/login/signup">
 			<div class="form-floating form-group my-2">
+			<c:if test="${email == null }">
 				<input name="username" type="email" class="form-control" id="username"
 					placeholder="name@example.com" required> <label
 					for="floatingInput">이메일</label>
+					</c:if>
+					<c:if test="${email != null }">
+				<input value="${email }" name="username" type="email" class="form-control" id="username"
+					placeholder="name@example.com" required> <label
+					for="floatingInput">이메일</label>
+					</c:if>
 				<div class="invalid-feedback">이메일을 입력해주세요.</div>
 			</div>
 			<div class="form-floating my-2">
