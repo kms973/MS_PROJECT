@@ -201,6 +201,14 @@ public class HomeController {
 		log.info("adminOrderList");
 		return "/admin/order/order_list";
 	}
+	
+	// 관리자 주문 목록 페이지
+		@GetMapping("/admin/customer/mgr")
+		public String adminCustomerMGR() {
+			log.info("adminCustomerMGR");
+			return "/admin/customer/mgr";
+		}
+	
 
 	// 링 상점 페이지
 	@GetMapping("/shop/ring")

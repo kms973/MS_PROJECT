@@ -66,7 +66,7 @@
 	                    </a>
 	                    <div class="collapse" id="collapseMembers" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 	                        <nav class="sb-sidenav-menu-nested nav">
-	                            <a class="nav-link" href="#!">회원관리</a>
+	                            <a class="nav-link" href="/admin/customer/mgr">회원관리</a>
 	                            <a class="nav-link" href="#!">회원 등급 설정</a>
 	                            <a class="nav-link" href="#!">회원 가입 약관</a>
 	                        </nav>
