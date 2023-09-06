@@ -11001,7 +11001,7 @@ body {
   display: inline-block;
   height: 100%;
   position: relative;
-  width: 100%;
+  width: inheirt;
   padding-right: 1rem;
 }
 

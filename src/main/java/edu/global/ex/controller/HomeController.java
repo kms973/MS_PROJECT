@@ -90,8 +90,10 @@ public class HomeController {
 
 	// 회사 정보 수정 페이지
 	@GetMapping("/admin/company_write")
-	public String adminCompanyWrite() {
+	public String adminCompanyWrite(CompanyVO companyVO, Model model) {
 		log.info("adminCompanyWrite..");
+		
+		model.addAttribute("company", companyService.getCompany(companyVO));
 		return "/admin/company_write";
 	}
 
