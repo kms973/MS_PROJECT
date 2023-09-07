@@ -19,107 +19,101 @@ import lombok.extern.slf4j.Slf4j;
 public class LoginController {
 
 	@Autowired
-	private MsUserMapper userMapper;
+	private MsUserMapper userMapper; // 사용자 관리를 위한 데이터베이스 매퍼
 
 	@Autowired
-	private PasswordEncoder passwordEncoder;
+	private PasswordEncoder passwordEncoder; // 비밀번호 암호화를 위한 빈
 
+	// 로그인 페이지로 이동하는 핸들러
 	@GetMapping("/login")
 	public String login() {
 		return "/admin/login";
 	}
 
+	// 로그인 정보 페이지로 이동하는 핸들러
 	@GetMapping("/loginInfo")
 	public String loginInfo(Authentication authentication, Principal principal) {
 
 		String user_id;
 
-		// 1.SpringContextHolder를 통하여 가져오는 방법(일반적인 빈에서 사용 할수있음 )
-		//		org.springframework.security.core.Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		// 1. SpringContextHolder를 통하여 가져오는 방법 (일반적인 빈에서 사용할 수 있음)
+		// org.springframework.security.core.Authentication auth =
+		// SecurityContextHolder.getContext().getAuthentication();
 		// user_id = auth.getName();
 		// System.out.println("유저 아이디:" + user_id);
-		// 2.authentication 객체로 가져오는 방법(많은 )
+
+		// 2. Authentication 객체로 가져오는 방법 (많이 사용하는 방법)
 		System.out.println("authentication 유저 아이디:" + authentication.getName());
 		System.out.println("authentication 권한들:" + authentication.getAuthorities());
 
-		// 3.Principal 객체로 가져오는 방법(가져올수 있는게 getName() 정도
+		// 3. Principal 객체로 가져오는 방법 (가져올 수 있는 것은 getName() 정도)
 		System.out.println("Principal 유저 아이디:" + principal.getName());
 
 		return "redirect:/";
-
 	}
 
-//	public class RegisterController {
-//
-//		@RequestMapping(value = "/login/register", method = RequestMethod.POST)
-//		public String MemberRegistrationServlet(@RequestParam("userId") String userId,
-//				@RequestParam("name") String name,
-//				@RequestParam("birthday") String birthday,
-//				@RequestParam("address") String address,
-//				@RequestParam("password") String password) {
-//			// 회원 등록 로직 구현
-//			// 데이터베이스 저장 등의 작업 수행
-//
-//			return "/login/registration_complete"; // 회원 등록 성공 페이지로 이동
-//		}
-//	}
-
+	// 사용자 로그인 페이지로 이동하는 핸들러
 	@GetMapping("/login/login")
 	public String userlogin() {
-
 		return "/login/login";
 	}
 
+	// 사용자 로그아웃 페이지로 이동하는 핸들러
 	@GetMapping("/logout")
 	public String userlogout() {
-
 		return "/login/login";
 	}
 
+	// Google 로그인 페이지로 이동하는 핸들러
 	@GetMapping("/login/google")
 	public String googlelogin() {
 		log.info("googlelogin");
 		return "/login/googleLogin";
 	}
 
+	// 소셜 로그인 페이지로 이동하는 핸들러
 	@GetMapping("/login/social")
 	public String sociallogin() {
-		log.info("sociallogin");	
+		log.info("sociallogin");
 		return "/login/socialLogin";
 	}
 
-//	@RequestMapping("/login/google-callback")
-//	public String callback() {
-//		return "/login/google-callback";
-//	}
+	// Google 로그인 콜백 페이지로 이동하는 핸들러
+	// @RequestMapping("/login/google-callback")
+	// public String callback() {
+	// return "/login/google-callback";
+	// }
 
+	// Google2 로그인 페이지로 이동하는 핸들러
 	@GetMapping("/login/google2")
 	public String google2() {
 		log.info("google2");
 		return "/login/google2";
 	}
 
+	// 회원 가입 페이지로 이동하는 핸들러
 	@GetMapping("/login/signup")
 	public String signuptest() {
-
 		return "/login/signuptest";
 	}
 
+	// 회원 가입을 처리하는 핸들러
 	@PostMapping("/login/signup")
 	public String signuptest(MsUserVO user) {
-
+		// 비밀번호를 암호화하여 저장
 		user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
 
+		// 사용자 정보와 권한 정보를 데이터베이스에 저장
 		userMapper.insertUser(user);
 		userMapper.insertAuthorities(user);
 
 		return "index";
 	}
 
+	// 사용자 프로필 페이지로 이동하는 핸들러
 	@GetMapping("/login/userprofile")
 	public String userprofile() {
 		log.info("userprofile");
 		return "/login/profile_page";
 	}
-
 }
