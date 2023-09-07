@@ -113,11 +113,57 @@ public class HomeController {
 		return "/admin/board/list";
 	}
 
-	// 게시판 작성 페이지
+	// user 게시판
+	@GetMapping("/community")
+	public String community(Criteria cri, Model model) {
+		log.info("community()..");
+		log.info("community() 크리테리아값 확인" + cri);
+
+		model.addAttribute("boardList", boardService.getNotice());
+		model.addAttribute("boardList_Qna", boardService.getQna());
+		model.addAttribute("boardList_Review", boardService.getReview());
+
+		return "/community";
+	}
+	
+	// user 게시판 작성 페이지
+	@GetMapping("/write_view")
+	public String write_view1() {
+
+		log.info("write_view()..");
+
+		return "write_view";
+	}
+	
+	// user 게시판 작성후 연결 페이지
+	@PostMapping("/write")
+	public String write1(BoardVO boardVO) {
+
+		log.info("write()..");
+		
+		boardService.register(boardVO);
+
+		return "redirect:community";
+	}
+	
+	// 관리자 게시판 작성 페이지
+	@GetMapping("/admin/write_view")
+	public String write_view() {
+
+		log.info("write_view()..");
+
+		return "admin/board/write_view";
+	}
+	
+	// 관리자 게시판 작성후 연결 페이지
 	@PostMapping("/admin/write")
 	public String write(BoardVO boardVO) {
+
 		log.info("write()..");
-		return "board/write";
+		
+		boardService.register(boardVO);
+
+		return "redirect:board";
 	}
 
 	// 게시판 수정 페이지
@@ -144,13 +190,6 @@ public class HomeController {
 		log.info("delete()..");
 		model.addAttribute("delete", boardService.delete(bid));
 		return "redirect:board";
-	}
-
-	// 관리자 게시판 작성 페이지
-	@GetMapping("/admin/write")
-	public String adminBoardWrite() {
-		log.info("adminBoardWrite");
-		return "/admin/board/write";
 	}
 
 	// 관리자 공지사항 게시판 페이지
@@ -217,12 +256,6 @@ public class HomeController {
 		return "/shop/ring";
 	}
 
-	// 커뮤니티 페이지
-	@GetMapping("/community")
-	public String community() {
-		log.info("community()..");
-		return "/community";
-	}
 
 	// 쇼핑 페이지
 	@GetMapping("/shop")

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+
 <!-- header 시작 -->
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
@@ -41,13 +43,13 @@
 					<tbody>
 					<c:forEach var="boardList" items="${boardList}">
 			         <tr>
-			         
-			           <td>${boardList.bid}</td>			         
+			           <td>${boardList.bid}</td>
 			           <td>${boardList.btitle}</td>
 			           <td>${boardList.bname}</td>
 			           <td>${boardList.bdate}</td>
 			           </tr>
-<%-- 						<tr>
+					  
+<%-- 					<tr>
 			                <td class="no-no table-no">1</td>
 			                <td class="no-tit table-tit"><a href="#">첫 번째 공지</a></td>
 			                <td class="no-write table-write">관리자</td>
@@ -60,29 +62,6 @@
 			                </sec:authorize>
 			            </tr> --%>
 			             </c:forEach>
-						<%--><c:choose>
-				            <c:when test="${not empty noticeList}">
-				                <c:forEach items="${noticeList}" var="faqItem">
-				                    <tr>
-				                        <td>${noticeItem.id}</td>
-				                        <td><a href="#">${noticeItem.question}</a></td>
-				                        <td>${noticeItem.author}</td>
-				                        <td>${noticeItem.date}</td>
-				                        <sec:authorize access="hasRole('ROLE_ADMIN')">
-				                        <td>
-				                            <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
-				                            <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-				                        </td>
-				                        </sec:authorize>
-				                    </tr>
-				                </c:forEach>
-				            </c:when>
-				            <c:otherwise>
-				                <tr>
-				                    <td colspan="5">글이 없습니다.</td>
-				                </tr>
-				            </c:otherwise>
-				        </c:choose> --%>
 					</tbody>
 				</table>
 		      </li>
@@ -154,29 +133,20 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:choose>
-				            <%-- <c:when test="${not empty noticeList}">
-				                <c:forEach items="${noticeList}" var="faqItem">
-				                    <tr>
-				                        <td>${noticeItem.id}</td>
-				                        <td><a href="#">${noticeItem.question}</a></td>
-				                        <td>${noticeItem.author}</td>
-				                        <td>${noticeItem.date}</td>
-				                        <sec:authorize access="hasRole('ROLE_ADMIN')">
-				                        <td>
-				                            <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
-				                            <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-				                        </td>
-				                        </sec:authorize>
-				                    </tr>
-				                </c:forEach>
-				            </c:when> --%>
-				            <c:otherwise>
-				                <tr>
-				                    <td colspan="5">글이 없습니다.</td>
-				                </tr>
-				            </c:otherwise>
-				        </c:choose>
+					
+				  <c:forEach var="boardList_Qna" items="${boardList_Qna}">
+			         <tr>
+			            <td>${boardList_Qna.bid}</td>			         
+			           <td>${boardList_Qna.btitle}</td>
+			           <td>${boardList_Qna.bname}</td>
+			           <td>${boardList_Qna.bdate}</td>
+					</c:forEach>
+
+						<div class="row justify-content-end w-100 mx-0">
+		                <div class="d-flex justify-content-end px-0">
+		                  	<a href="write_view" class="btn btn-primary ">글쓰기</a>
+		                </div>
+		              </div>
 					</tbody>
 				</table>
 		      </li>
@@ -194,29 +164,17 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:choose>
-				            <%-- <c:when test="${not empty noticeList}">
-				                <c:forEach items="${noticeList}" var="faqItem">
-				                    <tr>
-				                        <td>${noticeItem.id}</td>
-				                        <td><a href="#">${noticeItem.question}</a></td>
-				                        <td>${noticeItem.author}</td>
-				                        <td>${noticeItem.date}</td>
-				                        <sec:authorize access="hasRole('ROLE_ADMIN')">
-				                        <td>
-				                            <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></button>
-				                            <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-				                        </td>
-				                        </sec:authorize>
-				                    </tr>
-				                </c:forEach>
-				            </c:when> --%>
-				            <c:otherwise>
-				                <tr>
-				                    <td colspan="5">글이 없습니다.</td>
-				                </tr>
-				            </c:otherwise>
-				        </c:choose>
+			         <c:forEach var="boardList_Review" items="${boardList_Review}">
+			         <tr>
+			           <td>${boardList_Review.bid}</td>			         
+			           <td>${boardList_Review.btitle}</td>
+			           <td>${boardList_Review.bname}</td>
+			           <td>${boardList_Review.bdate}</td>
+					</c:forEach>
+						<div class="row justify-content-end w-100 mx-0">
+		                <div class="d-flex justify-content-end px-0">
+		                  	<a href="write_view" class="btn btn-primary ">글쓰기</a>
+		                </div>
 					</tbody>
 				</table>
 		      </li>
