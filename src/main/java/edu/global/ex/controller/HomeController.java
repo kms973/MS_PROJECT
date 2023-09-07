@@ -92,7 +92,7 @@ public class HomeController {
 	@GetMapping("/admin/company_write")
 	public String adminCompanyWrite(CompanyVO companyVO, Model model) {
 		log.info("adminCompanyWrite..");
-		
+
 		model.addAttribute("company", companyService.getCompany(companyVO));
 		return "/admin/company_write";
 	}
@@ -125,10 +125,9 @@ public class HomeController {
 
 		return "/community";
 	}
-	
+
 	// user 게시판 보기 페이지
-	
-	
+
 	// user 게시판 작성 페이지
 	@GetMapping("/write_view")
 	public String write_view1() {
@@ -137,18 +136,18 @@ public class HomeController {
 
 		return "write_view";
 	}
-	
+
 	// user 게시판 작성후 연결 페이지
 	@PostMapping("/write")
 	public String write1(BoardVO boardVO) {
 
 		log.info("write()..");
-		
+
 		boardService.register(boardVO);
 
 		return "redirect:community";
 	}
-	
+
 	// 관리자 게시판 작성 페이지
 	@GetMapping("/admin/write_view")
 	public String write_view() {
@@ -157,13 +156,13 @@ public class HomeController {
 
 		return "admin/board/write_view";
 	}
-	
+
 	// 관리자 게시판 작성후 연결 페이지
 	@PostMapping("/admin/write")
 	public String write(BoardVO boardVO) {
 
 		log.info("write()..");
-		
+
 		boardService.register(boardVO);
 
 		return "redirect:board";
@@ -185,6 +184,15 @@ public class HomeController {
 		int bid = boardVO.getBid();
 		model.addAttribute("content_view", boardService.read(bid));
 		return "/admin/board/content_view";
+	}
+
+	//유저화면 게시판 내용 보기 페이지
+	@GetMapping("/content_view")
+	public String Usercontent_view(BoardVO boardVO, Model model) {
+		log.info("content_view()..");
+		int bid = boardVO.getBid();
+		model.addAttribute("content_view", boardService.read(bid));
+		return "/content_view";
 	}
 
 	// 게시판 삭제 처리
@@ -243,14 +251,13 @@ public class HomeController {
 		log.info("adminOrderList");
 		return "/admin/order/order_list";
 	}
-	
+
 	// 관리자 회원관리 페이지
-		@GetMapping("/admin/customer/mgr")
-		public String adminCustomerMGR() {
-			log.info("adminCustomerMGR");
-			return "/admin/customer/mgr";
-		}
-	
+	@GetMapping("/admin/customer/mgr")
+	public String adminCustomerMGR() {
+		log.info("adminCustomerMGR");
+		return "/admin/customer/mgr";
+	}
 
 	// 링 상점 페이지
 	@GetMapping("/shop/ring")
@@ -258,7 +265,6 @@ public class HomeController {
 		log.info("shopRing()..");
 		return "/shop/ring";
 	}
-
 
 	// 쇼핑 페이지
 	@GetMapping("/shop")

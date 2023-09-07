@@ -45,7 +45,7 @@
 					<c:forEach var="boardList" items="${boardList}">
 			         <tr>
 			           <td class="no-no table-no">${boardList.bid}</td>
-			           <td class="no-tit table-tit"><a href="delete?bid=${content_view.bid}">${boardList.btitle}</a></td>
+			           <td class="no-tit table-tit"><a href="content_view?bid=${boardList.bid}">${boardList.btitle}</a></td>
 			           <td class="no-write table-write">${boardList.bname}</td>
 			           <td class="no-date table-date"><fmt:formatDate value="${boardList.bdate}" pattern="yyyy-MM-dd" /></td>
 			           <sec:authorize access="hasRole('ROLE_ADMIN')">
