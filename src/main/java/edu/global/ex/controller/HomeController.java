@@ -126,6 +126,26 @@ public class HomeController {
 		return "/community";
 	}
 	
+	// user 게시판 작성 페이지
+	@GetMapping("/write_view")
+	public String write_view1() {
+
+		log.info("write_view()..");
+
+		return "write_view";
+	}
+	
+	// user 게시판 작성후 연결 페이지
+	@PostMapping("/write")
+	public String write1(BoardVO boardVO) {
+
+		log.info("write()..");
+		
+		boardService.register(boardVO);
+
+		return "redirect:community";
+	}
+	
 	// 관리자 게시판 작성 페이지
 	@GetMapping("/admin/write_view")
 	public String write_view() {
