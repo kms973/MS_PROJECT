@@ -28,6 +28,7 @@
 	    <ol class="breadcrumb mb-4"><li class="breadcrumb-item active"></li></ol>
 	    
         <div class="card">
+        	<!-- 게시글 필터링 탭 메뉴 -->
 			<h6 class="card-header">
 				<div class="tab board-nav">
 					<ul class="title nav m-0">
@@ -58,25 +59,29 @@
 					</ul>
 		        </div>
 			</h6>
+			
+			<!-- 게시글 테이블 -->
 			<div class="card-body table-responsive text-nowrap">
-				<table class="table" id="datatablesSimple">
+				<table class="table table-hover table-bordered">
 			    	<thead>
 			    		<tr>
-			    			<th class="table-no">No</th>
-			    			<th class="table-tit w-50">Title</th>
-			    			<th class="table-wr">Writer</th>
-			    			<th class="table-date">Date</th>
-			    			<th class="table-op" style="width:5%;">Option</th>
+			    			<th class="table-no text-center">
+			    				<a href="#" class="datatable-sorter">No</a>
+			    			</th>
+			    			<th class="table-tit w-50 text-center">Title</th>
+			    			<th class="table-wr text-center">Writer</th>
+			    			<th class="table-date text-center">Date</th>
+			    			<th class="table-op text-center" style="width:5%;">Option</th>
 		    			</tr>
 			       </thead>
 			       <tbody>
 			       <c:forEach var="boardList" items="${boardList}">
 			       	 <tr class="data_item" data-type="${boardList.selecter}">
-			           <td class="table-no">${boardList.bid}</td>			         
-			           <td class="table-tit w-50"><a href="content_view?bid=${boardList.bid}">${boardList.btitle}</a></td>
-			           <td class="table-wr">${boardList.bname}</td>
-			           <td class="table-date">${boardList.bdate}</td>
-			           <td class="table-op" style="width: 5% !important;">
+			           <td class="table-no text-center">${boardList.bid}</td>			         
+			           <td class="table-tit w-50 text-center"><a href="content_view?bid=${boardList.bid}" class="h-inheirt">${boardList.btitle}</a></td>
+			           <td class="table-wr text-center">${boardList.bname}</td>
+			           <td class="table-date text-center">${boardList.bdate}</td>
+			           <td class="table-op text-center" style="width: 5% !important;">
 	               		<a class="btn btn-sm btn-primary" href="content_view?bid=${boardList.bid}"><i class="fas fa-edit"></i></a>
 			            <a class="btn btn-sm btn-danger" href="delete?bid=${boardList.bid}"><i class="fas fa-trash"></i></a>
 			           </td>
@@ -112,6 +117,40 @@ $(document).ready(function() {
       $(".data_item[data-type='" + selectedType + "']").show();
     }
   });
+});
+
+//오름차순 버튼 클릭 이벤트 처리
+$(".sort-asc").click(function() {
+    const columnIndex = $(this).closest("th").index();
+    const rows = $(".data_item").get();
+
+    rows.sort(function(a, b) {
+        const aValue = $(a).find("td").eq(columnIndex).text();
+        const bValue = $(b).find("td").eq(columnIndex).text();
+        return aValue.localeCompare(bValue, 'en', { numeric: true });
+    });
+
+    $(".data_item").detach();
+    for (let i = 0; i < rows.length; i++) {
+        $(".table tbody").append(rows[i]);
+    }
+});
+
+// 내림차순 버튼 클릭 이벤트 처리
+$(".sort-desc").click(function() {
+    const columnIndex = $(this).closest("th").index();
+    const rows = $(".data_item").get();
+
+    rows.sort(function(a, b) {
+        const aValue = $(a).find("td").eq(columnIndex).text();
+        const bValue = $(b).find("td").eq(columnIndex).text();
+        return bValue.localeCompare(aValue, 'en', { numeric: true });
+    });
+
+    $(".data_item").detach();
+    for (let i = 0; i < rows.length; i++) {
+        $(".table tbody").append(rows[i]);
+    }
 });
 </script>
 </body>

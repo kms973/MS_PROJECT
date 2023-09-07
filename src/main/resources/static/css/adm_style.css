@@ -29,6 +29,7 @@ body#LoginForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-2
 /* admin board */
 div.tab.board-nav > .title.nav { mar}
 
+#board-notice div.card table.datatable-table tr { display: flex; justify-content: space-between; align-items: center; }
 #board-notice div.card table.datatable-table tr > .table-no { width: 10% !important; text-align:center; }
 #board-notice div.card table.datatable-table tr > .table-tit { width: 50% !important; text-align:center; }
 #board-notice div.card table.datatable-table tr > .table-write { width: 10% !important; text-align:center; }
