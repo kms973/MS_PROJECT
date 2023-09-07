@@ -1,6 +1,7 @@
 package edu.global.ex.controller;
 
 import java.net.URI;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,10 +10,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import edu.global.ex.modules.GoogleLoginResponse;
@@ -59,9 +62,9 @@ public class ApiRestController {
 
 	    // 구글에서 리다이렉션
 	    @GetMapping(value = "/login/google-callback")
-	    public String oauth_google_check(HttpServletRequest request,
+	    public ModelAndView oauth_google_check(HttpServletRequest request,
 	                                     @RequestParam(value = "code") String authCode,
-	                                     HttpServletResponse response) throws Exception{
+	                                     HttpServletResponse response, Model model) throws Exception{
 
 	    	
 	        //2.구글에 등록된 설정정보를 보내어 약속된 토큰을 받위한 객체 생성
@@ -80,6 +83,7 @@ public class ApiRestController {
 	        //3.토큰요청을 한다.
 	        ResponseEntity<GoogleLoginResponse> apiResponse = restTemplate.postForEntity(googleAuthUrl + "/token", googleOAuthRequest, GoogleLoginResponse.class);
 	        //4.받은 토큰을 토큰객체에 저장
+	        log.info(apiResponse.toString());
 	        GoogleLoginResponse googleLoginResponse = apiResponse.getBody();
 
 	        log.info("responseBody {}",googleLoginResponse.toString());
@@ -91,12 +95,21 @@ public class ApiRestController {
 	        String requestUrl = UriComponentsBuilder.fromHttpUrl(googleAuthUrl + "/tokeninfo").queryParam("id_token",googleToken).toUriString();
 
 	        //6.허가된 토큰의 유저정보를 결과로 받는다.
-	        String resultJson = restTemplate.getForObject(requestUrl, String.class);
+	        Map<String, Object> resultJson = (Map<String, Object>)restTemplate.getForObject(requestUrl, Map.class);
 
-	        log.info(resultJson);
 	        
-	        return resultJson;
+	        
+	        
+	        log.info(resultJson.toString());
+	        String email = (String) resultJson.get("email");
+	        
+	        model.addAttribute("email", email);
+	        
+	        ModelAndView mv = new ModelAndView();
+	        mv.setViewName("/login/signuptest");
+//	        mv.addObject("email", email);
+	        return mv;
 	    }
-	    
+	
 	    
 }
