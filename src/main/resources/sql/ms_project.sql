@@ -11,6 +11,10 @@ create table ms_board (
     selecter number(1) not null     -- 게시글구분 1:공지 2:qna 3:리뷰
 );
 
+desc ms_board;
+select * from ms_board;
+drop table ms_board;
+
 -- 공지사항 게시판 테이블
 create table ms_notice_board (
     nid number(6) primary key,      -- 게시물 식별자
@@ -22,6 +26,10 @@ create table ms_notice_board (
     nstep number(4),
     nindent number(4)
 );
+
+desc ms_notice_board;
+select * from ms_notice_board;
+drop table ms_notice_board;
 
 -- Q&A 게시판 테이블
 create table ms_qna_board (
@@ -35,6 +43,10 @@ create table ms_qna_board (
     qindent number(4)
 );
 
+desc ms_qna_board;
+select * from ms_qna_board;
+drop table ms_qna_board;
+
 -- 리뷰 게시판 테이블
 create table ms_review_board (
     rid number(6) primary key,        -- 게시물 식별자
@@ -47,6 +59,10 @@ create table ms_review_board (
     rindent number(4)
 );
 
+desc ms_review_board;
+select * from ms_review_board;
+drop table ms_review_board;
+
 -- 회원관리 테이블
 CREATE TABLE ms_customer (
     cid VARCHAR2(20) PRIMARY KEY,       -- 회원 아이디
@@ -58,6 +74,8 @@ CREATE TABLE ms_customer (
 );
 
 desc ms_customer;
+select * from ms_customer;
+drop table ms_customer;
 
 INSERT INTO ms_customer (cid, cpw, cname, cbirthdate, caddress, cgrade)
 VALUES ('user123', 'password123', '홍길동', TO_DATE('1990-01-15', 'YYYY-MM-DD'), '서울시 강남구', 1);
@@ -71,11 +89,13 @@ create table ms_pay (
     shipping_address VARCHAR2(100),           -- 배송지 주소
     pid varchar2(20),
     product_number varchar2(20),
-    foreign key (pid) references ms_customer (cid),
-    foreign key (product_number) references ms_product (product_number)
+    foreign key (pid) references ms_customer (cid)
+    --foreign key (product_number) references ms_product (product_number)
     );
     
 drop table ms_pay;
+Select * from ms_pay;
+desc ms_pay;
 
 -- 상품
 create table ms_product (
