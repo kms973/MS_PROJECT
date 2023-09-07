@@ -9,7 +9,6 @@
 		type="edu.global.ex.vo.ShopProductVO">
 		<result property="productCode" column="product_code" />
 		<result property="productCategory" column="product_category" />
-		<result property="productNumber" column="product_number" />
 		<result property="productName" column="product_name" />
 		<result property="price" column="price" />
 		<result property="stock" column="stock_quantity" />
@@ -23,22 +22,22 @@
 
 	<select id="getRingList" resultMap="shopProductMap">
 		select * from ms_product
-		where product_number like 'R%'
+		where product_category like 'R%'
 	</select>
 
 	<select id="getEarringList" resultMap="shopProductMap">
 		select * from ms_product
-		where product_number like 'E%'
+		where product_category like 'E%'
 	</select>
 
 	<select id="getNecklaceList" resultMap="shopProductMap">
 		select * from ms_product
-		where product_number like 'N%'
+		where product_category like 'N%'
 	</select>
 
 	<select id="getBraceletList" resultMap="shopProductMap">
 		select * from ms_product
-		where product_number like 'B%'
+		where product_category like 'B%'
 	</select>
 
 
@@ -65,7 +64,7 @@
 
 	<select id="getTotalRing" resultType="int">
       <![CDATA[
-          select count(*) from ms_product where product_number like 'R%'
+          select count(*) from ms_product where product_category like 'R%'
       ]]>
 	</select>
 
@@ -77,7 +76,7 @@
                              *
                          FROM
                              ms_product 
-                           where product_number like 'R%'
+                           where product_category like 'R%'
              ) A WHERE ROWNUM <= #{pageNum} * #{amount}
          ) WHERE RNUM > (#{pageNum}-1) * #{amount}
       ]]>
@@ -85,7 +84,7 @@
 
 	<select id="getTotalEarring" resultType="int">
       <![CDATA[
-          select count(*) from ms_product where product_number like 'E%'
+          select count(*) from ms_product where product_category like 'E%'
       ]]>
 	</select>
 
@@ -97,7 +96,7 @@
                              *
                          FROM
                              ms_product 
-                           where product_number like 'E%'
+                           where product_category like 'E%'
              ) A WHERE ROWNUM <= #{pageNum} * #{amount}
          ) WHERE RNUM > (#{pageNum}-1) * #{amount}
       ]]>
@@ -105,7 +104,7 @@
 
 	<select id="getTotalNecklace" resultType="int">
       <![CDATA[
-          select count(*) from ms_product where product_number like 'N%'
+          select count(*) from ms_product where product_category like 'N%'
       ]]>
 	</select>
 
@@ -117,7 +116,7 @@
                              *
                          FROM
                              ms_product 
-                           where product_number like 'N%'
+                           where product_category like 'N%'
              ) A WHERE ROWNUM <= #{pageNum} * #{amount}
          ) WHERE RNUM > (#{pageNum}-1) * #{amount}
       ]]>
@@ -125,7 +124,7 @@
 
 	<select id="getTotalBracelet" resultType="int">
       <![CDATA[
-          select count(*) from ms_product where product_number like 'B%'
+          select count(*) from ms_product where product_category like 'B%'
       ]]>
 	</select>
 
@@ -137,7 +136,7 @@
                              *
                          FROM
                              ms_product 
-                           where product_number like 'B%'
+                           where product_category like 'B%'
              ) A WHERE ROWNUM <= #{pageNum} * #{amount}
          ) WHERE RNUM > (#{pageNum}-1) * #{amount}
       ]]>

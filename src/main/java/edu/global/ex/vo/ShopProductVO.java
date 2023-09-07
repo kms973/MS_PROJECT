@@ -9,8 +9,7 @@ import lombok.ToString;
 //-- 상품
 //create table ms_product (
 //    product_code number(5),
-//    product_category varchar2(1),
-//    product_number VARCHAR2(20) PRIMARY KEY,   -- 상품 번호
+//    product_category varchar2(1), PRIMARY KEY
 //    product_name VARCHAR2(100),                -- 상품명
 //    price NUMBER,                              -- 가격
 //    stock_quantity NUMBER,                     -- 재고 수량
@@ -27,7 +26,6 @@ public class ShopProductVO {
 
 	private int productCode;
 	private String productCategory;
-	private String productNumber;
 	private String productName;
 	private int price;
 	private int stock;
