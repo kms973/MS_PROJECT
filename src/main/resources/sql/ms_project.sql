@@ -109,8 +109,8 @@ create table ms_product (
     product_img VARCHAR2(200)                  -- 이미지
 );
 
-insert into ms_product(product_code, product_category, product_number, product_name, price, stock_quantity, options, product_img) 
-                values(929,'B','B929' ,'팔찌9', 15500,10,'옵션','이미지주소');
+insert into ms_product(product_code, product_category, product_name, price, stock_quantity, options, product_img) 
+                values(929,'B' ,'팔찌9', 15500,10,'옵션','이미지주소');
 
 
 drop table ms_product;
