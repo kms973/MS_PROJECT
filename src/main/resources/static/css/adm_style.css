@@ -20,7 +20,10 @@ body#LoginForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-2
 .trailing.clear { cursor: pointer; &:focus { color: #3b71ca; outline: none; } }
 
 /* admin product */
-/* div.datatable-wrapper.datatable-loading.no-footer.sortable.searchable.fixed-columns { display: none; } */
+img { width: 100%; }
+
+.product-list-tb > * > tr > * { display: flex; justify-content: space-between; align-items: center; }
+.product-list-tb .data_item .table-img > div.product-img { max-width:150px; max-height: 150px; overflow:hidden; } 
 
 /* admin product_new */
 .productcodenum{font-size: 12px; font-weight: lighter;}

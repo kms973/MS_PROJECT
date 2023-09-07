@@ -126,6 +126,9 @@ public class HomeController {
 		return "/community";
 	}
 	
+	// user 게시판 보기 페이지
+	
+	
 	// user 게시판 작성 페이지
 	@GetMapping("/write_view")
 	public String write_view1() {

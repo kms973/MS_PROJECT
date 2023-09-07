@@ -116,8 +116,9 @@ a, a:active, a:focus {
 
 
 /* community */
-ul.panel > li table.table tr > * { padding: .5rem 1rem; }
-ul.panel > li table.table tr > .table-no { width: 10%; text-align:center; }
+ul.panel > li table.table tr > * { padding: .5rem 0; }
+ul.panel > li table.table tr > td { padding: 1rem 0; }
+ul.panel > li table.table tr > .table-no { width: 5%; text-align:center; }
 ul.panel > li table.table tr > .table-tit { width: 50%; text-align:center; }
 ul.panel > li table.table tr > .table-write { width: 10%; text-align:center; }
 ul.panel > li table.table tr > .table-date { width: 15%; text-align:center; }

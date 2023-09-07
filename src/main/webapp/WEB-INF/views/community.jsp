@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!-- header 시작 -->
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
@@ -43,10 +44,16 @@
 					<tbody>
 					<c:forEach var="boardList" items="${boardList}">
 			         <tr>
-			           <td>${boardList.bid}</td>
-			           <td>${boardList.btitle}</td>
-			           <td>${boardList.bname}</td>
-			           <td>${boardList.bdate}</td>
+			           <td class="no-no table-no">${boardList.bid}</td>
+			           <td class="no-tit table-tit"><a href="delete?bid=${content_view.bid}">${boardList.btitle}</a></td>
+			           <td class="no-write table-write">${boardList.bname}</td>
+			           <td class="no-date table-date"><fmt:formatDate value="${boardList.bdate}" pattern="yyyy-MM-dd" /></td>
+			           <sec:authorize access="hasRole('ROLE_ADMIN')">
+			              <td class="option">
+			              	<a class="btn btn-sm btn-primary" href="#none"><i class="fas fa-edit">상품수정</i></a>
+			            	<a class="btn btn-sm btn-danger" href="#none"><i class="fas fa-trash">삭제</i></a>
+			              </td>
+			           </sec:authorize>
 			           </tr>
 					  
 <%-- 					<tr>
@@ -136,7 +143,7 @@
 					
 				  <c:forEach var="boardList_Qna" items="${boardList_Qna}">
 			         <tr>
-			            <td>${boardList_Qna.bid}</td>			         
+			           <td>${boardList_Qna.bid}</td>			         
 			           <td>${boardList_Qna.btitle}</td>
 			           <td>${boardList_Qna.bname}</td>
 			           <td>${boardList_Qna.bdate}</td>
