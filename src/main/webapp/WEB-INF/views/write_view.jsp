@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!-- include libraries(jQuery, bootstrap) -->
-    <script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
-    <script type="text/javascript" src="cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/lang/summernote-ko-KR.min.js"></script>
+<script src="/js/summernote.js"></script>
+
 <!-- adm_header 부분  -->
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
@@ -22,11 +24,12 @@
 		  	<input class="form-control" type="text" placeholder="제목" aria-label="default input example" name = "btitle">
 		</div>
 		 
-		<div class="my-3">
-			회원 아이디 부분
+		<div class="my-3 d-flex justify-content-between">
+			<div class="userId"> 회원 아이디 부분
 			<sec:authorize access="isAuthenticated()">
 			<!-- 로그인(인증된) 사용자인 경우 --> ${boardList.bid}
 			</sec:authorize>
+			</div>
 		</div> 
 		
 		<textarea id="summernote" name = "bcontent">${boardList.bcontent}</textarea>
@@ -46,38 +49,38 @@
 			<input class="form-control" type="file" id="formFileMultiple" multiple>
 		</div>
 
-		<div class="my-3 d-flex justify-content-end">
-			<button type="submit" class="btn btn-outline-secondary">작성 완료</button>
-			<button type="button" class="btn btn-secondary btn" onclick="location.href='board'">취소</button>
+		<div class="mt-3 mb-5 d-flex justify-content-end">
+			<button type="button" class="btn btn-outline-secondary btn-secondary btn" onclick="location.href='board'">취소</button>
+			<button type="submit" class="btn btn-secondary ms-2">작성 완료</button>
 		</div>
         </div>
         </div>
     </section>   
-    		</form>
+</form>
 <!-- adm_footer 부분  -->
 <jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 <script>
-  $(document).ready(function() {
-	  $('#summernote').summernote({
-		  placeholder: '내용을 입력하세요.',
-		  tabsize: 2,
-		  height: 400,
-		  focus: true,
-		  lang: 'ko-KR',
-		  toolbar: [
-			    ['fontname', ['fontname']],
-			    ['fontsize', ['fontsize']],
-			    ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
-			    ['color', ['forecolor','color']],
-			    ['table', ['table']],
-			    ['para', ['ul', 'ol', 'paragraph']],
-			    ['height', ['height']],
-			    ['insert',['picture','link','video']],
-			    ['view', ['fullscreen', 'help']]
-			  ],
-			fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
-			fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']
-		});
-  });
+$(document).ready(function() {
+  $('#summernote').summernote({
+	  placeholder: '내용을 입력하세요.',
+	  tabsize: 2,
+	  height: 400,
+	  focus: true,
+	  lang: 'ko-KR',
+	  toolbar: [
+		    ['fontname', ['fontname']],
+		    ['fontsize', ['fontsize']],
+		    ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
+		    ['color', ['forecolor','color']],
+		    ['table', ['table']],
+		    ['para', ['ul', 'ol', 'paragraph']],
+		    ['height', ['height']],
+		    ['insert',['picture','link','video']],
+		    ['view', ['fullscreen', 'help']]
+		  ],
+		fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
+		fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']
+	});
+});
 </script>
 
