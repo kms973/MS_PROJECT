@@ -141,12 +141,13 @@
 					</thead>
 					<tbody>
 					
-				  <c:forEach var="boardList_Qna" items="${boardList_Qna}">
+					<c:forEach var="boardList_Qna" items="${boardList_Qna}">
 			         <tr>
-			           <td>${boardList_Qna.bid}</td>			         
-			           <td>${boardList_Qna.btitle}</td>
-			           <td>${boardList_Qna.bname}</td>
-			           <td>${boardList_Qna.bdate}</td>
+			           <td class="no-no table-no">${boardList_Qna.bid}</td>
+			           <td class="no-tit table-tit"><a href="content_view?bid=${boardList_Qna.bid}">${boardList_Qna.btitle}</a></td>
+			           <td class="no-write table-write">${boardList_Qna.bname}</td>
+			           <td class="no-date table-date"><fmt:formatDate value="${boardList_Qna.bdate}" pattern="yyyy-MM-dd" /></td>
+			           <sec:authorize access="hasRole('ROLE_ADMIN')"></sec:authorize>
 					</c:forEach>
 
 						<div class="row justify-content-end w-100 mx-0">
@@ -171,12 +172,13 @@
 						</tr>
 					</thead>
 					<tbody>
-			         <c:forEach var="boardList_Review" items="${boardList_Review}">
+					<c:forEach var="boardList_Review" items="${boardList_Review}">
 			         <tr>
-			           <td>${boardList_Review.bid}</td>			         
-			           <td>${boardList_Review.btitle}</td>
-			           <td>${boardList_Review.bname}</td>
-			           <td>${boardList_Review.bdate}</td>
+			           <td class="no-no table-no">${boardList_Review.bid}</td>
+			           <td class="no-tit table-tit"><a href="content_view?bid=${boardList_Review.bid}">${boardList_Review.btitle}</a></td>
+			           <td class="no-write table-write">${boardList_Review.bname}</td>
+			           <td class="no-date table-date"><fmt:formatDate value="${boardList_Review.bdate}" pattern="yyyy-MM-dd" /></td>
+			           <sec:authorize access="hasRole('ROLE_ADMIN')"></sec:authorize>
 					</c:forEach>
 						<div class="row justify-content-end w-100 mx-0">
 		                <div class="d-flex justify-content-end px-0">

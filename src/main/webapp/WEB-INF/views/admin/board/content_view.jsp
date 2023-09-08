@@ -41,19 +41,19 @@
 	    
         <div class="wrap-write"><form id="updateForm" action="modify" method="post">
         	<!-- 카테고리 선택 -->
-	        <select class="form-select form-select-sm w-auto mt-2" aria-label="Default select example">
-			  <option selected>카테고리 선택</option>
+<!-- 	        <select class="form-select form-select-sm w-auto mt-2" aria-label="Default select example"> -->
+	        <div id = "get_selecter" name = "selecter" type = "text">${content_view.selecter}</div>
+<!-- 			  <option selected>카테고리 선택</option>
 			  <option value="1">공지사항</option>
 			  <option value="2">Q&A</option>
 			  <option value="3">Review</option>
-			</select>
-            
-			<div class="my-2">
+			</select> -->
+				<div class="my-2">
 				<input class="form-control" id="input_btitle" name="btitle" type="text" placeholder="제목" aria-label="default input example" value="${content_view.btitle}">
 			</div>
 			
 			<div id="summernote">
-				<input id="input_btitle" type="text" name="btitle" value="${content_view.btitle}">
+				<input id="input_bcontent" type="text" name="bcontent" value="${content_view.bcontent}">
 			</div>
 						
 			<div class="input-group my-3">
@@ -112,7 +112,7 @@ const attr = 'content_view.bcontent';
 node.setAttribute('value',attr);
 $('#summernote').summernote('insertNode', node);
 
-$('#summernote').summernote('insertText','${content_view.btitle}');
+$('#summernote').summernote('insertText','${content_view.bcontent}');
 const range = $.summernote.range;
 const rng = range.createFromSelection(node);
 rng.select();
