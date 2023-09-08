@@ -1,0 +1,63 @@
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+.pronum {margin-left: 10px;}
+table{border-top: 1px solid #000000;
+border-color: #000 !important;
+}
+
+thead th {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    padding-right: 0 !important;
+    padding-left: 22 !important;
+}
+
+.orderline{border: 1px solid #000000;}
+.oorderline{border: 1px solid #999999;}
+.orbox{margin-left:35px; background-color:#e9e9e9 !important;}	 
+.phbox{margin-left:20px; width:75px !important; height:28.38px;
+		margin-right:15px; background-color:#e9e9e9 !important;}
+.phboxx{margin-left:15px; margin-right:15px;
+		width: 100px !important; background-color:#e9e9e9 !important;}
+.phboxxx{margin-left:15px; width: 100px !important; background-color:#e9e9e9 !important;}
+.embox{margin-left:35px; margin-right:15px;
+		width: 150px !important; background-color:#e9e9e9 !important;}
+.emboxx{margin-left:15px; width: 200px !important; background-color:#e9e9e9 !important;}
+.adbox{margin-left:50px; width: 150px !important;
+		margin-right:15px; background-color:#e9e9e9 !important;
+		height: 28.38px;}
+.butt{width: 100px !important; background-color:#e9e9e9 !important;}
+#buttt{margin-right:15px; background-color:#cccccc !important;}
+#butttt{background-color:#cccccc !important;}
+.adboxx{margin-left:82px; width: 395px !important; background-color:#e9e9e9 !important;}
+.adboxxx{margin-left:82px; width: 395px !important; background-color:#e9e9e9 !important;}
+.adboxxxx{margin-left:82px; width: 395px !important; background-color:#e9e9e9 !important;}
+.cb{width: 15px; height:15px; margin-right:10px;}
+.cbb{width: 15px; height:15px; margin-right:10px;}
+.cbbb{width: 15px; height:15px; margin-right:10px;}
+.agree{color: inherit; float:right;}
+.rightdev{
+	border:1px solid #000000;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+.costall{margin-top: 10px;
+		  margin-left: 10px;
+		  margin-right: 10px;}
+.costdeli{margin-top: 10px;
+		  margin-left: 10px;
+		  margin-right: 10px;}
+.lineeeee{border: 1px solid #000000; margin-top: 20px;}
+.modalbtn{border: none; background-color:#fff;}	   
+.modal-dialog{overflow-y: initial !important;}
+.modal-body{max-height: calc(100vh - 200px); overflow-y: auto;
+			font-size: 12px;}
+.bye{dlsplay:flex;}
+
+.pay-devv.pos-sticky { position: sticky; top:80px; }
+
+
+#vatn{font-size:16px; width:100%; background-color:#000; font-weight:lighter;
+	   margin-bottom: 10px;}	   

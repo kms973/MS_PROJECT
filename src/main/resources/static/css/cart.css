@@ -3,7 +3,7 @@
 	line-height:16px;
 }
 
-.quantity-controls {
+.quantity-controlss {
     display: flex;
     align-items: center;
 }
@@ -18,17 +18,28 @@ thead th {
     padding-right: 0 !important;
     padding-left: 22 !important;
 }
-
-.rightarea{
+.paycost{border:1px solid #000000;
+		 padding: 40px;
+		 width:99%;
+		 }
+.paymg{margin-bottom: 10px;}
+.rightareaa{
 	border:1px solid #000000;
+	padding: 10px;
 	margin-bottom: 20px;
 }
-.costline{margin-top: 20px;
+.costlinee{margin-top: 10px;
 		  margin-left: 10px;
 		  margin-right: 10px;}
-.costtext{margin-top: 10px;
+.costtextt{margin-top: 10px;
 		  margin-left: 10px;
 		  margin-right: 10px;}
-.cost{float:right;}
-.line{border: 1px solid #000000; margin-top: 20px;}
-#bttn{font-size:16px; width:100%; background-color:#fff; font-weight:lighter;}
+.linee{border: 1px solid #000000; margin-top: 20px;}
+#btttn{font-size:16px; width:100%; background-color:#fff; font-weight:lighter;
+	   margin-bottom: 10px;}
+.hello{dlsplay:flex;}
+.paycontrol{height: 100vh;}
+.pay-box{
+	width:25%;
+    position: absolute;
+    }	   

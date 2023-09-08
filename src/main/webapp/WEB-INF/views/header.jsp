@@ -31,11 +31,10 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/lang/summernote-ko-KR.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"></script>
-<script src="/js/plusminus.js"></script>
 <script src="/js/login_scripts.js"></script>
-<script src="/js/cart.js"></script>
 <script src="/js/summernote.js"></script>
 <script src="/js/scripts.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
 	<header id="header" class="p-2 fixed-top">
