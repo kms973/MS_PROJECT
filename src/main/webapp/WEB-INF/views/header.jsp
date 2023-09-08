@@ -19,6 +19,7 @@
 <link href="/css/login_style.css" rel="stylesheet" />
 <link href="/css/detail.css" rel="stylesheet" />
 <link href="/css/cart.css" rel="stylesheet" />
+<link href="/css/pay.css" rel="stylesheet" />
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
 <!-- MDB -->
