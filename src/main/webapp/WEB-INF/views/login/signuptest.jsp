@@ -282,6 +282,11 @@ margin-bottom :100px;
 			}).open();
 		}
 	</script>
+<script>
 
+const username = ${usernameList};
+
+console.log(username)
+</script>
 <!-- footer 시작 -->
 <jsp:include page="/WEB-INF/views/footer.jsp" />

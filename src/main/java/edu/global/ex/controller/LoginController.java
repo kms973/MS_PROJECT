@@ -1,6 +1,8 @@
 package edu.global.ex.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -95,9 +97,13 @@ public class LoginController {
 	// 회원 가입 페이지로 이동하는 핸들러
 	@GetMapping("/login/signup")
 	public String signuptest(MsUserVO user, Model model){
-		
-		model.addAttribute("username", userMapper.getUsers());
-		
+		List<MsUserVO> userList = userMapper.getUsers();
+		List<String> usernameList = new ArrayList<String>();
+		for(MsUserVO userInfo: userList) {
+			usernameList.add("\""+userInfo.getUsername() + "\"");
+		}
+		model.addAttribute("usernameList", usernameList);
+//		log.info(userMapper.getUsers().toString());
 		
 		return "/login/signuptest";
 	}
