@@ -1,41 +1,57 @@
-<%@ page language="java" contentType="text/html;charset=utf-8" pageEncoding="utf-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<html>
-<head>
-   <title>list</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- header 시작 -->
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
-</head>
-<body>
-  <table width="700" cellpadding="0" cellspacing="0" border="1">
-      <form id="updateForm" action="modify" method="post">
-         <input id="input_bid" type="hidden" name="bid" value="${content_view.bid}">
-         <tr>
-            <td> 번호 </td>
-            <td> ${content_view.bid} </td>
-         </tr>
-         <tr>
-            <td> 이름 </td>
-            <td> <input id="input_bname" type="text" name="bname" value="${content_view.bname}"></td>
-         </tr>
-         <tr>
-            <td> 제목 </td>
-            <td> <input id="input_btitle" type="text" name="btitle" value="${content_view.btitle}"></td>
-         </tr>
-         <tr>
-            <td> 내용 </td>
-            <td> <textarea id="input_bcontent" rows="10" name="bcontent" >${content_view.bcontent}</textarea></td>
-         </tr>
-         <tr >
-            <td colspan="2"> <input type="submit" value="수정"> 
-            &nbsp;&nbsp; <a href="list">목록보기</a> 
-            &nbsp;&nbsp; <a href="delete?bid=${content_view.bid}">삭제</a> 
-            &nbsp;&nbsp; <a href="reply_view?bid=${content_view.bid}">답변</a></td>
-         </tr>
-      </form>
-   </table>
+<!-- 메인 시작 -->
+<section id="community" class="board-all container wrap">
+	<div id="sub-bnr"><h5>Commuunity</h5></div>
+	<!-- TAB 메뉴 -->
+   	<div class="container wrap px-0">
 
-</body>
-</html>
+	   <sec:authorize access="hasRole('ROLE_ADMIN')">
+       <div class="option">
+       	<a class="btn btn-sm btn-primary" href="#none"><i class="fas fa-edit">상품수정</i></a>
+      	<a class="btn btn-sm btn-danger" href="#none"><i class="fas fa-trash">삭제</i></a>
+       </div>
+       </sec:authorize>
+	   
+	   <table class="table view-table">
+	         <thead>
+	         	<tr>
+	                <th class="table-tit">TITLE</th>
+			        <td class="table-tit-txt">${content_view.btitle}</td>
+				</tr>
+				<tr>
+	                <th class="table-name">NAME</th>
+			        <td class="table-name-txt">${content_view.bname}</td>
+				</tr>
+				<tr>
+	                <th class="table-name">DATE</th>
+		           	<td class="no-date table-date"><fmt:formatDate value="${content_view.bdate}" pattern="yyyy-MM-dd" /></td>
+				</tr>
+	         </thead>
+	         <tbody>
+	         	<tr class="min-h-25">
+	           		<td colspan="2" class="min-h-25">${content_view.bcontent}</td>
+          		</tr>
+	         </tbody>
+	   </table>
+	   
+	   <!-- 이전 버튼 -->
+		<c:if test="${boardList.bid}">
+		    <a href="content_view?bid=${content_view.bid-1}" class="btn btn-sm btn-primary">이전 게시글</a>
+		</c:if>
+		
+		<!-- 이후 버튼 -->
+		<c:if test="${boardList.bid}">
+		    <a href="content_view?bid=${content_view.bid+1}" class="btn btn-sm btn-primary">다음 게시글</a>
+		</c:if>
+
+	</div>
+ </section>
+<!-- footer 시작 -->
+<jsp:include page="/WEB-INF/views/footer.jsp" />

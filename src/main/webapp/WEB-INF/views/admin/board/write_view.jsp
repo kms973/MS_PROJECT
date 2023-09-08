@@ -43,7 +43,7 @@ integrity="sha256-IKhQVXDfwbVELwiR0ke6dX+pJt0RSmWky3WB2pNx9Hg=" crossorigin="ano
                 <li class="breadcrumb-item active">글 작성</li>
             </ol>
             <div class="wrap-write">
-            <select class="form-select form-select-sm" aria-label="Default select example" name="selecter">
+            <select class="form-select form-select-sm" aria-label="Default select example" name="selecter" value="${boardList.bcontent}">
 			  <option value="1">공지사항</option>
 			  <option value="2">Q&A</option>
 			  <option value="3">Review</option>
