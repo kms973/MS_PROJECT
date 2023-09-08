@@ -414,7 +414,7 @@ myModal.addEventListener('shown.bs.modal', function () {
   myInput.focus()
 })
 </script>
-<<script>
+<script>
 //JavaScript를 사용하여 스크롤 위치에 따라 스타일 변경
 window.addEventListener('scroll', function() {
     // var paydev = document.querySelector('.pay-devv');
