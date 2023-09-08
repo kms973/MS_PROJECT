@@ -7,6 +7,8 @@ div.h-box { height:73px; width:100%; background:none; }
 
 .dropdown-menu { min-width: 5rem; text-align: center; }
 
+h1,h2,h3,h4,h5,h6 { margin:0 !important; padding:0;}
+
 /* header */
 header#header { width: 100%; background: #fff; border-bottom: 1px solid #ccc; }
 header#header .logo { margin-right: 20px; }
@@ -46,8 +48,8 @@ video { width: 100%; height: 100vh; object-fit: cover; }
 #sub-bnr>*{ height : 100%; display: flex; align-items: flex-end; padding-bottom: 25px; }
 
 section#community,
-section#login {min-height: calc(100vh - 130px); max-height: 100%; }
-section#shop { min-height: calc(100vh - 130px); }
+section#login {min-height: calc(100vh - 120px); max-height: 100%; }
+section#shop { min-height: calc(100vh - 120px); }
 
 .accordion-body::-webkit-scrollbar{ display: none; }
     

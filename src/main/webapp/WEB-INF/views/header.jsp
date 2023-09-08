@@ -38,7 +38,7 @@
 	<header id="header" class="p-2 fixed-top">
 	    <div class="container">
 	      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-	        <h1 class="logo"><a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark">MS</a></h1>
+	        <h1 class="logo me-2"><a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark">MS</a></h1>
 	
 	        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 ms-10">
 	          <li><a href="/shop" class="nav-link px-2 text-black">Shop</a></li>
@@ -88,4 +88,6 @@
 	      </div> 
 	    </div> 
   </header>
-  <div class="h-box" style="height:73px;width:100%;background:none;"></div>
+  <div class="h-box" style="height:63px;width:100%;background:none;"></div>
+  
+  

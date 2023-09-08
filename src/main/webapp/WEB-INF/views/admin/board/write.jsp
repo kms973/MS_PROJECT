@@ -45,8 +45,7 @@ integrity="sha256-IKhQVXDfwbVELwiR0ke6dX+pJt0RSmWky3WB2pNx9Hg=" crossorigin="ano
 	    
         <div class="wrap-write"><form id="updateForm" action="write" method="post">
         	<!-- 카테고리 선택 -->
-	        <select class="form-select form-select-sm w-auto mt-2" aria-label="Default select example">
-			  <option selected>카테고리 선택</option>
+	        <select class="form-select form-select-sm w-auto mt-2" aria-label="Default select example" value="${boardList.bcontent}">
 			  <option value="1">공지사항</option>
 			  <option value="2">Q&A</option>
 			  <option value="3">Review</option>
