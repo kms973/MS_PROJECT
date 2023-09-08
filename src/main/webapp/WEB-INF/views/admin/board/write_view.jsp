@@ -7,29 +7,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MS Shop - Admin</title>
 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
 <link href="/css/styles.css" rel="stylesheet" />
 <link href="/css/style.css" rel="stylesheet" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
-
+<link href="/css/adm_style.css" rel="stylesheet" />
 
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/js/scripts.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
 <script src="assets/demo/chart-area-demo.js"></script>
 <script src="assets/demo/chart-bar-demo.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
 <script src="/js/datatables-simple-demo.js"></script>
 
-<script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"
-integrity="sha256-5slxYrL5Ct3mhMAp/dgnb5JSnTYMtkr4dHby34N10qw=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/lang/summernote-ko-KR.min.js"
-integrity="sha256-y2bkXLA0VKwUx5hwbBKnaboRThcu7YOFyuYarJbCnoQ=" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.css"
-integrity="sha256-IKhQVXDfwbVELwiR0ke6dX+pJt0RSmWky3WB2pNx9Hg=" crossorigin="anonymous">
+<script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/lang/summernote-ko-KR.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"></script>
 <script src="/js/summernote.js"></script>
+<script src="/js/scripts.js"></script>
 </head>
 <body>
 <body class="sb-nav-fixed">
@@ -59,7 +56,7 @@ integrity="sha256-IKhQVXDfwbVELwiR0ke6dX+pJt0RSmWky3WB2pNx9Hg=" crossorigin="ano
 						
 		<div class="input-group my-3">
 			<span class="input-group-prepend">
-				<div class="input-group-text bg-transparent border-right-0"><i class="bi bi-link-45deg"></i></div>
+				<div class="input-group-text bg-transparent border-end-0"><i class="bi bi-link-45deg"></i></div>
 			</span>
 			<input type="url" id="url" class="form-control" type="url">	
 		</div>				
@@ -67,7 +64,7 @@ integrity="sha256-IKhQVXDfwbVELwiR0ke6dX+pJt0RSmWky3WB2pNx9Hg=" crossorigin="ano
 		<div class="mb-3">
 		<div class="input-group">
 			<span class="input-group-prepend">
-				<div class="input-group-text bg-transparent border-right-0"><i class="bi bi-folder"></i></div>
+				<div class="input-group-text bg-transparent border-end-0"><i class="bi bi-folder"></i></div>
 			</span>		
 			<input class="form-control" type="file" id="formFileMultiple" multiple>
 		</div>
@@ -103,7 +100,5 @@ $('#summernote').summernote({
 	fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
 	fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']
 });
-
-
 </script>
 </html>
