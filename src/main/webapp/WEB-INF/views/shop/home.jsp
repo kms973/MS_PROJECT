@@ -35,7 +35,7 @@
             <div class="data_item col-md-6 col-lg-4 mt-5 wow fadeInUp" data-type="${shop.productCategory}" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
 				<a href="#!" class="text-center">
                		<div class="blog-grid">
-                   		<div class="blog-grid-img position-relative"><img alt="img" src="https://www.bootdey.com/image/480x480/00FFFF/000000"></div>
+                   		<div class="blog-grid-img position-relative"><img alt="img" src="/img/${shop.img }"></div>
                    		<div class="blog-grid-text p-3">
                        		<h3 class="h5 mb-3">${shop.productName}</h3>
                        		<p class="display-30">\ ${shop.price}</p>
@@ -46,17 +46,17 @@
              </c:forEach>
        </div>
        <!-- paging -->
-       <nav aria-label="Page navigation example">
-			 <ul class="pagination justify-content-center">
+       <nav aria-label="Page navigation example" >
+			 <ul class="pagination justify-content-center" >
 			    <li class="page-item"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
 			    <c:if test="${pageMaker.prev}">
-		    <li class="page-item"><a class="page-link" href="home${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a></li>
+		    <li class="page-item"><a class="page-link" href="${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a></li>
 		    </c:if>
 		    <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
-		    <li class="page-item"><a class="page-link" href="home${pageMaker.makeQuery(idx)}">${idx}</a></li>
+		    <li class="page-item"><a class="page-link" href="${pageMaker.makeQuery(idx)}">${idx}</a></li>
 		    </c:forEach>
 		    <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-		    <li class="page-item"><a class="page-link" href="home${pageMaker.makeQuery(pageMaker.endPage +1) }">»</a></li>
+		    <li class="page-item"><a class="page-link" href="${pageMaker.makeQuery(pageMaker.endPage +1) }">»</a></li>
 		      </c:if> 
 			    <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
 		     </ul>
