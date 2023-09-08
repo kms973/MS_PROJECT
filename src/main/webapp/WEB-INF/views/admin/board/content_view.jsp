@@ -56,9 +56,7 @@
 				<input class="form-control" id="input_btitle" name="btitle" type="text" placeholder="제목" aria-label="default input example" value="${content_view.btitle}">
 			</div>
 			
-			<div id="summernote">
-				<input id="input_bcontent" type="text" name="bcontent" value="${content_view.bcontent}">
-			</div>
+	<textarea id="summernote" name = "bcontent">${boardList.bcontent}</textarea>
 						
 			<div class="input-group my-3">
 				<span class="input-group-prepend">
@@ -107,7 +105,7 @@ $('#summernote').summernote({
 	fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],
 	
 	
-	// ${content_view.bcontent} 값을 Summernote 에디터에 설정
+	/*  ${content_view.bcontent} 값을 Summernote 에디터에 설정 */
 	/* var content = '${content_view.bcontent}'; */
 	/* $('#summernote').summernote('code', content); */
 });
