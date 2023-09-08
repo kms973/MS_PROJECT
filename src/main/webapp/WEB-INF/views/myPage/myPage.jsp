@@ -21,7 +21,7 @@
 			<!-- Mu Page - Contents Area -->
 			<div class="tab-content" id="v-pills-tabContent">
 		    	<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-		    		<jsp:include page="/WEB-INF/views/myPAge/orderList.jsp" />
+		    		<jsp:include page="/WEB-INF/views/myPage/orderList.jsp" />
 		    	</div>
 			    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
 			    	<%-- <jsp:include page="/WEB-INF/views/myPAge/orderlist.jsp" /> --%>

@@ -125,6 +125,6 @@ public class LoginController {
 	@GetMapping("/login/userprofile")
 	public String userprofile() {
 		log.info("userprofile");
-		return "/login/profile_page";
+		return "/myPage/myPage";
 	}
 }
