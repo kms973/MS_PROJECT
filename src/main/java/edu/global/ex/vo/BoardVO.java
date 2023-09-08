@@ -14,7 +14,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class BoardVO {
-
+	private int rnum;
 	private int bid;
 	private String bname;
 	private String btitle;

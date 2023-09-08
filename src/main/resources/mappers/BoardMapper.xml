@@ -27,7 +27,7 @@
 	
 <select id="getList" resultType="edu.global.ex.vo.BoardVO">
     <![CDATA[
-      select * from ms_board order by bid desc, bStep asc
+      select * from ms_board order by bid desc
    ]]>    
     </select>
     
@@ -90,7 +90,7 @@
 	    WHERE selecter = 2
 	    ORDER BY bGroup DESC, bStep ASC
 	  ) A WHERE ROWNUM <= #{pageNum} * #{amount}
-	) WHERE RNUM > (#{pageNum} - 1) * #{amount}
+	) WHERE RNUM > (#{pageNum} - 1) * #{amount} order by rnum desc
       ]]>
    </select>
    
@@ -105,7 +105,7 @@
 	    WHERE selecter = 3
 	    ORDER BY bGroup DESC, bStep ASC
 	  ) A WHERE ROWNUM <= #{pageNum} * #{amount}
-	) WHERE RNUM > (#{pageNum} - 1) * #{amount}
+	) WHERE RNUM > (#{pageNum} - 1) * #{amount}  order by rnum desc
       ]]>
    </select>
    
@@ -120,7 +120,7 @@
 	    WHERE selecter = 1
 	    ORDER BY bGroup DESC, bStep ASC
 	  ) A WHERE ROWNUM <= #{pageNum} * #{amount}
-	) WHERE RNUM > (#{pageNum} - 1) * #{amount}
+	) WHERE RNUM > (#{pageNum} - 1) * #{amount} order by rnum desc
       ]]>
    </select>
 

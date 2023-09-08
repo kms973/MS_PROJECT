@@ -17,7 +17,7 @@
                             <div class="price mx-3">₩ 100,000</div>
                         </div>
                         <div class="btn-icon d-flex justify-content-between align-items-center">
-                            <a href="#none" class="share text-dark px-2"><i class="bi bi-share-fill"></i></a>
+                            <a href="#none" class="share text-dark px-2 modal-dialog modal-dialog-centered"><i class="bi bi-share-fill"></i></a>
                             <a href="#none" class="cart text-dark px-1 pe-0"><i class="bi bi-heart"></i></a>
                         </div>
                     </div>

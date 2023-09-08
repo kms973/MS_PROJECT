@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!-- adm_header 부분  -->
 <jsp:include page="/WEB-INF/views/admin/adm_header.jsp"></jsp:include>
@@ -49,16 +51,25 @@
             <div class="row">
                 <div class="col-xl-6">
                     <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-chart-area me-1"></i>매출현황</div>
-                        <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                        <div class="card-header"><i class="fas fa-chart-area me-1"></i>매출현황</div>
+                        <div class="card-body" style="min-height:10rem">
+                        <p class="text-center color-gray">현재 매출이 없습니다.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-xl-6">
                     <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-solid fa-list me-1"></i>게시판</div>
-                        <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+                        <div class="card-header"><i class="fas fa-solid fa-list me-1"></i>게시판</div>
+                        <div class="card-body" style="min-height:10rem">
+		                    <ul class="ps-0 mb-0 admLastList">
+		                    <c:forEach begin="0" end="2" var="boardList" items="${boardList}">
+		                    	<li class="d-flex justify-content-between border-bottom p-2">
+		                    		<div class="bcontent"><a href="content_view?bid=${boardList.bid}" class="h-inheirt">${boardList.btitle}</a></div>
+		                    		<div class="bid">${boardList.bname}</div>
+		                    	</li>
+	                    	</c:forEach>
+		                    </ul>
+	                    </div>
                     </div>
                 </div>
             </div>
@@ -136,4 +147,10 @@
 
 <!-- adm_footer 부분  -->
 <jsp:include page="/WEB-INF/views/admin/adm_footer.jsp"></jsp:include>
+
+<script>
+$('ul.admLastList li:first-child').addClass('border-top');
+
+
+</script>
 

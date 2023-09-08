@@ -36,7 +36,7 @@
 					<tbody>
 					<c:forEach var="boardList" items="${boardList}">
 			         <tr>
-			           <td class="no-no table-no">${boardList.bid}</td>
+			           <td class="no-no table-no">${boardList.rnum}</td>
 			           <td class="no-tit table-tit"><a href="content_view?bid=${boardList.bid}">${boardList.btitle}</a></td>
 			           <td class="no-write table-write">${boardList.bname}</td>
 			           <td class="no-date table-date"><fmt:formatDate value="${boardList.bdate}" pattern="yyyy-MM-dd" /></td>
@@ -121,7 +121,7 @@
 					
 					<c:forEach var="boardList_Qna" items="${boardList_Qna}">
 			         <tr>
-			           <td class="no-no table-no">${boardList_Qna.bid}</td>
+			           <td class="no-no table-no">${boardList_Qna.rnum}</td>
 			           <td class="no-tit table-tit"><a href="content_view?bid=${boardList_Qna.bid}">${boardList_Qna.btitle}</a></td>
 			           <td class="no-write table-write">${boardList_Qna.bname}</td>
 			           <td class="no-date table-date"><fmt:formatDate value="${boardList_Qna.bdate}" pattern="yyyy-MM-dd" /></td>
@@ -151,7 +151,7 @@
 					<tbody>
 					<c:forEach var="boardList_Review" items="${boardList_Review}">
 			         <tr>
-			           <td class="no-no table-no">${boardList_Review.bid}</td>
+			           <td class="no-no table-no">${boardList_Review.rnum}</td>
 			           <td class="no-tit table-tit"><a href="content_view?bid=${boardList_Review.bid}">${boardList_Review.btitle}</a></td>
 			           <td class="no-write table-write">${boardList_Review.bname}</td>
 			           <td class="no-date table-date"><fmt:formatDate value="${boardList_Review.bdate}" pattern="yyyy-MM-dd" /></td>

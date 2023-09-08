@@ -41,15 +41,18 @@
 	         </tbody>
 	   </table>
 	   
-	   <!-- 이전 버튼 -->
-		<c:if test="${boardList.bid}">
-		    <a href="content_view?bid=${content_view.bid-1}" class="btn btn-sm btn-primary">이전 게시글</a>
-		</c:if>
+	   <div class="list-btn">
+	   	<!-- 이전 버튼 -->
+		<%-- <c:if test="${prevBid ne null}"> --%>
+		    <a href="/content_view?bid=${content_view.bid-1}" class="btn btn-sm btn-primary">이전 게시글</a>
+		<%-- </c:if> --%>
 		
-		<!-- 이후 버튼 -->
-		<c:if test="${boardList.bid}">
-		    <a href="content_view?bid=${content_view.bid+1}" class="btn btn-sm btn-primary">다음 게시글</a>
-		</c:if>
+		<!-- 다음 버튼 -->
+		<%-- <c:if test="${nextBid ne null}"> --%>
+		    <a href="/content_view?bid=${content_view.bid+1}" class="btn btn-sm btn-primary">다음 게시글</a>
+		<%-- </c:if> --%>
+
+	   </div>
 
 	</div>
  </section>
