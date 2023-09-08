@@ -26,9 +26,10 @@
 		 
 		<div class="my-3 d-flex justify-content-between">
 			<div class="userId"> 회원 아이디 부분
-			<sec:authorize access="isAuthenticated()">
-			<!-- 로그인(인증된) 사용자인 경우 --> ${boardList.bid}
-			</sec:authorize>
+			<%-- <sec:authorize access="isAuthenticated()">
+			<!-- 로그인(인증된) 사용자인 경우 --> ${user.bid}
+			</sec:authorize> --%>
+			<input class="form-control" id="input_bname" name="bname" type="text" placeholder="이름" aria-label="default input example" value="${content_view.bname}">
 			</div>
 		</div> 
 		

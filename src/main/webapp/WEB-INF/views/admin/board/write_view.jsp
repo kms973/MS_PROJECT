@@ -98,7 +98,29 @@ $('#summernote').summernote({
 	    ['view', ['fullscreen', 'help']]
 	  ],
 	fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
-	fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']
+	fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],
+	callbacks: {
+		onImageUpload : function(files){
+			uploadSummernoteImageFile(files[0],this);
+		}
+	} 
 });
+
+function uploadSummernoteImageFile(file,editor){
+	data = new FormData();
+	data.append("file",file);
+	$.ajax({ 
+		data:data,
+		type:"POST",
+		url:"/uploadSummernoteImageFile",
+		dataType:"JSON",
+		contentType:false,
+		processData:false,
+		success:function(data){ 
+			$(editor).summernote("insertImage",data.url);
+			$("#thumbnailPath").append("<option value="+data.url+">"+data.originName+"</option>"); 
+			}
+	});
+}
 </script>
 </html>

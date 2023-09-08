@@ -14,18 +14,10 @@
 		<div  id="row-1" class="container px-0">
 		  <div class="tab">
 			<ul class="title nav justify-content-center">
-			  <li class="nav-item">
-			    <a id="tab-1" class="nav-link show" aria-current="page" href="#">공지사항</a>
-			  </li>
-			  <li class="nav-item ">
-			    <a id="tab-2" class="nav-link" href="#">자주묻는질문</a>
-			  </li>
-			  <li class="nav-item">
-			    <a id="tab-3" class="nav-link" href="#">QNA</a>
-			  </li>
-			  <li class="nav-item">
-			    <a id="tab-4" class="nav-link" href="#">REVIEW</a>
-			  </li>
+			  <li class="nav-item"><a id="tab-1" class="nav-link show" aria-current="page" href="#">공지사항</a></li>
+			  <li class="nav-item "><a id="tab-2" class="nav-link" href="#">자주묻는질문</a></li>
+			  <li class="nav-item"><a id="tab-3" class="nav-link" href="#">QNA</a></li>
+			  <li class="nav-item"><a id="tab-4" class="nav-link" href="#">REVIEW</a></li>
 			</ul>
 		    <ul class="panel">
 		      <li id="content-1">
@@ -55,20 +47,7 @@
 			              </td>
 			           </sec:authorize>
 			           </tr>
-					  
-<%-- 					<tr>
-			                <td class="no-no table-no">1</td>
-			                <td class="no-tit table-tit"><a href="#">첫 번째 공지</a></td>
-			                <td class="no-write table-write">관리자</td>
-			                <td class="no-date table-date">2023-09-06</td>
-			                <sec:authorize access="hasRole('ROLE_ADMIN')">
-			                <td class="option">
-			                    <button class="btn-sm border-0"><i class="fas fa-edit"></i></button>
-			                    <button class="btn-sm border-0"><i class="fas fa-trash"></i></button>
-			                </td>
-			                </sec:authorize>
-			            </tr> --%>
-			             </c:forEach>
+		             </c:forEach>
 					</tbody>
 				</table>
 		      </li>
@@ -123,7 +102,6 @@
 			                </div>
 			            </div>
 			        </div>
-			
 			    </div>
 		      </li>
 		      <li id="content-3">
@@ -150,11 +128,10 @@
 			           <sec:authorize access="hasRole('ROLE_ADMIN')"></sec:authorize>
 					</c:forEach>
 
-						<div class="row justify-content-end w-100 mx-0">
-		                <div class="d-flex justify-content-end px-0">
-		                  	<a href="write_view" class="btn btn-primary ">글쓰기</a>
-		                </div>
-		              </div>
+
+	                <div class="d-flex justify-content-end px-0">
+	                  	<a href="write_view" class="btn btn-primary ">글쓰기</a>
+	                </div>
 					</tbody>
 				</table>
 		      </li>
