@@ -127,4 +127,25 @@ public class LoginController {
 		log.info("userprofile");
 		return "/myPage/myPage";
 	}
+	
+	// 아이디 찾기
+	@GetMapping("/login/idsearch")
+	public String idSearch(MsUserVO user, Model model) {
+		
+		List<MsUserVO> userList = userMapper.getUsers();
+		List<String> usernameList = new ArrayList<String>();
+		for(MsUserVO userInfo: userList) {
+			usernameList.add("\""+userInfo.getUsername() + "\"");
+		}
+		model.addAttribute("usernameList", usernameList);
+		
+		return "/login/idSearch";
+	}
+	
+	// 아이디 찾기 post
+	@PostMapping("/login/idsearch")
+	public String idSearch() {
+		
+		return "/login/idSearch";
+	}
 }
