@@ -99,7 +99,7 @@ desc ms_pay;
 
 -- 상품
 create table ms_product (
-    product_code number(5) primary key,
+    product_code number(5) not null,
     product_category varchar2(1) not null,
     --product_number VARCHAR2(20) PRIMARY KEY,   -- 상품 번호
     product_name VARCHAR2(100),                -- 상품명
@@ -107,7 +107,13 @@ create table ms_product (
     stock_quantity NUMBER,                     -- 재고 수량
     options VARCHAR2(200),                     -- 옵션
     product_img VARCHAR2(200)                  -- 이미지
+    
+    CONSTRAINT unique_constraint_name UNIQUE (column1, column2)
 );
+
+alter table ms_product drop constraint SYS_C007112;
+ALTER TABLE ms_product add constraint uq_product_number unique(product_code, product_category);
+
 
 insert into ms_product(product_code, product_category, product_name, price, stock_quantity, options, product_img) 
                 values(929,'B' ,'팔찌9', 15500,10,'옵션','이미지주소');
