@@ -194,8 +194,13 @@
 			<artifactId>google-api-services-oauth2</artifactId>
 			<version>v2-rev157-1.25.0</version>
 		</dependency>
-	</dependencies>
 
+		<dependency>
+			<groupId>com.google.http-client</groupId>
+			<artifactId>google-http-client-jackson2</artifactId>
+			<version>1.40.0</version> <!-- Google API Client Library 버전을 지정해야 합니다. -->
+		</dependency>
+	</dependencies>
 	<!-- Maven 빌드 설정 -->
 	<build>
 		<plugins>
