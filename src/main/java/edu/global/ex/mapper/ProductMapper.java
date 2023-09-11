@@ -9,9 +9,11 @@ import edu.global.ex.vo.ProductVO;
 public interface ProductMapper {
 
 	
-	 	void insertProduct(ProductVO product);  
+	public void insert(ProductVO productVO);
+	
+	 	void insertProduct(ProductVO productVO);  
 
-	    void deleteProduct(@Param("product_number") String product_number);
+	    void deleteProduct(@Param("product_category") String product_category);
 
 	    void updateProduct(ProductVO pvo);
 }

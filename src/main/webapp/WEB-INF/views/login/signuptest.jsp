@@ -29,19 +29,20 @@ table.signUp-table {
 <div class="container-signup">
 	<div class="form-signup m-auto">
 		<h2 class="mt-5 text-center">회원가입</h2>
-		<form method="post" action ="/login/signup">
+		<form method="post" action ="/login/signup" onsubmit="return checkDuplicate();">
 			<div class="form-floating form-group my-2">
 			<c:if test="${email == null }">
 				<input name="username" type="email" class="form-control" id="username"
-					placeholder="name@example.com" required> <label
+					placeholder="name@example.com" required onblur="checkUsername()"> <label
 					for="floatingInput">이메일</label>
 					</c:if>
 					<c:if test="${email != null }">
 				<input value="${email }" name="username" type="email" class="form-control" id="username"
-					placeholder="name@example.com" required> <label
+					placeholder="name@example.com" required onblur="checkUsername()"> <label
 					for="floatingInput">이메일</label>
 					</c:if>
 				<div class="invalid-feedback">이메일을 입력해주세요.</div>
+				<span id="usernameMessage" style="color: red;"></span> <!-- 아이디 중복 메시지 표시할 위치 -->
 			</div>
 			<div class="form-floating my-2">
 				<input name="password" type="password" class="form-control" id="password"
@@ -220,6 +221,38 @@ table.signUp-table {
 
 	</div>
 </div>
+<script>
+    function checkUsername() {
+        const username = document.getElementById("username").value;
+        const usernameMessage = document.getElementById("usernameMessage");
+        const usernameList = ${usernameList}; // 모델 속성에서 JSON 데이터를 가져옴
+
+        // 아이디 중복 검사
+        if (usernameList.includes(username)) {
+            usernameMessage.textContent = "이미 사용 중인 아이디입니다.";
+            usernameMessage.style.color = "red";
+        } else {
+            usernameMessage.textContent = "사용 가능한 아이디입니다.";
+            usernameMessage.style.color = "green";
+        }
+    }
+</script>
+<script>
+    function checkDuplicate() {
+        const username = document.getElementById("username").value;
+        const usernameList = ${usernameList}; // 모델 속성에서 JSON 데이터를 가져옴
+
+        // 아이디 중복 검사
+        if (usernameList.includes(username)) {
+            alert("이미 사용 중인 아이디입니다.");
+            return false; // 페이지 이동을 중단합니다.
+        }
+
+        // 중복 아이디가 아닌 경우
+        return true; // 페이지 이동을 허용합니다.
+    }
+</script>
+
 
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -280,11 +313,11 @@ table.signUp-table {
 			}).open();
 		}
 	</script>
-<script>
+<!-- <script>
 
 const username = ${usernameList};
 
 console.log(username)
-</script>
+</script> -->
 <!-- footer 시작 -->
 <jsp:include page="/WEB-INF/views/footer.jsp" />

@@ -35,27 +35,25 @@ public class ProductVO {
 		private String product_code;
 		private String product_category;
 		
+//		private String v_product_code;
+//		private String v_product_category;
+//		private String v_product_number;
 		
-		private String product_number;
+
 	    private String product_name;
 	    private Double price;
 	    private Integer stock_quantity;
 	    private String options;
 	    private String product_img;
-		
-	    
-//	    public void setv_product_number(String v_product_number2) {
-//			// TODO Auto-generated method stub
-//			
-//		}
-//		public void setv_product_category(String v_product_category2) {
-//			// TODO Auto-generated method stub
-//			
-//		}
-//		public void setv_product_code(String v_product_code2) {
-//			// TODO Auto-generated method stub
-//			
+	
+	    public void setProduct_code() {
+	    	product_code = getProduct_category() + getProduct_code();
+	    }
+			
 		}
+		
+	
+
 
 
 

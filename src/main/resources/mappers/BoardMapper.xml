@@ -22,9 +22,7 @@
       select * from ms_board where selecter = 1 order by bGroup desc, bStep asc
    ]]>    
     </select>
-	
-	
-	
+		
 <select id="getList" resultType="edu.global.ex.vo.BoardVO">
     <![CDATA[
       select * from ms_board order by bid desc
@@ -55,8 +53,7 @@
 	insert into ms_board (bid, bname, btitle, bcontent, bgroup, bstep, bindent, selecter) 
             values (ms_board_seq.nextval, #{bname}, #{btitle}, #{bcontent}, ms_board_seq.currval, 0, 0, ${selecter}) 
    ]]>    
-    </insert>
-    
+    </insert>    
 <!--      댓글을 하나씩 미뤄서 정렬을 해줘야 하기 때문에 
          세로 정렬을 bstep에 +1로 한칸씩 미뤄내줘야한다. -->
     <update id="updateShape">
