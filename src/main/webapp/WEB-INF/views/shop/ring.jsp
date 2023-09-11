@@ -16,8 +16,8 @@
 						<div class="price mx-3">₩ 100,000</div>
 					</div>
 					<div class="btn-icon d-flex justify-content-between align-items-center">
-						<a href="#none" class="share text-dark px-2 modal-dialog modal-dialog-centered"><i class="bi bi-share-fill"></i></a>
-						<a href="#none" class="cart text-dark px-1 pe-0"><i class="bi bi-heart"></i></a>
+						<a href="#none" id="copyButton" class="pe-auto share text-dark py-1 px-2 modal-dialog modal-dialog-centered"><i class="bi bi-share-fill"></i></a>
+						<a href="#none" class="cart text-dark py-1 px-2"><i class="bi bi-heart"></i></a>
 					</div>
 				</div>
 				<div class="option-box d-flex align-items-center px-1 py-2 pb-4">
@@ -246,5 +246,44 @@
 			opTxtBox.show();
 		});
 	});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 버튼 요소를 가져옵니다.
+  var copyButton = document.getElementById('copyButton');
+
+  // 클릭 이벤트를 처리하는 함수를 등록합니다.
+  copyButton.addEventListener('click', function() {
+    // 현재 페이지의 URL을 가져옵니다.
+    var currentURL = window.location.href;
+
+    // 텍스트를 클립보드에 복사합니다.
+    copyTextToClipboard(currentURL);
+  });
+
+  // 텍스트를 클립보드에 복사하는 함수
+  function copyTextToClipboard(text) {
+    var textArea = document.createElement('textarea');
+
+    // 텍스트를 텍스트 영역에 설정합니다.
+    textArea.value = text;
+
+    // 텍스트 영역을 DOM에 추가합니다.
+    document.body.appendChild(textArea);
+
+    // 텍스트 영역을 선택합니다.
+    textArea.select();
+
+    // 클립보드에 복사합니다.
+    document.execCommand('copy');
+
+    // 텍스트 영역을 제거합니다.
+    document.body.removeChild(textArea);
+
+    // 복사가 완료되었음을 사용자에게 알립니다.
+    alert('주소가 복사되었습니다.');
+  }
+});
 </script>
 

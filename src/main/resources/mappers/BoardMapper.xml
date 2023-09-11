@@ -87,7 +87,7 @@
 	    WHERE selecter = 2
 	    ORDER BY bGroup DESC, bStep ASC
 	  ) A WHERE ROWNUM <= #{pageNum} * #{amount}
-	) WHERE RNUM > (#{pageNum} - 1) * #{amount} order by rnum desc
+	) WHERE RNUM > (#{pageNum} - 1) * #{amount} order by bdate desc
       ]]>
    </select>
    
@@ -102,7 +102,7 @@
 	    WHERE selecter = 3
 	    ORDER BY bGroup DESC, bStep ASC
 	  ) A WHERE ROWNUM <= #{pageNum} * #{amount}
-	) WHERE RNUM > (#{pageNum} - 1) * #{amount}  order by rnum desc
+	) WHERE RNUM > (#{pageNum} - 1) * #{amount}  order by bdate desc
       ]]>
    </select>
    
@@ -117,7 +117,7 @@
 	    WHERE selecter = 1
 	    ORDER BY bGroup DESC, bStep ASC
 	  ) A WHERE ROWNUM <= #{pageNum} * #{amount}
-	) WHERE RNUM > (#{pageNum} - 1) * #{amount} order by rnum desc
+	) WHERE RNUM > (#{pageNum} - 1) * #{amount} order by bdate desc
       ]]>
    </select>
 
