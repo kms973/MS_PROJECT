@@ -17,13 +17,13 @@
                             <div class="price mx-3">₩ 100,000</div>
                         </div>
                         <div class="btn-icon d-flex justify-content-between align-items-center">
-                            <a href="#none" class="share text-dark px-2"><i class="bi bi-share-fill"></i></a>
+                            <a href="#none" class="share text-dark px-2 modal-dialog modal-dialog-centered"><i class="bi bi-share-fill"></i></a>
                             <a href="#none" class="cart text-dark px-1 pe-0"><i class="bi bi-heart"></i></a>
                         </div>
                     </div>
                     <div class="option-box d-flex align-items-center px-1 py-2 pb-4">
                         <div>색상</div>
-                        <select class="form-select w-75 mx-3 px-2" aria-label="Default select example" style="height:auto">
+                        <select id="selectBox" class="form-select w-75 mx-3 px-2" aria-label="Default select example" style="height:auto">
                             <option selected="selected">옵션을 선택해주세요.</option>
                             <option value="1">14K 골드</option>
                             <option value="2">14K 로즈골드</option>
@@ -33,8 +33,9 @@
                             <option value="6">18K 실버</option>
                         </select>
                     </div>
-                    <div class="option-txt d-flex align-content-center justify-content-between px-0 mt-2 border-top-1 py-4 border-top-1" style=" border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;">
-                        <div class="ps-1 mb-0 d-flex align-items-center">제품 정보명</div>
+                    <!-- select 옵션을 선택시 값을 가져와서 option-txt가 생성 -->
+                    <div id="opTxtBox" class="option-txt d-flex align-content-center justify-content-between px-0 mt-2 border-top-1 py-4 border-top-1" style=" border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;">
+                        <div id="optionTxt" class="ps-1 mb-0 d-flex align-items-center">제품 정보명</div>
                         <div class="count num">
                             <div class="count d-flex align-content-center">
                                 <a href="#" class="minus text-dark" onclick='count("minus")'><i class="xi-minus-circle-o"></i></a>
@@ -135,6 +136,83 @@ $(document).ready(function() {
   });
 });
 </script>
-
+<script>
+function count(type) {
+	  // 결과를 표시할 element
+	  const quantityElement = document.getElementById('quantity');
+	  const priceElement = document.getElementById('price');
+	  const totalPriceElement = document.getElementById('totalPrice');
+	  
+	  // 현재 수량, 가격 및 총 상품금액
+	  let quantity = parseInt(quantityElement.innerText);
+	  let price = 100000; // 제품 가격 (기본값)
+	  
+	  // 더하기/빼기
+	  if (type === 'plus') {
+	    quantity += 1;
+	  } else if (type === 'minus') {
+	    if (quantity > 1) {
+	      quantity -= 1;
+	    }
+	  }
+	  
+	  // 총 상품금액 계산
+	  const totalPrice = quantity * price;
+	  
+	  // 가격 업데이트
+	  priceElement.innerHTML = '<h5 class="mb-0">₩ ' + (price * quantity).toLocaleString() + '</h5>'; // 가격 업데이트
+	  
+	  // 총 상품금액 업데이트
+	  totalPriceElement.innerHTML = '<h5 class="mb-0"><strong>₩ ' + totalPrice.toLocaleString() + '</strong></h5>'; // 금액을 포맷팅하여 표시
+	  
+	  // 수량 업데이트
+	  quantityElement.innerText = quantity;
+	}
+</script>
 <!-- footer 시작 -->
 <jsp:include page="/WEB-INF/views/footer.jsp"/>
+
+<script>
+  // 셀렉트 박스의 변경 이벤트 처리
+  document.getElementById('selectBox').addEventListener('change', function() {
+    // 선택한 옵션의 값을 가져옴
+    var selectedOption = this.value;
+
+    // 선택한 옵션에 따라 표시할 내용을 설정
+    var optionText = '';
+    switch (selectedOption) {
+      case '1':
+        optionText = '14K 골드';
+        break;
+      case '2':
+        optionText = '14K 로즈골드';
+        break;
+      case '3':
+        optionText = '14K 실버';
+        break;
+      case '4':
+        optionText = '18K 골드';
+        break;
+      case '5':
+        optionText = '18K 로즈골드';
+        break;
+      case '6':
+        optionText = '18K 실버.';
+        break;
+      default:
+        optionText = '옵션을 선택해주세요.';
+    }
+
+    // 선택한 내용을 option-txt 요소에 업데이트
+    var optionTxtElement = document.getElementById('opTxtBox');
+    //optionTxtElement.textContent = optionText;
+
+    // 선택한 옵션이 '옵션을 선택해주세요.'가 아닌 경우에만 optionTxt 요소를 보이도록 설정
+    if (selectedOption === '옵션을 선택해주세요.') {
+      optionTxtElement.style.display = 'none';
+    } else {
+      optionTxtElement.style.display = 'block';
+    }
+  });
+</script>
+

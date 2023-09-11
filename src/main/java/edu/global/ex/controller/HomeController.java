@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import edu.global.ex.mapper.CompanyMapper;
 import edu.global.ex.page.Criteria;
+import edu.global.ex.page.PageVO;
 import edu.global.ex.service.BoardService;
 import edu.global.ex.service.CompanyService;
 import edu.global.ex.vo.BoardVO;
@@ -75,8 +76,11 @@ public class HomeController {
 
 	// 관리자 홈 페이지
 	@GetMapping("/admin/admin")
-	public String adminHome() {
+	public String adminHome(Model model) {
 		log.info("adminHome()..");
+		
+		model.addAttribute("boardList", boardService.getList());
+		
 		return "/admin/admin";
 	}
 
@@ -119,11 +123,28 @@ public class HomeController {
 		log.info("community()..");
 		log.info("community() 크리테리아값 확인" + cri);
 
-		model.addAttribute("boardList", boardService.getNotice());
-		model.addAttribute("boardList_Qna", boardService.getQna());
-		model.addAttribute("boardList_Review", boardService.getReview());
+		model.addAttribute("boardList", boardService.getNoticeWithPaging(cri));
+		model.addAttribute("boardList_Qna", boardService.getQnaWithPaging(cri));
+		model.addAttribute("boardList_Review", boardService.getReviewWithPaging(cri));
+		
+		int total = boardService.getTotal();
+		log.info("list() 게시판 전체 갯수" + total);
+
+		model.addAttribute("pageMaker", new PageVO(cri, total));
 
 		return "/community";
+	}
+	
+	// user 게시판 delete
+	@GetMapping("/delete")
+	public String delete(BoardVO boardVO) {
+		log.info("delete()..");
+		
+		int rn = boardService.delete(boardVO);
+		
+		log.info("delete().." + rn);
+		
+		return "redirect:community";
 	}
 
 	// user 게시판 보기 페이지

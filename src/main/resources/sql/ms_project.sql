@@ -99,8 +99,8 @@ desc ms_pay;
 
 -- 상품
 create table ms_product (
-    product_code number(5),
-    product_category varchar2(1)primary key,
+    product_code number(5) primary key,
+    product_category varchar2(1) not null,
     --product_number VARCHAR2(20) PRIMARY KEY,   -- 상품 번호
     product_name VARCHAR2(100),                -- 상품명
     price NUMBER,                              -- 가격
@@ -116,7 +116,9 @@ insert into ms_product(product_code, product_category, product_name, price, stoc
 drop table ms_product;
 select * from ms_product;
 delete from ms_product;
+desc ms_product;
 
+update ms_product set product_category = 'E' where product_category = 'c';
 ---------------------------------------------------------------
 /*
 -- 상품 삽입

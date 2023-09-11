@@ -1,12 +1,15 @@
 package edu.global.ex.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -93,7 +96,15 @@ public class LoginController {
 
 	// 회원 가입 페이지로 이동하는 핸들러
 	@GetMapping("/login/signup")
-	public String signuptest() {
+	public String signuptest(MsUserVO user, Model model){
+		List<MsUserVO> userList = userMapper.getUsers();
+		List<String> usernameList = new ArrayList<String>();
+		for(MsUserVO userInfo: userList) {
+			usernameList.add("\""+userInfo.getUsername() + "\"");
+		}
+		model.addAttribute("usernameList", usernameList);
+//		log.info(userMapper.getUsers().toString());
+		
 		return "/login/signuptest";
 	}
 
@@ -114,6 +125,6 @@ public class LoginController {
 	@GetMapping("/login/userprofile")
 	public String userprofile() {
 		log.info("userprofile");
-		return "/login/profile_page";
+		return "/myPage/myPage";
 	}
 }

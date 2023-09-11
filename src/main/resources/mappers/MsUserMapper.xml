@@ -17,6 +17,7 @@
 		<result property="username" column="username" />
 		<result property="authority" column="authority" />
 	</resultMap>
+	
 
 	<select id="getUser" resultMap="userMap">
 		select * from ms_users , ms_authorities
@@ -24,6 +25,8 @@
 		#{username}
 	</select>
 
-
+	<select id="getUsers" resultMap="userMap">
+		select * from ms_users
+	</select>
 
 </mapper>

@@ -35,26 +35,28 @@
 <jsp:include page="/WEB-INF/views/admin/adm_header.jsp"></jsp:include>
 	
 <section id="board-write">
-	<div class="container-fluid px-4">
+	<div class="container-fluid px-4">	
 	    <h1 class="mt-4">글 수정</h1>
 	    <ol class="breadcrumb mb-4"><li class="breadcrumb-item active"></li></ol>
 	    
         <div class="wrap-write"><form id="updateForm" action="modify" method="post">
+        <input id="input_bid" type="hidden" name="bid" value="${content_view.bid}">
         	<!-- 카테고리 선택 -->
-	        <select class="form-select form-select-sm w-auto mt-2" aria-label="Default select example">
-			  <option selected>카테고리 선택</option>
+<!-- 	        <select class="form-select form-select-sm w-auto mt-2" aria-label="Default select example"> -->
+	        <div id = "get_selecter" name = "selecter" type = "text">게시판 : ${content_view.selecter}</div>
+<!-- 			  <option selected>카테고리 선택</option>
 			  <option value="1">공지사항</option>
 			  <option value="2">Q&A</option>
 			  <option value="3">Review</option>
-			</select>
-            
-			<div class="my-2">
+			</select> -->      
+         <div class="my-2">
+				<input class="form-control" id="input_bname" name="bname" type="text" placeholder="이름" aria-label="default input example" value="${content_view.bname}">
+			</div>			
+         <div class="my-2">
 				<input class="form-control" id="input_btitle" name="btitle" type="text" placeholder="제목" aria-label="default input example" value="${content_view.btitle}">
 			</div>
 			
-			<div id="summernote">
-				<input id="input_btitle" type="text" name="btitle" value="${content_view.btitle}">
-			</div>
+	<textarea id="summernote" name = "bcontent">${boardList.bcontent}</textarea>
 						
 			<div class="input-group my-3">
 				<span class="input-group-prepend">
@@ -103,7 +105,7 @@ $('#summernote').summernote({
 	fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],
 	
 	
-	// ${content_view.bcontent} 값을 Summernote 에디터에 설정
+	/*  ${content_view.bcontent} 값을 Summernote 에디터에 설정 */
 	/* var content = '${content_view.bcontent}'; */
 	/* $('#summernote').summernote('code', content); */
 });
@@ -112,7 +114,7 @@ const attr = 'content_view.bcontent';
 node.setAttribute('value',attr);
 $('#summernote').summernote('insertNode', node);
 
-$('#summernote').summernote('insertText','${content_view.btitle}');
+$('#summernote').summernote('insertText','${content_view.bcontent}');
 const range = $.summernote.range;
 const rng = range.createFromSelection(node);
 rng.select();

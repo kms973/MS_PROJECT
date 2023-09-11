@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,15 +11,18 @@
 <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
 <link href="/css/styles.css" rel="stylesheet" />
 <link href="/css/style.css" rel="stylesheet" />
-<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/js/scripts.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+<link href="/css/adm_style.css" rel="stylesheet" />
 
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="/js/datatables-simple-demo.js"></script>
+<script src="/js/scripts.js"></script>
+
 </head>
-<body>
+<body class="sb-nav-fixed">
 	<header>
 	  <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 	    <!-- Navbar Brand-->
@@ -41,9 +46,10 @@
 	            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 	                <li><a class="dropdown-item" href="/">쇼핑몰가기</a></li>
 	                <li><hr class="dropdown-divider" /></li>
-	                <sec:authorize access="isAuthenticated()">
+	            	<li><a class="dropdown-item" href="/login">로그인</a></li>
+					<sec:authorize access="isAuthenticated()">
 						<!-- 로그인(인증된) 사용자인 경우 -->	
-						<li><a href="/logout" class="dropdown-item">로그아웃</a></li>
+						<li><a class="dropdown-item" href="/logout">로그아웃</a></li>
 					</sec:authorize>
 	            </ul>
 	        </li>
@@ -59,7 +65,7 @@
 	                <div class="sb-sidenav-menu">
 	                 <div class="nav">
 	                    <!-- <div class="sb-sidenav-menu-heading">카테고리</div> -->
-	                    <a class="nav-link" href="/admin/company"><div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>회사정보</a>
+	                    <a class="nav-link" href="/admin/company"><div class="sb-nav-link-icon"><i class="fas fa-solid fa-building"></i></div>회사정보</a>
 	                    <a class="nav-link collapsed" href="#!" data-bs-toggle="collapse" data-bs-target="#collapseMembers" aria-expanded="false" aria-controls="collapseMembers">
 	                        <div class="sb-nav-link-icon"><i class="fas fa-circle-user"></i></div>회원
 	                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -162,7 +168,5 @@
             </nav>
         </div>
         
-        <!-- 대쉬보드 영역 -->
-        <div id="layoutSidenav_content">
-</body>
-</html>
+<!-- 대쉬보드 영역 -->
+<div id="layoutSidenav_content">

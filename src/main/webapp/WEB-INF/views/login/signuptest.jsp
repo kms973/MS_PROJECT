@@ -23,9 +23,7 @@ table.signUp-table {
     width: 100%;
     border: 1px solid #ccc;
 }
-.container-signup {
-margin-bottom :100px; 
-}
+.container-signup { margin-bottom :100px; }
 </style>
 
 <div class="container-signup">
@@ -282,6 +280,11 @@ margin-bottom :100px;
 			}).open();
 		}
 	</script>
+<script>
 
+const username = ${usernameList};
+
+console.log(username)
+</script>
 <!-- footer 시작 -->
 <jsp:include page="/WEB-INF/views/footer.jsp" />

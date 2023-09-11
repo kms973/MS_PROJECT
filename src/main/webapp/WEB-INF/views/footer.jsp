@@ -14,7 +14,7 @@ $(document).ready(function(){
 	 
 	    $(document).on( 'scroll', function(){
 	 
-	    	if ($(window).scrollTop() > 100) {
+	    	if ($(window).scrollTop() > 10) {
 				$('.scroll-top-wrapper').addClass('show');
 			} else {
 				$('.scroll-top-wrapper').removeClass('show');
