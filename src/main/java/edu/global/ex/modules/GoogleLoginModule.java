@@ -1,4 +1,4 @@
-package edu.global.ex.controller;
+package edu.global.ex.modules; // 패키지를 예상 패키지와 일치하도록 수정
 
 import java.util.Collections;
 
@@ -7,7 +7,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,8 +22,8 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 
 @SpringBootApplication
 @Controller
-@CrossOrigin(origins = "http://localhost:8008")
-public class GoogleLoginModule { // 클래스 이름 변경
+@CrossOrigin(origins = "http://localhost:8080")
+public class GoogleLoginModule {
 
     private static final String GOOGLE_CLIENT_ID = "YOUR_GOOGLE_CLIENT_ID";
 
@@ -50,6 +49,7 @@ public class GoogleLoginModule { // 클래스 이름 변경
     public ApiResponse googleLogin(@RequestBody GoogleLoginRequest request) {
         HttpTransport transport = new NetHttpTransport();
         JsonFactory jsonFactory = JacksonFactory.getDefaultInstance();
+        // JacksonFactory 대신 JsonFactory 사용하도록 수정
         GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(transport, jsonFactory)
                 .setAudience(Collections.singletonList(GOOGLE_CLIENT_ID))
                 .build();
@@ -90,7 +90,7 @@ public class GoogleLoginModule { // 클래스 이름 변경
         }
     }
 
-    @Repository
+    // @Repository 어노테이션 제거
     public interface UserRepository extends JpaRepository<User, Long> {
         User findByEmail(String email);
     }
