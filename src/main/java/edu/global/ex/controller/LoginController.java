@@ -142,6 +142,7 @@ public class LoginController {
 		return "/login/idSearch";
 	}
 	
+	
 	// 아이디 찾기 post
 	@PostMapping("/login/idsearch")
 	public String idSearch() {
