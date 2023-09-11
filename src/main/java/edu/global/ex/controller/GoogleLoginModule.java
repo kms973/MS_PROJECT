@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 <<<<<<< HEAD:src/main/java/edu/global/ex/modules/GoogleLoginModule.java
 package edu.global.ex.modules;
 =======
 package edu.global.ex.controller;
 >>>>>>> parent of 57a61c5 (모듈수정):src/main/java/edu/global/ex/controller/GoogleLoginModule.java
+=======
+package edu.global.ex.controller;
+>>>>>>> parent of 57a61c5 (모듈수정)
 
 import java.util.Collections;
 
@@ -29,11 +33,15 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 @SpringBootApplication
 @Controller
 @CrossOrigin(origins = "http://localhost:8008")
+<<<<<<< HEAD
 <<<<<<< HEAD:src/main/java/edu/global/ex/modules/GoogleLoginModule.java
 public class GoogleLoginModule {
 =======
 public class GoogleLoginModule { // 클래스 이름 변경
 >>>>>>> parent of 57a61c5 (모듈수정):src/main/java/edu/global/ex/controller/GoogleLoginModule.java
+=======
+public class GoogleLoginModule { // 클래스 이름 변경
+>>>>>>> parent of 57a61c5 (모듈수정)
 
     @Value("${google.client.id}") // Google 클라이언트 ID 주입
     private String GOOGLE_CLIENT_ID;
@@ -100,10 +108,14 @@ public class GoogleLoginModule { // 클래스 이름 변경
         }
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD:src/main/java/edu/global/ex/modules/GoogleLoginModule.java
 =======
     @Repository
 >>>>>>> parent of 57a61c5 (모듈수정):src/main/java/edu/global/ex/controller/GoogleLoginModule.java
+=======
+    @Repository
+>>>>>>> parent of 57a61c5 (모듈수정)
     public interface UserRepository extends JpaRepository<User, Long> {
         User findByEmail(String email);
     }
