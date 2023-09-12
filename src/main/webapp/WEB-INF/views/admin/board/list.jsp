@@ -13,7 +13,7 @@
         <div class="card">
         	<!-- 게시글 필터링 탭 메뉴 -->
 			<h6 class="card-header">
-				<div class="tab board-nav">
+				<div class="tab board-nav d-flex justify-content-between align-items-center">
 					<ul class="title nav m-0">
 						<li class="board-tab on" data-type="all">
 							<div class="form-check form-check-inline">
@@ -40,6 +40,8 @@
 							</div>
 						</li>
 					</ul>
+					<!-- 글쓰기 버튼 -->
+					<div class="px-0"><a href="write_view" class="btn btn-primary" style="font-size:.75rem;">글쓰기</a></div>
 		        </div>
 			</h6>
 			
@@ -74,9 +76,7 @@
    		  		</table>
 			</div>
 		</div>
-		<div class="mx-0">
-			<div class="d-flex justify-content-end px-0"><a href="write_view" class="btn btn-primary ">글쓰기</a></div>
-		</div>
+		
 	</div>
 </section>
     

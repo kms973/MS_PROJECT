@@ -85,9 +85,9 @@
 	    FROM
 	      ms_board
 	    WHERE selecter = 2
-	    ORDER BY bGroup DESC, bStep ASC
+	    ORDER BY bdate, bGroup DESC, bStep ASC 
 	  ) A WHERE ROWNUM <= #{pageNum} * #{amount}
-	) WHERE RNUM > (#{pageNum} - 1) * #{amount} order by bdate desc
+	) WHERE RNUM > (#{pageNum} - 1) * #{amount}  order by rnum desc
       ]]>
    </select>
    
@@ -100,13 +100,13 @@
 	    FROM
 	      ms_board
 	    WHERE selecter = 3
-	    ORDER BY bGroup DESC, bStep ASC
+	    ORDER BY bdate, bGroup DESC, bStep ASC
 	  ) A WHERE ROWNUM <= #{pageNum} * #{amount}
-	) WHERE RNUM > (#{pageNum} - 1) * #{amount}  order by bdate desc
+	) WHERE RNUM > (#{pageNum} - 1) * #{amount} order by rnum desc
       ]]>
    </select>
    
-         <select id="getNoticeWithPaging" resultType="BoardVO">
+  	<select id="getNoticeWithPaging" resultType="BoardVO">
       <![CDATA[
 	SELECT * FROM (
 	  SELECT ROWNUM AS RNUM, A.* FROM (
@@ -115,9 +115,9 @@
 	    FROM
 	      ms_board
 	    WHERE selecter = 1
-	    ORDER BY bGroup DESC, bStep ASC
+	    ORDER BY bdate, bGroup DESC, bStep ASC
 	  ) A WHERE ROWNUM <= #{pageNum} * #{amount}
-	) WHERE RNUM > (#{pageNum} - 1) * #{amount} order by bdate desc
+	) WHERE RNUM > (#{pageNum} - 1) * #{amount} order by rnum desc
       ]]>
    </select>
 
