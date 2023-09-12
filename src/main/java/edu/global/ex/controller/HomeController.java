@@ -12,10 +12,12 @@ import edu.global.ex.page.Criteria;
 import edu.global.ex.page.PageVO;
 import edu.global.ex.service.BoardService;
 import edu.global.ex.service.CompanyService;
+import edu.global.ex.service.MsUserService;
 import edu.global.ex.service.ShopProductService;
 import edu.global.ex.vo.BoardVO;
 import edu.global.ex.vo.CompanyVO;
 import edu.global.ex.vo.CustomUserDetailsVO;
+import edu.global.ex.vo.MsUserVO;
 import edu.global.ex.vo.ShopProductVO;
 import lombok.extern.slf4j.Slf4j;
 
@@ -50,6 +52,9 @@ public class HomeController {
 
 	@Autowired
 	private ShopProductService spService;
+	
+	@Autowired
+	private MsUserService msUserService;
 	
 	// 홈 페이지
 	@GetMapping("/")
@@ -285,7 +290,15 @@ public class HomeController {
 		return "/admin/customer/mgr";
 	}
 
-	
+	// 회원관리 delete
+	@GetMapping("/admin/customer/delete")
+	public String adminCustomerDelete(MsUserVO username, Model model) {
+		log.info("adminCustomerDelete()..");
+		
+		model.addAttribute("delete", msUserService.delete(username));
+		
+		return "redirect:mgr";
+	}
 
 	// 쇼핑 페이지
 	@GetMapping("/shop")

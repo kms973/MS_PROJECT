@@ -10,6 +10,7 @@
 		<result property="username" column="username" />
 		<result property="password" column="password" />
 		<result property="enabled" column="enabled" />
+		<result property="cname" column="cname" />
 		<collection property="authList" resultMap="authMap"></collection>
 	</resultMap>
 
@@ -18,7 +19,21 @@
 		<result property="authority" column="authority" />
 	</resultMap>
 	
-
+	    <delete id="delete">
+    <![CDATA[
+    BEGIN
+  DELETE FROM ms_authorities WHERE username =#{username};
+  DELETE FROM ms_users WHERE username =#{username};
+END;
+   ]]>    
+    </delete>
+	
+	   <select id="read" resultType="MsUserVO">
+    <![CDATA[
+      select * from ms_users where username = #{username}
+   ]]>    
+    </select>
+	
 	<select id="getUser" resultMap="userMap">
 		select * from ms_users , ms_authorities
 		where ms_users.username = ms_authorities.username and ms_users.username =
@@ -26,7 +41,9 @@
 	</select>
 
 	<select id="getUsers" resultMap="userMap">
-		select * from ms_users
+		 select * from ms_userss
 	</select>
+	
+	
 
 </mapper>

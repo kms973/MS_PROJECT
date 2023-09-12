@@ -79,29 +79,22 @@
 							<td><b>게시글</b></td>
 							<td><b>옵션</b></td>
 						</tr>
-						<tr>
-							<th scope="row">
-								<div class="form-check">
-									<input class="form-check-input" type="checkbox" id="checkbox1">
-								</div>
-							</th>
-							<td>
-								<img class="fit-picture me-2" src="https://png.pngtree.com/png-vector/20191009/ourmid/pngtree-user-icon-png-image_1796659.jpg" 
-								style="width:30px; height:30px;"/>admin
-							</td>
-							<td>최고관리자</td>
-							<td></td>
-							<td>관리자</td>
-							<td>
-								<p>&#45;</p>
-								<p>&#45;</p>
-								<p>&#45;</p>
-							</td>
-							<td class="table-op" style="width: 5% !important;">
-			               		<a class="btn btn-sm btn-primary" href="#!"><i class="fas fa-edit"></i></a>
-					            <a class="btn btn-sm btn-danger" href="#!"><i class="fas fa-trash"></i></a>
-							</td>
-						</tr>
+				<tr>
+				<th scope="row">
+				<div class="form-check">
+				<input class="form-check-input" type="checkbox" id="checkbox1">
+				<c:forEach var="ms_users" items="${ms_users}">
+			       	  <td class="table-no text-center">${ms_users.username}</td>	
+<%-- 				   <td class="table-no text-center">${ms_users.enabled}</td> --%>			         
+			           <td class="table-wr text-center">${ms_users.cname}</td>
+			           <td class="table-wr text-center">${ms_users.cgrade}</td>
+
+					<td class="table-op" style="width: 5% !important;">
+			         <a class="btn btn-sm btn-primary" href="#!"><i class="fas fa-edit"></i></a>
+					 <a class="btn btn-sm btn-danger" href="delete?username=${ms_users.username}"><i class="fas fa-trash"></i></a>
+					</td>
+			         </tr>
+		          	</c:forEach>
 						<tr>
 							<th scope="row">
 								<div class="form-check">

@@ -25,4 +25,4 @@ div.h-box { height: 0 !important; }
 <!-- 메인 끝 -->
 
 <!-- 팝업 -->
-<jsp:include page="/WEB-INF/views/popup/popup.jsp"/>
+<%-- <jsp:include page="/WEB-INF/views/popup/popup.jsp"/> --%>
