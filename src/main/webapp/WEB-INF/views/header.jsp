@@ -56,7 +56,7 @@
 		        <div class="dropdown text-end">
 				  <a class="d-block link-dark" id="dropdownMenu1" data-mdb-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
 				  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-				    <li><a id="myPageLink" class="dropdown-item" href="/mypage">마이페이지</a></li>
+				    <li><a id="myPageLink" class="dropdown-item" href="/login/userprofile">마이페이지</a></li>
 				    <sec:authorize access="hasRole('ROLE_ADMIN')">
    						<!-- admin 로그인일 경우 -->
 						<li><a class="dropdown-item" href="/admin">관리자페이지</a></li>

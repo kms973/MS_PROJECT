@@ -28,7 +28,7 @@ public class LoginController {
 	private PasswordEncoder passwordEncoder; // 비밀번호 암호화를 위한 빈
 
 	// 로그인 페이지로 이동하는 핸들러
-	@GetMapping("/admin")
+	@GetMapping("/admin/admin")
 	public String login() {
 		return "/admin/login";
 	}

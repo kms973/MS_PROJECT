@@ -85,7 +85,7 @@ public class HomeController {
 	}
 
 	// 관리자 홈 페이지
-	@GetMapping("/admin/admin")
+	@GetMapping("/admin")
 	public String adminHome(Model model) {
 		log.info("adminHome()..");
 		
@@ -326,5 +326,13 @@ public class HomeController {
 	public String ring() {
 		log.info("ring()..");
 		return "/shop/ring";
+	}
+	
+	
+	// 마이페이지
+	@GetMapping("/mypage")
+	public String mypage() {
+		log.info("mypage()..");
+		return "/myPage/myPage";
 	}
 }

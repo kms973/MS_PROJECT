@@ -6,10 +6,9 @@
 	<h5>주문내역</h5>
     <div class="col-2">
     	<select class="form-select" aria-label="Default select example">
-			<option value="1" selected>3개월</option>
-			<option value="2">6개월</option>
-			<option value="3">1년</option>
-			<option value="4">전체</option>
+			<option value="3" selected>3개월</option>
+			<option value="6">6개월</option>
+			<option value="all">1년</option>
 		</select>
     </div>
 </div>
@@ -17,13 +16,17 @@
 <!-- 주문 리스트 -->
 <div class="row mt-3 mx-0 justify-content-between w-100">
     <div class="col-12 p-0">
-        <table class="table mb-5">
+        <table class="table mb-5" style="border-color:gray !important;">
+        	<colgroup>
+        		<col width="85%">
+        		<col width="15%">
+        	</colgroup>
             <thead>
                 <tr>
-                    <th scope="col" colspan="3" class="col-12">
-                        <div class="d-flex justify-content-between mx-0 px-0">
-                            <strong><h5>2023.01.01</h5></strong>
-                            <p class="mx-0 ps-0 row align-items-end"><a href="#">주문 상세보기 ></a></p>
+                    <th scope="col" colspan="3" class="py-2 px-2">
+                        <div class="d-flex justify-content-between align-items-center mx-0 px-0">
+                            <strong><h6>2023.01.01</h6></strong>
+                            <a href="#">주문 상세보기 ></a>
                         </div>
                     </th>
                 </tr>
