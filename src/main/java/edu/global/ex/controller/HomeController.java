@@ -12,9 +12,11 @@ import edu.global.ex.page.Criteria;
 import edu.global.ex.page.PageVO;
 import edu.global.ex.service.BoardService;
 import edu.global.ex.service.CompanyService;
+import edu.global.ex.service.ShopProductService;
 import edu.global.ex.vo.BoardVO;
 import edu.global.ex.vo.CompanyVO;
 import edu.global.ex.vo.CustomUserDetailsVO;
+import edu.global.ex.vo.ShopProductVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -46,6 +48,9 @@ public class HomeController {
 	@Autowired
 	private BoardService boardService;
 
+	@Autowired
+	private ShopProductService spService;
+	
 	// 홈 페이지
 	@GetMapping("/")
 	public String home(@AuthenticationPrincipal CustomUserDetailsVO customUserDetailsVO) {
@@ -280,12 +285,7 @@ public class HomeController {
 		return "/admin/customer/mgr";
 	}
 
-	// 링 상점 페이지
-	@GetMapping("/shop/ring")
-	public String shopRing() {
-		log.info("shopRing()..");
-		return "/shop/ring";
-	}
+	
 
 	// 쇼핑 페이지
 	@GetMapping("/shop")

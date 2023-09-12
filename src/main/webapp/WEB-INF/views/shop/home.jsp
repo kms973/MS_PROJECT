@@ -11,7 +11,7 @@
 	<div class="tab shop-tab_menu">
 		<ul class="title nav justify-content-center">
 			<li class="shop-tab on" data-type="all"><a href="/shop/home">전체</a></li>
-			<li class="shop-tab" data-type="R"><a href="/shop/ring">반지</a></li>
+			<li class="shop-tab" data-type="R"><a href="/shop/rings">반지</a></li>
 			<li class="shop-tab" data-type="N"><a href="/shop/necklace">목걸이</a></li>
 			<li class="shop-tab" data-type="E"><a href="/shop/earring">귀걸이</a></li>
 			<li class="shop-tab" data-type="B"><a href="/shop/bracelet">팔찌</a></li>

@@ -45,22 +45,22 @@ public class ShopController {
 		return "/shop/home";
 	}
 
-//	@GetMapping("/ring")
-//	public String productRing(Model model,Criteria cri) {
-//		log.info("shopring()..");
-//		log.info("shopproductRing() 크리테리아값 확인" + cri);
-//
-//		System.out.println(shopProductService.getListWithPagingRing(cri).size());
-//		
-//		model.addAttribute("ShopProductList", shopProductService.getListWithPagingRing(cri));
-//		
-//		int total = shopProductService.getTotalRing();
-//		log.info("shopproductRing() 전체 갯수" + total);
-//
-//		model.addAttribute("pageMaker", new PageVO(cri, total));
-//		
-//		return "/shop/home";
-//	}
+	@GetMapping("/rings")
+	public String productRing(Model model,Criteria cri) {
+		log.info("shopring()..");
+		log.info("shopproductRing() 크리테리아값 확인" + cri);
+
+		System.out.println(shopProductService.getListWithPagingRing(cri).size());
+		
+		model.addAttribute("ShopProductList", shopProductService.getListWithPagingRing(cri));
+		
+		int total = shopProductService.getTotalRing();
+		log.info("shopproductRing() 전체 갯수" + total);
+
+		model.addAttribute("pageMaker", new PageVO(cri, total));
+		
+		return "/shop/home";
+	}
 
 	@GetMapping("/earring")
 	public String productEarring(Model model,Criteria cri) {
