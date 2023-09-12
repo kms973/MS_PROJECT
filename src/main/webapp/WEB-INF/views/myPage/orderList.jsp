@@ -1,26 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 
-<section id="mypage" class="container wrap">
-
 <!-- 주문내역 헤더 -->
-    <div class="row mb-3">
-        <div class="col-9 px-5">
-            <h3>주문내역</h3>
-        </div>
-        <div class="col-2 text-right">
-            <select class="form-select" aria-label="Default select example">
-				<option value="1" selected>3개월</option>
-				<option value="2">6개월</option>
-				<option value="3">1년</option>
-				<option value="4">전체</option>
-			</select>
-        </div>
+<div class="d-flex my-2 justify-content-between w-100">
+	<h5>주문내역</h5>
+    <div class="col-2">
+    	<select class="form-select" aria-label="Default select example">
+			<option value="1" selected>3개월</option>
+			<option value="2">6개월</option>
+			<option value="3">1년</option>
+			<option value="4">전체</option>
+		</select>
     </div>
+</div>
 
 <!-- 주문 리스트 -->
-<div class="row mx-0 px-5 justify-content-between container wrap">
-    <div class="col-12 ps-0">
+<div class="row mt-3 mx-0 justify-content-between w-100">
+    <div class="col-12 p-0">
         <table class="table mb-5">
             <thead>
                 <tr>
@@ -55,6 +51,5 @@
         </table>
     </div>
 </div>
-</section>
 
 
