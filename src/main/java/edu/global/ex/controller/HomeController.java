@@ -293,14 +293,14 @@ public class HomeController {
 		log.info("shop()..");
 		return "/shop";
 	}
-
+	
 	// 장바구니 페이지
-	@GetMapping("/cart")
-	public String cart() {
-		log.info("cart()..");
-		return "/cart";
-	}
-
+		@GetMapping("/cart")
+		public String cart() {
+			log.info("cart()..");
+			return "/cart";
+		}
+		
 	// 결제 페이지
 	@GetMapping("/pay")
 	public String pay() {

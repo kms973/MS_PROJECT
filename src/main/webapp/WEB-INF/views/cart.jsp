@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- header 시작 -->
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
@@ -22,12 +23,13 @@
 	    </tr>
 	  </thead>
 	  <tbody>
+	  <c:forEach items="${listCart}" var="cartItem">
 	    <tr class="product1 product-row" id="product1">
 	      <th scope="row">
 	      	<div class="form-check col-1"><input class="form-check-input" type="checkbox" onclick="updateTotalPrice()"></div>
 	      </th>
 	      <td class="col-3">
-	   		<div class="product-img d-flex"><img src="/img/2.jpg" class="img-fluid" width="40%" alt="제품 이미지"><div class="pname row mx-2 mt-4">상품명</div></div>
+	   		<div class="product-img d-flex"><img src="${cartItem.product_img}" class="img-fluid" width="40%" alt="제품 이미지"><div class="pname row mx-2 mt-4">${cartItem.product_name}</div></div>
 	      </td>
 	      <td class="col-2">
 	      	<div class="quantity-controlss mt-4">
@@ -37,7 +39,7 @@
 	      	</div>
 	      </td>
 	      <td class="col-2"><div class="mt-4">10,000</div></td>
-	      <td class="col-2"><div class="mt-4 mx-2"><div name="p_price" id="p_price1" class="p_price product-price" value="10,000">10,000</div></div></td>
+	      <td class="col-2"><div class="mt-4 mx-2"><div name="p_price" id="p_price1" class="p_price product-price" value="10,000">${cartItem.price}</div></div></td>
 	      <td class="col-2"><div class="mt-4 mx-2"><i class="delete_btn fa-regular fa-trash-can" type="button" onclick='deleteRow(1)'></i></div></td>
 	    </tr>
 	    <tr class="product2 product-row" id="product2">
@@ -76,6 +78,7 @@
 	      <td class="col-2"><div class="mt-4 mx-2"><div name="p_price" id="p_price3" class="p_price product-price" value="10,000">10,000</div></div></td>
 	      <td class="col-2"><div class="mt-4 mx-2"><i class="delete_btn fa-regular fa-trash-can" type="button" onclick='deleteRow(3)'></i></div></td>
 	    </tr>
+	    </c:forEach>
 	    </tbody>
 	    </table>
 	    
