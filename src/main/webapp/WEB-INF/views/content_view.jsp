@@ -20,6 +20,10 @@
        </sec:authorize>
 	   
 	   <table class="table view-table">
+		   <colgroup>
+			    <col width="10%">
+			    <col width="100%">
+			</colgroup>
 	         <thead>
 	         	<tr>
 	                <th class="table-tit">TITLE</th>
@@ -35,8 +39,8 @@
 				</tr>
 	         </thead>
 	         <tbody>
-	         	<tr class="min-h-25">
-	           		<td colspan="2" class="min-h-25">${content_view.bcontent}</td>
+	         	<tr>
+	           		<td colspan="2">${content_view.bcontent}</td>
           		</tr>
 	         </tbody>
 	   </table>
@@ -44,12 +48,12 @@
 	   <div class="list-btn">
 	   	<!-- 이전 버튼 -->
 		<%-- <c:if test="${prevBid ne null}"> --%>
-		    <a href="/content_view?bid=${content_view.bid-1}" class="btn btn-sm btn-primary">이전 게시글</a>
+		    <a href="/content_view?bid=${content_view.bid-1}" class="btn btn-sm btn-primary">prev</a>
 		<%-- </c:if> --%>
 		
 		<!-- 다음 버튼 -->
 		<%-- <c:if test="${nextBid ne null}"> --%>
-		    <a href="/content_view?bid=${content_view.bid+1}" class="btn btn-sm btn-primary">다음 게시글</a>
+		    <a href="/content_view?bid=${content_view.bid+1}" class="btn btn-sm btn-primary">next</a>
 		<%-- </c:if> --%>
 
 	   </div>
@@ -58,3 +62,9 @@
  </section>
 <!-- footer 시작 -->
 <jsp:include page="/WEB-INF/views/footer.jsp" />
+
+<script>
+$('table.view-table > * > tr > td > div').style('min-height:10rem');
+</script>
+
+

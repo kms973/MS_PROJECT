@@ -2,35 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MS Shop - Admin</title>
-<link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.css" rel="stylesheet" >
-<link href="/css/styles.css" rel="stylesheet" />
-<link href="/css/style.css" rel="stylesheet" />
-
-<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-<script src="assets/demo/chart-area-demo.js"></script>
-<script src="assets/demo/chart-bar-demo.js"></script>
-<script src="/js/datatables-simple-demo.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/lang/summernote-ko-KR.min.js"></script>
-<script src="/js/summernote.js"></script>
-<script src="/js/scripts.js"></script>
-</head>
-<body>
-<body class="sb-nav-fixed">
 <!-- adm_header 부분  -->
 <jsp:include page="/WEB-INF/views/admin/adm_header.jsp"></jsp:include>
 	
@@ -42,41 +13,40 @@
         <div class="wrap-write"><form id="updateForm" action="modify" method="post">
         <input id="input_bid" type="hidden" name="bid" value="${content_view.bid}">
         	<!-- 카테고리 선택 -->
-<!-- 	        <select class="form-select form-select-sm w-auto mt-2" aria-label="Default select example"> -->
-	        <div id = "get_selecter" name = "selecter" type = "text">게시판 : ${content_view.selecter}</div>
-<!-- 			  <option selected>카테고리 선택</option>
+	        <%-- <div id = "get_selecter" name = "selecter" type = "text">게시판 : ${content_view.selecter}</div> --%>
+ 	        <select class="form-select form-select-sm w-auto mt-2" aria-label="Default select example">
+			  <option selected>카테고리 선택</option>
 			  <option value="1">공지사항</option>
 			  <option value="2">Q&A</option>
 			  <option value="3">Review</option>
-			</select> -->      
-         <div class="my-2">
+			</select>
+         	<div class="my-2">
 				<input class="form-control" id="input_bname" name="bname" type="text" placeholder="이름" aria-label="default input example" value="${content_view.bname}">
 			</div>			
-         <div class="my-2">
+         	<div class="my-2">
 				<input class="form-control" id="input_btitle" name="btitle" type="text" placeholder="제목" aria-label="default input example" value="${content_view.btitle}">
 			</div>
 			
-	<textarea id="summernote" name = "bcontent">${boardList.bcontent}</textarea>
+			<!-- html 에디터 부분 썸머리노트 -->
+			<textarea id="summernote" name="bcontent">${content_view.bcontent}</textarea>
 						
-			<div class="input-group my-3">
+			<div class="input-group my-2">
 				<span class="input-group-prepend">
 					<div class="input-group-text bg-transparent border-right-0"><i class="bi bi-link-45deg"></i></div>
 				</span>
 				<input type="url" id="url" class="form-control" type="url">	
 			</div>
 		
-			<div class="mb-3">
-				<div class="input-group">
-					<span class="input-group-prepend">
-						<div class="input-group-text bg-transparent border-right-0"><i class="bi bi-folder"></i></div>
-					</span>		
-					<input class="form-control" type="file" id="formFileMultiple" multiple>
-				</div>
-	        </div>
+			<div class="input-group mb-2">
+				<span class="input-group-prepend">
+					<div class="input-group-text bg-transparent border-right-0"><i class="bi bi-folder"></i></div>
+				</span>		
+				<input class="form-control" type="file" id="formFileMultiple" multiple>
+			</div>
 	        
 			<div class="d-flex justify-content-end w-100 mb-5 mt-3">
-				<input type="submit" value="작성 완료" class="btn btn-outline-secondary">
-				<a type="button" class="btn btn-secondary btn ms-2" href="/admin/board">취소</a>
+				<a type="button" class="btn btn-secondary btn" href="/admin/board">취소</a>
+				<input type="submit" value="작성 완료" class="btn btn-outline-secondary ms-2">
 			</div>
 	</form></div>
 </section>   
@@ -114,7 +84,7 @@ const attr = 'content_view.bcontent';
 node.setAttribute('value',attr);
 $('#summernote').summernote('insertNode', node);
 
-$('#summernote').summernote('insertText','${content_view.bcontent}');
+// $('#summernote').summernote('insertText','${content_view.bcontent}');
 const range = $.summernote.range;
 const rng = range.createFromSelection(node);
 rng.select();
@@ -123,4 +93,21 @@ console.log(rng.select());
 
 console.log($('.note-editable').innerHTML);
 </script>
+<script>
+//${content_view.selecter}에서 받아온 값을 저장
+var selectedValue = "${content_view.selecter}";
+
+//셀렉트 박스 요소를 찾아옵니다.
+var selectBox = document.querySelector('.form-select');
+
+//셀렉트 박스의 옵션들을 반복하여 선택된 상태로 설정
+for (var i = 0; i < selectBox.options.length; i++) {
+ if (selectBox.options[i].value === selectedValue) {
+     selectBox.options[i].selected = true;
+     break; // 일치하는 값을 찾으면 반복문을 종료
+ }
+}
+</script>
 </html>
+
+

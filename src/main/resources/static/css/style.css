@@ -130,4 +130,7 @@ ul.panel > li table.table tr > .option { width: 10%; text-align:center; }
 .accordion-item { margin-bottom: 15px; }
 .accordion-header button.accordion-button { margin-bottom: 1rem; }
 
+table.view-table > * > tr > * { padding: .5rem 1rem; }
+
+table.view-table > * > tr > td > * { min-height: 12.5rem; }
 

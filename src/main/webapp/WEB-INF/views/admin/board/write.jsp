@@ -2,35 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MS Shop - Admin</title>
-<link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.css" rel="stylesheet">
-<link href="/css/styles.css" rel="stylesheet" />
-<link href="/css/style.css" rel="stylesheet" />
-
-<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
-<script src="assets/demo/chart-area-demo.js"></script>
-<script src="assets/demo/chart-bar-demo.js"></script>
-<script src="/js/datatables-simple-demo.js"></script>
-<script src="/js/scripts.js"></script>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/lang/summernote-ko-KR.min.js"></script>
-<script src="/js/summernote.js"></script>
-</head>
-<body>
 <body class="sb-nav-fixed">
 <!-- adm_header 부분  -->
 <jsp:include page="/WEB-INF/views/admin/adm_header.jsp"></jsp:include>
@@ -49,6 +20,7 @@
 			</select>
             
 			<div class="my-2"><input class="form-control" id="input_btitle" name="btitle" type="text" placeholder="제목" aria-label="default input example" value="${content_view.btitle}"></div>    
+			
 			<textarea id="summernote" name = "bcontent">${boardList.bcontent}</textarea>
 						
 			<div class="input-group my-3">
@@ -71,7 +43,7 @@
 				<input type="submit" value="작성 완료" class="btn btn-outline-secondary">
 				<a type="button" class="btn btn-secondary btn ms-2" href="/admin/board">취소</a>
 			</div>
-	</form>
+		</form></div>
 	</div>
 </section>   
 <!-- adm_footer 부분  -->

@@ -129,11 +129,13 @@
 					</c:forEach>
 
 
-	                <div class="d-flex justify-content-end px-0">
-	                  	<a href="write_view" class="btn btn-primary ">글쓰기</a>
-	                </div>
 					</tbody>
 				</table>
+				<sec:authorize access="isAuthenticated()">
+                <div class="d-flex justify-content-end px-0">
+                  	<a href="write_view" class="btn btn-primary ">글쓰기</a>
+                </div>
+                </sec:authorize>
 		      </li>
 		      <li id="content-4">
 			    <table class="table table-hover review-table">
@@ -149,25 +151,25 @@
 						</tr>
 					</thead>
 					<tbody>
-					<c:forEach var="boardList_Review" items="${boardList_Review}">
-			         <tr>
-			           <td class="no-no table-no">${boardList_Review.rnum}</td>
-			           <td class="no-tit table-tit"><a href="content_view?bid=${boardList_Review.bid}">${boardList_Review.btitle}</a></td>
-			           <td class="no-write table-write">${boardList_Review.bname}</td>
-			           <td class="no-date table-date"><fmt:formatDate value="${boardList_Review.bdate}" pattern="yyyy-MM-dd" /></td>
-			           <sec:authorize access="hasRole('ROLE_ADMIN')"></sec:authorize>
-					</c:forEach>
-						<div class="row justify-content-end w-100 mx-0">
-		                <div class="d-flex justify-content-end px-0">
-		                  	<a href="write_view" class="btn btn-primary ">글쓰기</a>
-		                </div>
+						<c:forEach var="boardList_Review" items="${boardList_Review}">
+				        <tr>
+				           <td class="no-no table-no">${boardList_Review.rnum}</td>
+				           <td class="no-tit table-tit"><a href="content_view?bid=${boardList_Review.bid}">${boardList_Review.btitle}</a></td>
+				           <td class="no-write table-write">${boardList_Review.bname}</td>
+				           <td class="no-date table-date"><fmt:formatDate value="${boardList_Review.bdate}" pattern="yyyy-MM-dd" /></td>
+			           	</tr>
+						</c:forEach>
 					</tbody>
 				</table>
+				<sec:authorize access="isAuthenticated()">
+                <div class="d-flex justify-content-end px-0">
+                  	<a href="write_view" class="btn btn-primary ">글쓰기</a>
+                </div>
+                </sec:authorize>
 		      </li>
 		    </ul>
 		  </div>
 		</div>
-		<!--  -->
 	</div>
  </section>
 <!-- footer 시작 -->
