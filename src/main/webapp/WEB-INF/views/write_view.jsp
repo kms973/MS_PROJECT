@@ -23,20 +23,17 @@
 				<option value="2" selected>Q&A</option>
 				<option value="3">Review</option>
 			</select>
-		  	<input class="form-control" type="text" placeholder="제목" aria-label="default input example" name ="btitle">
+		  	<input class="form-control me-2" type="text" placeholder="제목" aria-label="default input example" name ="btitle">
+			<div class="input-group d-flex justify-content-between w-20">
+				<%-- div class="userId"> 회원 아이디 부분
+				<sec:authorize access="isAuthenticated()">
+				<!-- 로그인(인증된) 사용자인 경우 --> ${user.bid}
+				</sec:authorize>
+				</div> --%>
+				<input class="form-control" id="input_bname" name="bname" type="text" placeholder="회원 아이디 불러오는 부분" aria-label="inputGroupPrepend" value="${content_view.bname}">
+		      	<div class="invalid-feedback">Please choose a username.</div>
+		    </div>
 		</div>
-		 
-		<div class="my-3 d-flex justify-content-between">
-			<div class="userId"> 회원 아이디 부분
-			<%-- <sec:authorize access="isAuthenticated()">
-			<!-- 로그인(인증된) 사용자인 경우 --> ${user.bid}
-			</sec:authorize> --%>
-			</div>
-		</div>
-		<div class="input-group my-3 d-flex justify-content-between">
-			<input class="form-control" id="input_bname" name="bname" type="text" placeholder="이름" aria-label="inputGroupPrepend" value="${content_view.bname}">
-	      	<div class="invalid-feedback">Please choose a username.</div>
-	    </div>
 		
 		<textarea id="summernote" name="bcontent">${boardList.bcontent}</textarea>
 						

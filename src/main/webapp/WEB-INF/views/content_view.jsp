@@ -59,6 +59,7 @@
 	   </div>
 
 	</div>
+	
  </section>
 <!-- footer 시작 -->
 <jsp:include page="/WEB-INF/views/footer.jsp" />
