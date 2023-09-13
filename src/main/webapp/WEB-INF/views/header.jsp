@@ -56,7 +56,7 @@
 		        <div class="dropdown text-end">
 				  <a class="d-block link-dark" id="dropdownMenu1" data-mdb-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
 				  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-				    <li><a class="dropdown-item" href="#">마이페이지</a></li>
+				    <li><a id="myPageLink" class="dropdown-item" href="/login/userprofile">마이페이지</a></li>
 				    <sec:authorize access="hasRole('ROLE_ADMIN')">
    						<!-- admin 로그인일 경우 -->
 						<li><a class="dropdown-item" href="/admin">관리자페이지</a></li>
@@ -64,7 +64,7 @@
 				    <li><hr class="dropdown-divider"></li>
 		            <sec:authorize access="isAnonymous()">
 						<!-- 로그인 안 한 익명일 경우 -->
-		            	<li><a class="dropdown-item" href="/login/login">로그인</a></li>
+		            	<li><a class="dropdown-item" href="/login">로그인</a></li>
 					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
 						<!-- 로그인(인증된) 사용자인 경우 -->	
@@ -93,4 +93,21 @@
   </header>
   <div class="h-box" style="height:63px;width:100%;background:none;"></div>
   
+<script>
+    // 마이페이지 링크를 클릭했을 때 이벤트 처리
+    document.getElementById("myPageLink").addEventListener("click", function(event) {
+        // 여기에서 로그인 상태를 확인하는 코드를 작성해야 합니다.
+        var isLoggedIn = true; // 예시로 true로 설정
+        
+        if (!isLoggedIn) {
+            // 로그인되어 있지 않으면 로그인 페이지로 이동
+            window.location.href = "<c:url value="/login"/>"; // 로그인 페이지 URL로 변경
+            event.preventDefault(); // 기본 동작 방지 (링크 이동 방지)
+        } else {
+            // 로그인되어 있다면 마이페이지로 이동
+            window.location.href = "<c:url value="/mypage"/>"; // 마이페이지 URL로 변경
+        }
+    });
+</script>
+
   
