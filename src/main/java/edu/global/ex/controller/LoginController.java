@@ -78,7 +78,7 @@ public class LoginController {
 	@GetMapping("/login/social")
 	public String sociallogin() {
 		log.info("sociallogin");
-		return "/login/socialLogin";
+		return "/login/google-login";
 	}
 
 	// Google 로그인 콜백 페이지로 이동하는 핸들러
@@ -126,6 +126,12 @@ public class LoginController {
 	public String userprofile() {
 		log.info("userprofile");
 		return "/myPage/myPage";
+	}
+	
+	@GetMapping("/login/google-callback")
+	public String googleCallback() {
+		log.info("google-callback");
+		return "/login/google-callback";
 	}
 	
 	// 아이디 찾기

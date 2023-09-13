@@ -1,25 +1,16 @@
 package edu.global.ex.controller;
 
 import java.net.URI;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.util.UriComponentsBuilder;
 
-import edu.global.ex.modules.GoogleLoginResponse;
-import edu.global.ex.modules.GoogleOAuthRequest;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -61,45 +52,45 @@ public class ApiRestController {
 		return new ResponseEntity<>(headers, HttpStatus.MOVED_PERMANENTLY);
 	}
 
-	// 구글에서 리다이렉션된 콜백을 처리하는 메서드
-	@GetMapping(value = "/login/google-callback")
-	public ModelAndView oauth_google_check(HttpServletRequest request,
-			@RequestParam(value = "code") String authCode,
-			HttpServletResponse response, Model model) throws Exception {
+	// // 구글에서 리다이렉션된 콜백을 처리하는 메서드
+	// @GetMapping(value = "/login/google-callback")
+	// public ModelAndView oauth_google_check(HttpServletRequest request,
+	// 		@RequestParam(value = "code") String authCode,
+	// 		HttpServletResponse response, Model model) throws Exception {
 
-		// 1. 구글 OAuth 요청 객체 생성
-		GoogleOAuthRequest googleOAuthRequest = GoogleOAuthRequest.builder()
-				.clientId(googleClientId)
-				.clientSecret(googleClientSecret)
-				.code(authCode)
-				.redirectUri(googleRedirectUrl)
-				.grantType("authorization_code")
-				.scope("email profile openid") // 스코프 설정
-				.build();
+	// 	// 1. 구글 OAuth 요청 객체 생성
+	// 	GoogleOAuthRequest googleOAuthRequest = GoogleOAuthRequest.builder()
+	// 			.clientId(googleClientId)
+	// 			.clientSecret(googleClientSecret)
+	// 			.code(authCode)
+	// 			.redirectUri(googleRedirectUrl)
+	// 			.grantType("authorization_code")
+	// 			.scope("email profile openid") // 스코프 설정
+	// 			.build();
 
-		RestTemplate restTemplate = new RestTemplate();
+	// 	RestTemplate restTemplate = new RestTemplate();
 
-		// 2. 토큰 요청을 보내고 토큰을 받음
-		ResponseEntity<GoogleLoginResponse> apiResponse = restTemplate.postForEntity(googleAuthUrl + "/token",
-				googleOAuthRequest, GoogleLoginResponse.class);
+	// 	// 2. 토큰 요청을 보내고 토큰을 받음
+	// 	ResponseEntity<GoogleLoginResponse> apiResponse = restTemplate.postForEntity(googleAuthUrl + "/token",
+	// 			googleOAuthRequest, GoogleLoginResponse.class);
 
-		GoogleLoginResponse googleLoginResponse = apiResponse.getBody();
+	// 	GoogleLoginResponse googleLoginResponse = apiResponse.getBody();
 
-		String googleToken = googleLoginResponse.getId_token();
+	// 	String googleToken = googleLoginResponse.getId_token();
 
-		// 3. 받은 토큰을 이용하여 유저 정보를 요청
-		String requestUrl = UriComponentsBuilder.fromHttpUrl(googleAuthUrl + "/tokeninfo")
-				.queryParam("id_token", googleToken).toUriString();
+	// 	// 3. 받은 토큰을 이용하여 유저 정보를 요청
+	// 	String requestUrl = UriComponentsBuilder.fromHttpUrl(googleAuthUrl + "/tokeninfo")
+	// 			.queryParam("id_token", googleToken).toUriString();
 
-		// 4. 허가된 토큰의 유저 정보를 결과로 받음
-		Map<String, Object> resultJson = (Map<String, Object>) restTemplate.getForObject(requestUrl, Map.class);
+	// 	// 4. 허가된 토큰의 유저 정보를 결과로 받음
+	// 	Map<String, Object> resultJson = (Map<String, Object>) restTemplate.getForObject(requestUrl, Map.class);
 
-		String email = (String) resultJson.get("email");
+	// 	String email = (String) resultJson.get("email");
 
-		model.addAttribute("email", email);
+	// 	model.addAttribute("email", email);
 
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/login/signuptest");
-		return mv;
-	}
+	// 	ModelAndView mv = new ModelAndView();
+	// 	mv.setViewName("/login/signuptest");
+	// 	return mv;
+	// }
 }
