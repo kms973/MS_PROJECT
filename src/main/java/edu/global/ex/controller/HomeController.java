@@ -18,7 +18,6 @@ import edu.global.ex.vo.BoardVO;
 import edu.global.ex.vo.CompanyVO;
 import edu.global.ex.vo.CustomUserDetailsVO;
 import edu.global.ex.vo.MsUserVO;
-import edu.global.ex.vo.ShopProductVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -298,6 +297,14 @@ public class HomeController {
 		model.addAttribute("delete", msUserService.delete(username));
 		
 		return "redirect:mgr";
+	}
+	
+	// 상품관리
+	@GetMapping("/admin/product/mgr")
+	public String adminProductMGR() {
+		log.info("adminProductMGR");
+		
+		return "/admin/product/product_mgr";
 	}
 
 	// 쇼핑 페이지
