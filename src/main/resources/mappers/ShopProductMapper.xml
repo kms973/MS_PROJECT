@@ -108,7 +108,8 @@
       ]]>
 	</select>
 
-	<select id="getListWithPagingNecklace" resultMap="shopProductMap">
+	<select id="getListWithPagingNecklace"
+		resultMap="shopProductMap">
       <![CDATA[
         SELECT * FROM (
               SELECT ROWNUM AS RNUM, A.* FROM (
@@ -128,7 +129,8 @@
       ]]>
 	</select>
 
-	<select id="getListWithPagingBracelet" resultMap="shopProductMap">
+	<select id="getListWithPagingBracelet"
+		resultMap="shopProductMap">
       <![CDATA[
         SELECT * FROM (
               SELECT ROWNUM AS RNUM, A.* FROM (
@@ -142,4 +144,9 @@
       ]]>
 	</select>
 
+	<select id="read" resultMap="shopProductMap">
+		<![CDATA[
+		select * from ms_product where product_category = #{productCategory} and product_code = #{productCode}
+	]]>
+	</select>
 </mapper>

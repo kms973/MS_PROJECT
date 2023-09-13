@@ -3,7 +3,6 @@ package edu.global.ex.service;
 import java.util.List;
 
 import edu.global.ex.page.Criteria;
-import edu.global.ex.vo.BoardVO;
 import edu.global.ex.vo.ShopProductVO;
 
 public interface ShopProductService {
@@ -31,6 +30,11 @@ public interface ShopProductService {
 	
 	public int getTotalBracelet();
 	public List<ShopProductVO> getListWithPagingBracelet(Criteria cri);
+	
+	
+	
+	//restcontroller용
+	public ShopProductVO read(String productCategory, int productCode);
 	
 	
 	

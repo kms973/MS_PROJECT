@@ -19,7 +19,7 @@ public class ShopProductServiceImpl implements ShopProductService {
 
 	@Override
 	public List<ShopProductVO> getList() {
-		// TODO Auto-generated method stub
+
 		log.info("getList()..");
 
 		return shopProductMapper.getList();
@@ -27,25 +27,25 @@ public class ShopProductServiceImpl implements ShopProductService {
 
 	@Override
 	public List<ShopProductVO> getRingList() {
-		// TODO Auto-generated method stub
+
 		return shopProductMapper.getRingList();
 	}
 
 	@Override
 	public List<ShopProductVO> getEarringList() {
-		// TODO Auto-generated method stub
+
 		return shopProductMapper.getEarringList();
 	}
 
 	@Override
 	public List<ShopProductVO> getNecklaceList() {
-		// TODO Auto-generated method stub
+
 		return shopProductMapper.getNecklaceList();
 	}
 
 	@Override
 	public List<ShopProductVO> getBraceletList() {
-		// TODO Auto-generated method stub
+
 		return shopProductMapper.getBraceletList();
 	}
 
@@ -63,50 +63,56 @@ public class ShopProductServiceImpl implements ShopProductService {
 
 	@Override
 	public int getTotalRing() {
-		// TODO Auto-generated method stub
+
 		return shopProductMapper.getTotalRing();
 	}
 
 	@Override
 	public List<ShopProductVO> getListWithPagingRing(Criteria cri) {
-		// TODO Auto-generated method stub
+
 		return shopProductMapper.getListWithPagingRing(cri);
 	}
 
 	@Override
 	public int getTotalEarring() {
-		// TODO Auto-generated method stub
+
 		return shopProductMapper.getTotalEarring();
 	}
 
 	@Override
 	public List<ShopProductVO> getListWithPagingEarring(Criteria cri) {
-		// TODO Auto-generated method stub
+
 		return shopProductMapper.getListWithPagingEarring(cri);
 	}
 
 	@Override
 	public int getTotalNecklace() {
-		// TODO Auto-generated method stub
+
 		return shopProductMapper.getTotalNecklace();
 	}
 
 	@Override
 	public List<ShopProductVO> getListWithPagingNecklace(Criteria cri) {
-		// TODO Auto-generated method stub
+
 		return shopProductMapper.getListWithPagingNecklace(cri);
 	}
 
 	@Override
 	public int getTotalBracelet() {
-		// TODO Auto-generated method stub
+
 		return shopProductMapper.getTotalBracelet();
 	}
 
 	@Override
 	public List<ShopProductVO> getListWithPagingBracelet(Criteria cri) {
-		// TODO Auto-generated method stub
+
 		return shopProductMapper.getListWithPagingBracelet(cri);
+	}
+
+	@Override
+	public ShopProductVO read(String productCategory, int productCode) {
+
+		return shopProductMapper.read(productCategory, productCode);
 	}
 
 }

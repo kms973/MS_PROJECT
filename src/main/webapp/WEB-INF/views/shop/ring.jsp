@@ -5,17 +5,20 @@
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
 <!-- 메인 시작 -->
-<section id="detail" class="container wrap">
+
+ <section id="detail" class="container wrap">
 	<div class="row mt-4 justify-content-between">
-		<div class="col-6 left mb-4"><img src="/img/${spVO.img }" class="img-fluid" width="500" alt="제품 이미지"></div>
+	
+		<div class="col-6 left mb-4"><img src="/img/${spVO.img}" class="img-fluid" width="500" alt="제품 이미지"></div>
 		<div class="right col-6 row align-content-between py-2 mb-4">
 			<div class="right-top row align-content-between w-100">
-				<h3 class="p-1"><strong>${spVO.productName }</strong></h3>
+				<h3 class="p-1"><strong>${spVO.productName}</strong></h3>
 				<div class="d-flex justify-content-between align-items-center pt-4 py-2 px-1 w-100">
 					<div class="price d-flex justify-content-start align-items-center">
 						<div class="price-tit">가격</div>
-						<div class="price mx-3">₩ ${spVO.price }</div>
-					</div>
+						<div class="price mx-3">₩ ${spVO.price}</div>
+					</div> 
+					
 					<div class="btn-icon d-flex justify-content-between align-items-center">
 						<a href="#none" id="copyButton" class="pe-auto share text-dark py-1 px-2 modal-dialog modal-dialog-centered"><i class="bi bi-share-fill"></i></a>
 						<a href="#none" class="cart text-dark py-1 px-2"><i class="bi bi-heart"></i></a>
