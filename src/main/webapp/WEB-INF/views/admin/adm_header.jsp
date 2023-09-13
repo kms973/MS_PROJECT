@@ -102,7 +102,7 @@
 	                        <nav class="sb-sidenav-menu-nested nav">
 	                            <a class="nav-link" href="/admin/product/list">전체 상품관리</a>
 	                            <a class="nav-link" href="/admin/product/new">상품 등록</a>
-	                            <a class="nav-link" href="#!">상품 재고 관리</a>
+	                            <a class="nav-link" href="/admin/product/mgr">상품 재고 관리</a>
 	                        </nav>
 	                    </div>
 	                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseOrders" aria-expanded="false" aria-controls="collapseOrders">
