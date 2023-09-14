@@ -14,14 +14,23 @@
 
     <delete id="delete">
     <![CDATA[
-      delete from ms_cart where product_name = #{product_name}
+      delete from ms_cart where product_code = #{product_code}
    ]]>    
     </delete>
     
     <insert id="insert">
     <![CDATA[
-	INSERT INTO ms_cart (username, product_img, product_name, price, stock_quantity VALUES (#{username},#{product_img} , #{product_name},#{price},#{stock_quantity}))
-   ]]>    
+  INSERT INTO ms_cart (username, product_img, product_name, price, stock_quantity, product_code)
+  VALUES (#{username}, #{product_img}, #{product_name}, #{price}, #{stock_quantity}, #{product_code})
+  ]]>    
     </insert>    
+    
+    <update id="updateStockQuantity">
+    <![CDATA[
+        UPDATE ms_cart
+        SET stock_quantity = #{stock_quantity}
+        WHERE product_name = #{product_name}
+    ]]>
+</update>
 
 </mapper>
