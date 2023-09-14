@@ -67,7 +67,7 @@
 			       	  	</td>	
 					<%-- <td class="table-no text-center">${ms_users.enabled}</td> --%>			         
 			           	<td class="table-wr text-center">${ms_users.cname}</td>
-			           	<td class="table-wr text-center">결제한 총 금액</td>
+			           	<td class="table-wr text-center">결제한 금액의 총 합계</td>
 			           	<td class="table-wr text-center">${ms_users.cgrade}</td>
 	
 						<td class="table-op" style="width: 10% !important;">
