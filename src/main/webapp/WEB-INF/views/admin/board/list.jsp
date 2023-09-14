@@ -86,7 +86,7 @@
 				    </li>
 				    <li class="page-item">
 					<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
-			      	<%-- <c:out value="${pageMaker.cri.page == idx?'':''}" /> --%>
+			      	 <c:out value="${pageMaker.cri.page == idx?'':''}" /> 
 			      	<a href="board${pageMaker.makeQuery(idx)}" class="page-link">${idx}</a>
 			   		</c:forEach>
 			   		</li>
