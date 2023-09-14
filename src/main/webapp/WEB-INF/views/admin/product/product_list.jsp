@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!-- adm_header 부분  -->
 <jsp:include page="/WEB-INF/views/admin/adm_header.jsp"></jsp:include>
@@ -35,7 +37,8 @@
 		   			</th></tr>
 	   			</thead>
 	   			<tbody class="card-body table-responsive">
-	   				<tr class="data_item" data-type="E"><td>
+	   			<c:forEach var = "list" items="${list }">
+	   				<tr class="data_item" data-type="${list.productCategory }"><td>
 	   					<div class="d-flex justify-content-between w-25 align-items-center">
 	   						<div class="table-check text-center ps-1">
 		   						<div class="form-check d-flex">
@@ -43,14 +46,14 @@
 			    				</div>
 		   					</div>
 		   					<div class="table-img text-center px-2">
-			           			<div class="product-img"><img src="https://i.postimg.cc/yYYd1HV1/katara.jpg" alt="img"></div>
+			           			<div class="product-img"><img src="/img/${list.img }" alt="img"></div>
 			           		</div>
 	   					</div>		         
 		           		<div class="d-flex justify-content-between w-75 align-items-center px-2">
 		           			<div class="table-tit row">
-			           			<div class="py-1">분류 : 귀걸이</div>
-			           			<a href="#none" class="py-1">제품명이 들어갈 자리입니다.</a>
-			           			<div class="kr-price py-1">\100,000</div>
+			           			<div class="py-1">${list.productCategory }${list.productCode }</div>
+			           			<a href="#none" class="py-1">${list.productName }</a>
+			           			<div class="kr-price py-1">\ ${list.price}</div>
 			           		</div>
 		           			<div class="table-op text-center">
 	               				<a class="btn btn-sm btn-primary" href="#none"><i class="fas fa-edit">상품수정</i></a>
@@ -59,6 +62,7 @@
 			           		</div>
 		           		</div>
 		         	</td></tr>
+		         	</c:forEach>
    				</tbody>
 			       <%-- <tbody>
 			       <c:forEach var="boardList" items="${boardList}">
@@ -81,7 +85,26 @@
 		</div>
 	</div>
 </section>
+<script>
+$(document).ready(function() {
+  // 초기화: 모든 데이터 아이템을 표시
+  $(".data_item").show();
+
+  // 탭 버튼 클릭 이벤트 처리
+  $(".board-nav select").change(function() {
+    const selectedType = $(this).find("option:selected").data("type"); // 선택된 탭의 data-type 속성 값
     
+    // 선택된 탭에 해당하는 데이터 아이템만 표시하고 나머지는 숨김
+    if (selectedType === "all") {
+      $(".data_item").show();
+    } else {
+      $(".data_item").hide();
+      $(".data_item[data-type='" + selectedType + "']").show();
+    }
+  });
+});
+</script>
+
 <!-- adm_footer 부분  -->
 <jsp:include page="/WEB-INF/views/admin/adm_footer.jsp"></jsp:include>
 

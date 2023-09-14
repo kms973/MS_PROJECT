@@ -263,8 +263,11 @@ public class HomeController {
 
 	// 관리자 상품 목록 페이지
 	@GetMapping("/admin/product/list")
-	public String adminProductList() {
+	public String adminProductList(Model model) {
 		log.info("adminProductList");
+		
+		
+		model.addAttribute("list", spService.getList());
 		return "/admin/product/product_list";
 	}
 
