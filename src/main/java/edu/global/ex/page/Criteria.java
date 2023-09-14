@@ -15,7 +15,7 @@ public class Criteria {
 	private int amount; // 한페이지당 몇개의 데이터를 보여줄것인가
 
 	public Criteria() {
-		this(1, 10); //기본값 (n,m) n페이지에 m개
+		this(1, 12); //기본값 (n,m) n페이지에 m개
 
 	}
 
