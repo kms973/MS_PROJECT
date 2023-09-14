@@ -35,13 +35,13 @@ END;
     </select>
 	
 	<select id="getUser" resultMap="userMap">
-		select * from ms_users , ms_authorities
+	<![CDATA[	select * from ms_users , ms_authorities
 		where ms_users.username = ms_authorities.username and ms_users.username =
-		#{username}
+		#{username} ]]>  
 	</select>
 
 	<select id="getUsers" resultMap="userMap">
-		 select * from ms_userss
+		<![CDATA[ select * from ms_users ]]>  
 	</select>
 	
 	

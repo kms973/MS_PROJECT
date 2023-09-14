@@ -287,8 +287,11 @@ public class HomeController {
 
 	// 관리자 회원관리 페이지
 	@GetMapping("/admin/customer/mgr")
-	public String adminCustomerMGR() {
+	public String adminCustomerMGR(Model model) {
 		log.info("adminCustomerMGR");
+		
+		model.addAttribute("ms_users", msUserService.getUsers());
+		
 		return "/admin/customer/mgr";
 	}
 
