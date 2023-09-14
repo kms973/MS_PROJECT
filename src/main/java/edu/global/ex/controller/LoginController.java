@@ -64,8 +64,9 @@ public class LoginController {
 	// 사용자 로그아웃 페이지로 이동하는 핸들러
 	@GetMapping("/logout")
 	public String userlogout() {
-		return "/login/";
+	    return "/login";
 	}
+
 
 	// Google 로그인 페이지로 이동하는 핸들러
 	@GetMapping("/login/google")

@@ -76,7 +76,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			}
 
 		});// loginPage()는 말 그대로 로그인 할 페이지 url
-		http.logout().logoutSuccessUrl("/login/login");
+		http.logout().logoutSuccessUrl("/login");
 			
 			
 
