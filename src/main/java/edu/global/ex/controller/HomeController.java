@@ -310,12 +310,12 @@ public class HomeController {
 		return "/admin/product/product_mgr";
 	}
 
-	// 쇼핑 페이지
+	/*// 쇼핑 페이지
 	@GetMapping("/shop")
 	public String shop() {
 		log.info("shop()..");
-		return "/shop";
-	}
+		return "/shop/home";
+	}*/
 	
 	// 장바구니 페이지
 		@GetMapping("/cart")
