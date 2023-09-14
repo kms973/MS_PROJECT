@@ -5,87 +5,55 @@
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
 <section id="pay" class="container wrap">
-<div id="sub-bnr"><h5>Cart</h5></div>
+	<div id="sub-bnr"><h5>Cart</h5></div>
+	
 	<div class="row mt-1 justify-content-between hello">
-<div class="col-8 left px-0">
-	<table class="table" >
-	  <thead>
-	    <tr>    
-	      <th scope="col">	
-	      <input type="hidden" name="cmd" value="order">  
-		      <div class="form-check col-1"><input class="form-check-input mt-1" type="checkbox" id="checkAll" onclick="toggleCheckAll()"></div>
-	      </th>     
-	      <th scope="col" class="col-3"><strong>상품명</strong></th>
-	      <th scope="col" class="col-2"><div class="mx-2"><strong>수량</strong></div></th>
-	      <th scope="col" class="col-2"><strong>판매가</strong></th>
-	      <th scope="col" class="col-2"><strong>구매금액</strong></th>
-	      <th scope="col" class="col-2"><strong>선택</strong></th>
-	    </tr>
-	  </thead>
-	  <tbody>
-	  <c:forEach items="${listCart}" var="cartItem">
-	    <tr class="product1 product-row" id="product1">
-	      <th scope="row">
-	      	<div class="form-check col-1"><input class="form-check-input" type="checkbox" onclick="updateTotalPrice()"></div>
-	      </th>
-	      <td class="col-3">
-	   		<div class="product-img d-flex"><img src="${cartItem.product_img}" class="img-fluid" width="40%" alt="제품 이미지"><div class="pname row mx-2 mt-4">${cartItem.product_name}</div></div>
-	      </td>
-	      <td class="col-2">
-	      	<div class="quantity-controlss mt-4">
-	      		<i class="bi bi-dash-circle mx-1" type='button' onclick='count("minus", 1)'></i>
-	      	<div id='result1'>1</div>
-	      		<i class="bi bi-plus-circle mx-1" type='button' onclick='count("plus", 1)'></i>
-	      	</div>
-	      </td>
-	      <td class="col-2"><div class="mt-4">10,000</div></td>
-	      <td class="col-2"><div class="mt-4 mx-2"><div name="p_price" id="p_price1" class="p_price product-price" value="10,000">${cartItem.price}</div></div></td>
-	      <td class="col-2"><div class="mt-4 mx-2"><i class="delete_btn fa-regular fa-trash-can" type="button" onclick='deleteRow(1)'></i></div></td>
-	    </tr>
-	    <tr class="product2 product-row" id="product2">
-	      <th scope="row">
-	      	<div class="form-check col-1"><input class="form-check-input" type="checkbox" onclick="updateTotalPrice()"></div>
-	      </th>
-	      <td class="col-3">
-	   		<div class="product-img d-flex"><img src="/img/2.jpg" class="img-fluid" width="40%" alt="제품 이미지"><div class="pname row mx-2 mt-4">상품명</div></div>
-	      </td>
-	      <td class="col-2">
-	      	<div class="quantity-controlss mt-4">
-	      		<i class="bi bi-dash-circle mx-1" type='button' onclick='count("minus", 2)'></i>
-	      	<div id='result2'>1</div>
-	      		<i class="bi bi-plus-circle mx-1" type='button' onclick='count("plus", 2)'></i>
-	      	</div>
-	      </td>
-	      <td class="col-2"><div class="mt-4">10,000</div></td>
-	      <td class="col-2"><div class="mt-4 mx-2"><div name="p_price" id="p_price2" class="p_price product-price" value="10,000">10,000</div></div></td>
-	      <td class="col-2"><div class="mt-4 mx-2"><i class="delete_btn fa-regular fa-trash-can" type="button" onclick='deleteRow(2)'></i></div></td>
-	    </tr>
-	    <tr class="product3 product-row" id="product3">
-	      <th scope="row">
-	      	<div class="form-check col-1"><input class="form-check-input" type="checkbox" onclick="updateTotalPrice()"></div>
-	      </th>
-	      <td class="col-3">
-	   		<div class="product-img d-flex"><img src="/img/2.jpg" class="img-fluid" width="40%" alt="제품 이미지"><div class="pname row mx-2 mt-4">상품명</div></div>
-	      </td>
-	      <td class="col-2">
-	      	<div class="quantity-controlss mt-4">
-	      		<i class="bi bi-dash-circle mx-1" type='button' onclick='count("minus", 3)'></i>
-	      	<div id='result3'>1</div>
-	      		<i class="bi bi-plus-circle mx-1" type='button' onclick='count("plus", 3)'></i>
-	      	</div>
-	      </td>
-	      <td class="col-2"><div class="mt-4">10,000</div></td>
-	      <td class="col-2"><div class="mt-4 mx-2"><div name="p_price" id="p_price3" class="p_price product-price" value="10,000">10,000</div></div></td>
-	      <td class="col-2"><div class="mt-4 mx-2"><i class="delete_btn fa-regular fa-trash-can" type="button" onclick='deleteRow(3)'></i></div></td>
-	    </tr>
-	    </c:forEach>
-	    </tbody>
-	    </table>
+		<div class="col-8 left px-0">
+			<table class="table" >
+			  <thead>
+			    <tr>    
+			      <th scope="col">	
+			      <input type="hidden" name="cmd" value="order">  
+				      <div class="form-check col-1"><input class="form-check-input mt-1" type="checkbox" id="checkAll" onclick="toggleCheckAll()"></div>
+			      </th>     
+			      <th scope="col" class="col-3"><strong>상품명</strong></th>
+			      <th scope="col" class="col-2"><div class="mx-2"><strong>수량</strong></div></th>
+			      <th scope="col" class="col-2"><strong>판매가</strong></th>
+			      <th scope="col" class="col-2"><strong>구매금액</strong></th>
+			      <th scope="col" class="col-2"><strong>선택</strong></th>
+			    </tr>
+			  </thead>
+			  <tbody>			  
+				<c:forEach items="${listCart}" var="listCart" varStatus="loop">
+			    <tr class="product${loop.index} product-row" id="product${loop.index}">
+			      <th scope="row">
+			      	<div class="form-check col-1"><input class="form-check-input" type="checkbox" onclick="updateTotalPrice()"></div>
+			      </th>
+			      <td class="col-3">
+			   		<div class="product-img d-flex">
+			   			<img src="/img/2.jpg" class="img-fluid" width="40%" alt="제품 이미지">
+			   			<div class="pname row mx-2 mt-4">${listCart.product_name}</div>
+			   		</div>
+			      </td>
+			      <td class="col-2">
+			      	<div class="quantity-controlss mt-4">
+			      		<i class="bi bi-dash-circle mx-1" type='button' onclick='count("minus", ${loop.index})'></i>
+			      		<div id='result${loop.index}'>${listCart.stock_quantity}</div>
+			      		<i class="bi bi-plus-circle mx-1" type='button' onclick='count("plus", ${loop.index})'></i>
+			      	</div>
+			      </td>
+			      <td class="col-2"><div class="mt-4 gaap">${listCart.price}</div></td>
+			      <td class="col-2"><div class="mt-4 mx-2"><div name="p_price" id="p_price${loop.index}" class="p_price product-price" data-price="${listCart.price}" data-stock-quantity="${listCart.stock_quantity}">${listCart.price * listCart.stock_quantity}</div></div></td>
+			      <td class="col-2"><div class="mt-4 mx-2"><i class="delete_btn fa-regular fa-trash-can" type="button" onclick='deleteRowAndProduct(${listCart.product_code}, ${loop.index})'></i></div></td>
+			    </tr>
+			     </c:forEach>
+			    </tbody>
+			    </table>
 	    
 	    <div class="paycost row text-center align-middle mx-1">
 	    <div class="col-3">
 	    	<div class="paymg">총 상품금액</div>
-	    	<div class="paytext" value="30,000">30,000</div>
+	    	<div class="paytext" id="totalPrice"></div>
 	    </div>
 	    <div class="col-2">
 			<i class="fa-solid fa-circle-plus mt-4"></i>
@@ -99,17 +67,17 @@
 		</div>
 	    <div class="col-3">
 			<div class="paymg"><strong>결제 예정 금액</strong></div>
-	    	<div class="paytext" value="30,000">30,000</div>
+	    	<div class="paytext" id="totalPrice"></div>
 		</div>
 	    </div>
 </div>
 <div class="col-4 right paycontrol">
 		<div class="pay-box mx-4">
 		<div class="rightareaa">
-			<div class="costlinee" id="costline1">총 상품금액<span class="paytext float-end" value="30,000">30,000</span></div>			
+			<div class="costlinee" id="costline1">총 상품금액<span class="paytext float-end" id="totalPrice"></span></div>			
 			<div class="costtextt">배송비<span class="float-end">0</span></div>
 			<div class="linee"></div>
-			<div class="costlinee" id="sum_p_price"><strong>결제예정금액<span class="paytext float-end" value="30,000">30,000</span></strong></div>
+			<div class="costlinee" id="sum_p_price"><strong>결제예정금액<span class="paytext float-end" id="totalPrice"></span></strong></div>
 		</div>
 		
 		<div class="px-1"><button type="button" class="btn btn-sm btn-outline-dark" id="btttn">전체상품주문</button></div>
@@ -129,13 +97,28 @@
 
     // 총 가격 업데이트
     updateTotalPrice();
+    
+ // .gaap 클래스의 수치에 콤마 추가
+    const gaapElements = document.querySelectorAll('.gaap');
+    gaapElements.forEach(function(element) {
+      const numericValue = parseFloat(element.textContent.replace(/,/g, '')); // 콤마 제거 후 숫자로 변환
+      element.textContent = numericValue.toLocaleString();
+    });
+
+    // .p_price 클래스의 수치에 콤마 추가
+    const pPriceElements = document.querySelectorAll('.p_price');
+    pPriceElements.forEach(function(element) {
+      const numericValue = parseFloat(element.textContent.replace(/,/g, '')); // 콤마 제거 후 숫자로 변환
+      element.textContent = numericValue.toLocaleString();
+    });
   });
 
   //"plus"와 "minus" 버튼을 클릭할 때 개별 상품 가격과 총 가격을 업데이트
   function count(type, row) {
     const resultElement = document.getElementById('result' + row);
     let number = parseInt(resultElement.innerText);
-    let price = 10000;
+    let price = parseFloat(document.getElementById('p_price' + row).getAttribute('data-price').replace(',', ''));
+    
 
     if (type === 'plus') {
       number = number + 1;
@@ -150,14 +133,57 @@
     const paytext = number * price;
     const p_priceElement = document.getElementById('p_price' + row);
     p_priceElement.innerHTML = paytext.toLocaleString();
-
+    
+    updateStockQuantity(row, number);
+    
     // 해당 상품이 체크된 경우에만 총 가격 업데이트
     const checkbox = document.querySelector('#product' + row + ' .form-check-input');
     if (checkbox.checked) {
       updateTotalPrice(); // 총 가격 업데이트
     }
   }
-
+  
+  function updateStockQuantity(row, newQuantity) {
+	  const product_name = document.getElementById('product' + row).querySelector('.pname').textContent;
+	  // Ajax 요청을 이용하여 서버로 데이터 업데이트 요청 보내기
+	  $.ajax({
+	    type: 'POST',
+	    url: '/cart/updateStockQuantity', // 업데이트를 처리할 컨트롤러 경로
+	    data: {
+	      product_name: product_name,
+	      stock_quantity: newQuantity
+	    },
+	    success: function (response) {
+	      // 성공 시 작업 수행
+	      console.log('재고 수량 업데이트 완료');
+	    },
+	    error: function (error) {
+	      // 에러 처리
+	      console.error('재고 수량 업데이트 실패: ' + error);
+	    }
+	  });
+	}
+  
+  function deleteProduct(product_code) {
+	    $.ajax({
+	        type: 'POST',
+	        url: '/cart/delete',
+	        data: { product_code: product_code },
+	        success: function (response) {
+	            console.log(response);
+	            $(`#product${product_code}`).remove();
+	            updateTotalPrice();
+	        },
+	        error: function (error) {
+	            console.error('상품 삭제 실패: ' + error.responseText);
+	        }
+	    });
+	}
+  
+  function deleteRowAndProduct(product_code, row) {
+	    deleteRow(row); // 행 삭제
+	    deleteProduct(product_code); // 제품 삭제
+	}
   //각각의 tr 요소의 체크박스가 변경될 때 호출되는 함수
   function onRowCheckboxChange(row) {
     const checkbox = document.querySelector('#product' + row + ' .form-check-input');
@@ -187,7 +213,7 @@
   }
 
   // 각각의 tr 요소의 체크박스에 이벤트 리스너 등록
-  for (let i = 1; i <= 3; i++) {
+  for (let i = 1; i <= 100; i++) {
     const checkbox = document.querySelector('#product' + i + ' .form-check-input');
     checkbox.addEventListener('change', function() {
       onRowCheckboxChange(i);
@@ -216,31 +242,32 @@
       updateTotalPrice();
     }
   }
-
+  
   //모든 상품 가격을 다시 계산
   function updateTotalPrice() {
     let totalPaytext = 0;
-    for (let i = 1; i <= 3; i++) {
-      const productPriceElement = document.getElementById('p_price' + i);
-      const checkbox = document.querySelector('#product' + i + ' .form-check-input');
-
-      if (productPriceElement && checkbox.checked) {
-        const productPrice = parseFloat(productPriceElement.getAttribute('value').replace(',', ''));
-        const productQuantity = parseInt(document.getElementById('result' + i).innerText);
-        totalPaytext += productPrice * productQuantity;
+    const pPriceElements = document.querySelectorAll('.p_price');
+    pPriceElements.forEach(function(element) {
+      const numericValue = parseFloat(element.textContent.replace(/,/g, '')); // 콤마 제거 후 숫자로 변환
+      if (element.closest('tr').querySelector('.form-check-input').checked) {
+      totalPaytext += numericValue;
       }
-    }
+    });
 
-    // 총합을 .paytext에 업데이트
-    const totalPaytextElements = document.querySelectorAll('.paytext');
-    totalPaytextElements.forEach((element) => {
+    // 총합을 .paytext 클래스를 가진 모든 요소에 업데이트
+    const paytextElements = document.querySelectorAll('.paytext');
+    paytextElements.forEach(function(element) {
       element.textContent = totalPaytext.toLocaleString();
     });
+
+    // #totalPrice 업데이트
+    const totalPriceElement = document.getElementById('totalPrice');
+    totalPriceElement.textContent = totalPaytext.toLocaleString();
   }
 
   // "선택상품주문" 버튼 클릭 시 선택된 상품만 주문
   function orderSelectedProducts() {
-    for (let i = 1; i <= 3; i++) {
+    for (let i = 1; i <= 100; i++) {
       const checkbox = document.querySelector('#product' + i + ' .form-check-input');
 
       if (checkbox.checked) {

@@ -1,5 +1,7 @@
 package edu.global.ex.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -11,10 +13,12 @@ import edu.global.ex.mapper.CompanyMapper;
 import edu.global.ex.page.Criteria;
 import edu.global.ex.page.PageVO;
 import edu.global.ex.service.BoardService;
+import edu.global.ex.service.CartService;
 import edu.global.ex.service.CompanyService;
 import edu.global.ex.service.MsUserService;
 import edu.global.ex.service.ShopProductService;
 import edu.global.ex.vo.BoardVO;
+import edu.global.ex.vo.CartVO;
 import edu.global.ex.vo.CompanyVO;
 import edu.global.ex.vo.CustomUserDetailsVO;
 import edu.global.ex.vo.MsUserVO;
@@ -53,6 +57,9 @@ public class HomeController {
 	private ShopProductService spService;
 	
 	@Autowired
+	private CartService cartService;
+	
+	@Autowired
 	private MsUserService msUserService;
 	
 	// 홈 페이지
@@ -84,7 +91,7 @@ public class HomeController {
 	}
 
 	// 관리자 홈 페이지
-	@GetMapping("/admin")
+	@GetMapping("/admin/admin")
 	public String adminHome(Model model) {
 		log.info("adminHome()..");
 		
@@ -322,19 +329,28 @@ public class HomeController {
 		return "/admin/product/product_mgr";
 	}
 
-	// 쇼핑 페이지
+	/*// 쇼핑 페이지
 	@GetMapping("/shop")
 	public String shop() {
 		log.info("shop()..");
-		return "/shop";
-	}
+		return "/shop/home";
+	}*/
 	
 	// 장바구니 페이지
-		@GetMapping("/cart")
-		public String cart() {
-			log.info("cart()..");
-			return "/cart";
-		}
+			@GetMapping("/cart")
+			public String cart(Model model) {
+				log.info("cart()..");
+				List<CartVO> listCart = cartService.listCart();
+				model.addAttribute("listCart", listCart);
+				return "/cart";
+			}
+			
+			@GetMapping("/cart/delete")
+			public String delete(int product_code, Model model) {
+				log.info("delete()..");
+				model.addAttribute("delete", cartService.delete(product_code));
+				return "/cart";
+			}
 		
 	// 결제 페이지
 	@GetMapping("/pay")

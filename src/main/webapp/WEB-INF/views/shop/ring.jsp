@@ -47,14 +47,14 @@
 							<a href="#" class="plus text-dark " onclick='count("plus")'><i class="xi-plus-circle-o"></i></a>
 						</div>
 					</div>
-					<div id="price" class="pe-1 d-flex align-items-center"><h5 class="mb-0">₩ 100,000</h5></div>
+					<div id="price" class="pe-1 d-flex align-items-center"><h5 class="mb-0">₩ ${spVO.price }</h5></div>
 				</div><!-- <div class="option-txt"> -->
 			</div><!-- <div class="right-top"> -->
 			<div class="right-bottom row justify-content-between">
 				<div class="py-3 d-flex align-content-center justify-content-between px-0" style="border-color: #fff;">
 					<div class="text-right ps-1"><h5 class="mb-0"><strong>총 상품금액</strong></h5></div>
 					<div class="text-right pe-1">
-						<div id="totalPrice"><h5 class="mb-0"><strong>₩ 0</strong></h5></div>
+						<div id="totalPrice"><h5 class="mb-0"><strong>₩ ${spVO.price }</strong></h5></div>
 					</div>
 				</div>
 				<div class="d-flex justify-content-center align-items-center mt-4 px-0">
@@ -192,7 +192,7 @@
 
 		// 현재 수량, 가격 및 총 상품금액
 		let quantity = parseInt(quantityElement.innerText);
-		let price = 100000; // 제품 가격 (기본값)
+		let price = ${spVO.price}; // 제품 가격 (기본값)
 
 		// 더하기/빼기
 		if (type === 'plus') {
