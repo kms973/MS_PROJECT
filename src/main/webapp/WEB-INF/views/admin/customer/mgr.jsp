@@ -69,7 +69,7 @@
 			           		<div class="d-flex justify-content-center align-items-center w-100 h-100 p-0 m-0">전체 주문 수량 / 결제금액의 합계</div>
 			           	</td>
 			           	<td class="table-wr text-center">
-			           		<div class="d-flex justify-content-center align-items-center w-100 h-100 p-0 m-0">${ms_users.cgrade}</div>
+			           		<div class="d-flex justify-content-center align-items-center w-100 h-100 p-0 m-0" id="userGrade">${ms_users.cgrade}</div>
 			           	</td>
 	
 						<td class="table-op" style="width: 10% !important;">
@@ -87,14 +87,14 @@
 
 <!-- adm_footer 부분  -->
 <jsp:include page="/WEB-INF/views/admin/adm_footer.jsp"></jsp:include>
-	
-<script>
-	const checkboxes = document.querySelectorAll('.form-check-input');
 
-	document.getElementById('selectAll').addEventListener('change', function () {
-		checkboxes.forEach(checkbox => {
-			checkbox.checked = this.checked;
-		});
-	});
+<script>
+//JavaScript에서 #userGrade 요소의 내용을 가져와서 console.log로 출력합니다.
+var userGradeElement = document.getElementById('userGrade');
+var userGradeValue = userGradeElement.textContent;
+
+// #userGrade 요소의 내용을 출력합니다.
+console.log('User Grade:', userGradeValue);
 </script>
+    
 

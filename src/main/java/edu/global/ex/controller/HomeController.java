@@ -139,7 +139,8 @@ public class HomeController {
 		log.info("community()..");
 		log.info("community() 크리테리아값 확인" + cri);
 
-		model.addAttribute("boardList", boardService.getNoticeWithPaging(cri));
+		model.addAttribute("boardList", boardService.getListWithPaging(cri));
+		model.addAttribute("boardList_Notice", boardService.getNoticeWithPaging(cri));
 		model.addAttribute("boardList_Qna", boardService.getQnaWithPaging(cri));
 		model.addAttribute("boardList_Review", boardService.getReviewWithPaging(cri));
 		
