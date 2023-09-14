@@ -20,12 +20,10 @@
 	<!-- filter select -->
 	<div class="selec-box d-flex align-items-center justify-content-end">
 		<select class="form-select" aria-label="Default select example" style="width:10%">
-		  <option value="1" selected>추천순</option>
-		  <option value="2">신상순</option>
-		  <option value="3">판매순</option>
-		  <option value="4">리뷰순</option>
+		  <option value="1" selected>신상순</option>
+		  <option value="2">판매순</option>
+		  <option value="3">리뷰순</option>
 		</select>
-	</div>
 	</div>
 	
    	<div class="items container wrap mt-5">
@@ -151,5 +149,61 @@ $(document).ready(function() {
   });
 });
 </script>
+
+<script>
+    const productList = document.getElementById('productList');
+    const sortSelect = document.getElementById('sortSelect');
+
+    // 가상의 상품 데이터 배열 (예시)
+    const products = [
+        { name: '상품 1', date: '2023-09-01', sales: 10, reviews: 5 },
+        { name: '상품 2', date: '2023-09-03', sales: 20, reviews: 8 },
+        { name: '상품 3', date: '2023-09-02', sales: 15, reviews: 6 },
+        // 여기에 더 많은 상품 데이터를 추가할 수 있습니다.
+    ];
+
+    // 초기 화면 로드 시 신상순으로 정렬
+    updateProductList(1);
+
+    // select 요소의 변경을 감지하여 상품 리스트 업데이트
+    sortSelect.addEventListener('change', () => {
+        const selectedOption = parseInt(sortSelect.value);
+        updateProductList(selectedOption);
+    });
+
+    // 상품 리스트를 정렬하여 업데이트하는 함수
+    function updateProductList(sortOption) {
+        let sortedProducts = [];
+
+        switch (sortOption) {
+            case 1: // 신상순
+                sortedProducts = products.slice().sort((a, b) => new Date(b.date) - new Date(a.date));
+                break;
+            case 2: // 판매순
+                sortedProducts = products.slice().sort((a, b) => b.sales - a.sales);
+                break;
+            case 3: // 리뷰순
+                sortedProducts = products.slice().sort((a, b) => b.reviews - a.reviews);
+                break;
+            default:
+                sortedProducts = products;
+        }
+
+        // 상품 리스트를 업데이트
+        renderProductList(sortedProducts);
+    }
+
+    // 상품 리스트를 화면에 렌더링하는 함수
+    function renderProductList(products) {
+        productList.innerHTML = '';
+
+        products.forEach(product => {
+            const productItem = document.createElement('div');
+            productItem.textContent = product.name;
+            productList.appendChild(productItem);
+        });
+    }
+</script>
+
 <!-- footer 시작 -->
 <jsp:include page="/WEB-INF/views/footer.jsp" />

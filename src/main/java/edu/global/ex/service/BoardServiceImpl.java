@@ -52,6 +52,12 @@ public class BoardServiceImpl implements BoardService {
 		return boardMapper.getList();
 
 	};
+	
+	@Override
+	public List<BoardVO> getListWithPaging(Criteria cri) {
+		
+		return boardMapper.getListWithPaging(cri);
+	}
 
 	@Override
 	public BoardVO read(int bid) {

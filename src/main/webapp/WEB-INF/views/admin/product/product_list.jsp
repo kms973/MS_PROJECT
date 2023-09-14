@@ -39,7 +39,7 @@
 	   			<tbody class="card-body table-responsive">
 	   			<c:forEach var = "list" items="${list }">
 	   				<tr class="data_item" data-type="${list.productCategory }"><td>
-	   					<div class="d-flex justify-content-between w-25 align-items-center">
+	   					<div class="d-flex justify-content-start w-20 align-items-center">
 	   						<div class="table-check text-center ps-1">
 		   						<div class="form-check d-flex">
 			    					<input class="form-check-input" type="checkbox" id="select">
@@ -49,7 +49,7 @@
 			           			<div class="product-img"><img src="/img/${list.img }" alt="img"></div>
 			           		</div>
 	   					</div>		         
-		           		<div class="d-flex justify-content-between w-75 align-items-center px-2">
+		           		<div class="d-flex justify-content-between w-80 align-items-center px-2">
 		           			<div class="table-tit row">
 			           			<div class="py-1">${list.productCategory }${list.productCode }</div>
 			           			<a href="#none" class="py-1">${list.productName }</a>

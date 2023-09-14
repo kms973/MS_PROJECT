@@ -11,13 +11,6 @@
 	<div id="sub-bnr"><h5>Commuunity</h5></div>
 	<!-- TAB 메뉴 -->
    	<div class="container wrap px-0">
-
-	   <sec:authorize access="hasRole('ROLE_ADMIN')">
-       <div class="option">
-       	<a class="btn btn-sm btn-primary" href="#none"><i class="fas fa-edit">상품수정</i></a>
-      	<a class="btn btn-sm btn-danger" href="#none"><i class="fas fa-trash">삭제</i></a>
-       </div>
-       </sec:authorize>
 	   
 	   <table class="table view-table">
 		   <colgroup>
@@ -45,7 +38,8 @@
 	         </tbody>
 	   </table>
 	   
-	   <div class="list-btn">
+	   <div class="list-btn d-flex justify-content-between">
+	   	<div class="Bbtn">
 	   	<!-- 이전 버튼 -->
 		<%-- <c:if test="${prevBid ne null}"> --%>
 		    <a href="/content_view?bid=${content_view.bid-1}" class="btn btn-sm btn-primary">prev</a>
@@ -53,8 +47,25 @@
 		
 		<!-- 다음 버튼 -->
 		<%-- <c:if test="${nextBid ne null}"> --%>
+		    <a href="/community" class="btn btn-sm btn-light">List</a>
+		<%-- </c:if> --%>
+		
+		<!-- 다음 버튼 -->
+		<%-- <c:if test="${nextBid ne null}"> --%>
 		    <a href="/content_view?bid=${content_view.bid+1}" class="btn btn-sm btn-primary">next</a>
 		<%-- </c:if> --%>
+	   	</div>
+		
+		<sec:authorize access="hasRole('ROLE_ADMIN')">
+       <div class="option">
+       	<a class="btn btn-sm btn-primary" href="modify?bid=${boardList.bid}"><i class="fas fa-edit">상품수정</i></a>
+       	
+       	<!-- 본인이 쓴 글만 삭제가능 -->
+       	<%-- <c:if test="${nextBid ne null}"> --%>
+      	<a class="btn btn-sm btn-danger" href="delete?bid=${boardList.bid}"><i class="fas fa-trash">삭제</i></a>
+       	<%-- </c:if> --%>
+       </div>
+       </sec:authorize>
 
 	   </div>
 
