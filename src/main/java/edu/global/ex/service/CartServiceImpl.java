@@ -31,9 +31,13 @@ public class CartServiceImpl implements CartService {
 
    
     @Override
-    public int delete(CartVO cartVO) {
+    public int delete(int product_code) {
     	log.info("delete()..");
-
-		return cartMapper.delete(cartVO);
+		return cartMapper.delete(product_code);
+    }
+    
+    @Override
+    public void updateStockQuantity(String product_name, int stock_quantity) {
+        cartMapper.updateStockQuantity(product_name, stock_quantity);
     }
 }

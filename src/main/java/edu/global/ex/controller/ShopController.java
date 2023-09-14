@@ -25,7 +25,7 @@ public class ShopController {
 	// /shop/product/necklace 상품 목록 보기(목걸이)
 	// /shop/product/bracelet 상품 목록 보기(팔찌)
 
-	@GetMapping("/home")
+	@GetMapping({"", "/", "/home"})
 	public String productHome(//String category,
 			Model model,Criteria cri) {
 		log.info("shopProductHome() ..");

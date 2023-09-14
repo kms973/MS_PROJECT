@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import edu.global.ex.page.Criteria;
 import edu.global.ex.vo.BoardVO;
@@ -18,5 +19,7 @@ public interface CartMapper {
 	
 	public List<CartVO> listCart();
 	
-	public int delete(CartVO cartVO);
+	public int delete(int product_code);
+
+	void updateStockQuantity(String product_name, int stock_quantity);
 }
