@@ -91,7 +91,7 @@ public class HomeController {
 	}
 
 	// 관리자 홈 페이지
-	@GetMapping("/admin")
+	@GetMapping("/admin/admin")
 	public String adminHome(Model model) {
 		log.info("adminHome()..");
 		
