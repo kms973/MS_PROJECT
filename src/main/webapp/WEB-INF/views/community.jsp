@@ -34,7 +34,7 @@
 						</tr>
 					</thead>
 					<tbody>
-					<c:forEach var="boardList" items="${boardList}">
+ 		<c:forEach var="boardList" items="${boardList}">
 			         <tr>
 			           <td class="no-no table-no">${boardList.rnum}</td>
 			           <td class="no-tit table-tit"><a href="content_view?bid=${boardList.bid}">${boardList.btitle}</a></td>
@@ -42,14 +42,34 @@
 			           <td class="no-date table-date"><fmt:formatDate value="${boardList.bdate}" pattern="yyyy-MM-dd" /></td>
 			           <sec:authorize access="hasRole('ROLE_ADMIN')">
 			              <td class="option">
-			              	<a class="btn btn-sm btn-primary" href="#none"><i class="fas fa-edit">상품수정</i></a>
-			            	<a class="btn btn-sm btn-danger" href="#none"><i class="fas fa-trash">삭제</i></a>
+			              	<a class="btn btn-sm btn-primary px-2" href="write_modify?bid=${boardList.bid}"><i class="fas fa-edit">상품수정</i></a>
+			            	<a class="btn btn-sm btn-danger px-2" href="delete?bid=${boardList.bid}"><i class="fas fa-trash">삭제</i></a>
 			              </td>
 			           </sec:authorize>
 			           </tr>
 		             </c:forEach>
 					</tbody>
 				</table>
+				<div aria-label="Page navigation example">
+				  <ul class="pagination justify-content-end">
+				    <li class="page-item">
+				      <c:if test="${pageMaker.prev}">
+					      <a href="board${pageMaker.makeQuery(pageMaker.startPage - 1) }" class="page-link" href="#" tabindex="-1" aria-disabled="true">«</a>
+					  </c:if>
+				    </li>
+				    <li class="page-item">
+					<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
+			      	<%-- <c:out value="${pageMaker.cri.page == idx?'':''}" /> --%>
+			      	<a href="board${pageMaker.makeQuery(idx)}" class="page-link">${idx}</a>
+			   		</c:forEach>
+			   		</li>
+				    <li class="page-item">
+				      <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+						<a href="board${pageMaker.makeQuery(pageMaker.endPage +1) }"> » </a>
+					   </c:if>
+				    </li>
+				  </ul>
+				</div>
 		      </li>
 		      <li id="content-2">
 		      	<div class="accordion" id="faqAccordion">
@@ -125,7 +145,13 @@
 			           <td class="no-tit table-tit"><a href="content_view?bid=${boardList_Qna.bid}">${boardList_Qna.btitle}</a></td>
 			           <td class="no-write table-write">${boardList_Qna.bname}</td>
 			           <td class="no-date table-date"><fmt:formatDate value="${boardList_Qna.bdate}" pattern="yyyy-MM-dd" /></td>
-			           <sec:authorize access="hasRole('ROLE_ADMIN')"></sec:authorize>
+			           <sec:authorize access="hasRole('ROLE_ADMIN')">
+			              <td class="option">
+			              	<a class="btn btn-sm btn-primary px-2" href="modify?bid=${boardList_Qna.bid}"><i class="fas fa-edit">상품수정</i></a>
+			            	<a class="btn btn-sm btn-danger px-2" href="delete?bid=${boardList_Qna.bid}"><i class="fas fa-trash">삭제</i></a>
+			              </td>
+			           </sec:authorize>
+		           	</tr>
 					</c:forEach>
 
 
@@ -157,6 +183,12 @@
 				           <td class="no-tit table-tit"><a href="content_view?bid=${boardList_Review.bid}">${boardList_Review.btitle}</a></td>
 				           <td class="no-write table-write">${boardList_Review.bname}</td>
 				           <td class="no-date table-date"><fmt:formatDate value="${boardList_Review.bdate}" pattern="yyyy-MM-dd" /></td>
+				           <sec:authorize access="hasRole('ROLE_ADMIN')">
+				              <td class="option">
+				              	<a class="btn btn-sm btn-primary px-2" href="modify?bid=${boardList_Review.bid}"><i class="fas fa-edit">상품수정</i></a>
+				            	<a class="btn btn-sm btn-danger px-2" href="delete?bid=${boardList_Review.bid}"><i class="fas fa-trash">삭제</i></a>
+				              </td>
+				           </sec:authorize>
 			           	</tr>
 						</c:forEach>
 					</tbody>

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="edu.global.ex.mapper.BoardMapper">
 
@@ -76,6 +74,19 @@
       ]]>
    </select>
    
+   <select id="getListWithPaging" resultType="BoardVO">
+      <![CDATA[
+	SELECT * FROM (
+	  SELECT ROWNUM AS RNUM, A.* FROM (
+	    SELECT
+	      *
+	    FROM
+	      ms_board
+	    ORDER BY bdate desc, bGroup DESC, bStep ASC 
+	  ) A WHERE ROWNUM <= #{pageNum} * #{amount}
+	) WHERE RNUM > (#{pageNum} - 1) * #{amount}
+      ]]>
+   </select>
    <select id="getQnaWithPaging" resultType="BoardVO">
       <![CDATA[
 	SELECT * FROM (

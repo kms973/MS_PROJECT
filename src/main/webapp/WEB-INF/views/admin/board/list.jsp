@@ -16,43 +16,45 @@
 				<div class="tab board-nav d-flex justify-content-between align-items-center">
 					<ul class="title nav m-0">
 						<li class="board-tab on" data-type="all">
-							<div class="form-check form-check-inline">
+							<div class="form-check form-check-inline mb-0 d-flex align-items-center">
 					  			<input class="form-check-input" type="radio" name="selecter" id="selecter1" value="1" checked>
-					  			<label class="form-check-label" for="selecter1">전체</label>
+					  			<label class="form-check-label ms-2" for="selecter1">전체</label>
 							</div>
 						</li>
 						<li class="board-tab" data-type="1">
-							<div class="form-check form-check-inline">
+							<div class="form-check form-check-inline mb-0 d-flex align-items-center">
 							  <input class="form-check-input" type="radio" name="selecter" id="selecter2" value="1">
-							  <label class="form-check-label" for="selecter2">공지사항</label>
+							  <label class="form-check-label ms-2" for="selecter2">공지사항</label>
 							</div>
 						</li>
 						<li class="board-tab" data-type="2">
-							<div class="form-check form-check-inline">
+							<div class="form-check form-check-inline mb-0 d-flex align-items-center">
 							  <input class="form-check-input" type="radio" name="selecter" id="selecter3" value="2">
-							  <label class="form-check-label" for="selecter3">QNA</label>
+							  <label class="form-check-label ms-2" for="selecter3">QNA</label>
 							</div>
 						</li>
 						<li class="board-tab" data-type="3">
-							<div class="form-check form-check-inline">
+							<div class="form-check form-check-inline mb-0 d-flex align-items-center">
 							  <input class="form-check-input" type="radio" name="selecter" id="selecter4" value="3">
-							  <label class="form-check-label" for="selecter4">REVIEW</label>
+							  <label class="form-check-label ms-2" for="selecter4">REVIEW</label>
 							</div>
 						</li>
 					</ul>
-					<!-- 글쓰기 버튼 -->
-					<div class="px-0"><a href="write_view" class="btn btn-primary" style="font-size:.75rem;">글쓰기</a></div>
+					<div class="datatable-top pb-0 d-flex align-items-center">
+					    <div class="datatable-search">
+			            	<input class="datatable-input" placeholder="Search..." type="search" title="Search within table" aria-controls="datatablesSimple">
+				        </div>
+						<!-- 글쓰기 버튼 -->
+						<div class="px-0 h-100 ms-2"><a href="write_view" class="btn btn-primary h-atuo" style="font-size:.75rem;">글작성</a></div>
+					</div>
 		        </div>
 			</h6>
-			
 			<!-- 게시글 테이블 -->
 			<div class="card-body table-responsive text-nowrap">
 				<table class="table table-hover table-bordered">
 			    	<thead>
 			    		<tr>
-			    			<th class="table-no text-center">
-			    				<a href="#" class="datatable-sorter">No</a>
-			    			</th>
+			    			<th class="table-no text-center"><a href="#" class="datatable-sorter">No</a></th>
 			    			<th class="table-tit w-50 text-center">Title</th>
 			    			<th class="table-wr text-center">Writer</th>
 			    			<th class="table-date text-center">Date</th>
@@ -62,7 +64,7 @@
 			       <tbody>
 			       <c:forEach var="boardList" items="${boardList}">
 			       	 <tr class="data_item" data-type="${boardList.selecter}">
-			           <td class="table-no text-center">${boardList.bid}</td>			         
+			           <td class="table-no text-center">${boardList.rnum}</td>			         
 			           <td class="table-tit w-50 text-center"><a href="/content_view?bid=${boardList.bid}" class="h-inheirt">${boardList.btitle}</a></td>
 			           <td class="table-wr text-center">${boardList.bname}</td>
 			           <td class="table-date text-center">${boardList.bdate}</td>
@@ -74,6 +76,27 @@
 		          	</c:forEach>
        				</tbody>
    		  		</table>
+
+			   <div aria-label="Page navigation example">
+				  <ul class="pagination justify-content-end">
+				    <li class="page-item">
+				      <c:if test="${pageMaker.prev}">
+					      <a href="board${pageMaker.makeQuery(pageMaker.startPage - 1) }" class="page-link" href="#" tabindex="-1" aria-disabled="true">«</a>
+					  </c:if>
+				    </li>
+				    <li class="page-item">
+					<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
+			      	<%-- <c:out value="${pageMaker.cri.page == idx?'':''}" /> --%>
+			      	<a href="board${pageMaker.makeQuery(idx)}" class="page-link">${idx}</a>
+			   		</c:forEach>
+			   		</li>
+				    <li class="page-item">
+				      <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+						<a href="board${pageMaker.makeQuery(pageMaker.endPage +1) }"> » </a>
+					   </c:if>
+				    </li>
+				  </ul>
+				</div>
 			</div>
 		</div>
 		

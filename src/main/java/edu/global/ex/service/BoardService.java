@@ -19,6 +19,7 @@ public interface BoardService {
 	public void registerReply(BoardVO boardVO); //답글달기
 	
 	public int getTotal();
+	List<BoardVO> getListWithPaging(Criteria cri);
 	public List<BoardVO> getNoticeWithPaging(Criteria cri);
 	public List<BoardVO> getQnaWithPaging(Criteria cri);
 	public List<BoardVO> getReviewWithPaging(Criteria cri);

@@ -24,7 +24,7 @@
 				<div class="my-2"><input class="form-control" type="text" placeholder="제목" aria-label="default input example" name = "btitle"></div>
 				
 				<!-- 내용 부분_에디터 썸머리노트 부분 -->
-				<textarea id="summernote" name = "bcontent">${boardList.bcontent}</textarea>
+				<textarea id="summernote" name="bcontent">${boardList.bcontent}</textarea>
 
 				<div class="input-group mt-3 mb-2">
 					<span class="input-group-prepend">
@@ -92,7 +92,21 @@ function uploadSummernoteImageFile(file,editor){
 		success:function(data){ 
 			$(editor).summernote("insertImage",data.url);
 			$("#thumbnailPath").append("<option value="+data.url+">"+data.originName+"</option>"); 
-			}
+		}
 	});
 }
+
+/* var node = document.createElement('div');
+const attr = 'content_view.bcontent';
+node.setAttribute('value',attr);
+$('#summernote').summernote('insertNode', node);
+
+$('#summernote').summernote('insertText','내용을 입력해주세요');
+const range = $.summernote.range;
+const rng = range.createFromSelection(node);
+rng.select();
+
+console.log(rng.select());
+
+console.log($('.note-editable').innerHTML); */
 </script>

@@ -177,6 +177,15 @@ public class HomeController {
 
 		return "redirect:community";
 	}
+	
+	//유저화면 게시판 내용 수정 페이지
+	@GetMapping("/modify")
+	public String modify() {
+
+		log.info("modify()..");
+
+		return "write_modify";
+	}
 
 	// 관리자 게시판 작성 페이지
 	@GetMapping("/admin/write_view")
@@ -287,8 +296,11 @@ public class HomeController {
 
 	// 관리자 회원관리 페이지
 	@GetMapping("/admin/customer/mgr")
-	public String adminCustomerMGR() {
+	public String adminCustomerMGR(Model model) {
 		log.info("adminCustomerMGR");
+		
+		model.addAttribute("ms_users", msUserService.getUsers());
+		
 		return "/admin/customer/mgr";
 	}
 
