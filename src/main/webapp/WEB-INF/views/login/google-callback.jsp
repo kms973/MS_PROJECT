@@ -12,15 +12,15 @@
 <body>
     <h1>Google Callback Page</h1>
 
-<%!
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // 콜백 파라미터에서 이메일, 이름, 집주소, 전화번호를 가져옵니다.
-        String email = request.getParameter("email");
-        String name = request.getParameter("name");
-        String address = request.getParameter("address");
-        String phoneNumber = request.getParameter("phoneNumber");
+    <%!
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            // 콜백 파라미터에서 이메일, 이름, 집주소, 전화번호를 가져옵니다.
+            String email = request.getParameter("email");
+            String name = request.getParameter("name");
+            String address = request.getParameter("address");
+            String phoneNumber = request.getParameter("phoneNumber");
 
-        // 사용자 정보를 출력하는 JavaScript 코드로 전달
+            // 사용자 정보를 출력하는 JavaScript 코드로 전달
     %>
     <script>
         // 사용자 정보를 출력하는 함수
@@ -48,9 +48,7 @@
         window.onload = parseCallbackParameters;
     </script>
     <%-- 스크립트릿 종료 --%>
-<% } %>
-
-
+    <% } %>
 
     <!-- 사용자 정보 출력을 위한 div -->
     <div id="userInfo" style="display:none;">
