@@ -56,8 +56,13 @@
 		        <div class="dropdown text-end">
 				  <a class="d-block link-dark" id="dropdownMenu1" data-mdb-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
 				  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+				  	<!-- 로그인(인증된) 사용자인 경우 -->
 				  	<sec:authorize access="isAuthenticated()">
 				    <li><a id="myPageLink" class="dropdown-item" href="/login/userprofile">마이페이지</a></li>
+				    </sec:authorize>
+				    <!-- 로그인 안 한 익명일 경우 -->
+				    <sec:authorize access="isAnonymous()">
+				    <li><a id="myPageLink" class="dropdown-item" href="/login">마이페이지</a></li>
 				    </sec:authorize>
 				    <sec:authorize access="hasRole('ROLE_ADMIN')">
    						<!-- admin 로그인일 경우 -->

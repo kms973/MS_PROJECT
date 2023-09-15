@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- JSP 페이지 설정: Java 언어, 문자 인코딩 설정 등 -->
 
 <!-- 페이지 헤더를 포함합니다. -->
@@ -10,7 +11,7 @@
 
     <!-- 로그인 폼 시작 -->
     <div class="form-signin w-100 m-auto">
-        <form method="post" action="/login" class="needs-validation" novalidate>
+        <form method="post" action="/login" class="needs-validation" novalidate onsubmit="return checkDuplicate();">
             <!-- 로그인 폼 -->
 
             <!-- 서브 배너 (탭 메뉴와 관련된 부분으로 보이며 현재 주석 처리되어 있습니다) -->
@@ -21,18 +22,23 @@
 
             <!-- 이메일 입력 필드 -->
             <div class="form-floating form-group">
-                <input name="username" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                <input name="username" type="email" class="form-control" id="username" placeholder="name@example.com" required>
                 <label for="floatingInput">이메일</label>
                 <div class="invalid-feedback">이메일을 입력해주세요.</div>
             </div>
 
             <!-- 비밀번호 입력 필드 -->
             <div class="form-floating">
-                <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+                <input name="password" type="password" class="form-control" id="password" placeholder="Password" required>
                 <label for="floatingPassword">비밀번호</label>
                 <div class="invalid-feedback">비밀번호를 입력해주세요.</div>
             </div>
-
+			<c:if test="${param.error != null}">
+			        <script>
+	        		// 오류 메시지를 alert 창으로 표시
+	       			 alert("아이디와 비밀번호가 잘못되었습니다.");
+	    			</script>
+		    </c:if>
             <!-- 아이디 저장 체크박스 및 관련 정보 -->
             <div class="box d-flex align-items-center justify-content-between my-3 fz-75">
                 <span class="input-wrap"><input type="checkbox" id="checkId" name="checkId" class="form-check-input" value="remember-me" style="position:relative; top: -2px;"><label for="checkId"></label>아이디 저장</span>
@@ -57,6 +63,26 @@
     </div>
     <!-- 로그인 폼 종료 -->
 </section>
+<!-- <script>
+function checkDuplicate() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value; // 비밀번호 입력 필드의 값을 가져옵니다.
+    const usernameList = ${usernameList}; // 모델 속성에서 JSON 데이터를 가져옴
+
+    // 아이디 중복 검사
+    if (usernameList.includes(username)) {
+        // 아이디가 중복된 경우
+        if (!usernameList.includes(password)) {
+            alert("비밀번호가 틀렸습니다.");
+            return false; // 페이지 이동을 중단합니다.
+        } else{
+            return true;}
+    }
+
+  
+}
+</script> -->
+
 <!-- 로그인 페이지 메인 섹션 종료 -->
 
 <!-- JavaScript 코드 (폼 유효성 검사를 수행합니다) -->

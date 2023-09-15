@@ -93,134 +93,124 @@ table.signUp-table {
 			</div>
 
 			<table class="table table-hover signUp-table">
-				<div class="accordion" id="accordionExample">
-		            <tr>
-			            <td>
-			           		<!-- (필수) 이용약관 동의 -->
-				            <div class="accordion-item">
-				                <div class="accordion-header" id="headingOne">
-					               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-										<div class="form-check">
-											<input class="form-check-input" type="checkbox" id="checkbox1">
-											<label class="form-check-label" for="checkbox1">(필수) 이용약관 동의</label>
-										</div>
-									</button>
-				                </div>
-				                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-				                    <div class="accordion-body">이용약관 내용을 여기에 추가하세요.
-				                    </div>
-				                </div>
-				            </div>
-			            </td>
-					</tr>
-					<tr>
-						<td>
-				            <!-- (필수) 개인정보 수집 및 이용 동의 -->
-				            <div class="accordion-item">
-				                <h2 class="accordion-header" id="headingTwo">
-				                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-				                        <div class="form-check">
-											  <input class="form-check-input" type="checkbox" id="checkbox2">
-											  <label class="form-check-label" for="checkbox2">(필수) 개인정보 수집 및 이용 동의</label>
-										  </div>
-				                    </button>
-				                </h2>
-				                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-				                    <div class="accordion-body">
-				                        개인정보 수집 및 이용 동의 내용을 여기에 추가하세요.
-				                    </div>
-				                </div>
-				            </div>
-			            </td>
-					</tr>
-					<tr>
-						<td>
-				            <!-- (필수) 전자금융거래 약관 동의 -->
-				            <div class="accordion-item">
-				                <h2 class="accordion-header" id="headingThree">
-				                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-				                        <div class="form-check">
-										  <input class="form-check-input" type="checkbox" id="checkbox3">
-										  <label class="form-check-label" for="checkbox3">(필수) 전자금융거래 약관 동의</label>
-									  </div>
-				                    </button>
-				                </h2>
-				                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-				                    <div class="accordion-body">
-				                        전자금융거래 약관 동의 내용을 여기에 추가하세요.
-				                    </div>
-				                </div>
-				            </div>
-			            </td>
-					</tr>
-					
-					<tr>
-						<td>
-				            <!-- (필수) 개인정보 제 3자 제공 동의 -->
-				            <div class="accordion-item">
-				                <h2 class="accordion-header" id="headingFour">
-				                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-				                        <div class="form-check">
-														  <input class="form-check-input" type="checkbox" id="checkbox4">
-														  <label class="form-check-label" for="checkbox4">(필수) 개인정보 제 3자 제공 동의</label>
-													  </div>
-				                    </button>
-				                </h2>
-				                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-				                    <div class="accordion-body">
-				                        개인정보 제 3자 제공 동의 내용을 여기에 추가하세요.
-				                    </div>
-				                </div>
-				            </div>
-			            </td>
-		            </tr>
-		            
-		            <tr>
-			            <td>
-			           		<!-- (필수) 만 14세 이상 -->
-				            <div class="accordion-item">
-				                <h2 class="accordion-header" id="headingFive">
-				                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-				                        <div class="form-check">
-											<input class="form-check-input" type="checkbox" id="checkbox5">
-											<label class="form-check-label" for="checkbox5">(필수) 만 14세 이상</label>
-										</div>
-				                    </button>
-				                </h2>
-				                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-				                    <div class="accordion-body">
-				                        만 14세 이상 동의 내용을 여기에 추가하세요.
-				                    </div>
-				                </div>
-				            </div>
-			            </td>
-		            </tr>
-		        </div>
-		    
-				<tr>
-					<td>
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox" id="selectAll">
-							<label class="form-check-label" for="selectAll">전체 동의</label>
-						</div>
-					</td>
-				</tr>
-			</table>
-			<button type="submit" class="btn btn-primary">회원가입</button>
-		</form>
-
-		<script>
-			const checkboxes = document.querySelectorAll('.form-check-input');
-		
-			document.getElementById('selectAll').addEventListener('change', function () {
-				checkboxes.forEach(checkbox => {
-					checkbox.checked = this.checked;
-				});
-			});
-		</script>
-
+            <div class="accordion" id="accordionExample">
+                <tr>
+                    <td>
+                           <!-- (필수) 이용약관 동의 -->
+                        <div class="accordion-item">
+                            <div class="accordion-header" id="headingOne">
+                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="checkbox1" name="chkSelect">
+                                        <label class="form-check-label" for="checkbox1">(필수) 이용약관 동의</label>
+                                    </div>
+                                </button>
+                            </div>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">이용약관 내용을 여기에 추가하세요.
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <!-- (필수) 개인정보 수집 및 이용 동의 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" id="checkbox2" name="chkSelect">
+                                          <label class="form-check-label" for="checkbox2">(필수) 개인정보 수집 및 이용 동의</label>
+                                      </div>
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    개인정보 수집 및 이용 동의 내용을 여기에 추가하세요.
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <!-- (필수) 전자금융거래 약관 동의 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" id="checkbox3" name="chkSelect">
+                                      <label class="form-check-label" for="checkbox3">(필수) 전자금융거래 약관 동의</label>
+                                  </div>
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    전자금융거래 약관 동의 내용을 여기에 추가하세요.
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <!-- (필수) 개인정보 제 3자 제공 동의 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    <div class="form-check">
+                                                      <input class="form-check-input" type="checkbox" id="checkbox4" name="chkSelect">
+                                                      <label class="form-check-label" for="checkbox4">(필수) 개인정보 제 3자 제공 동의</label>
+                                                  </div>
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    개인정보 제 3자 제공 동의 내용을 여기에 추가하세요.
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                           <!-- (필수) 만 14세 이상 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="checkbox5" name="chkSelect">
+                                        <label class="form-check-label" for="checkbox5">(필수) 만 14세 이상</label>
+                                    </div>
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    만 14세 이상 동의 내용을 여기에 추가하세요.
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </div>
+        
+            <tr>
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="selectAll">
+                        <label class="form-check-label" for="selectAll">전체 동의</label>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <button type="submit" class="btn btn-primary" onclick="return validateCheckboxes();">회원가입</button>
+    </form>
 	</div>
 </div>
+
 <script>
     function checkUsername() {
         const username = document.getElementById("username").value;
@@ -253,6 +243,26 @@ table.signUp-table {
     }
 </script>
 
+<script>
+        function validateCheckboxes() {
+            const checkboxes = document.querySelectorAll('.form-check-input');
+            const selectedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+
+            if (selectedCheckboxes.length < 5) {
+                alert('필수 동의사항 약관에 동의해야 합니다.');
+                return false; 
+            }
+
+            return true; 
+        }
+
+        const checkboxes = document.querySelectorAll('.form-check-input');
+        document.getElementById('selectAll').addEventListener('change', function () {
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = this.checked;
+            });
+        });
+</script>
 
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

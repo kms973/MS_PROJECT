@@ -57,7 +57,15 @@ public class LoginController {
 
 	// 사용자 로그인 페이지로 이동하는 핸들러
 	@GetMapping("/login")
-	public String userlogin() {
+	public String userlogin(MsUserVO user, Model model) {
+		List<MsUserVO> userList = userMapper.getUsers();
+		List<String> usernameList = new ArrayList<String>();
+		for(MsUserVO userInfo: userList) {
+			usernameList.add("\""+userInfo.getUsername() + "\"");
+		}
+		model.addAttribute("usernameList", usernameList);
+//		log.info(userMapper.getUsers().toString());
+		
 		return "/login/login";
 	}
 
