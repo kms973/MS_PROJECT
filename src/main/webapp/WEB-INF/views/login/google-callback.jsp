@@ -21,7 +21,13 @@
             String phoneNumber = request.getParameter("phoneNumber");
 
             // 사용자 정보를 출력하는 JavaScript 코드로 전달
+            System.out.println("email: " + email);
+            System.out.println("name: " + name);
+            System.out.println("address: " + address);
+            System.out.println("phoneNumber: " + phoneNumber);
+        }
     %>
+
     <script>
         // 사용자 정보를 출력하는 함수
         function displayUserInfo(email, name, address, phoneNumber) {
@@ -47,8 +53,6 @@
         // 페이지 로드 시 파라미터 파싱 실행
         window.onload = parseCallbackParameters;
     </script>
-    <%-- 스크립트릿 종료 --%>
-    <% } %>
 
     <!-- 사용자 정보 출력을 위한 div -->
     <div id="userInfo" style="display:none;">
