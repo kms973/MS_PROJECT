@@ -64,9 +64,8 @@ public class LoginController {
 	// 사용자 로그아웃 페이지로 이동하는 핸들러
 	@GetMapping("/logout")
 	public String userlogout() {
-	    return "/login";
+		return "/login";
 	}
-
 
 	// Google 로그인 페이지로 이동하는 핸들러
 	@GetMapping("/login/google")
@@ -97,15 +96,15 @@ public class LoginController {
 
 	// 회원 가입 페이지로 이동하는 핸들러
 	@GetMapping("/login/signup")
-	public String signuptest(MsUserVO user, Model model){
+	public String signuptest(MsUserVO user, Model model) {
 		List<MsUserVO> userList = userMapper.getUsers();
 		List<String> usernameList = new ArrayList<String>();
-		for(MsUserVO userInfo: userList) {
-			usernameList.add("\""+userInfo.getUsername() + "\"");
+		for (MsUserVO userInfo : userList) {
+			usernameList.add("\"" + userInfo.getUsername() + "\"");
 		}
 		model.addAttribute("usernameList", usernameList);
-//		log.info(userMapper.getUsers().toString());
-		
+		// log.info(userMapper.getUsers().toString());
+
 		return "/login/signuptest";
 	}
 
@@ -128,25 +127,25 @@ public class LoginController {
 		log.info("userprofile");
 		return "/myPage/myPage";
 	}
-	
+
 	@GetMapping("/login/google-callback")
 	public String googleCallback() {
 		log.info("google-callback");
 		return "/login/google-callback";
 	}
-	
+
 	// 아이디 찾기
 	@GetMapping("/login/idsearch")
 	public String idSearch(MsUserVO user, Model model) {
-		
+
 		List<MsUserVO> userList = userMapper.getUsers();
 		List<String> usernameList = new ArrayList<String>();
-		for(MsUserVO userInfo: userList) {
-			usernameList.add("\""+userInfo.getUsername() + "\"");
+		for (MsUserVO userInfo : userList) {
+			usernameList.add("\"" + userInfo.getUsername() + "\"");
 		}
 		model.addAttribute("usernameList", usernameList);
-		
+
 		return "/login/idSearch";
 	}
-	
+
 }
