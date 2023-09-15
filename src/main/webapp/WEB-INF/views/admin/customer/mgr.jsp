@@ -47,7 +47,7 @@
 					</tr>
 	   			</thead>
    			
-	           	<tbody>
+	           	<tbody class="mgr_tbody">
 					<c:forEach var="ms_users" items="${ms_users}">
 					<tr>
 						<th style="width: 5% !important;">
