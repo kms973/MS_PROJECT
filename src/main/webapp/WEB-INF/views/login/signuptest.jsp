@@ -61,6 +61,35 @@ table.signUp-table {
 					placeholder="name" required> <label for="floatingname">이름</label>
 				<div class="invalid-feedback">이름을 입력해주세요.</div>
 			</div>
+			
+			<div class="row">
+			    <div class="col-md-2">
+			        <div class="form-floating my-2">
+					    <select class="form-select" id="cphone-prefix" name="cphone-prefix">
+					        <option value="010">010</option>
+					        <option value="011">011</option>
+					        <option value="016">016</option>
+					        <option value="017">017</option>
+					        <option value="019">019</option>
+					    </select>
+			        </div>
+			    </div>
+			    <div class="col-md-5">
+			        <div class="form-floating my-2">
+			            <input name="cphone1" type="text" class="form-control" id="cphone1" placeholder="phone" required>
+			            <label for="cphone1">전화번호</label>
+			            <div class="invalid-feedback">전화번호를 입력해주세요.</div>
+			        </div>
+			    </div>
+			    <div class="col-md-5">
+			        <div class="form-floating my-2">
+			            <input name="cphone2" type="text" class="form-control" id="cphone2" placeholder="phone" required>
+			            <label for="cphone2">전화번호</label>
+			            <div class="invalid-feedback">전화번호를 입력해주세요.</div>
+			        </div>
+			    </div>
+			</div>
+			
 	
 			<div class="form-floating d-flex my-2">
 				<input type="text" name="caddress1" id="caddress1"
