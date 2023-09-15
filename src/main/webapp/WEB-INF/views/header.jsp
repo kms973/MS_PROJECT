@@ -48,10 +48,6 @@
               <li><a href="/community" class="nav-link px-2 text-black">Community</a></li>
 	        </ul>
 	
-	        <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-	          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-	        </form> -->
-
 	        <div class="icon-btn d-flex">
 		        <div class="dropdown text-end">
 				  <a class="d-block link-dark" id="dropdownMenu1" data-mdb-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
@@ -83,9 +79,14 @@
 		    <div class="icon-btn d-flex">
 		        <div><a href="cart" class="d-block link-dark" id="dropdownUser2" aria-expanded="false"><i class="fa-solid fa-cart-shopping"></i></a></div>
 		    </div>
-		    <div class="icon-btn d-flex">
-		    	<div><a href="#" class="d-block link-dark" id="dropdownUser3" aria-expanded="false"><i class="fa-solid fa-magnifying-glass"></i></a></div>
-		    </div>
+		    <div class="icon-btn d-flex dropstart">
+			  <div class="dropdown-toggle" id="hd-search-btn" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+			    <a href="#" class="d-block link-dark" id="dropdownUser3" aria-expanded="false"><i class="fa-solid fa-magnifying-glass"></i></a>
+			  </div>
+		        <form class="col-12 col-lg-auto mb-3 mb-lg-0 dropdown-menu">
+		          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+		        </form>
+			</div>
 		    <div class="icon-btn d-flex">
 		        <div class="dropdown text-end">
 				  <a href="#" class="d-block link-dark" type="button" id="dropdownMenu2" data-mdb-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-globe"></i></a>

@@ -223,6 +223,14 @@ public class HomeController {
 		log.info("modify().. result number :: " + rn);
 		return "redirect:board";
 	}
+	
+	// 관리자 공지사항 게시판 페이지
+	@GetMapping("/admin/login")
+	public String adminLogin() {
+		log.info("adminLogin");
+		return "/admin/login";
+	}
+
 
 	// 게시판 내용 보기 페이지
 	@GetMapping("/admin/content_view")
@@ -365,13 +373,5 @@ public class HomeController {
 	public String ring() {
 		log.info("ring()..");
 		return "/shop/ring";
-	}
-	
-	
-	// 마이페이지
-	@GetMapping("/mypage")
-	public String mypage() {
-		log.info("mypage()..");
-		return "/myPage/myPage";
 	}
 }

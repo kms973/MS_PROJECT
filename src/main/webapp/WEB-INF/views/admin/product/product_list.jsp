@@ -38,11 +38,11 @@
 	   			</thead>
 	   			<tbody class="card-body table-responsive">
 	   			<c:forEach var = "list" items="${list }">
-	   				<tr class="data_item" data-type="${list.productCategory }"><td>
+	   				<tr class="data_item" data-type="${list.productCategory}"><td>
 	   					<div class="d-flex justify-content-start w-20 align-items-center">
 	   						<div class="table-check text-center ps-1">
 		   						<div class="form-check d-flex">
-			    					<input class="form-check-input" type="checkbox" id="select">
+			    					<input class="form-check-input" type="checkbox" id="checkbox">
 			    				</div>
 		   					</div>
 		   					<div class="table-img text-center px-2">
@@ -103,6 +103,15 @@ $(document).ready(function() {
     }
   });
 });
+</script>
+<script>
+	const checkboxes = document.querySelectorAll('.form-check-input');
+	
+	document.getElementById('selectAll').addEventListener('change', function () {
+		checkboxes.forEach(checkbox => {
+			checkbox.checked = this.checked;
+		});
+	});
 </script>
 
 <!-- adm_footer 부분  -->
