@@ -87,6 +87,7 @@
 	) WHERE RNUM > (#{pageNum} - 1) * #{amount}
       ]]>
    </select>
+   
    <select id="getQnaWithPaging" resultType="BoardVO">
       <![CDATA[
 	SELECT * FROM (
