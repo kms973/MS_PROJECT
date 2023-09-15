@@ -34,43 +34,57 @@
 						</tr>
 					</thead>
 					<tbody>
- 		<c:forEach var="boardList" items="${boardList}">
+ 		<c:forEach var="boardList_Notice" items="${boardList_Notice}">
 			         <tr>
-			           <td class="no-no table-no">${boardList.rnum}</td>
-			           <td class="no-tit table-tit"><a href="content_view?bid=${boardList.bid}">${boardList.btitle}</a></td>
-			           <td class="no-write table-write">${boardList.bname}</td>
-			           <td class="no-date table-date"><fmt:formatDate value="${boardList.bdate}" pattern="yyyy-MM-dd" /></td>
+			           <td class="no-no table-no">${boardList_Notice.rnum}</td>
+			           <td class="no-tit table-tit"><a href="content_view?bid=${boardList_Notice.bid}">${boardList_Notice.btitle}</a></td>
+			           <td class="no-write table-write">${boardList_Notice.bname}</td>
+			           <td class="no-date table-date"><fmt:formatDate value="${boardList_Notice.bdate}" pattern="yyyy-MM-dd" /></td>
 			           <sec:authorize access="hasRole('ROLE_ADMIN')">
 			              <td class="option">
-			              	<a class="btn btn-sm btn-primary px-2" href="modify?bid=${boardList.bid}"><i class="fas fa-edit">상품수정</i></a>
-			            	<a class="btn btn-sm btn-danger px-2" href="delete?bid=${boardList.bid}"><i class="fas fa-trash">삭제</i></a>
+			              	<a class="btn btn-sm btn-primary px-2" href="modify?bid=${boardList_Notice.bid}"><i class="fas fa-edit">상품수정</i></a>
+			            	<a class="btn btn-sm btn-danger px-2" href="delete?bid=${boardList_Notice.bid}"><i class="fas fa-trash">삭제</i></a>
 			              </td>
 			           </sec:authorize>
 			           </tr>
 		             </c:forEach>
 					</tbody>
 				</table>
-				<div aria-label="Page navigation example">
-				  <ul class="pagination justify-content-end">
+				
+				<c:if test="${pageMaker.prev}">
+			    <a href="community${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
+			   </c:if>
+			   
+			   <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
+			   <a href="community${pageMaker.makeQuery(idx)}">${idx}</a>
+			   </c:forEach>
+			   
+			   <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+			   <a href="community${pageMaker.makeQuery(pageMaker.endPage +1) }"> » </a>
+			   </c:if>  
+				
+				
+				<div aria-label="Page navigation example"></div>
+				  <ul class="pagination justify-content-end"></ul>
 				    <li class="page-item">
 				      <c:if test="${pageMaker.prev}">
 					      <a href="board${pageMaker.makeQuery(pageMaker.startPage - 1) }" class="page-link" href="#" tabindex="-1" aria-disabled="true">«</a>
 					  </c:if>
 				    </li>
-				    <li class="page-item">
+<%-- 				    <li class="page-item">
 					<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
-			      	<%-- <c:out value="${pageMaker.cri.page == idx?'':''}" /> --%>
+			      	<c:out value="${pageMaker.cri.page == idx?'':''}" />
 			      	<a href="board${pageMaker.makeQuery(idx)}" class="page-link">${idx}</a>
 			   		</c:forEach>
 			   		</li>
 				    <li class="page-item">
 				      <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 						<a href="board${pageMaker.makeQuery(pageMaker.endPage +1) }"> » </a>
-					   </c:if>
-				    </li>
+					   </c:if> --%>
+<!-- 				    </li>
 				  </ul>
 				</div>
-		      </li>
+		      </li> -->
 		      <li id="content-2">
 		      	<div class="accordion" id="faqAccordion">
 			        <!-- FAQ 아이템 1 -->
@@ -157,6 +171,20 @@
 
 					</tbody>
 				</table>
+				
+							<c:if test="${pageMaker.prev}">
+      <a href="community${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
+   </c:if>
+   
+   <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
+      <a href="community${pageMaker.makeQuery(idx)}">${idx}</a>
+   </c:forEach>
+   
+   <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+            <a href="community${pageMaker.makeQuery(pageMaker.endPage +1) }"> » </a>
+   </c:if>  
+				
+				
 				<sec:authorize access="isAuthenticated()">
                 <div class="d-flex justify-content-end px-0">
                   	<a href="write_view" class="btn btn-primary ">글쓰기</a>
@@ -193,6 +221,19 @@
 						</c:forEach>
 					</tbody>
 				</table>
+				
+			<c:if test="${pageMaker.prev}">
+      <a href="community${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
+   </c:if>
+   
+   <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
+      <a href="community${pageMaker.makeQuery(idx)}">${idx}</a>
+   </c:forEach>
+   
+   <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+            <a href="community${pageMaker.makeQuery(pageMaker.endPage +1) }"> » </a>
+   </c:if>  
+				
 				<sec:authorize access="isAuthenticated()">
                 <div class="d-flex justify-content-end px-0">
                   	<a href="write_view" class="btn btn-primary ">글쓰기</a>

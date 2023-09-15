@@ -202,11 +202,11 @@
 		</dependency>
 
 		<!-- Kakao API Client -->
-		<dependency>
+<!-- 		<dependency>
 			<groupId>com.kakao.sdk</groupId>
 			<artifactId>kakao-sdk</artifactId>
 			<version>1.37.2</version>
-		</dependency>
+		</dependency> -->
 	</dependencies>
 	<!-- Maven 빌드 설정 -->
 	<build>

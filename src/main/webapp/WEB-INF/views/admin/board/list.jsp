@@ -76,7 +76,20 @@
 		          	</c:forEach>
        				</tbody>
    		  		</table>
-
+   		  		
+   		  <c:if test="${pageMaker.prev}">
+      <a href="board${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
+   </c:if>
+   
+   <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
+      <a href="board${pageMaker.makeQuery(idx)}">${idx}</a>
+   </c:forEach>
+   
+   <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+            <a href="board${pageMaker.makeQuery(pageMaker.endPage +1) }"> » </a>
+   </c:if> 
+   
+   
 			   <div aria-label="Page navigation example">
 				  <ul class="pagination justify-content-end">
 				    <li class="page-item">
@@ -84,7 +97,7 @@
 					      <a href="board${pageMaker.makeQuery(pageMaker.startPage - 1) }" class="page-link" href="#" tabindex="-1" aria-disabled="true">«</a>
 					  </c:if>
 				    </li>
-				    <li class="page-item">
+<%-- 				    <li class="page-item">
 					<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
 			      	 <c:out value="${pageMaker.cri.page == idx?'':''}" /> 
 			      	<a href="board${pageMaker.makeQuery(idx)}" class="page-link">${idx}</a>
@@ -93,7 +106,7 @@
 				    <li class="page-item">
 				      <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 						<a href="board${pageMaker.makeQuery(pageMaker.endPage +1) }"> » </a>
-					   </c:if>
+					   </c:if> --%>
 				    </li>
 				  </ul>
 				</div>
