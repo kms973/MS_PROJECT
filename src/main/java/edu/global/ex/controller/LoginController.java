@@ -147,13 +147,10 @@ public class LoginController {
 	public String idSearch(MsUserVO user, Model model) {
 
 		List<MsUserVO> userList = userMapper.getUsers();
-		List<String> usernameList = new ArrayList<String>();
-		for (MsUserVO userInfo : userList) {
-			usernameList.add("\"" + userInfo.getUsername() + "\"");
-		}
-		model.addAttribute("usernameList", usernameList);
 
-		return "/login/idSearch";
+		model.addAttribute("userList", userList);
+
+		return "/login/idsearch";
 	}
 
 }

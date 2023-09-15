@@ -14,6 +14,8 @@
 		<result property="stock" column="stock_quantity" />
 		<result property="options" column="options" />
 		<result property="img" column="product_img" />
+		<result property="phone1" column="phone1"/>
+		<result property="phone2" column="phone2"/>
 	</resultMap>
 
 	<select id="getList" resultMap="shopProductMap">

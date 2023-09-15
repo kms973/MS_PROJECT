@@ -39,6 +39,8 @@ public class MsUserVO {
 	private String caddress4;
 	private String caddress5;
 	private int cgrade;
+	private int phone1;
+	private int phone2;
 	
 	private List<MsAuthVO> authList;
 	

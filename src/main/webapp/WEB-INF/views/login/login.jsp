@@ -44,7 +44,7 @@
                 <span class="input-wrap"><input type="checkbox" id="checkId" name="checkId" class="form-check-input" value="remember-me" style="position:relative; top: -2px;"><label for="checkId"></label>아이디 저장</span>
                 <ul class="find d-flex align-items-center mb-0" style="list-style-type: none; padding-left: 0;">
                     <!-- 아이디 찾기, 비밀번호 찾기 및 회원가입 링크 -->
-                    <li class="idSearch mr-4" id="idSearch" style="cursor: pointer">아이디 찾기</li>
+                    <li class="idSearch mr-4" id="idSearch" style="cursor: pointer"><a href="/login/idsearch">아이디 찾기</a></li>
                     <li class="pwSearch mr-4" id="pwSearch" style="cursor: pointer">비밀번호 찾기</li>
                     <li class="signUp" id="signUp" style="cursor: pointer"><a href="/login/signup">회원가입</a></li>
                 </ul>

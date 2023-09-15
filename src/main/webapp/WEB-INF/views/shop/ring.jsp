@@ -54,7 +54,7 @@
 				<div class="py-3 d-flex align-content-center justify-content-between px-0" style="border-color: #fff;">
 					<div class="text-right ps-1"><h5 class="mb-0"><strong>총 상품금액</strong></h5></div>
 					<div class="text-right pe-1">
-						<div id="totalPrice"><h5 class="mb-0"><strong>₩ ${spVO.price }</strong></h5></div>
+						<div id="totalPrice"><h5 class="mb-0"><strong>₩ 0</strong></h5></div>
 					</div>
 				</div>
 				<div class="d-flex justify-content-center align-items-center mt-4 px-0">

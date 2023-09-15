@@ -76,14 +76,14 @@ table.signUp-table {
 			    </div>
 			    <div class="col-md-5">
 			        <div class="form-floating my-2">
-			            <input name="cphone1" type="text" class="form-control" id="cphone1" placeholder="phone" required>
+			            <input name="phone1" type="text" class="form-control" id="cphone1" placeholder="phone" required>
 			            <label for="cphone1">전화번호</label>
 			            <div class="invalid-feedback">전화번호를 입력해주세요.</div>
 			        </div>
 			    </div>
 			    <div class="col-md-5">
 			        <div class="form-floating my-2">
-			            <input name="cphone2" type="text" class="form-control" id="cphone2" placeholder="phone" required>
+			            <input name="phone2" type="text" class="form-control" id="cphone2" placeholder="phone" required>
 			            <label for="cphone2">전화번호</label>
 			            <div class="invalid-feedback">전화번호를 입력해주세요.</div>
 			        </div>
