@@ -69,8 +69,10 @@
 			           		<div class="d-flex justify-content-center align-items-center w-100 h-100 p-0 m-0">전체 주문 수량 / 결제금액의 합계</div>
 			           	</td>
 			           	<td class="table-wr text-center">
-			           		<div class="d-flex justify-content-center align-items-center w-100 h-100 p-0 m-0" id="userGrade">${ms_users.cgrade}</div>
-			           	</td>
+			 						<div class="d-flex justify-content-center align-items-center w-100 h-100 p-0 m-0">
+						  ${ms_users.cgrade eq 0 ? "일반회원" : ms_users.cgrade eq 1 ? "VIP" : "관리자"}
+						</div>
+						</td>
 	
 						<td class="table-op" style="width: 10% !important;">
 		         			<a class="btn btn-sm btn-primary" href="#!"><i class="fas fa-edit"></i></a>
