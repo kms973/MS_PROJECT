@@ -17,6 +17,8 @@ h1,h2,h3,h4,h5,h6 { margin:0 !important; padding:0;}
 .w-80 { width: 80% !important; }
 .w-85 { width: 85% !important; }
 
+.fz-bold { font-weight: bold; }
+
 /* header */
 header#header { width: 100%; background: #fff; border-bottom: 1px solid #ccc; }
 header#header .logo { margin-right: 20px; }

@@ -64,8 +64,8 @@
 			       <tbody>
 			       <c:forEach var="boardList" items="${boardList}">
 			       	 <tr class="data_item" data-type="${boardList.selecter}">
-			           <td class="table-no text-center">${boardList.rnum}</td>			         
-			           <td class="table-tit w-50 text-center"><a href="/content_view?bid=${boardList.bid}" class="h-inheirt">${boardList.btitle}</a></td>
+			           <td class="table-no text-center">${boardList.bid}</td>			         
+			           <td class="table-tit w-50 text-center"><a href="content_view?bid=${boardList.bid}" class="h-inheirt">${boardList.btitle}</a></td>
 			           <td class="table-wr text-center">${boardList.bname}</td>
 			           <td class="table-date text-center">${boardList.bdate}</td>
 			           <td class="table-op text-center" style="width: 5% !important;">
@@ -86,7 +86,7 @@
 				    </li>
 				    <li class="page-item">
 					<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
-			      	<%-- <c:out value="${pageMaker.cri.page == idx?'':''}" /> --%>
+			      	 <c:out value="${pageMaker.cri.page == idx?'':''}" /> 
 			      	<a href="board${pageMaker.makeQuery(idx)}" class="page-link">${idx}</a>
 			   		</c:forEach>
 			   		</li>

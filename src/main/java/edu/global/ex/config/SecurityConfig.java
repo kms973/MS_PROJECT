@@ -34,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		// web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
-		web.ignoring().antMatchers("/css/**", "/js/**", "/images/**", "/lib/**","/fonts/**","/admin/**");
+		web.ignoring().antMatchers("/css/**", "/js/**", "/images/**", "/lib/**","/fonts/**","/admin/**"); // "/admin/**/"지워야 admin페이지로그인할수있습니다.
 	}
 
 	@Override
@@ -52,9 +52,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().disable();
 		
 
-		// 시큐리티란? = 인증과 권한
-		http.authorizeRequests().antMatchers("/user/**").hasAnyRole("USER").antMatchers("/admin/**").hasAnyRole("ADMIN")
-				.antMatchers("/**").permitAll();
+		http.authorizeRequests()
+	    .antMatchers("/user/**").hasAnyRole("USER")
+	    .antMatchers("/admin/**").hasAnyRole("ADMIN")
+	    .antMatchers("/**").permitAll();
+
 
 		http.formLogin()
 			.loginPage("/login")
@@ -74,9 +76,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			}
 
 		});// loginPage()는 말 그대로 로그인 할 페이지 url
-		http.logout().logoutSuccessUrl("/login/login");
+		http.logout().logoutSuccessUrl("/login");
 			
 			
-//				.permitAll(); // 모든 유저가 로그인 화면은 볼 수 있다.
+
 	}
 }

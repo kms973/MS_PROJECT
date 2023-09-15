@@ -11,6 +11,7 @@
 		<result property="password" column="password" />
 		<result property="enabled" column="enabled" />
 		<result property="cname" column="cname" />
+		<result property="cgrade" column="cgrade" />
 		<collection property="authList" resultMap="authMap"></collection>
 	</resultMap>
 

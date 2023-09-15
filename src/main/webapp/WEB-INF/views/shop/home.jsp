@@ -33,7 +33,7 @@
    		<div class="items row mt-n5">
    		<c:forEach var="shop" items="${ShopProductList}">
             <div class="data_item col-md-6 col-lg-4 mt-5 wow fadeInUp" data-type="${shop.productCategory}" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-				<a href="/shop/${shop.productCategory }/${shop.productCode}" class="text-center">
+				<a href="/shop/${shop.productCategory}/${shop.productCode}" class="text-center">
                		<div class="blog-grid">
                    		<div class="blog-grid-img position-relative"><img alt="img" src="/img/${shop.img }"></div>
                    		<div class="blog-grid-text p-3">

@@ -27,9 +27,9 @@
             </thead>
             <tbody class="w-100">
                 <tr class="product1 w-100 m-0 d-flex align-items-center justify-content-between" id="product1">
-                    <td class="d-flex align-items-center justify-content-center w-100 px-2 py-2">
+                    <td class="d-flex align-items-center justify-content-center w-100 px-3 py-2">
                         <div class="product-img d-flex">
-                            <img src="/img/2.jpg" class="img-fluid me-3" width="18%" alt="제품 이미지">
+                            <img src="/img/2.jpg" class="img-fluid me-3" width="15%" alt="제품 이미지">
                             <div class="pname row align-items-center w-80">
                                 <p class="m-0">상품명</p>
                                 <p class="m-0">주문번호</p>

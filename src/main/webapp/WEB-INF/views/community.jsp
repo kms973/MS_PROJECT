@@ -42,7 +42,7 @@
 			           <td class="no-date table-date"><fmt:formatDate value="${boardList.bdate}" pattern="yyyy-MM-dd" /></td>
 			           <sec:authorize access="hasRole('ROLE_ADMIN')">
 			              <td class="option">
-			              	<a class="btn btn-sm btn-primary px-2" href="write_modify?bid=${boardList.bid}"><i class="fas fa-edit">상품수정</i></a>
+			              	<a class="btn btn-sm btn-primary px-2" href="modify?bid=${boardList.bid}"><i class="fas fa-edit">상품수정</i></a>
 			            	<a class="btn btn-sm btn-danger px-2" href="delete?bid=${boardList.bid}"><i class="fas fa-trash">삭제</i></a>
 			              </td>
 			           </sec:authorize>

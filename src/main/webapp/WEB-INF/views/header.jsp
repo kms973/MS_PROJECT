@@ -44,7 +44,7 @@
 	        <h1 class="logo me-2"><a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">MS</a></h1>
 	
 	        <ul class="nav col-12 col-lg-auto me-lg-auto mt-1 justify-content-center mb-md-0 ms-10">
-	          <li><a href="/shop" class="nav-link px-2 text-black">Shop</a></li>
+	          <li><a href="/shop/" class="nav-link px-2 text-black">Shop</a></li>
               <li><a href="/community" class="nav-link px-2 text-black">Community</a></li>
 	        </ul>
 	
@@ -56,7 +56,9 @@
 		        <div class="dropdown text-end">
 				  <a class="d-block link-dark" id="dropdownMenu1" data-mdb-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
 				  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+				  	<sec:authorize access="isAuthenticated()">
 				    <li><a id="myPageLink" class="dropdown-item" href="/login/userprofile">마이페이지</a></li>
+				    </sec:authorize>
 				    <sec:authorize access="hasRole('ROLE_ADMIN')">
    						<!-- admin 로그인일 경우 -->
 						<li><a class="dropdown-item" href="/admin">관리자페이지</a></li>
