@@ -30,7 +30,7 @@
 	</div>
 	
    	<div class="items container wrap mt-5">
-   		<div class="items row mt-n5">
+   		<div class="items row mt-n5 shop-pro-list">
    		<c:forEach var="shop" items="${ShopProductList}">
             <div class="data_item col-md-6 col-lg-4 mt-5 wow fadeInUp" data-type="${shop.productCategory}" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
 				<a href="/shop/${shop.productCategory}/${shop.productCode}" class="text-center">
@@ -38,7 +38,7 @@
                    		<div class="blog-grid-img position-relative"><img alt="img" src="/img/${shop.img }"></div>
                    		<div class="blog-grid-text p-3">
                        		<h3 class="h5 mb-3">${shop.productName}</h3>
-                       		<p class="display-30">\ ${shop.price}</p>
+                       		<p class="display-30">₩ ${shop.price}</p>
                			</div>
        				</div>
 				</a>

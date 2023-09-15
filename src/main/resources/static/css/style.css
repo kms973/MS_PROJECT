@@ -103,6 +103,18 @@ button {float: right; margin-right: 5px;}
 .blog-grid-simple-content a:hover { color: #1d184a; }
 .blog-grid-simple-content a:hover:after { color: #1d184a; }
 
+.blog-grid .blog-grid-img {
+  overflow: hidden; /* 자손이 현재 요소보다 클때 안보이게 처리 */
+}
+
+/* CSS변화가 있을때 시간차를 줌 */
+.blog-grid .blog-grid-img img{ transition: 0.3s; }
+.blog-grid .blog-grid-img:hover img, .blog-grid .blog-grid-img:focus img{ /* a태그에 마우스를 올렸을 때 */
+  transform: scale(1.1);
+}
+
+
+
 a, a:active, a:focus {
     color: #575a7b;
     text-decoration: none;

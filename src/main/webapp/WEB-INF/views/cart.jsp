@@ -8,14 +8,14 @@
 	<div id="sub-bnr"><h5>Cart</h5></div>
 	
 	<div class="row mt-1 justify-content-between hello">
-		<div class="col-8 left px-0">
-			<table class="table" >
+		<div class="col-8 left pe-0">
+			<table class="table">
 			  <thead>
 			    <tr>    
 			      <th scope="col">	
 			      <input type="hidden" name="cmd" value="order">  
 				      <div class="form-check col-1"><input class="form-check-input mt-1" type="checkbox" id="checkAll" onclick="toggleCheckAll()"></div>
-			      </th>     
+			      </th>
 			      <th scope="col" class="col-3"><strong>상품명</strong></th>
 			      <th scope="col" class="col-2"><div class="mx-2"><strong>수량</strong></div></th>
 			      <th scope="col" class="col-2"><strong>판매가</strong></th>
