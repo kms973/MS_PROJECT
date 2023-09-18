@@ -71,7 +71,8 @@ public class ProductController {
         public String handleFileUpload(@RequestParam("product_img") MultipartFile file,
                 RedirectAttributes redirectAttributes) {
             if (file.isEmpty()) {
-                redirectAttributes.addFlashAttribute("message", "Please select a file to upload.");
+
+                redirectAttributes.addFlashAttribute("message", "업로드할 파일을 선택해 주세요.");
                 return "redirect:/admin/product/new"; // 이미지를 선택하지 않았을 때 처리할 로직
             }
 
@@ -92,7 +93,7 @@ public class ProductController {
 
             } catch (IOException e) {
                 e.printStackTrace();
-                redirectAttributes.addFlashAttribute("message", "Failed to upload file.");
+                redirectAttributes.addFlashAttribute("message", "파일 업로드에 실패하였습니다.");
             }
 
             return "redirect:/admin/product/new";
