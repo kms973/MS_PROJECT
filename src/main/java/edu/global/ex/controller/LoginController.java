@@ -13,6 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.google.gson.Gson;
+
 import edu.global.ex.mapper.MsUserMapper;
 import edu.global.ex.vo.MsUserVO;
 import lombok.extern.slf4j.Slf4j;
@@ -136,21 +138,30 @@ public class LoginController {
 		return "/myPage/myPage";
 	}
 
-	@GetMapping("/login/google-callback")
-	public String googleCallback() {
-		log.info("google-callback");
-		return "/login/google-callback";
-	}
+//	@GetMapping("/login/google-callback")
+//	public String googleCallback() {
+//		log.info("google-callback");
+//		return "/login/google-callback";
+//	}
 
 	// 아이디 찾기
+//	@GetMapping("/login/idsearch")
+//	public String idSearch(MsUserVO user, Model model) {
+//
+//		List<MsUserVO> userList = userMapper.getUsers();
+//
+//		model.addAttribute("userList", userList);
+//
+//		return "/login/idsearch";
+//	}
+	
 	@GetMapping("/login/idsearch")
-	public String idSearch(MsUserVO user, Model model) {
-
-		List<MsUserVO> userList = userMapper.getUsers();
-
-		model.addAttribute("userList", userList);
-
-		return "/login/idsearch";
+	public String idSearch(Model model) {
+	    List<MsUserVO> userList = userMapper.getUsers();
+	    Gson gson = new Gson();
+	    String userListJson = gson.toJson(userList);
+	    model.addAttribute("userListJson", userListJson);
+	    return "/login/idsearch";
 	}
 
 }
