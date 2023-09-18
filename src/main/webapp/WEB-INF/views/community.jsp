@@ -51,26 +51,30 @@
 					</tbody>
 				</table>
 				
-				<c:if test="${pageMaker.prev}">
-			    <a href="community${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
-			   </c:if>
+				
+
+
+				<c:if test='${pageMaker.startPage < 1 }'>disabled</c:if>
+				<a href="community${pageMaker.makeQuery(1) }"> « </a>
 			   
 			   <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
 			   <a href="community${pageMaker.makeQuery(idx)}">${idx}</a>
 			   </c:forEach>
 			   
-			   <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-			   <a href="community${pageMaker.makeQuery(pageMaker.endPage +1) }"> » </a>
-			   </c:if>  
+			<c:if test='${pageMaker.next }'>			</c:if>
+			  <a href="community${pageMaker.makeQuery(pageMaker.endPage) }"> » </a>
+
+
+
 				
-				
-				<div aria-label="Page navigation example"></div>
+<%-- 				<div aria-label="Page navigation example"></div>
 				  <ul class="pagination justify-content-end"></ul>
 				    <li class="page-item">
 				      <c:if test="${pageMaker.prev}">
-					      <a href="board${pageMaker.makeQuery(pageMaker.startPage - 1) }" class="page-link" href="#" tabindex="-1" aria-disabled="true">«</a>
+					      <a href="community${pageMaker.makeQuery(pageMaker.startPage - 1) }" class="page-link" href="#" tabindex="-1" aria-disabled="true">«</a>
 					  </c:if>
-				    </li>
+				    </li> --%>
+				    
 <%-- 				    <li class="page-item">
 					<c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
 			      	<c:out value="${pageMaker.cri.page == idx?'':''}" />

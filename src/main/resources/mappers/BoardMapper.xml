@@ -70,7 +70,13 @@
     
        <select id="getTotalCount" resultType="int">
       <![CDATA[
-          select count(*) from ms_board
+          select count(*) from ms_board order by bid asc
+      ]]>
+   </select>
+   
+          <select id="getTotalNoticeCount" resultType="int">
+      <![CDATA[
+          select count(*) from ms_board where selecter = 1
       ]]>
    </select>
    
