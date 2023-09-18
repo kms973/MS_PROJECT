@@ -41,7 +41,7 @@ END;
 		#{username} ]]>  
 	</select>
 
-	<select id="getUsers" resultMap="userMap">
+	<select id="getUsers" resultType="MsUserVO">
 		<![CDATA[ select * from ms_users ]]>  
 	</select>
 	
