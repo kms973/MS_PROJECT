@@ -494,69 +494,6 @@
 		<!-- adm_footer 부분  -->
 		<jsp:include page="../adm_footer.jsp"></jsp:include>
 </body>
-    <!-- Sumbit 버튼 누르면 데이터베이스로 쿼리 전송하는 메소드 -->
-    <%
-	import java.sql.Connection;
-	import java.sql.PreparedStatement;
-	import java.sql.SQLException;
-
-    Connection conn = null;
-    PreparedStatement preparedStatement = null;
-
-    try {
-        // 데이터베이스 연결 정보 설정
-        String url = "jdbc:oracle:thin:@localhost:1521/xe";
-        String user = "scott";
-        String password = "tiger";
-
-        // 데이터베이스 연결
-        Class.forName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
-        conn = DriverManager.getConnection(url, user, password);
-
-        // HTTP 요청 메서드가 POST인지 확인
-        if (request.getMethod().equalsIgnoreCase("POST")) {
-            // 폼에서 전송된 데이터 받아오기
-            String productCategory = request.getParameter("product_category");
-            String productCode = request.getParameter("product_code");
-            String productName = request.getParameter("product_name");
-            String price = request.getParameter("price");
-            int stockQuantity = Integer.parseInt(request.getParameter("stock_quantity"));
-            String options = request.getParameter("options");
-            String productImg = request.getParameter("product_img");
-
-            // SQL 쿼리 작성 (상품 정보 테이블에 데이터 삽입)
-            String insertQuery = "INSERT INTO ms_product (product_code, product_category, product_name, price, stock_quantity, options, product_img) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            
-            // PreparedStatement 생성
-            preparedStatement = conn.prepareStatement(insertQuery);
-            preparedStatement.setString(1, productCode);
-            preparedStatement.setString(2, productCategory);
-            preparedStatement.setString(3, productName);
-            preparedStatement.setString(4, price);
-            preparedStatement.setInt(5, stockQuantity);
-            preparedStatement.setString(6, options);
-            preparedStatement.setString(7, productImg);
-
-            // SQL 실행
-            preparedStatement.executeUpdate();
-        }
-    } catch (Exception e) {
-        e.printStackTrace();
-    } finally {
-        try {
-            // 리소스 정리
-            if (preparedStatement != null) {
-                preparedStatement.close();
-            }
-            if (conn != null) {
-                conn.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-%>
-
 <script>
 //텍스트 편집기
 	$('#summernote')
