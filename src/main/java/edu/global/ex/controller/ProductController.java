@@ -89,7 +89,7 @@ public class ProductController {
                 Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
 
                 // 파일 저장에 성공한 경우, 파일명을 리다이렉트로 넘겨줄 수 있음
-                redirectAttributes.addFlashAttribute("message", "File " + uniqueFileName + " uploaded successfully!");
+                redirectAttributes.addFlashAttribute("message", "파일 " + uniqueFileName + " 업로드에 성공하였습니다.");
 
             } catch (IOException e) {
                 e.printStackTrace();
