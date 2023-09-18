@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page import="java.sql.Connection, java.sql.PreparedStatement, java.sql.DriverManager, java.sql.SQLException" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -494,6 +496,10 @@
 </body>
     <!-- Sumbit 버튼 누르면 데이터베이스로 쿼리 전송하는 메소드 -->
     <%
+	import java.sql.Connection;
+	import java.sql.PreparedStatement;
+	import java.sql.SQLException;
+
     Connection conn = null;
     PreparedStatement preparedStatement = null;
 
