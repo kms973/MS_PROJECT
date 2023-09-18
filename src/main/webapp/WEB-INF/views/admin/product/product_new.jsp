@@ -391,7 +391,7 @@
 									class="bg-info bg-opacity-25 text-primary text-opacity-75">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;상품이미지</th>
 							</tr>
 						</thead>
-						<!--상품사진-->
+						<!-- 상품 사진 업로드 하는 폼 -->
 						<tbody>
 							<tr>
 								<td>
@@ -421,16 +421,12 @@
 											<div class="table-responsive">
 												<table class="table table-bordered">
 													<tr>
-														<td class="col-3 text-center align-middle"><strong>상품사진
-																2</strong></td>
-														<td><img src="/img/1.jpg" class="img-fluid"
-															width="130" height="150"></img></td>
+														<td class="col-3 text-center align-middle"><strong>상품사진 2</strong></td>
+														<td><img src="/img/1.jpg" class="img-fluid" width="130" height="150" id="previewImage2"></img></td>
 														<td class="align-middle">
 															<div class="input-group input-group-sm align-middle">
-																<input class="form-control" type="file"
-																	id="inputGroupFile02" 
-																	id="product_img" type="file" name="product_img"
-					value="${product.product_img}">
+																<input class="form-control" type="file" id="product_img2" name="product_img"
+																	onchange="previewImage(this, 'previewImage2')">
 															</div>
 														</td>
 
@@ -447,13 +443,11 @@
 													<tr>
 														<td class="col-3 text-center align-middle"><strong>상품사진
 																3</strong></td>
-														<td><img src="/img/1.jpg" class="img-fluid"
-															width="130" height="150"></img></td>
+														<td><img src="/img/1.jpg" class="img-fluid" width="130" height="150" id="previewImage3"></img></td>
 														<td class="align-middle">
 															<div class="input-group input-group-sm align-middle">
-																<input class="form-control" type="file"
-																	id="inputGroupFile02" id="product_img" type="file" name="product_img"
-																value="${product.product_img}">
+																<input class="form-control" type="file" id="product_img3" name="product_img"
+																	onchange="previewImage(this, 'previewImage3')">
 															</div>
 														</td>
 													</tr>
@@ -466,13 +460,11 @@
 													<tr>
 														<td class="col-3 text-center align-middle"><strong>상품사진
 																4</strong></td>
-														<td><img src="/img/1.jpg" class="img-fluid"
-															width="130" height="150"></img></td>
+														<td><img src="/img/1.jpg" class="img-fluid" width="130" height="150" id="previewImage4"></img></td>
 														<td class="align-middle">
 															<div class="input-group input-group-sm align-middle">
-																<input class="form-control" type="file"
-																	id="inputGroupFile02" id="product_img" type="file" name="product_img"
-																value="${product.product_img}">
+																<input class="form-control" type="file" id="product_img4" name="product_img"
+																	onchange="previewImage(this, 'previewImage4')">
 															</div>
 														</td>
 													</tr>
@@ -530,7 +522,7 @@
 								'18', '20', '22', '24', '28', '30', '36', '50',
 								'72' ]
 					});
-
+					//상품 이미지 등록하면 썸네일 나오는 메소드 "previewImage"
 					function previewImage(input, imgId) {
 						const file = input.files[0];
 						if (file) {
