@@ -494,66 +494,63 @@
 </body>
     <!-- Sumbit 버튼 누르면 데이터베이스로 쿼리 전송하는 메소드 -->
     <%
-        Connection conn = null;
+    Connection conn = null;
+    PreparedStatement preparedStatement = null;
+
+    try {
+        // 데이터베이스 연결 정보 설정
         String url = "jdbc:oracle:thin:@localhost:1521/xe";
         String user = "scott";
         String password = "tiger";
 
-        try {
-            Class.forName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
-            conn = DriverManager.getConnection(url, user, password);
+        // 데이터베이스 연결
+        Class.forName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
+        conn = DriverManager.getConnection(url, user, password);
 
-            if (request.getMethod().equalsIgnoreCase("POST")) {
-                String productCategory = request.getParameter("product_category");
-                String productCode = request.getParameter("product_code");
-                String productName = request.getParameter("product_name");
-                String manufacturer = request.getParameter("manufacturer");
-                String origin = request.getParameter("origin");
-                String productDescription = request.getParameter("product_description");
-                String material = request.getParameter("material");
-                String purity = request.getParameter("purity");
-                String weight = request.getParameter("weight");
-                String dimensions = request.getParameter("dimensions");
-                String manufacturerInfo = request.getParameter("manufacturer_info");
-                String country = request.getParameter("country");
-                String asInfo = request.getParameter("as_info");
-                String price = request.getParameter("price");
-                int stockQuantity = Integer.parseInt(request.getParameter("stock_quantity"));
+        // HTTP 요청 메서드가 POST인지 확인
+        if (request.getMethod().equalsIgnoreCase("POST")) {
+            // 폼에서 전송된 데이터 받아오기
+            String productCategory = request.getParameter("product_category");
+            String productCode = request.getParameter("product_code");
+            String productName = request.getParameter("product_name");
+            String price = request.getParameter("price");
+            int stockQuantity = Integer.parseInt(request.getParameter("stock_quantity"));
+            String options = request.getParameter("options");
+            String productImg = request.getParameter("product_img");
 
-                // SQL 쿼리 작성
-                String insertQuery = "INSERT INTO products (product_category, product_code, product_name, manufacturer, origin, product_description, material, purity, weight, dimensions, manufacturer_info, country, as_info, price, stock_quantity) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-                
-                PreparedStatement preparedStatement = conn.prepareStatement(insertQuery);
-                preparedStatement.setString(1, productCategory);
-                preparedStatement.setString(2, productCode);
-                preparedStatement.setString(3, productName);
-                preparedStatement.setString(4, manufacturer);
-                preparedStatement.setString(5, origin);
-                preparedStatement.setString(6, productDescription);
-                preparedStatement.setString(7, material);
-                preparedStatement.setString(8, purity);
-                preparedStatement.setString(9, weight);
-                preparedStatement.setString(10, dimensions);
-                preparedStatement.setString(11, manufacturerInfo);
-                preparedStatement.setString(12, country);
-                preparedStatement.setString(13, asInfo);
-                preparedStatement.setString(14, price);
-                preparedStatement.setInt(15, stockQuantity);
+            // SQL 쿼리 작성 (상품 정보 테이블에 데이터 삽입)
+            String insertQuery = "INSERT INTO ms_product (product_code, product_category, product_name, price, stock_quantity, options, product_img) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            
+            // PreparedStatement 생성
+            preparedStatement = conn.prepareStatement(insertQuery);
+            preparedStatement.setString(1, productCode);
+            preparedStatement.setString(2, productCategory);
+            preparedStatement.setString(3, productName);
+            preparedStatement.setString(4, price);
+            preparedStatement.setInt(5, stockQuantity);
+            preparedStatement.setString(6, options);
+            preparedStatement.setString(7, productImg);
 
-                preparedStatement.executeUpdate();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            // SQL 실행
+            preparedStatement.executeUpdate();
         }
-    %>
+    } catch (Exception e) {
+        e.printStackTrace();
+    } finally {
+        try {
+            // 리소스 정리
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+%>
+
 <script>
 //텍스트 편집기
 	$('#summernote')
