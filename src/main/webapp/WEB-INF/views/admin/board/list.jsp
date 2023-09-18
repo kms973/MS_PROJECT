@@ -77,17 +77,15 @@
        				</tbody>
    		  		</table>
    		  		
-   		  <c:if test="${pageMaker.prev}">
-      <a href="board${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
-   </c:if>
-   
-   <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
-      <a href="board${pageMaker.makeQuery(idx)}">${idx}</a>
-   </c:forEach>
-   
-   <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-            <a href="board${pageMaker.makeQuery(pageMaker.endPage +1) }"> » </a>
-   </c:if> 
+				<c:if test='${pageMaker.startPage < 1 }'>disabled</c:if>
+				<a href="board${pageMaker.makeQuery(1) }"> « </a>
+			   
+			   <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
+			   <a href="board${pageMaker.makeQuery(idx)}">${idx}</a>
+			   </c:forEach>
+			   
+			<c:if test='${pageMaker.next }'>			</c:if>
+			  <a href="board${pageMaker.makeQuery(pageMaker.endPage) }"> » </a>
    
    
 			   <div aria-label="Page navigation example">

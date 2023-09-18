@@ -26,6 +26,7 @@ public interface BoardMapper {
 	
 	//paging관련
 	int getTotalCount();
+	int getTotalNoticeCount();	
 	List<BoardVO> getListWithPaging(Criteria cri);
 	List<BoardVO> getNoticeWithPaging(Criteria cri);
 	List<BoardVO> getQnaWithPaging(Criteria cri);

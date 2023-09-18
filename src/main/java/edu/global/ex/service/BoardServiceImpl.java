@@ -105,6 +105,12 @@ public class BoardServiceImpl implements BoardService {
 		
 		return boardMapper.getTotalCount();
 	}
+	
+	@Override
+	public int getTotalNotice() {
+		
+		return boardMapper.getTotalNoticeCount();
+	}
 
 	@Override
 	public List<BoardVO> getQnaWithPaging(Criteria cri) {
