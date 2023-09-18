@@ -492,6 +492,68 @@
 		<!-- adm_footer 부분  -->
 		<jsp:include page="../adm_footer.jsp"></jsp:include>
 </body>
+    <!-- Sumbit 버튼 누르면 데이터베이스로 쿼리 전송하는 메소드 -->
+    <%
+        Connection conn = null;
+        String url = "jdbc:oracle:thin:@localhost:1521/xe";
+        String user = "scott";
+        String password = "tiger";
+
+        try {
+            Class.forName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
+            conn = DriverManager.getConnection(url, user, password);
+
+            if (request.getMethod().equalsIgnoreCase("POST")) {
+                String productCategory = request.getParameter("product_category");
+                String productCode = request.getParameter("product_code");
+                String productName = request.getParameter("product_name");
+                String manufacturer = request.getParameter("manufacturer");
+                String origin = request.getParameter("origin");
+                String productDescription = request.getParameter("product_description");
+                String material = request.getParameter("material");
+                String purity = request.getParameter("purity");
+                String weight = request.getParameter("weight");
+                String dimensions = request.getParameter("dimensions");
+                String manufacturerInfo = request.getParameter("manufacturer_info");
+                String country = request.getParameter("country");
+                String asInfo = request.getParameter("as_info");
+                String price = request.getParameter("price");
+                int stockQuantity = Integer.parseInt(request.getParameter("stock_quantity"));
+
+                // SQL 쿼리 작성
+                String insertQuery = "INSERT INTO products (product_category, product_code, product_name, manufacturer, origin, product_description, material, purity, weight, dimensions, manufacturer_info, country, as_info, price, stock_quantity) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                
+                PreparedStatement preparedStatement = conn.prepareStatement(insertQuery);
+                preparedStatement.setString(1, productCategory);
+                preparedStatement.setString(2, productCode);
+                preparedStatement.setString(3, productName);
+                preparedStatement.setString(4, manufacturer);
+                preparedStatement.setString(5, origin);
+                preparedStatement.setString(6, productDescription);
+                preparedStatement.setString(7, material);
+                preparedStatement.setString(8, purity);
+                preparedStatement.setString(9, weight);
+                preparedStatement.setString(10, dimensions);
+                preparedStatement.setString(11, manufacturerInfo);
+                preparedStatement.setString(12, country);
+                preparedStatement.setString(13, asInfo);
+                preparedStatement.setString(14, price);
+                preparedStatement.setInt(15, stockQuantity);
+
+                preparedStatement.executeUpdate();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    %>
 <script>
 //텍스트 편집기
 	$('#summernote')
