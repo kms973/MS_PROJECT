@@ -40,7 +40,7 @@
 		    	</div>
 			    <div class="tab-pane" id="heart" role="tabpanel" aria-labelledby="heart-tab">
 			    	<%-- <jsp:include page="/WEB-INF/views/myPage/heart.jsp" /> --%>
-			    	내용이 없습니다.
+			    	내용이 없습니다1.
 			    </div>
 			    <div class="tab-pane" id="delivery" role="tabpanel" aria-labelledby="delivery-tab">
 			    	<%-- <jsp:include page="/WEB-INF/views/myPage/delivery.jsp" /> --%>
