@@ -72,7 +72,7 @@ public class ProductController {
                 RedirectAttributes redirectAttributes) {
             if (file.isEmpty()) {
                 redirectAttributes.addFlashAttribute("message", "Please select a file to upload.");
-                return "redirect:/admin/product_new"; // 이미지를 선택하지 않았을 때 처리할 로직
+                return "redirect:/admin/product/new"; // 이미지를 선택하지 않았을 때 처리할 로직
             }
 
             try {
@@ -95,7 +95,7 @@ public class ProductController {
                 redirectAttributes.addFlashAttribute("message", "Failed to upload file.");
             }
 
-            return "redirect:/admin/product_new";
+            return "redirect:/admin/product/new";
         }
     }
 }
