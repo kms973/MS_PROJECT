@@ -61,7 +61,7 @@
 
 		<!-- 메인보드 영역 -->
 		<main>
-		<form method="post" action="/admin/product_new">
+		<form method="post" action="/admin/product_new" enctype="multipart/form-data">
 	
 	
 			<div class="container-fluid px-4">
@@ -411,7 +411,7 @@
 														</td>
 														<td class="align-middle">
 															<div class="input-group input-group-sm align-middle">
-																<input class="form-control" type="file" id="product_img1" name="product_img"
+																<input class="form-control" type="file" id="product_img" name="product_img"
 																	onchange="previewImage(this, 'previewImage1')">
 															</div>
 														</td>
@@ -427,7 +427,7 @@
 														<td><img src="/img/1.jpg" class="img-fluid" width="130" height="150" id="previewImage2"></img></td>
 														<td class="align-middle">
 															<div class="input-group input-group-sm align-middle">
-																<input class="form-control" type="file" id="product_img2" name="product_img"
+																<input class="form-control" type="file" id="product_img2" name="product_img2"
 																	onchange="previewImage(this, 'previewImage2')">
 															</div>
 														</td>
@@ -448,7 +448,7 @@
 														<td><img src="/img/1.jpg" class="img-fluid" width="130" height="150" id="previewImage3"></img></td>
 														<td class="align-middle">
 															<div class="input-group input-group-sm align-middle">
-																<input class="form-control" type="file" id="product_img3" name="product_img"
+																<input class="form-control" type="file" id="product_img3" name="product_img3"
 																	onchange="previewImage(this, 'previewImage3')">
 															</div>
 														</td>
@@ -465,7 +465,7 @@
 														<td><img src="/img/1.jpg" class="img-fluid" width="130" height="150" id="previewImage4"></img></td>
 														<td class="align-middle">
 															<div class="input-group input-group-sm align-middle">
-																<input class="form-control" type="file" id="product_img4" name="product_img"
+																<input class="form-control" type="file" id="product_img4" name="product_img4"
 																	onchange="previewImage(this, 'previewImage4')">
 															</div>
 														</td>

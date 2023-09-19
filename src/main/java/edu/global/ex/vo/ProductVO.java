@@ -45,6 +45,7 @@ public class ProductVO {
 	    private Integer stock_quantity;
 	    private String options;
 	    private String product_img;
+
 	
 	    public void setProduct_code() {
 	    	product_code = getProduct_category() + getProduct_code();
