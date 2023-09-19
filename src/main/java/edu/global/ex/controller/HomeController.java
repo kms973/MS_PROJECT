@@ -152,8 +152,14 @@ public class HomeController {
 		
 		int total = boardService.getTotal();
 		log.info("list() 게시판 전체 갯수" + total);
+		
+		//notice지만 아무튼 qna용임
+		int totaln = boardService.getTotalNotice();
+		int totalr = boardService.getTotalReview();
 
 		model.addAttribute("pageMaker", new PageVO(cri, total));
+		model.addAttribute("pageMaker1", new PageVO(cri, totaln));
+		model.addAttribute("pageMaker2", new PageVO(cri, totalr));
 
 		return "/community";
 	}

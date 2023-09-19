@@ -36,7 +36,7 @@
 					<tbody>
  		<c:forEach var="boardList_Notice" items="${boardList_Notice}">
 			         <tr>
-			           <td class="no-no table-no">${boardList_Notice.rnum}</td>
+			           <td class="no-no table-no">${boardList_Notice.bid}</td>
 			           <td class="no-tit table-tit"><a href="content_view?bid=${boardList_Notice.bid}">${boardList_Notice.btitle}</a></td>
 			           <td class="no-write table-write">${boardList_Notice.bname}</td>
 			           <td class="no-date table-date"><fmt:formatDate value="${boardList_Notice.bdate}" pattern="yyyy-MM-dd" /></td>
@@ -159,7 +159,7 @@
 					
 					<c:forEach var="boardList_Qna" items="${boardList_Qna}">
 			         <tr>
-			           <td class="no-no table-no">${boardList_Qna.rnum}</td>
+			           <td class="no-no table-no">${boardList_Qna.bid}</td>
 			           <td class="no-tit table-tit"><a href="content_view?bid=${boardList_Qna.bid}">${boardList_Qna.btitle}</a></td>
 			           <td class="no-write table-write">${boardList_Qna.bname}</td>
 			           <td class="no-date table-date"><fmt:formatDate value="${boardList_Qna.bdate}" pattern="yyyy-MM-dd" /></td>
@@ -176,17 +176,15 @@
 					</tbody>
 				</table>
 				
-							<c:if test="${pageMaker.prev}">
-      <a href="community${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
-   </c:if>
-   
-   <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
-      <a href="community${pageMaker.makeQuery(idx)}">${idx}</a>
-   </c:forEach>
-   
-   <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-            <a href="community${pageMaker.makeQuery(pageMaker.endPage +1) }"> » </a>
-   </c:if>  
+				<c:if test='${pageMaker1.startPage < 1 }'>disabled</c:if>
+				<a href="community${pageMaker1.makeQuery(1) }"> « </a>
+			   
+			   <c:forEach begin="${pageMaker1.startPage }" end="${pageMaker1.endPage }" var="idx">
+			   <a href="community${pageMaker1.makeQuery(idx)}">${idx}</a>
+			   </c:forEach>
+			   
+			<c:if test='${pageMaker1.next }'>			</c:if>
+			  <a href="community${pageMaker1.makeQuery(pageMaker1.endPage) }"> » </a>
 				
 				
 				<sec:authorize access="isAuthenticated()">
@@ -211,7 +209,7 @@
 					<tbody>
 						<c:forEach var="boardList_Review" items="${boardList_Review}">
 				        <tr>
-				           <td class="no-no table-no">${boardList_Review.rnum}</td>
+				           <td class="no-no table-no">${boardList_Review.bid}</td>
 				           <td class="no-tit table-tit"><a href="content_view?bid=${boardList_Review.bid}">${boardList_Review.btitle}</a></td>
 				           <td class="no-write table-write">${boardList_Review.bname}</td>
 				           <td class="no-date table-date"><fmt:formatDate value="${boardList_Review.bdate}" pattern="yyyy-MM-dd" /></td>
@@ -226,17 +224,15 @@
 					</tbody>
 				</table>
 				
-			<c:if test="${pageMaker.prev}">
-      <a href="community${pageMaker.makeQuery(pageMaker.startPage - 1) }">«</a>
-   </c:if>
-   
-   <c:forEach begin="${pageMaker.startPage }" end="${pageMaker.endPage }" var="idx">
-      <a href="community${pageMaker.makeQuery(idx)}">${idx}</a>
-   </c:forEach>
-   
-   <c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-            <a href="community${pageMaker.makeQuery(pageMaker.endPage +1) }"> » </a>
-   </c:if>  
+				<c:if test='${pageMaker2.startPage < 1 }'>disabled</c:if>
+				<a href="community${pageMaker2.makeQuery(1) }"> « </a>
+			   
+			   <c:forEach begin="${pageMaker2.startPage }" end="${pageMaker2.endPage }" var="idx">
+			   <a href="community${pageMaker2.makeQuery(idx)}">${idx}</a>
+			   </c:forEach>
+			   
+			<c:if test='${pageMaker2.next }'>			</c:if>
+			  <a href="community${pageMaker2.makeQuery(pageMaker2.endPage) }"> » </a>
 				
 				<sec:authorize access="isAuthenticated()">
                 <div class="d-flex justify-content-end px-0">
