@@ -161,6 +161,7 @@ public class LoginController {
 	    Gson gson = new Gson();
 	    String userListJson = gson.toJson(userList);
 	    model.addAttribute("userListJson", userListJson);
+	    model.addAttribute("userList", userList);
 	    return "/login/idsearch";
 	}
 
