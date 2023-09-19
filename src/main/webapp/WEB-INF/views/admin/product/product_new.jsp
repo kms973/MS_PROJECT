@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page import="java.sql.Connection, java.sql.PreparedStatement, java.sql.DriverManager, java.sql.SQLException" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,7 +83,7 @@
 							<tr>
 								<th scope="row" class="col-2 text-center align-middle">분류등록</th>
 								<td><select class="form-select form-select-sm w-25" id="product_category" name="product_category"
-									aria-label="Default select example">						
+									aria-label="Default select example">
 										<option selected>분류선택</option>
 										<option value="R"${productVO.options == 'option1' ? 'selected' : 'option'}>반지</option>
 										<option value="N"${productVO.options == 'option1' ? 'selected' : 'option'}>목걸이</option>
@@ -116,7 +118,7 @@
 										</div>
 									</div>
 								</td>
-							</tr> 
+							</tr>
 
 							<tr>
 								<th scope="row" class="col-2 text-center align-middle">상품명</th>
@@ -391,6 +393,7 @@
 									class="bg-info bg-opacity-25 text-primary text-opacity-75">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;상품이미지</th>
 							</tr>
 						</thead>
+						<!-- 상품 사진 업로드 하는 폼 -->
 						<tbody>
 							<tr>
 								<td>
@@ -399,19 +402,19 @@
 											<div class="table-responsive">
 												<table class="table table-bordered">
 													<tr>
-														<td class="col-3 text-center align-middle"><label
-															class="text-danger productcodenum">대표이미지</label><br>
-														<strong>상품사진 1</strong></td>
-														<td><img src="/img/1.jpg" class="img-fluid"
-															width="130" height="150"></img></td>
+														<td class="col-3 text-center align-middle">
+															<label class="text-danger productcodenum">대표이미지</label><br>
+															<strong>상품사진 1</strong>
+														</td>
+														<td>
+															<img src="/img/1.jpg" class="img-fluid" width="130" height="150" id="previewImage1">
+														</td>
 														<td class="align-middle">
 															<div class="input-group input-group-sm align-middle">
-																<input class="form-control" type="file"
-																	 id="product_img" type="file" name="product_img"
-															value="${product.product_img}">
-																									</div>
+																<input class="form-control" type="file" id="product_img1" name="product_img"
+																	onchange="previewImage(this, 'previewImage1')">
+															</div>
 														</td>
-
 													</tr>
 												</table>
 											</div>
@@ -420,16 +423,12 @@
 											<div class="table-responsive">
 												<table class="table table-bordered">
 													<tr>
-														<td class="col-3 text-center align-middle"><strong>상품사진
-																2</strong></td>
-														<td><img src="/img/1.jpg" class="img-fluid"
-															width="130" height="150"></img></td>
+														<td class="col-3 text-center align-middle"><strong>상품사진 2</strong></td>
+														<td><img src="/img/1.jpg" class="img-fluid" width="130" height="150" id="previewImage2"></img></td>
 														<td class="align-middle">
 															<div class="input-group input-group-sm align-middle">
-																<input class="form-control" type="file"
-																	id="inputGroupFile02" 
-																	id="product_img" type="file" name="product_img"
-					value="${product.product_img}">
+																<input class="form-control" type="file" id="product_img2" name="product_img"
+																	onchange="previewImage(this, 'previewImage2')">
 															</div>
 														</td>
 
@@ -446,13 +445,11 @@
 													<tr>
 														<td class="col-3 text-center align-middle"><strong>상품사진
 																3</strong></td>
-														<td><img src="/img/1.jpg" class="img-fluid"
-															width="130" height="150"></img></td>
+														<td><img src="/img/1.jpg" class="img-fluid" width="130" height="150" id="previewImage3"></img></td>
 														<td class="align-middle">
 															<div class="input-group input-group-sm align-middle">
-																<input class="form-control" type="file"
-																	id="inputGroupFile02" id="product_img" type="file" name="product_img"
-																value="${product.product_img}">
+																<input class="form-control" type="file" id="product_img3" name="product_img"
+																	onchange="previewImage(this, 'previewImage3')">
 															</div>
 														</td>
 													</tr>
@@ -465,13 +462,11 @@
 													<tr>
 														<td class="col-3 text-center align-middle"><strong>상품사진
 																4</strong></td>
-														<td><img src="/img/1.jpg" class="img-fluid"
-															width="130" height="150"></img></td>
+														<td><img src="/img/1.jpg" class="img-fluid" width="130" height="150" id="previewImage4"></img></td>
 														<td class="align-middle">
 															<div class="input-group input-group-sm align-middle">
-																<input class="form-control" type="file"
-																	id="inputGroupFile02" id="product_img" type="file" name="product_img"
-																value="${product.product_img}">
+																<input class="form-control" type="file" id="product_img4" name="product_img"
+																	onchange="previewImage(this, 'previewImage4')">
 															</div>
 														</td>
 													</tr>
@@ -481,8 +476,7 @@
 									</div>
 						</tbody>
 					</table>
-					<button type="submit" class="btn btn-outline-secondary">작성       
-						완료</button> 
+					<button type="submit" class="btn btn-outline-secondary">작성완료</button>
 						
 					<!-- <input type="submit" value="상품 등록"> -->
 						
@@ -501,6 +495,7 @@
 		<jsp:include page="../adm_footer.jsp"></jsp:include>
 </body>
 <script>
+//텍스트 편집기
 	$('#summernote')
 			.summernote(
 					{
@@ -529,5 +524,17 @@
 								'18', '20', '22', '24', '28', '30', '36', '50',
 								'72' ]
 					});
+					//상품 이미지 등록하면 썸네일 나오는 메소드 "previewImage"
+					function previewImage(input, imgId) {
+						const file = input.files[0];
+						if (file) {
+							const reader = new FileReader();
+							reader.onload = function (e) {
+								const img = document.getElementById(imgId);
+								img.src = e.target.result;
+							};
+							reader.readAsDataURL(file);
+						}
+					}
 </script>
 </html>

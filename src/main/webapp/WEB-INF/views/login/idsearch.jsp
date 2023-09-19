@@ -6,8 +6,9 @@
 <head>
 </head>
 <body>
-<c:forEach var="user" items="${userList }">
-	<div>${user.cname} / ${user.phone1 } / ${user.phone2 } /</div>
+<c:set var="userList" value="${userList}" />
+<c:forEach var="user" items="${userList}">
+	<div>${user.cname} / ${user.phone1 } / ${user.phone2 } </div>
 </c:forEach>
 <form onsubmit="return checkDuplicate();">
 	회원명<input type="text" id="cname" name="cname"> 
@@ -26,22 +27,25 @@
 		const cname = document.getElementById("cname").value;
 		const phone1 = document.getElementById("phone1").value;
 		const phone2 = document.getElementById("phone2").value;
-		const userList = ${userList}; // 모델 속성에서 JSON 데이터를 가져옴
-
+		
+		var userList = ${userListJson}; // userListJson을 JavaScript 객체로 파싱
+	    console.log(userList); // JavaScript 객체로 사용 가능
 		// 아이디 중복 검사
-		if (userList.includes(cname)) {
-			if (userList.includes(phone1)) {
-				if (userList.includes(phone2)) {
-					console.log(dd);
-				}
+		let isDuplicate = false;
+
+		for (const user of userList) {
+			if (user.cname === cname && user.phone1 === phone1 && user.phone2 === phone2) {
+				isDuplicate = true;
+				break;
 			}
-			
-			// return false; // 페이지 이동을 중단합니다.
-		} else {
-			alert("동일한 아이디가 존재하지 않습니다.")
 		}
 
-		// 중복 아이디가 아닌 경우
-		//return true; // 페이지 이동을 허용합니다.
+		if (isDuplicate) {
+			alert("동일한 아이디가 존재합니다.");
+			return false; // 중복 아이디인 경우 페이지 이동을 중단합니다.
+		} else {
+			alert("동일한 아이디가 존재하지 않습니다.");
+			return true; // 중복 아이디가 아닌 경우 페이지 이동을 허용합니다.
+		}
 	}
-</script> 
+</script>

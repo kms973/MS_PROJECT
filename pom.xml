@@ -82,6 +82,12 @@
 
 	<!-- 프로젝트의 의존성 라이브러리 목록 -->
 	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
 		<!-- 스프링 부트 테스트 라이브러리 (테스트 용도) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
