@@ -411,7 +411,7 @@
 														</td>
 														<td class="align-middle">
 															<div class="input-group input-group-sm align-middle">
-																<input class="form-control" type="file" id="product_img" name="product_img"
+																<input class="form-control" type="file" id="product_img" name="file"
 																	onchange="previewImage(this, 'previewImage1')">
 															</div>
 														</td>

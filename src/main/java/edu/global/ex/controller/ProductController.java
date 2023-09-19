@@ -52,50 +52,38 @@ public class ProductController {
 	}
 
 	
-	private static final String UPLOAD_DIR = "/static/img/";
+	//private static final String UPLOAD_DIR = "/static/img/";
 
 	@PostMapping("/admin/product_new")
-	public String PostadminProduct(@RequestParam("product_img") MultipartFile file) {
-		log.info(file.toString());
-//		if (file.isEmpty()) {
-//
-//			redirectAttributes.addFlashAttribute("message", "업로드할 파일을 선택해 주세요.");
-//			return "redirect:/admin/product/new"; // 이미지를 선택하지 않았을 때 처리할 로직
-//		}
-		if (!file.isEmpty()) {
+	public String PostadminProduct(@RequestParam("file") MultipartFile file, ProductVO pvo) {
+		
+		log.info("1");
+		
+	    if (!file.isEmpty()) {
 	        try {
 	            byte[] bytes = file.getBytes();
-	            Path path = Paths.get("static/img/" + file.getOriginalFilename());
+	            Path path = Paths.get("src/main/resources/static/img/" + file.getOriginalFilename());
 	            Files.write(path, bytes);
 	            // 파일 업로드 성공 처리
+	            // 파일 이름을 ProductVO 객체에 설정
+	            pvo.setProduct_img(file.getOriginalFilename());
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	            // 파일 업로드 실패 처리
+	            // 여기서 실패 처리를 하는 것이 좋습니다.
+	            // 파일 업로드 실패 시에는 pvo 객체를 DB에 저장하지 않아야 합니다.
+	            return "upload_failure_view"; // 실패 시 보여줄 뷰 페이지
 	        }
 	    }
-//		try {
-//			// 업로드할 디렉터리 생성 (이미 존재하는 경우 생략 가능)
-//			Path uploadPath = Paths.get(UPLOAD_DIR);
-//			Files.createDirectories(uploadPath);
-//
-//			// 파일명 중복 방지를 위해 현재 시간을 이용한 고유한 파일명 생성
-//			String uniqueFileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
-//
-//			// 파일 저장
-//			Path filePath = uploadPath.resolve(uniqueFileName);
-//			Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
-//
-//			// 파일 저장에 성공한 경우, 파일명을 리다이렉트로 넘겨줄 수 있음
-////			redirectAttributes.addFlashAttribute("message", "파일 " + uniqueFileName + " 업로드에 성공하였습니다.");
-//
-//		} catch (IOException e) {
-//			e.printStackTrace();
-////			redirectAttributes.addFlashAttribute("message", "파일 업로드에 실패하였습니다.");
-//		}
-		// 상품 정보를 데이터베이스에 삽입
-//		pmp.insert(pvo);
-		return "/admin/product/product_new";
+	    log.info("2");
+	    // ProductVO 객체를 DB에 저장
+	    pmp.insert(pvo);
+
+	    return "/admin/product/product_new";
 	}
+
+
+
 
 	@PostMapping("/product/update")
 	public String updateProductInfo(@RequestParam("stock_quantity") int newQuantity,
