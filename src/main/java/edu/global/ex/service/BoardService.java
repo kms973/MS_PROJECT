@@ -20,6 +20,7 @@ public interface BoardService {
 	
 	public int getTotal();
 	public int getTotalNotice();
+	public int getTotalReview();	
 	List<BoardVO> getListWithPaging(Criteria cri);
 	public List<BoardVO> getNoticeWithPaging(Criteria cri);
 	public List<BoardVO> getQnaWithPaging(Criteria cri);

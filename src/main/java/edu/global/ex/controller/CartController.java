@@ -1,7 +1,6 @@
 package edu.global.ex.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.global.ex.service.CartService;
 import edu.global.ex.vo.CartVO;
@@ -45,7 +43,7 @@ public class CartController {
 //        return "redirect:/cart";
 //    }
     @PostMapping("/delete")
-    public ResponseEntity<String> removeFromCart(@RequestParam("product_code") int product_code) {
+    public ResponseEntity<String> removeFromCart(@RequestParam int product_code) {
         try {
             // 데이터베이스에서 해당 상품을 삭제합니다.
             int deletedRows = cartService.delete(product_code);
@@ -62,8 +60,8 @@ public class CartController {
     
     @PostMapping("/updateStockQuantity")
     public ResponseEntity<String> updateStockQuantity(
-        @RequestParam("product_name") String product_name,
-        @RequestParam("stock_quantity") int stock_quantity) {
+        @RequestParam String product_name,
+        @RequestParam int stock_quantity) {
         try {
             // 해당 상품의 재고 수량을 업데이트
             cartService.updateStockQuantity(product_name, stock_quantity);

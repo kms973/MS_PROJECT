@@ -3,12 +3,7 @@
 
 <!-- 주문내역 헤더 -->
 <div class="d-flex my-2 justify-content-between w-100">
-	<h5>주문내역</h5>
-   	<select class="form-select w-auto" aria-label="Default select example">
-		<option value="3" selected>3개월</option>
-		<option value="6">6개월</option>
-		<option value="all">1년</option>
-	</select>
+	<h5></h5>
 </div>
 
 <!-- 주문 리스트 -->

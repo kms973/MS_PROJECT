@@ -74,9 +74,16 @@
       ]]>
    </select>
    
+<!--    notice지만 qna용임 -->
           <select id="getTotalNoticeCount" resultType="int">
       <![CDATA[
-          select count(*) from ms_board where selecter = 1
+          select count(*) from ms_board where selecter = 2
+      ]]>
+   </select>
+   
+             <select id="getTotalReviewCount" resultType="int">
+      <![CDATA[
+          select count(*) from ms_board where selecter = 3
       ]]>
    </select>
    
@@ -103,9 +110,9 @@
 	    FROM
 	      ms_board
 	    WHERE selecter = 2
-	    ORDER BY bdate, bGroup DESC, bStep ASC 
+	    ORDER BY bGroup DESC, bStep ASC, bid desc
 	  ) A WHERE ROWNUM <= #{pageNum} * #{amount}
-	) WHERE RNUM > (#{pageNum} - 1) * #{amount}  order by rnum desc
+	) WHERE RNUM > (#{pageNum} - 1) * #{amount}
       ]]>
    </select>
    
@@ -118,9 +125,9 @@
 	    FROM
 	      ms_board
 	    WHERE selecter = 3
-	    ORDER BY bdate, bGroup DESC, bStep ASC
+	    ORDER BY bGroup DESC, bStep ASC, bid desc
 	  ) A WHERE ROWNUM <= #{pageNum} * #{amount}
-	) WHERE RNUM > (#{pageNum} - 1) * #{amount} order by rnum desc
+	) WHERE RNUM > (#{pageNum} - 1) * #{amount}
       ]]>
    </select>
    
@@ -133,9 +140,9 @@
 	    FROM
 	      ms_board
 	    WHERE selecter = 1
-	    ORDER BY bdate, bGroup DESC, bStep ASC
+	    ORDER BY bGroup DESC, bStep ASC, bid desc
 	  ) A WHERE ROWNUM <= #{pageNum} * #{amount}
-	) WHERE RNUM > (#{pageNum} - 1) * #{amount} order by rnum desc
+	) WHERE RNUM > (#{pageNum} - 1) * #{amount}
       ]]>
    </select>
 

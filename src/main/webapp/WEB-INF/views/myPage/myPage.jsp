@@ -38,24 +38,24 @@
 		    	<div class="tab-pane active" id="order" role="tabpanel" aria-labelledby="order-tab">
 		    		<jsp:include page="/WEB-INF/views/myPage/orderList.jsp" />
 		    	</div>
-			    <div class="tab-pane fade" id="heart" role="tabpanel" aria-labelledby="heart-tab">
-			    	<%-- <jsp:include page="/WEB-INF/views/myPAge/heart.jsp" /> --%>
+			    <div class="tab-pane" id="heart" role="tabpanel" aria-labelledby="heart-tab">
+			    	<%-- <jsp:include page="/WEB-INF/views/myPage/heart.jsp" /> --%>
+			    	내용이 없습니다1.
+			    </div>
+			    <div class="tab-pane" id="delivery" role="tabpanel" aria-labelledby="delivery-tab">
+			    	<%-- <jsp:include page="/WEB-INF/views/myPage/delivery.jsp" /> --%>
 			    	내용이 없습니다.
 			    </div>
-			    <div class="tab-pane fade" id="delivery" role="tabpanel" aria-labelledby="delivery-tab">
-			    	<%-- <jsp:include page="/WEB-INF/views/myPAge/delivery.jsp" /> --%>
+			    <div class="tab-pane" id="review" role="tabpanel" aria-labelledby="review-tab">
+			    	<%-- <jsp:include page="/WEB-INF/views/myPage/userReview.jsp" /> --%>
 			    	내용이 없습니다.
 			    </div>
-			    <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
-			    	<%-- <jsp:include page="/WEB-INF/views/myPAge/userReview.jsp" /> --%>
+			   <div class="tab-pane" id="userqna" role="tabpanel" aria-labelledby="userqna-tab">
+			    	<%-- <jsp:include page="/WEB-INF/views/myPage/userqna.jsp" /> --%>
 			    	내용이 없습니다.
 			    </div>
-			    <div class="tab-pane fade" id="userqna" role="tabpanel" aria-labelledby="userqna-tab">
-			    	<%-- <jsp:include page="/WEB-INF/views/myPAge/userqna.jsp" /> --%>
-			    	내용이 없습니다.
-			    </div>
-			    <div class="tab-pane fade" id="userpro" role="tabpanel" aria-labelledby="userpro-tab">
-			    	<jsp:include page="/WEB-INF/views/myPAge/userpro.jsp" />
+			     <div class="tab-pane" id="userpro" role="tabpanel" aria-labelledby="userpro-tab">
+			    	<jsp:include page="/WEB-INF/views/myPage/userPro.jsp" />
 			    </div>
 		  	</div>
 		</div>
