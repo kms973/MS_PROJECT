@@ -22,8 +22,8 @@ public class RestShopController {
 	// 상세 페이지
 
 	@GetMapping("/{productCategory}/{productCode}")
-	public ModelAndView shop(@PathVariable("productCategory") String productCategory, 
-	                         @PathVariable("productCode") int productCode,
+	public ModelAndView shop(@PathVariable String productCategory, 
+	                         @PathVariable int productCode,
 	                         ShopProductVO spVO, Model model) {
 	    log.info("shop()..");
 
