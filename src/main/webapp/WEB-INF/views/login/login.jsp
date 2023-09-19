@@ -44,7 +44,7 @@
                 <span class="input-wrap"><input type="checkbox" id="checkId" name="checkId" class="form-check-input" value="remember-me" style="position:relative; top: -2px;"><label for="checkId"></label>아이디 저장</span>
                 <ul class="find d-flex align-items-center mb-0" style="list-style-type: none; padding-left: 0;">
                     <!-- 아이디 찾기, 비밀번호 찾기 및 회원가입 링크 -->
-                    <li class="idSearch mr-4" id="idSearch" style="cursor: pointer"><a href="/login/idsearch">아이디 찾기</a></li>
+                    <li class="idSearch mr-4" id="idSearch" style="cursor: pointer"><a href="#" data-bs-toggle="modal" data-bs-target="#searchId" id="id-btn">아이디 찾기</a></li>
                     <li class="pwSearch mr-4" id="pwSearch" style="cursor: pointer">비밀번호 찾기</li>
                     <li class="signUp" id="signUp" style="cursor: pointer"><a href="/login/signup">회원가입</a></li>
                 </ul>
@@ -55,16 +55,50 @@
 
             <!-- 구글 계정으로 로그인 버튼 -->
             <div class="d-flex justify-content-center align-items-center w-100 text-center my-1 py-1">OR</div>
-            <button class="btn btn-dark w-100 my-1 py-2" type="">Sign in with Google</button>
+            <button class="btn btn-dark w-100 my-1 py-2" type="button">Sign in with Google</button>
 
             <!-- 카카오톡으로 로그인 버튼 -->
-            <button class="btn btn-dark w-100 my-1 py-2" type="">Sign in with KakaoTalk</button>
+            <button class="btn btn-dark w-100 my-1 py-2" type="button">Sign in with KakaoTalk</button>
         </form>
     </div>
     <!-- 로그인 폼 종료 -->
+    
+    <!-- 모달 창 -->
+    <div class="modal fade" id="searchId" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="searchIdLabel" aria-hidden="true">
+  		<div class="modal-dialog modal-dialog-centered">
+    		<div class="modal-content">
+		    	<c:set var="userList" value="${userList}" />
+				<c:forEach var="user" items="${userList}">
+					<div>${user.cname} / ${user.phone1 } / ${user.phone2 } </div>
+				</c:forEach>
+			      <div class="modal-header">
+			        <h1 class="modal-title fs-5" id="exampleModalLabel">아이디 찾기</h1>
+		        	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			      </div>
+		        <form onsubmit="return checkDuplicate();">
+			      <div class="modal-body form-floating form-group">
+			      	<div>가입한 휴대폰 번호로 찾기</div>
+			          <div class="form-floating my-3">
+						<input type="text" class="form-control" id="cname" name="cname" required>
+						<label for="floatingname">이름</label>
+						<div class="invalid-feedback">이름을 입력해주세요.</div>
+					  </div>
+			          <div class="mb-3 d-flex align-items-center">
+			            <input class="w-30 form-control form-control-lg mx-1" type="text" id="phone1" name="phone1" maxlength='3'>-</span>
+					    <input class="w-30 form-control form-control-lg mx-1" type="text" id="phone2" name="phone2" maxlength='4'><span class="fw-bold fz-12 px-2">-</span>
+					    <input class="w-30 form-control form-control-lg mx-1" type="text" id="phone3" name="phone3" maxlength='4'>
+			          </div>
+			      </div>
+			      <div class="modal-footer">
+		        	<button type="submit" class="btn btn-primary w-100">아이디 찾기</button>
+			      </div>
+		        </form>
+   			</div>
+	  	</div>
+	</div>
 </section>
-<!-- <script>
-function checkDuplicate() {
+<script>
+/* function checkDuplicate() {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value; // 비밀번호 입력 필드의 값을 가져옵니다.
     const usernameList = ${usernameList}; // 모델 속성에서 JSON 데이터를 가져옴
@@ -80,8 +114,38 @@ function checkDuplicate() {
     }
 
   
-}
-</script> -->
+} */
+</script>
+
+<script>
+	function checkDuplicate() {
+		const cname = document.getElementById("cname").value;
+		const phone1 = document.getElementById("phone1").value;
+		const phone2 = document.getElementById("phone2").value;
+		const phone3 = document.getElementById("phone3").value;
+
+		
+		var userList = ${userListJson}; // userListJson을 JavaScript 객체로 파싱
+	    console.log(userList); // JavaScript 객체로 사용 가능
+		// 아이디 중복 검사
+		let isDuplicate = false;
+
+		for (const user of userList) {
+			if (user.cname === cname && user.phone1 === phone1 && user.phone2 === phone2 && user.phone3 === phone3) {
+				isDuplicate = true;
+				break;
+			}
+		}
+
+		if (isDuplicate) {
+			alert("동일한 아이디가 존재합니다.");
+			return false; // 중복 아이디인 경우 페이지 이동을 중단합니다.
+		} else {
+			alert("동일한 아이디가 존재하지 않습니다.");
+			return true; // 중복 아이디가 아닌 경우 페이지 이동을 허용합니다.
+		}
+	}
+</script>
 
 <!-- 로그인 페이지 메인 섹션 종료 -->
 
@@ -109,6 +173,9 @@ function checkDuplicate() {
                 }, false);
             }, false);
     }());
+</script>
+<script>
+const myModalEl = document.getElementById('searchId')
 </script>
 <!-- 페이지 푸터를 포함합니다. -->
 <jsp:include page="/WEB-INF/views/footer.jsp" />
