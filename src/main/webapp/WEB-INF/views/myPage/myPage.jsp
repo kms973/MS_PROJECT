@@ -14,22 +14,22 @@
 			<!-- Side Nav Left -->
 			<ul class="nav flex-column nav-pills mt-2 me-3 side-tab w-15" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 				<li class="nav-item" role="presentation">
-					<button class="nav-link active bg-white fz-10" class="nav-link active" id="order-tab" data-bs-toggle="tab" data-bs-target="#order" type="button" role="tab" aria-controls="orderList" aria-selected="true">주문내역</button>
+					<button class="nav-link active bg-white fz-14" class="nav-link active" id="order-tab" data-bs-toggle="tab" data-bs-target="#order" type="button" role="tab" aria-controls="orderList" aria-selected="true">주문내역</button>
 				</li>
 				<li class="nav-item" role="presentation">
-					<button class="nav-link bg-white fz-12" id="heart-tab" data-bs-toggle="tab" data-bs-target="#heart" type="button" role="tab" aria-controls="heart" aria-selected="false">찜한 상품</button>
+					<button class="nav-link bg-white fz-14" id="heart-tab" data-bs-toggle="tab" data-bs-target="#heart" type="button" role="tab" aria-controls="heart" aria-selected="false">찜한 상품</button>
 				</li>
 				<li class="nav-item" role="presentation">
-					<button class="nav-link bg-white fz-12" id="delivery-tab" data-bs-toggle="tab" data-bs-target="#delivery" type="button" role="tab" aria-controls="delivery" aria-selected="false">배송지 관리</button>
+					<button class="nav-link bg-white fz-14" id="delivery-tab" data-bs-toggle="tab" data-bs-target="#delivery" type="button" role="tab" aria-controls="delivery" aria-selected="false">배송지 관리</button>
 				</li>
 				<li class="nav-item" role="presentation">
-					<button class="nav-link bg-white fz-12" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="false">상품 후기</button>
+					<button class="nav-link bg-white fz-14" id="review-tab" data-bs-toggle="tab" data-bs-target="#review" type="button" role="tab" aria-controls="review" aria-selected="false">상품 후기</button>
 				</li>
 				<li class="nav-item" role="presentation">
-					<button class="nav-link bg-white fz-12" id="userqna-tab" data-bs-toggle="tab" data-bs-target="#userqna" type="button" role="tab" aria-controls="guserqna" aria-selected="false">상품 문의</button>
+					<button class="nav-link bg-white fz-14" id="userqna-tab" data-bs-toggle="tab" data-bs-target="#userqna" type="button" role="tab" aria-controls="guserqna" aria-selected="false">상품 문의</button>
 				</li>
 				<li class="nav-item" role="presentation">
-					<button class="nav-link bg-white fz-12" id="userpro-tab" data-bs-toggle="tab" data-bs-target="#userpro" type="button" role="tab" aria-controls="userpro" aria-selected="false">개인정보 수정</button>
+					<button class="nav-link bg-white fz-14" id="userpro-tab" data-bs-toggle="tab" data-bs-target="#userpro" type="button" role="tab" aria-controls="userpro" aria-selected="false">개인정보 수정</button>
 				</li>
 			</ul>
 			

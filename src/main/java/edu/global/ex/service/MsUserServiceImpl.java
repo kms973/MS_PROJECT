@@ -66,6 +66,25 @@ public class MsUserServiceImpl implements MsUserService {
 		return 0;
 	}
 
+	
+	
+	@Override
+	public void insert(MsUserVO msUserVO) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public MsUserVO getCompany(MsUserVO msUserVO) {
+		// TODO Auto-generated method stub
+		return msUserMapper.getUser(msUserVO.getUsername());
+	}
+
+	@Override
+	public MsUserVO update(MsUserVO msUserVO) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 
     }

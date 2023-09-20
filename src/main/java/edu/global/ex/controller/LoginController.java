@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.google.gson.Gson;
 
+import edu.global.ex.mapper.CompanyMapper;
 import edu.global.ex.mapper.MsUserMapper;
 import edu.global.ex.vo.MsUserVO;
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 public class LoginController {
-
+	
 	@Autowired
 	private MsUserMapper userMapper; // 사용자 관리를 위한 데이터베이스 매퍼
 
@@ -133,9 +134,22 @@ public class LoginController {
 
 	// 사용자 프로필 페이지로 이동하는 핸들러
 	@GetMapping("/login/userprofile")
-	public String userprofile() {
+	public String userprofile(Principal principal, Model model) {
+		
 		log.info("userprofile");
+		log.info(userMapper.getUser(principal.getName()) + "");
+		model.addAttribute("userInfo", userMapper.getUser(principal.getName()));
 		return "/myPage/myPage";
+	}
+	
+	@PostMapping("/login/userprofile")
+	public String userprofilePost(MsUserVO msUser) {
+		log.info("update user profile");
+		log.info(""+ msUser);
+		
+		userMapper.update(msUser);
+		
+		return "redirect:/login/userprofile";
 	}
 
 //	@GetMapping("/login/google-callback")

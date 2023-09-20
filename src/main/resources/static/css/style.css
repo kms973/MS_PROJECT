@@ -11,6 +11,7 @@ h1,h2,h3,h4,h5,h6 { margin:0 !important; padding:0;}
 
 .fz-10 { font-size: .75rem; }
 .fz-12 { font-size: .825rem; }
+.fz-14 { font-size: .95rem; }
 .w-10 { width: 10% !important; }
 .w-15 { width: 15% !important; }
 .w-20 { width: 20% !important; }
@@ -163,7 +164,7 @@ table.view-table > * > tr > td > * { min-height: 12.5rem; }
 
 /* mypage */
 
-#mypage .side-tab > li > button.nav-link { font-weight: bold; padding: 20px; margin: 0; text-align: start; width: 100%; }
+#mypage .side-tab > li > button.nav-link { font-weight: bold; padding: 20px; margin: 0; text-align: start; width: 100%; font-size: .95rem; }
 #mypage .tab-content > div { width: 100%; }
 #mypage .tab-content > div > * { width: 100%; }
 

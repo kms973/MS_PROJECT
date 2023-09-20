@@ -12,6 +12,13 @@
 		<result property="enabled" column="enabled" />
 		<result property="cname" column="cname" />
 		<result property="cgrade" column="cgrade" />
+		<result property="phone1" column="phone1"/>
+		<result property="phone2" column="phone2"/>
+		<result property="caddress1" column="caddress1"/>
+		<result property="caddress2" column="caddress2"/>
+		<result property="caddress3" column="caddress3"/>
+		<result property="caddress4" column="caddress4"/>
+		<result property="caddress5" column="caddress5"/>
 		<collection property="authList" resultMap="authMap"></collection>
 	</resultMap>
 
@@ -19,32 +26,33 @@
 		<result property="username" column="username" />
 		<result property="authority" column="authority" />
 	</resultMap>
-	
-	    <delete id="delete">
+
+	<delete id="delete">
     <![CDATA[
     BEGIN
-  DELETE FROM ms_authorities WHERE username =#{username};
-  DELETE FROM ms_users WHERE username =#{username};
-END;
-   ]]>    
-    </delete>
-	
-	   <select id="read" resultType="MsUserVO">
+  	DELETE FROM ms_authorities WHERE username =#{username};
+  	DELETE FROM ms_users WHERE username =#{username};
+	END;
+   	]]>
+	</delete>
+
+	<select id="read" resultType="MsUserVO">
     <![CDATA[
       select * from ms_users where username = #{username}
-   ]]>    
-    </select>
-	
+   ]]>
+	</select>
+
 	<select id="getUser" resultMap="userMap">
 	<![CDATA[	select * from ms_users , ms_authorities
 		where ms_users.username = ms_authorities.username and ms_users.username =
-		#{username} ]]>  
+		#{username} ]]>
 	</select>
 
 	<select id="getUsers" resultType="MsUserVO">
-		<![CDATA[ select * from ms_users ]]>  
+		<![CDATA[ select * from ms_users ]]>
 	</select>
 	
-	
+
+
 
 </mapper>
