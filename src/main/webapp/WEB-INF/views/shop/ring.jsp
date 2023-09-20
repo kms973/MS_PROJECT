@@ -162,28 +162,12 @@
   </div>
 </div>
 
+<!-- footer 시작 -->
+<jsp:include page="/WEB-INF/views/footer.jsp" />
 
 <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
-<script>
-	$(document).ready(function() {
-		// 초기화: 모든 데이터 아이템을 표시
-		$(".detail-tab.on").show();
 
-		// 탭 버튼 클릭 이벤트 처리
-		$(".detail-tab_menu .detail-tab").click(function() {
-			const selectedType = $(this).data("type"); // 선택된 탭의 data-type 속성 값
-
-			// 선택된 탭에 해당하는 데이터 아이템만 표시하고 나머지는 숨김
-			if (selectedType === "all") {
-				$(".data_item").show();
-			} else {
-				$(".data_item").hide();
-				$(".data_item[data-type='" + selectedType + "']").show();
-			}
-		});
-	});
-</script>
-<script>
+<script> // 상품 수량 변경시 가격 변경 스크립트
 	function count(type) {
 		// 결과를 표시할 element
 		const quantityElement = document.getElementById('quantity');
@@ -218,10 +202,8 @@
 		quantityElement.innerText = quantity;
 	}
 </script>
-<!-- footer 시작 -->
-<jsp:include page="/WEB-INF/views/footer.jsp" />
 
-<script>
+<script> // select 박스의 옵션 선택시 옵션박스 나타나는 스크립트
 	$(document).ready(function() {
 		
 		// 셀렉트 박스에서 옵션을 선택할 때 이벤트 핸들러를 추가합니다.
@@ -252,7 +234,7 @@
 	});
 </script>
 
-<script>
+<script> // share 버튼 클릭시 현페이지 주소 카피 스트립트
 document.addEventListener('DOMContentLoaded', function() {
   // 버튼 요소를 가져옵니다.
   var copyButton = document.getElementById('copyButton');
@@ -288,6 +270,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // 복사가 완료되었음을 사용자에게 알립니다.
     alert('주소가 복사되었습니다.');
   }
+});
+</script>
+
+<script>
+$('.btn-icon > a.cart').click(function(){
+	$(this)..toggleClass('.click');
 });
 </script>
 

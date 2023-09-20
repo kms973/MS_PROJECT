@@ -44,7 +44,7 @@
                 <span class="input-wrap"><input type="checkbox" id="checkId" name="checkId" class="form-check-input" value="remember-me" style="position:relative; top: -2px;"><label for="checkId"></label>아이디 저장</span>
                 <ul class="find d-flex align-items-center mb-0" style="list-style-type: none; padding-left: 0;">
                     <!-- 아이디 찾기, 비밀번호 찾기 및 회원가입 링크 -->
-                    <li class="idSearch mr-4" id="idSearch" style="cursor: pointer"><a href="#" data-bs-toggle="modal" data-bs-target="#searchId" id="id-btn">아이디 찾기</a></li>
+                    <li class="idSearch mr-4" id="idSearch" style="cursor: pointer"><a href="/login/idsearch" data-bs-toggle="modal" data-bs-target="#searchId" id="id-btn">아이디 찾기</a></li>
                     <li class="pwSearch mr-4" id="pwSearch" style="cursor: pointer">비밀번호 찾기</li>
                     <li class="signUp" id="signUp" style="cursor: pointer"><a href="/login/signup">회원가입</a></li>
                 </ul>
@@ -84,9 +84,9 @@
 						<div class="invalid-feedback">이름을 입력해주세요.</div>
 					  </div>
 			          <div class="mb-3 d-flex align-items-center">
-			            <input class="w-30 form-control form-control-lg mx-1" type="text" id="phone1" name="phone1" maxlength='3'>-</span>
-					    <input class="w-30 form-control form-control-lg mx-1" type="text" id="phone2" name="phone2" maxlength='4'><span class="fw-bold fz-12 px-2">-</span>
-					    <input class="w-30 form-control form-control-lg mx-1" type="text" id="phone3" name="phone3" maxlength='4'>
+			            <div class="w-auto form-control form-control-lg mx-1 border-none">010</div>-</span>
+					    <input class="w-30 form-control form-control-lg mx-1" type="text" id="phone2" name="phone1" maxlength='4'><span class="fw-bold fz-12 px-2">-</span>
+					    <input class="w-30 form-control form-control-lg mx-1" type="text" id="phone3" name="phone2" maxlength='4'>
 			          </div>
 			      </div>
 			      <div class="modal-footer">
@@ -96,55 +96,56 @@
    			</div>
 	  	</div>
 	</div>
+	
+	<div class="modal fade" id="searchId2" aria-hidden="true" aria-labelledby="searchId2" tabindex="-1">
+	  <div class="modal-dialog modal-dialog-centered">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	      </div>
+	      <div class="modal-body">
+	        	일치하는 사용자의 아이디는: ${user.username} 입니다.
+	      </div>
+	      <div class="modal-footer">
+	        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 </section>
+
 <script>
-/* function checkDuplicate() {
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value; // 비밀번호 입력 필드의 값을 가져옵니다.
-    const usernameList = ${usernameList}; // 모델 속성에서 JSON 데이터를 가져옴
+var userList = ${userListJson}; // userListJson을 JavaScript 객체로 파싱
+console.log(userList); // JavaScript 객체로 사용 가능
+
+function checkDuplicate() {
+    const cname = document.getElementById("cname").value;
+    const phone1 = document.getElementById("phone1").value;
+    const phone2 = document.getElementById("phone2").value;
 
     // 아이디 중복 검사
-    if (usernameList.includes(username)) {
-        // 아이디가 중복된 경우
-        if (!usernameList.includes(password)) {
-            alert("비밀번호가 틀렸습니다.");
-            return false; // 페이지 이동을 중단합니다.
-        } else{
-            return true;}
+    let isDuplicate = false;
+
+    for (const user of userList) {
+        if (user.cname == cname && user.phone1 == phone1 && user.phone2 == phone2) {
+            alert("일치하는 사용자의 아이디는: "+ user.username + "입니다.");
+            console.log(user.username);
+            console.log("userList: ", userList);
+            
+            isDuplicate = true;
+            break;
+        }
     }
 
-  
-} */
-</script>
-
-<script>
-	function checkDuplicate() {
-		const cname = document.getElementById("cname").value;
-		const phone1 = document.getElementById("phone1").value;
-		const phone2 = document.getElementById("phone2").value;
-		const phone3 = document.getElementById("phone3").value;
-
-		
-		var userList = ${userListJson}; // userListJson을 JavaScript 객체로 파싱
-	    console.log(userList); // JavaScript 객체로 사용 가능
-		// 아이디 중복 검사
-		let isDuplicate = false;
-
-		for (const user of userList) {
-			if (user.cname === cname && user.phone1 === phone1 && user.phone2 === phone2 && user.phone3 === phone3) {
-				isDuplicate = true;
-				break;
-			}
-		}
-
-		if (isDuplicate) {
-			alert("동일한 아이디가 존재합니다.");
-			return false; // 중복 아이디인 경우 페이지 이동을 중단합니다.
-		} else {
-			alert("동일한 아이디가 존재하지 않습니다.");
-			return true; // 중복 아이디가 아닌 경우 페이지 이동을 허용합니다.
-		}
-	}
+    if (isDuplicate) {
+        alert("동일한 아이디가 존재합니다.");
+        return false; // 중복 아이디인 경우 페이지 이동을 중단합니다.
+    } else {
+        alert("동일한 아이디가 존재하지 않습니다.");
+        return true; // 중복 아이디가 아닌 경우 페이지 이동을 허용합니다.
+    }
+}
 </script>
 
 <!-- 로그인 페이지 메인 섹션 종료 -->

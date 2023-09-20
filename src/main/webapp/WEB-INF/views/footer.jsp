@@ -4,7 +4,7 @@
 	</footer>
     
     <div class="scroll-top-wrapper ">
-	  <span class="scroll-top-inner"><i class="fa fa-2x fa-arrow-circle-up"></i></span>
+	  <span class="scroll-top-inner"><i class="xi-angle-up"></i></span>
 	</div>
 </body>
 <script>
