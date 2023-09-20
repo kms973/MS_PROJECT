@@ -30,7 +30,9 @@
 				<!-- 로그인(인증된) 사용자인 경우 --> ${user.bid}
 				</sec:authorize>
 				</div> --%>
-				<input class="form-control" id="input_bname" name="bname" type="text" placeholder="회원 아이디 불러오는 부분" aria-label="inputGroupPrepend" value="${content_view.bname}">
+				<sec:authorize access="isAuthenticated()">
+				<input class="form-control" id="input_bname" name="bname" type="text"  aria-label="inputGroupPrepend" value="${username}">
+		      	</sec:authorize>
 		      	<div class="invalid-feedback">Please choose a username.</div>
 		    </div>
 		</div>

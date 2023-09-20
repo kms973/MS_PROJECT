@@ -1,5 +1,6 @@
 package edu.global.ex.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -180,9 +181,11 @@ public class HomeController {
 
 	// user 게시판 작성 페이지
 	@GetMapping("/write_view")
-	public String write_view1() {
+	public String write_view1(Principal principal,Model model) {
 
 		log.info("write_view()..");
+		
+		model.addAttribute("username",principal.getName());
 
 		return "write_view";
 	}

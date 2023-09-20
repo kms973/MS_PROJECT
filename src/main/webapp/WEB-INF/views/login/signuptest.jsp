@@ -65,7 +65,7 @@ table.signUp-table {
 			<div class="row">
 			    <div class="col-md-2">
 			        <div class="form-floating my-2">
-					    <select class="form-select" id="phone1" name="phone1">
+					    <select class="form-select" id="phone1" name="phone">
 					        <option value="010">010</option>
 					        <option value="011">011</option>
 					        <option value="016">016</option>
@@ -76,14 +76,14 @@ table.signUp-table {
 			    </div>
 			    <div class="col-md-5">
 			        <div class="form-floating my-2">
-			            <input name="phone2" type="text" class="form-control" id="cphone2" placeholder="phone" required>
+			            <input name="phone1" type="text" class="form-control" id="cphone2" placeholder="phone" required>
 			            <label for="cphone1">전화번호</label>
 			            <div class="invalid-feedback">전화번호를 입력해주세요.</div>
 			        </div>
 			    </div>
 			    <div class="col-md-5">
 			        <div class="form-floating my-2">
-			            <input name="phone3" type="text" class="form-control" id="cphone3" placeholder="phone" required>
+			            <input name="phone2" type="text" class="form-control" id="cphone3" placeholder="phone" required>
 			            <label for="cphone2">전화번호</label>
 			            <div class="invalid-feedback">전화번호를 입력해주세요.</div>
 			        </div>
