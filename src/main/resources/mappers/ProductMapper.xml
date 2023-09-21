@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    
+
 <mapper namespace="edu.global.ex.mapper.ProductMapper">
 
 	<!-- 상품 등록 -->
@@ -12,6 +12,12 @@
     values (#{product_category}, #{product_code}, #{product_name}, #{price}, #{stock_quantity}, #{options}, #{product_img})
 ]]>
 	</insert>
+
+	<delete id="delete">
+	<![CDATA[
+	delete from ms_product where product_category = #{product_category} and product_code = #{product_code}
+	]]>
+	</delete>
 
 	<!-- 삭제 -->
 	<delete id="deleteProduct" parameterType="String">
@@ -36,8 +42,9 @@
       		  where
     ]]>
 	</update>
-	
-	<select id="selectOneProduct" resultType="edu.global.ex.vo.ProductVO">
+
+	<select id="selectOneProduct"
+		resultType="edu.global.ex.vo.ProductVO">
 		<![CDATA[
 			select * from ms_product
 				where product_code = #{product_code}
