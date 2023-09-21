@@ -14,7 +14,7 @@ public interface ProductService  {
 	public void insert(ProductVO productVO); // insert
 
 	
-
+	public void delete(String product_category, int product_code);
 
 	
 

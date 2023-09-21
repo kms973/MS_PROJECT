@@ -14,6 +14,8 @@ public interface ProductMapper {
 	 	void insertProduct(ProductVO productVO);  
 
 	    void deleteProduct(@Param("product_category") String product_category);
+	    
+	    void delete(String product_category, int product_code);
 
 	    void updateProduct(ProductVO pvo);
 }

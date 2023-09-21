@@ -58,7 +58,8 @@
 		           			<div class="table-op text-center">
 	               				<a class="btn btn-sm btn-primary" href="#none"><i class="fas fa-edit">상품수정</i></a>
 	               				<%-- <a class="btn btn-sm btn-primary" href="edit?product_code=<%= product_code %>">수정</a> --%>
-			            		<a class="btn btn-sm btn-danger" href="#none"><i class="fas fa-trash">삭제</i></a>
+			            		<a class="btn btn-sm btn-danger" href="/admin/product/delete/${list.productCategory }/${list.productCode}"><i class="fas fa-trash">삭제</i></a>
+			           		</form>
 			           		</div>
 		           		</div>
 		         	</td></tr>

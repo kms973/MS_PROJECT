@@ -19,6 +19,12 @@
         delete from ms_product where product_category = #{product_category}
         ]]>
 	</delete>
+	
+	<delete id="delete">
+	<![CDATA[
+	delete from ms_product where product_category = #{product_category} and product_code = #{product_code}
+	]]>
+	</delete>
 
 	<!-- 수정 -->
 	<update id="updateProduct"
