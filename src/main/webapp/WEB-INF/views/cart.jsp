@@ -8,14 +8,14 @@
 	<div id="sub-bnr"><h5>Cart</h5></div>
 	
 	<div class="row mt-1 justify-content-between hello">
-		<div class="col-8 left pe-0">
-			<table class="table">
+		<div class="col-8 left px-0">
+			<table class="table" >
 			  <thead>
 			    <tr>    
 			      <th scope="col">	
 			      <input type="hidden" name="cmd" value="order">  
 				      <div class="form-check col-1"><input class="form-check-input mt-1" type="checkbox" id="checkAll" onclick="toggleCheckAll()"></div>
-			      </th>
+			      </th>     
 			      <th scope="col" class="col-3"><strong>상품명</strong></th>
 			      <th scope="col" class="col-2"><div class="mx-2"><strong>수량</strong></div></th>
 			      <th scope="col" class="col-2"><strong>판매가</strong></th>
@@ -31,9 +31,13 @@
 			      </th>
 			      <td class="col-3">
 			   		<div class="product-img d-flex">
-			   			<img src="/img/2.jpg" class="img-fluid" width="40%" alt="제품 이미지">
-			   			<div class="pname row mx-2 mt-4">${listCart.product_name}</div>
-			   		</div>
+			   			<img src="/img/${listCart.product_img }" class="img-fluid" width="40%" alt="제품 이미지">
+			   			<div>
+			   			<div class="pname row mx-2 mt-4">${listCart.product_name}</div> 			   			
+			   			<div style="font-size:6px; color: red; padding:0;">&#45; 옵션명: <span class="poptions">${listCart.options }</span></div>
+			   			</div>
+			   			</div>
+			   		
 			      </td>
 			      <td class="col-2">
 			      	<div class="quantity-controlss mt-4">
@@ -44,7 +48,7 @@
 			      </td>
 			      <td class="col-2"><div class="mt-4 gaap">${listCart.price}</div></td>
 			      <td class="col-2"><div class="mt-4 mx-2"><div name="p_price" id="p_price${loop.index}" class="p_price product-price" data-price="${listCart.price}" data-stock-quantity="${listCart.stock_quantity}">${listCart.price * listCart.stock_quantity}</div></div></td>
-			      <td class="col-2"><div class="mt-4 mx-2"><i class="delete_btn fa-regular fa-trash-can" type="button" onclick='deleteRowAndProduct(${listCart.product_code}, ${loop.index})'></i></div></td>
+			      <td class="col-2"><div class="mt-4 mx-2"><i class="delete_btn fa-regular fa-trash-can" type="button" onclick='deleteRowAndProduct(${listCart.product_code}, ${loop.index}, "${listCart.options}")'></i></div></td>
 			    </tr>
 			     </c:forEach>
 			    </tbody>
@@ -145,13 +149,15 @@
   
   function updateStockQuantity(row, newQuantity) {
 	  const product_name = document.getElementById('product' + row).querySelector('.pname').textContent;
+	  const options = document.getElementById('product' + row).querySelector('.poptions').textContent;
 	  // Ajax 요청을 이용하여 서버로 데이터 업데이트 요청 보내기
 	  $.ajax({
 	    type: 'POST',
 	    url: '/cart/updateStockQuantity', // 업데이트를 처리할 컨트롤러 경로
 	    data: {
 	      product_name: product_name,
-	      stock_quantity: newQuantity
+	      stock_quantity: newQuantity,
+	      options: options
 	    },
 	    success: function (response) {
 	      // 성공 시 작업 수행
@@ -164,14 +170,15 @@
 	  });
 	}
   
-  function deleteProduct(product_code) {
+  function deleteProduct(product_code, options) {
 	    $.ajax({
 	        type: 'POST',
 	        url: '/cart/delete',
-	        data: { product_code: product_code },
+	        data: { product_code: product_code, options: options },
 	        success: function (response) {
 	            console.log(response);
 	            $(`#product${product_code}`).remove();
+	            $(`#product${options}`).remove();
 	            updateTotalPrice();
 	        },
 	        error: function (error) {
@@ -180,9 +187,9 @@
 	    });
 	}
   
-  function deleteRowAndProduct(product_code, row) {
+  function deleteRowAndProduct(product_code, row, options) {
 	    deleteRow(row); // 행 삭제
-	    deleteProduct(product_code); // 제품 삭제
+	    deleteProduct(product_code, options); // 제품 삭제
 	}
   //각각의 tr 요소의 체크박스가 변경될 때 호출되는 함수
   function onRowCheckboxChange(row) {
@@ -301,6 +308,15 @@
   tbodyCheckboxes.forEach(function(checkbox) {
     checkbox.addEventListener('change', checkAllTbodyCheckboxes);
   });
+</script>
+<script>
+success: function (response) {
+    // 성공 시 처리 (예: 알림 모달 표시)
+    $("#myModal .modal-body").text(response);
+    $("#myModal").modal("show");
+    // 장바구니 페이지로 이동
+    window.location.href = "/cart/";
+},
 </script>
 <!-- footer 시작 -->
 <jsp:include page="/WEB-INF/views/footer.jsp" />

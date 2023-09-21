@@ -17,6 +17,8 @@ import com.google.gson.Gson;
 
 import edu.global.ex.mapper.CompanyMapper;
 import edu.global.ex.mapper.MsUserMapper;
+import edu.global.ex.service.CartService;
+import edu.global.ex.vo.CartVO;
 import edu.global.ex.vo.MsUserVO;
 import lombok.extern.slf4j.Slf4j;
 
@@ -30,6 +32,9 @@ public class LoginController {
 	@Autowired
 	private PasswordEncoder passwordEncoder; // 비밀번호 암호화를 위한 빈
 
+	@Autowired
+	private CartService cartService;
+	
 	// 로그인 페이지로 이동하는 핸들러
 	@GetMapping("/admin")
 	public String login() {
@@ -151,6 +156,15 @@ public class LoginController {
 		
 		return "redirect:/login/userprofile";
 	}
+	
+	// 사용자 장바구니로 이동하는 핸들러
+		@GetMapping("/cart")
+		public String cart(Model model) {
+			log.info("cart()..");
+			List<CartVO> listCart = cartService.listCart();
+			model.addAttribute("listCart", listCart);
+			return "/cart";
+		}
 
 //	@GetMapping("/login/google-callback")
 //	public String googleCallback() {

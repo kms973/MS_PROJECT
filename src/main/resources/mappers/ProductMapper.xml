@@ -19,12 +19,6 @@
         delete from ms_product where product_category = #{product_category}
         ]]>
 	</delete>
-	
-	<delete id="delete">
-	<![CDATA[
-	delete from ms_product where product_category = #{product_category} and product_code = #{product_code}
-	]]>
-	</delete>
 
 	<!-- 수정 -->
 	<update id="updateProduct"
@@ -42,5 +36,13 @@
       		  where
     ]]>
 	</update>
+	
+	<select id="selectOneProduct" resultType="edu.global.ex.vo.ProductVO">
+		<![CDATA[
+			select * from ms_product
+				where product_code = #{product_code}
+				and product_category = #{product_category}
+		]]>
+	</select>
 
 </mapper>

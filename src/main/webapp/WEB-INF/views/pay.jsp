@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- header 시작 -->
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
@@ -11,48 +12,33 @@
 	  <thead>
 	    <tr>       
 	      <th scope="col" class="col-4"><strong>상품명</strong></th>
-	      <th scope="col" class="col-2"><strong>수량</strong></div></th>
+	      <th scope="col" class="col-2"><strong>수량</strong></th>
 	      <th scope="col" class="col-3"><strong>판매가</strong></th>
 	      <th scope="col" class="col-3"><strong>구매금액</strong></th>
 	    </tr>
 	  </thead>
 	  <tbody>
-	    <tr class="product1" id="product1">
+	  	<c:forEach items="${listPay}" var="listPay" varStatus="loop">
+	    <tr class="product${loop.index}" id="product${loop.index}">
 	      <td class="col-4">
-	   		<div class="product-img d-flex"><img src="/img/2.jpg" class="img-fluid" width="30%" alt="제품 이미지"><div class="pname row mx-2 mt-4">상품명</div></div>
+	   		<div class="product-img d-flex">
+	   			<img src="/img/2.jpg" class="img-fluid" width="30%" alt="제품 이미지">
+	   			<div class="pname row mx-2 mt-4">${listPay.product_name}</div>
+	   		</div>
 	      </td>
 	      <td class="col-2">
 	      	<div class="quantity-controls mt-4">
-	      	<div class="pronum">1</div>
+	      		<div class="pronum" id='result${loop.index}'>${listPay.stock_quantity}</div>
 	      	</div>
 	      </td>
-	      <td class="col-3"><div class="mt-4">10,000</div></td>
-	      <td class="col-3"><div class="mt-4 mx-2"><div name="p_price" id="p_price1" class="p_price product-price" value="10,000">10,000</div></div></td>
-	    </tr>
-	    <tr class="product2" id="product2">
-	      <td class="col-4">
-	   		<div class="product-img d-flex"><img src="/img/2.jpg" class="img-fluid" width="30%" alt="제품 이미지"><div class="pname row mx-2 mt-4">상품명</div></div>
-	      </td>
-	      <td class="col-2">
-	      	<div class="quantity-controls mt-4">	      		
-	      	<div class="pronum">1</div>
+	      <td class="col-3"><div class="mt-4 gaaap">${listPay.price}</div></td>
+	      <td class="col-3">
+	      	<div class="mt-4 mx-2">
+	      		<div name="pp_price" id="pp_price${loop.index}" class="pp_price product-price" data-price="${listPay.price}" data-stock-quantity="${listPay.stock_quantity}">${listPay.price * listPay.stock_quantity}</div>
 	      	</div>
-	      </td>
-	      <td class="col-3"><div class="mt-4">10,000</div></td>
-	      <td class="col-3"><div class="mt-4 mx-2"><div name="p_price" id="p_price2" class="p_price product-price" value="10,000">10,000</div></div></td>	   
+	      	</td>
 	    </tr>
-	    <tr class="product3" id="product3">
-	      <td class="col-4">
-	   		<div class="product-img d-flex"><img src="/img/2.jpg" class="img-fluid" width="30%" alt="제품 이미지"><div class="pname row mx-2 mt-4">상품명</div></div>
-	      </td>
-	      <td class="col-2">
-	      	<div class="quantity-controls mt-4">	      	
-	      	<div class="pronum">1</div>
-	      	</div>
-	      </td>
-	      <td class="col-3"><div class="mt-4">10,000</div></td>
-	      <td class="col-3"><div class="mt-4 mx-2"><div name="p_price" id="p_price3" class="p_price product-price" value="10,000">10,000</div></div></td>
-	    </tr>
+	    </c:forEach>	    
 	    </tbody>
 	    </table>
 	    
@@ -73,12 +59,13 @@
                     <input class="form-control form-control-sm phboxx" type="text">-
                     <input class="form-control form-control-sm phboxxx" type="text"></div>
 		     	<div class="row mx-2 my-3">이메일
-		     		<input class="form-control form-control-sm embox" type="text">@
-		     		<input class="form-control form-control-sm emboxx" type="text"></div>
+		     		<input class="form-control form-control-sm embox" type="text">
+		     	</div>
 		     	<div class="row mx-2 my-2">주소<input class="form-control form-control-sm adbox" id="sample6_postcode" type="text"><button type="button" class="btn btn-sm btn-secondary butt" onclick="sample6_execDaumPostcode()">우편번호</button></div>
 		     	<div class="row mx-2 my-2"><input class="form-control form-control-sm adboxx" id="sample6_address" type="text"></div>
 		     	<div class="row mx-2 my-2"><input class="form-control form-control-sm adboxxx" id="sample6_detailAddress" type="text"></div>
-		     	<div class="row mx-2 my-2"><input class="form-control form-control-sm adboxxxx" id="sample6_extraAddress" type="text"></div>		     	
+		     	<div class="row mx-2 my-2"><input class="form-control form-control-sm adboxxxx" id="sample6_extraAddress" type="text"></div>
+		     	<div class="row mx-2 my-2"><input class="form-control form-control-sm adboxxxxx" id="sample6_extraAddress" type="text"></div>		     	
 			</div>
 		</div>
 		
@@ -347,10 +334,10 @@
 <div class="col-3 right paydev pe-0 position-relative" >
 	<div class="pay-devv">
 		<div class="border-dark border p-2 mb-2">
-			<div class="costall" id="costline1">총 상품금액<span class="paytext float-end" value="30,000">30,000</span></div>			
+			<div class="costall" id="costline1">총 상품금액<span class="paytext float-end" ></span></div>			
 			<div class="costdeli">배송비<span class="float-end">0</span></div>
 			<div class="lineeeee"></div>
-			<div class="costdeli" id="sum_p_price"><strong>결제예정금액<span class="paytext float-end" value="30,000">30,000</span></strong></div>
+			<div class="costdeli" id="sum_p_price"><strong>결제예정금액<span class="paytext float-end"></span></strong></div>
 		</div>
 		<div class="btn-box"><button type="button" class="btn btn-sm text-white" id="vatn">주문하기</button></div>		
 	</div>
@@ -443,6 +430,54 @@ window.addEventListener('scroll', function() {
 		});
 	});
 }); */
+
+//.gaaap 클래스의 수치에 콤마 추가
+const gaaapElements = document.querySelectorAll('.gaaap');
+gaaapElements.forEach(function(element) {
+  const numericValue = parseFloat(element.textContent.replace(/,/g, ''));
+  element.textContent = numericValue.toLocaleString();
+});
+
+//.p_price 클래스의 수치에 콤마 추가
+let totalPay = 0;
+const ppPriceElements = document.querySelectorAll('.pp_price');
+ppPriceElements.forEach(function(element) {
+  const numericValue = parseFloat(element.textContent.replace(/,/g, ''));
+  totalPay += numericValue;
+  element.textContent = numericValue.toLocaleString();
+});
+const paytextElements = document.querySelectorAll('.paytext');
+paytextElements.forEach(function(element) {
+  element.textContent = totalPay.toLocaleString();
+});
+
+var checkAllCheckbox = document.getElementById('checkAlll');
+var cbbCheckbox = document.querySelector('.cbb');
+var cbbbCheckbox = document.querySelector('.cbbb');
+
+function handleCbbAndCbbbClick() {
+    var isCbbChecked = cbbCheckbox.checked;
+    var isCbbbChecked = cbbbCheckbox.checked;
+
+    if (isCbbChecked && isCbbbChecked) {
+        checkAllCheckbox.checked = true;
+    } else {
+        checkAllCheckbox.checked = false;
+    }
+}
+
+cbbCheckbox.addEventListener('click', handleCbbAndCbbbClick);
+cbbbCheckbox.addEventListener('click', handleCbbAndCbbbClick);
+
+function toggleCheckAll() {
+    var isChecked = checkAllCheckbox.checked;
+    var checkboxes = document.querySelectorAll('.form-check-inputt');
+
+    checkboxes.forEach(function (checkbox) {
+        checkbox.checked = isChecked;
+    });
+}
+checkAllCheckbox.addEventListener('click', toggleCheckAll);
 </script>
 <!-- footer 시작 -->
 <jsp:include page="/WEB-INF/views/footer.jsp" />

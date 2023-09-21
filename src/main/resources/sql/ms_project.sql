@@ -83,14 +83,13 @@ VALUES ('user123', 'password123', '홍길동', TO_DATE('1990-01-15', 'YYYY-MM-DD
 
 -- 결제
 create table ms_pay (
-    order_number VARCHAR2(20) PRIMARY KEY,    -- 주문 번호
-    quantity NUMBER,                          -- 상품 수량
+    order_number number PRIMARY KEY,    -- 주문 번호
+    stock_quantity NUMBER,                          -- 상품 수량
     payment_method VARCHAR2(50),              -- 결제 수단
     shipping_address VARCHAR2(100),           -- 배송지 주소
-    pid varchar2(20),
-    product_number varchar2(20),
-    foreign key (pid) references ms_customer (cid)
-    --foreign key (product_number) references ms_product (product_number)
+    username varchar2(50), -- 유저 id
+    product_name varchar2(50), -- 상품명
+    product_code NUMBER -- 상품코드
     );
     
 drop table ms_pay;

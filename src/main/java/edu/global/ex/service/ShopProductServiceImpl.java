@@ -114,5 +114,4 @@ public class ShopProductServiceImpl implements ShopProductService {
 
 		return shopProductMapper.read(productCategory, productCode);
 	}
-
 }

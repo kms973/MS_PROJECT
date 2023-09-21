@@ -6,8 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.global.ex.mapper.CartMapper;
+import edu.global.ex.mapper.ProductMapper;
+import edu.global.ex.mapper.ShopProductMapper;
 import edu.global.ex.vo.CartVO;
-
+import edu.global.ex.vo.ProductVO;
+import edu.global.ex.vo.ShopProductVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -16,6 +19,9 @@ public class CartServiceImpl implements CartService {
 
     @Autowired
     private CartMapper cartMapper;
+    
+    @Autowired
+    private ShopProductMapper shopProductMapper;
  
     @Override
     public void insert(CartVO cartVO) {
@@ -31,13 +37,28 @@ public class CartServiceImpl implements CartService {
 
    
     @Override
-    public int delete(int product_code) {
+    public int delete(int product_code, String options) {
     	log.info("delete()..");
-		return cartMapper.delete(product_code);
+		return cartMapper.delete(product_code, options);
     }
     
     @Override
-    public void updateStockQuantity(String product_name, int stock_quantity) {
-        cartMapper.updateStockQuantity(product_name, stock_quantity);
+    public void updateStockQuantity(String product_name, int stock_quantity, String options) {
+        cartMapper.updateStockQuantity(product_name, stock_quantity, options);
+        
+        
     }
+
+    @Override
+    public void intoCart(String username, ShopProductVO shopProductVO) {
+        CartVO cart = new CartVO();
+        cart.setUsername(username);
+        cart.setProduct_code(shopProductVO.getProductCode());
+        cart.setProduct_img(shopProductVO.getImg());
+        cart.setProduct_name(shopProductVO.getProductName());
+        cart.setPrice(shopProductVO.getPrice());
+        cart.setOptions(shopProductVO.getOptions());
+        cart.setStock_quantity(shopProductVO.getStock());
+        cartMapper.insert(cart);
+    }   
 }

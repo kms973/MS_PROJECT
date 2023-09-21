@@ -1,18 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- header 시작 -->
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
 <!-- 메인 시작 -->
 
  <section id="detail" class="container wrap">
+
+	<form method="post" action="/cart/insertcart">
+	<input type="hidden" name="product_img" value="${spVO.img }" >
+	<input type="hidden" name="product_name" value="${spVO.productName }" >
+	<input type="hidden" name="price" value="${spVO.price }" >
+	<input type="hidden" name="product_code" value="${spVO.productCode }" >
+	<input type="hidden" name="selectedQuantity" value="${selectedQuantity}">
+	<input type="hidden" id="optionsInput" name="options" value="">
 	<div class="row mt-4 justify-content-between">
-	
 		<div class="col-6 left mb-4"><img src="/img/${spVO.img}" class="img-fluid" width="500" alt="제품 이미지"></div>
 		<div class="right col-6 row align-content-between py-2 mb-4">
 			<div class="right-top row align-content-between w-100">
-				<h3 class="p-1"><strong>${spVO.productName}</strong></h3>
+				<h3 class="p-1 pname"><strong>${spVO.productName}</strong></h3>
 				<div class="d-flex justify-content-between align-items-center pt-4 py-2 px-1 w-100">
 					<div class="price d-flex justify-content-start align-items-center">
 						<div class="price-tit">가격</div>
@@ -29,12 +36,12 @@
 					<select id="selectBox" class="form-select w-75 mx-3 px-2"
 						aria-label="Default select example" style="height: auto">
 						<option selected="selected">옵션을 선택해주세요.</option>
-						<option value="1">14K 골드</option>
-						<option value="2">14K 로즈골드</option>
-						<option value="3">14K 실버</option>
-						<option value="4">18K 골드</option>
-						<option value="5">18K 로즈골드</option>
-						<option value="6">18K 실버</option>
+						<option value="14K 골드">14K 골드</option>
+						<option value="14K 로즈골드">14K 로즈골드</option>
+						<option value="14K 실버">14K 실버</option>
+						<option value="18K 골드">18K 골드</option>
+						<option value="18K 로즈골드">18K 로즈골드</option>
+						<option value="18K 실버">18K 실버</option>
 					</select>
 				</div>
 				<!-- select 옵션을 선택시 값을 가져와서 option-txt가 생성 -->
@@ -44,7 +51,7 @@
 						<div class="count d-flex align-content-center">
 							<a href="#" class="minus text-dark" onclick='count("minus")'><i class="xi-minus-circle-o"></i></a>
 							<span id="quantity" class="px-3">1</span>
-							<a href="#" class="plus text-dark " onclick='count("plus")'><i class="xi-plus-circle-o"></i></a>
+							<a href="#" class="plus text-dark" onclick='count("plus")'><i class="xi-plus-circle-o"></i></a>
 						</div>
 					</div>
 					<div id="price" class="pe-1 d-flex align-items-center"><h5 class="mb-0">₩ ${spVO.price }</h5></div>
@@ -54,17 +61,29 @@
 				<div class="py-3 d-flex align-content-center justify-content-between px-0" style="border-color: #fff;">
 					<div class="text-right ps-1"><h5 class="mb-0"><strong>총 상품금액</strong></h5></div>
 					<div class="text-right pe-1">
-						<div id="totalPrice"><h5 class="mb-0"><strong>₩ 0</strong></h5></div>
+						<div id="totalPrice"><h5 class="mb-0"><strong>₩ ${spVO.price }</strong></h5></div>
 					</div>
 				</div>
 				<div class="d-flex justify-content-center align-items-center mt-4 px-0">
-					<div class="px-2 w-50 ps-1"><button type="button" class="btn" id="bttn">CART</button></div>
-					<div class="px-2 w-50 pe-1"><button type="button" class="btn" id="bttn">BUY IT NOW</button></div>
+					<div class="px-2 w-50 ps-1">					
+					<!-- <button type="submit" class="btn cartbtn" id="bttn" >CART</button> -->
+					<sec:authorize access="isAuthenticated()">
+				    <a href="/cart" class="d-block link-dark" id="dropdownUser2" aria-expanded="false"><button type="submit" class="btn cartbtn" id="bttn" >CART</button></a>
+				    </sec:authorize>
+			    	<!-- 로그인 안 한 익명일 경우 -->
+				    <sec:authorize access="isAnonymous()">
+				    <a href="/login" class="d-block link-dark" id="dropdownUser2" aria-expanded="false"><button type="submit" class="btn cartbtn" id="bttn" >CART</button></a>
+				    </sec:authorize>					
+					</div>
+				
+					<div class="px-2 w-50 pe-1">
+					<button type="button" class="btn paybtn" id="bttn">BUY IT NOW</button>
+					</div>
 				</div>
 			</div><!-- <div class="right-bottom"> -->
 		</div><!-- <div class="right"> -->
 	</div><!-- <div class="row"> -->
-
+</form>
 	<div class="rec-title d-flex justify-content-center mt-5"><strong><h5> Recommand Item</h5></strong></div>
 	<div class="container mt-5">
 		<div id="blogCarousel1" class="carousel slide" data-bs-ride="carousel">
@@ -144,30 +163,46 @@
 		</div>
 		<!-- detail TAB contents -->
 	</div>
-</section>
-
-<!-- Modal -->
-<div class="modal" id="myModal" aria-labelledby="exampleModalLabel" aria-hidden="false">
+	
+	<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">알림</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="cartModalLabel">MS Shop</h5>
       </div>
-      <div class="modal-body">옵션을 선택해주세요.</div>
+      <div class="modal-body">
+       	<strong>장바구니에 상품이 담겼습니다.</strong>
+      </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal" id="continueShopping">쇼핑 계속하기</button>
+        <button type="button" class="btn btn-dark" id="cartConfirmation">장바구니 확인</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- footer 시작 -->
-<jsp:include page="/WEB-INF/views/footer.jsp" />
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		// 초기화: 모든 데이터 아이템을 표시
+		$(".detail-tab.on").show();
 
-<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+		// 탭 버튼 클릭 이벤트 처리
+		$(".detail-tab_menu .detail-tab").click(function() {
+			const selectedType = $(this).data("type"); // 선택된 탭의 data-type 속성 값
 
-<script> // 상품 수량 변경시 가격 변경 스크립트
+			// 선택된 탭에 해당하는 데이터 아이템만 표시하고 나머지는 숨김
+			if (selectedType === "all") {
+				$(".data_item").show();
+			} else {
+				$(".data_item").hide();
+				$(".data_item[data-type='" + selectedType + "']").show();
+			}
+		});
+	});
+</script>
+<script>
 	function count(type) {
 		// 결과를 표시할 element
 		const quantityElement = document.getElementById('quantity');
@@ -203,7 +238,7 @@
 	}
 </script>
 
-<script> // select 박스의 옵션 선택시 옵션박스 나타나는 스크립트
+<script>
 	$(document).ready(function() {
 		
 		// 셀렉트 박스에서 옵션을 선택할 때 이벤트 핸들러를 추가합니다.
@@ -226,7 +261,7 @@
 			} else {
 				$("#opTxtBox").removeClass("d-flex").addClass("d-none");
 				// 옵션 선택 경고창
-				 alert("옵션을 선택해주세요.");
+				 //alert("옵션을 선택해주세요.");
 				// $('#myModal').modal('show');
 			}
 			opTxtBox.show();
@@ -234,7 +269,7 @@
 	});
 </script>
 
-<script> // share 버튼 클릭시 현페이지 주소 카피 스트립트
+<script>
 document.addEventListener('DOMContentLoaded', function() {
   // 버튼 요소를 가져옵니다.
   var copyButton = document.getElementById('copyButton');
@@ -274,8 +309,51 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <script>
-$('.btn-icon > a.cart').click(function(){
-	$(this)..toggleClass('.click');
+$(document).ready(function() {
+    // 셀렉트 박스에서 옵션을 선택할 때 이벤트 핸들러를 추가합니다.
+    $("#selectBox").on("change", function(e) {
+        // 선택한 옵션의 값을 가져옵니다.
+        var selectedOptionsValue = $(this).val();
+
+        // 선택한 옵션 값을 input 태그에 설정합니다.
+        $("#optionsInput").val(selectedOptionsValue);
+    });
 });
 </script>
 
+<script>
+$("#bttn").click(function(event) {
+    const selectedQuantity = parseInt($("#quantity").text()); // 선택한 수량 가져오기
+    const selectedOption = $("#selectBox").val(); // 선택한 옵션 가져오기
+
+
+    // 옵션이 선택되었는지 확인
+    if (!selectedOption || selectedOption === "옵션을 선택해주세요.") {
+        // 옵션이 선택되지 않았을 경우 알림 창을 띄웁니다.
+        alert("옵션을 선택해주세요.");
+        event.preventDefault();
+    } else {
+        // 옵션이 선택되었다면, 선택한 수량을 hidden input 필드에 저장
+        $("input[name='selectedQuantity']").val(selectedQuantity);
+
+        // 모달 창을 띄웁니다.
+        $('#cartModal').modal('show');
+        event.preventDefault();
+    }
+});
+
+// 장바구니 확인 버튼 클릭 시 form을 제출하도록 설정
+$("#cartConfirmation").click(function() {
+    $("form").submit();
+});
+
+$("#continueShopping").click(function() {
+    $("form").submit();
+    setTimeout(function() {
+        window.location.href = "/shop/*";
+    }, 10); 
+});
+
+</script>
+<!-- footer 시작 -->
+<jsp:include page="/WEB-INF/views/footer.jsp" />

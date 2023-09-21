@@ -35,7 +35,4 @@ public interface ShopProductService {
 	
 	//restcontroller용
 	public ShopProductVO read(String productCategory, int productCode);
-	
-	
-	
 }

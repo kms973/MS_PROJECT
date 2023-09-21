@@ -43,4 +43,5 @@ public interface ShopProductMapper {
 	
 	//restcontroller용
 	public ShopProductVO read(String productCategory, int productCode);
+	
 }

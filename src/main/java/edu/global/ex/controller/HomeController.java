@@ -360,21 +360,21 @@ public class HomeController {
 		return "/shop/home";
 	}*/
 	
-	// 장바구니 페이지
-			@GetMapping("/cart")
-			public String cart(Model model) {
-				log.info("cart()..");
-				List<CartVO> listCart = cartService.listCart();
-				model.addAttribute("listCart", listCart);
-				return "/cart";
-			}
-			
-			@GetMapping("/cart/delete")
-			public String delete(int product_code, Model model) {
-				log.info("delete()..");
-				model.addAttribute("delete", cartService.delete(product_code));
-				return "/cart";
-			}
+//	// 장바구니 페이지
+//	@GetMapping("/cart")
+//	public String cart(Model model) {
+//		log.info("cart()..");
+//		List<CartVO> listCart = cartService.listCart();
+//		model.addAttribute("listCart", listCart);
+//		return "/cart";
+//	}
+	
+	@GetMapping("/cart/delete")
+	public String delete(int product_code, String options, Model model) {
+		log.info("delete()..");
+		model.addAttribute("delete", cartService.delete(product_code, options));
+		return "/cart";
+	}
 		
 	// 결제 페이지
 	@GetMapping("/pay")

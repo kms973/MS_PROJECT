@@ -79,7 +79,14 @@
 				</div>
 		    </div>
 		    <div class="icon-btn d-flex">
-		        <div><a href="/cart" class="d-block link-dark" id="dropdownUser2" aria-expanded="false"><i class="fa-solid fa-cart-shopping"></i></a></div>
+		    	<!-- 로그인(인증된) 사용자인 경우 -->
+			  	<sec:authorize access="isAuthenticated()">
+			    <div><a href="/cart" class="d-block link-dark" id="dropdownUser2" aria-expanded="false"><i class="fa-solid fa-cart-shopping"></i></a></div>
+			    </sec:authorize>
+			    <!-- 로그인 안 한 익명일 경우 -->
+			    <sec:authorize access="isAnonymous()">
+			    <div><a href="/login" class="d-block link-dark" id="dropdownUser2" aria-expanded="false"><i class="fa-solid fa-cart-shopping"></i></a></div>
+			    </sec:authorize>
 		    </div>
 		    <div class="icon-btn d-flex dropstart">
 			  <div class="dropdown-toggle" id="hd-search-btn" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
