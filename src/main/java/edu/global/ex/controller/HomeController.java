@@ -360,14 +360,15 @@ public class HomeController {
 		return "/shop/home";
 	}*/
 	
-//	// 장바구니 페이지
-//	@GetMapping("/cart")
-//	public String cart(Model model) {
-//		log.info("cart()..");
-//		List<CartVO> listCart = cartService.listCart();
-//		model.addAttribute("listCart", listCart);
-//		return "/cart";
-//	}
+	// 장바구니 페이지
+	@GetMapping("/cart/")
+	public String cart(Principal principal,Model model) {
+		log.info("cart()..");
+		List<CartVO> listCart = cartService.listCart(principal.getName());
+		log.info(listCart.toString());
+		model.addAttribute("listCart", listCart);
+		return "/cart";
+	}
 	
 	@GetMapping("/cart/delete")
 	public String delete(int product_code, String options, Model model) {

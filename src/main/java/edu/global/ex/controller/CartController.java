@@ -1,25 +1,20 @@
 package edu.global.ex.controller;
 
-import java.util.List;
-import java.util.Map;
+import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.global.ex.service.CartService;
+import edu.global.ex.service.MsUserService;
 import edu.global.ex.service.ShopProductService;
 import edu.global.ex.vo.CartVO;
-import edu.global.ex.vo.ShopProductVO;
+import edu.global.ex.vo.MsUserVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -33,13 +28,17 @@ public class CartController {
 	@Autowired
 	private ShopProductService shopProductService;
 	
-	@GetMapping("/")
-    public String listCart(Model model) {
-		List<CartVO> listCart = cartService.listCart();
-        model.addAttribute("listCart", listCart);
-        log.info("list on!");
-        return "cart";
-    }
+	@Autowired
+	private MsUserService muService;
+	
+//	@GetMapping("/")
+//    public String listCart(Principal principal,Model model) {
+//		List<CartVO> listCart = cartService.listCart();
+//		principal.getName();
+//        model.addAttribute("listCart", listCart);
+//        log.info("list on!");
+//        return "cart";
+//    }
 
     @PostMapping("/delete")
     public ResponseEntity<String> removeFromCart(@RequestParam("product_code") int product_code,@RequestParam("options") String options) {
@@ -73,9 +72,11 @@ public class CartController {
     }
     
     @PostMapping("/insertcart")
-	public String insertCart(CartVO cartVO, @RequestParam("options") String options, @RequestParam("selectedQuantity") int selectedQuantity) {
+	public String insertCart(Principal principal,MsUserVO msuserVO,CartVO cartVO, @RequestParam("options") String options, @RequestParam("selectedQuantity") int selectedQuantity) {
+    	cartVO.setUsername(principal.getName());
     	cartVO.setOptions(options);
     	cartVO.setStock_quantity(selectedQuantity);
+    
 		cartService.insert(cartVO);
 		
 		return "redirect:/cart/";

@@ -8,7 +8,7 @@
 
    <select id="listCart" resultType="CartVO">
     <![CDATA[
-      select * from ms_cart
+      select * from ms_cart where username = #{username}
    ]]>    
     </select>
 
@@ -21,8 +21,8 @@
     <insert id="insert">
     <![CDATA[
   
-    INSERT INTO ms_cart ( product_img, product_name, price, product_code, stock_quantity , options)
-  VALUES ( #{product_img}, #{product_name}, #{price}, #{product_code}, #{stock_quantity}, #{options})
+    INSERT INTO ms_cart ( username,product_img, product_name, price, product_code, stock_quantity , options)
+  VALUES ( #{username},#{product_img}, #{product_name}, #{price}, #{product_code}, #{stock_quantity}, #{options})
   
   ]]>    
     </insert>    

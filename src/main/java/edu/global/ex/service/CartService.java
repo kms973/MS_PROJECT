@@ -2,17 +2,14 @@ package edu.global.ex.service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import edu.global.ex.vo.CartVO;
-import edu.global.ex.vo.ProductVO;
 import edu.global.ex.vo.ShopProductVO;
 
 public interface CartService {
 	
 	public void insert(CartVO cartVO);
 
-	public List<CartVO> listCart();
+	public List<CartVO> listCart(String username);
 	
 	public int delete(int product_code, String options); 
 

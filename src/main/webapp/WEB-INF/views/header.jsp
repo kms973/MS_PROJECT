@@ -81,7 +81,7 @@
 		    <div class="icon-btn d-flex">
 		    	<!-- 로그인(인증된) 사용자인 경우 -->
 			  	<sec:authorize access="isAuthenticated()">
-			    <div><a href="/cart" class="d-block link-dark" id="dropdownUser2" aria-expanded="false"><i class="fa-solid fa-cart-shopping"></i></a></div>
+			    <div><a href="/cart/${username }" class="d-block link-dark" id="dropdownUser2" aria-expanded="false"><i class="fa-solid fa-cart-shopping"></i></a></div>
 			    </sec:authorize>
 			    <!-- 로그인 안 한 익명일 경우 -->
 			    <sec:authorize access="isAnonymous()">

@@ -6,10 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.global.ex.mapper.CartMapper;
-import edu.global.ex.mapper.ProductMapper;
 import edu.global.ex.mapper.ShopProductMapper;
 import edu.global.ex.vo.CartVO;
-import edu.global.ex.vo.ProductVO;
 import edu.global.ex.vo.ShopProductVO;
 import lombok.extern.slf4j.Slf4j;
 
@@ -30,9 +28,9 @@ public class CartServiceImpl implements CartService {
     }
    
     @Override
-    public List<CartVO> listCart() {
+    public List<CartVO> listCart(String username) {
     	log.info("listCart()..");
-        return cartMapper.listCart();
+        return cartMapper.listCart(username);
     }
 
    
