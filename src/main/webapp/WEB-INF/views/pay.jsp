@@ -339,7 +339,9 @@
 			<div class="lineeeee"></div>
 			<div class="costdeli" id="sum_p_price"><strong>결제예정금액<span class="paytext float-end"></span></strong></div>
 		</div>
-		<div class="btn-box"><button type="button" class="btn btn-sm text-white" id="vatn">주문하기</button></div>		
+		<div class="btn-box"><button type="button" class="btn btn-sm text-white" id="vatn">
+		<a href="pay/payment" class="text-center">
+		주문하기</button></div>		
 	</div>
 </div>
 </div>
