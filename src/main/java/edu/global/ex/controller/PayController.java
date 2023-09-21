@@ -41,4 +41,18 @@ public class PayController {
         payService.insert(payVO);
         return "redirect:/pay";
     }
+	
+	
+	@GetMapping("/payment")
+	public String payment() {
+
+		log.info("payment..");
+
+		return "/payment";
+	}
+	
+
+	
+	
+	
 }

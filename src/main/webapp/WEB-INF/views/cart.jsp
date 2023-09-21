@@ -84,8 +84,8 @@
 			<div class="costlinee" id="sum_p_price"><strong>결제예정금액<span class="paytext float-end" id="totalPrice"></span></strong></div>
 		</div>
 		
-		<div class="px-1"><button type="button" class="btn btn-sm btn-outline-dark" id="btttn">전체상품주문</button></div>
-	    <div class="px-1"><button type="button" class="btn btn-sm btn-outline-dark" id="btttn">선택상품주문</button></div>
+		<div class="px-1"><button type="button" class="btn btn-sm btn-outline-dark" id="btttn"><a href="/pay" class="text-center">전체상품주문</button></div>
+	    <div class="px-1"><button type="button" class="btn btn-sm btn-outline-dark" id="btttn"><a href="/pay" class="text-center">선택상품주문</button></div>
 		</div>		
 </div>
 </div>
