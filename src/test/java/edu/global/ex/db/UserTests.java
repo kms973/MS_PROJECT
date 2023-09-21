@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @SpringBootTest
-class MemberTests {
+class UserTests {
 
 	@Autowired
 	MsUserService userService;
@@ -34,6 +34,6 @@ class MemberTests {
 	@Test
 	public void contextLoads() {
 		assertNotNull(userService);
-		log.info("Member test");
+		log.info("User test");
 	}
 }
