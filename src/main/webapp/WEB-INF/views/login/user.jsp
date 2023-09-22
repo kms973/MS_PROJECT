@@ -4,10 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
+<title>User Info</title>
 </head>
 <body>
-    <h1>Login</h1>
-    <a href="/login/google">Google Login</a>
+    <h1>User Info</h1>
+    <p>Email: ${email}</p>
+    <p>Name: ${name}</p>
+    <p>Phone Number: ${phoneNumber}</p>
+    <p>Address: ${address}</p>
 </body>
 </html>
