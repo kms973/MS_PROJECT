@@ -5,8 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-// Spring Security OAuth2 라이브러리에서 제공하는 OAuth2User 클래스를 사용하기 위해 import합니다.
-import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +24,7 @@ import edu.global.ex.vo.CompanyVO;
 import edu.global.ex.vo.CustomUserDetailsVO;
 import edu.global.ex.vo.MsUserVO;
 import lombok.extern.slf4j.Slf4j;
+
 @Slf4j
 @Controller
 public class HomeController {
@@ -391,30 +390,4 @@ public class HomeController {
 		log.info("ring()..");
 		return "/shop/ring";
 	}
-
-	@GetMapping("/")
-    public String home() {
-        return "home";
-    }
-
-    @GetMapping("/user")
-    public String user(@AuthenticationPrincipal OAuth2User principal, Model model) {
-        // 이름
-        String name = principal.getAttribute("name");
-        model.addAttribute("name", name);
-        
-        // 이메일
-        String email = principal.getAttribute("email");
-        model.addAttribute("email", email);
-        
-        // 생일
-        String birthday = principal.getAttribute("birthday");
-        model.addAttribute("birthday", birthday);
-        
-        // 휴대전화번호
-        String phone = principal.getAttribute("phone");
-        model.addAttribute("phone", phone);
-
-        return "user";
-    }
 }

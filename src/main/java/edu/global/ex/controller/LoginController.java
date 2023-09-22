@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 public class LoginController {
-
+	
 	@Autowired
 	private MsUserMapper userMapper; // 사용자 관리를 위한 데이터베이스 매퍼
 
@@ -32,7 +32,7 @@ public class LoginController {
 
 	@Autowired
 	private CartService cartService;
-
+	
 	// 로그인 페이지로 이동하는 핸들러
 	@GetMapping("/admin")
 	public String login() {
@@ -66,12 +66,12 @@ public class LoginController {
 	public String userlogin(MsUserVO user, Model model) {
 		List<MsUserVO> userList = userMapper.getUsers();
 		List<String> usernameList = new ArrayList<String>();
-		for (MsUserVO userInfo : userList) {
-			usernameList.add("\"" + userInfo.getUsername() + "\"");
+		for(MsUserVO userInfo: userList) {
+			usernameList.add("\""+userInfo.getUsername() + "\"");
 		}
 		model.addAttribute("usernameList", usernameList);
-		// log.info(userMapper.getUsers().toString());
-
+//		log.info(userMapper.getUsers().toString());
+		
 		return "/login/login";
 	}
 
@@ -93,12 +93,6 @@ public class LoginController {
 	public String sociallogin() {
 		log.info("sociallogin");
 		return "/login/google-login";
-	}
-	// 네이버 로그인 페이지로 이동하는 핸들러
-	@GetMapping("/login/naver-login")
-	public String naverlogin() {
-		log.info("naverlogin");
-		return "/login/naver-login";
 	}
 
 	// Google 로그인 콜백 페이지로 이동하는 핸들러
@@ -144,57 +138,57 @@ public class LoginController {
 	// 사용자 프로필 페이지로 이동하는 핸들러
 	@GetMapping("/login/userprofile")
 	public String userprofile(Principal principal, Model model) {
-
+		
 		log.info("userprofile");
 		log.info(userMapper.getUser(principal.getName()) + "");
 		model.addAttribute("userInfo", userMapper.getUser(principal.getName()));
 		return "/myPage/myPage";
 	}
-
+	
 	@PostMapping("/login/userprofile")
 	public String userprofilePost(MsUserVO msUser) {
 		log.info("update user profile");
-		log.info("" + msUser);
-
+		log.info(""+ msUser);
+		
 		userMapper.update(msUser);
-
+		
 		return "redirect:/login/userprofile";
 	}
+	
+//	// 사용자 장바구니로 이동하는 핸들러
+//		@GetMapping("/cart")
+//		public String cart(Model model) {
+//			log.info("cart()..");
+//			List<CartVO> listCart = cartService.listCart();
+//			model.addAttribute("listCart", listCart);
+//			return "/cart";
+//		}
 
-	// // 사용자 장바구니로 이동하는 핸들러
-	// @GetMapping("/cart")
-	// public String cart(Model model) {
-	// log.info("cart()..");
-	// List<CartVO> listCart = cartService.listCart();
-	// model.addAttribute("listCart", listCart);
-	// return "/cart";
-	// }
-
-	// @GetMapping("/login/google-callback")
-	// public String googleCallback() {
-	// log.info("google-callback");
-	// return "/login/google-callback";
-	// }
+//	@GetMapping("/login/google-callback")
+//	public String googleCallback() {
+//		log.info("google-callback");
+//		return "/login/google-callback";
+//	}
 
 	// 아이디 찾기
-	// @GetMapping("/login/idsearch")
-	// public String idSearch(MsUserVO user, Model model) {
-	//
-	// List<MsUserVO> userList = userMapper.getUsers();
-	//
-	// model.addAttribute("userList", userList);
-	//
-	// return "/login/idsearch";
-	// }
-
+//	@GetMapping("/login/idsearch")
+//	public String idSearch(MsUserVO user, Model model) {
+//
+//		List<MsUserVO> userList = userMapper.getUsers();
+//
+//		model.addAttribute("userList", userList);
+//
+//		return "/login/idsearch";
+//	}
+	
 	@GetMapping("/login/idsearch")
 	public String idSearch(Model model) {
-		List<MsUserVO> userList = userMapper.getUsers();
-		Gson gson = new Gson();
-		String userListJson = gson.toJson(userList);
-		model.addAttribute("userListJson", userListJson);
-		model.addAttribute("userList", userList);
-		return "/login/idsearch";
+	    List<MsUserVO> userList = userMapper.getUsers();
+	    Gson gson = new Gson();
+	    String userListJson = gson.toJson(userList);
+	    model.addAttribute("userListJson", userListJson);
+	    model.addAttribute("userList", userList);
+	    return "/login/idsearch";
 	}
 
 }
