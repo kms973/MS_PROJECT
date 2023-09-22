@@ -18,7 +18,25 @@
 	delete from ms_product where product_category = #{product_category} and product_code = #{product_code}
 	]]>
 	</delete>
+	
+	<update id="update">
+    <![CDATA[
+       update ms_product set 
+       product_code = #{product_code}, 
+       product_category = #{product_category}, 
+       product_name = #{product_name}, 
+       price = #{price}, 
+       stock_quantity = #{stock_quantity}, 
+       options = #{options}, 
+       product_img = #{product_img} 
+       where 
+       product_code = #{product_code_before} 
+       and 
+       product_category = #{product_category_before}
 
+    ]]>
+    </update>
+    
 	<!-- 삭제 -->
 	<delete id="deleteProduct" parameterType="String">
     <![CDATA[
@@ -30,16 +48,19 @@
 	<update id="updateProduct"
 		parameterType="edu.global.ex.vo.ProductVO">
     <![CDATA[
-        update ms_product
-        set
-            product_code = #{product_code},
-            product_category = #{product_category},
-            product_name = #{product_name},
-            price = #{price},
-            stock_quantity = #{stock_quantity},
-            options = #{options},
-            product_img = #{product_img}
-      		  where
+       update ms_product set 
+       product_code = #{product_code}, 
+       product_category = #{product_category}, 
+       product_name = #{product_name}, 
+       price = #{price}, 
+       stock_quantity = #{stock_quantity}, 
+       options = #{options}, 
+       product_img = #{product_img} 
+       where 
+       product_code = #{product_code} 
+       and 
+       product_category = #{product_category}
+
     ]]>
 	</update>
 

@@ -46,6 +46,9 @@ public class ProductVO {
 	    private String options;
 	    private String product_img;
 
+	    
+	    private String product_code_before;
+	    private String product_category_before;
 	
 	    public void setProduct_code() {
 	    	product_code = getProduct_category() + getProduct_code();

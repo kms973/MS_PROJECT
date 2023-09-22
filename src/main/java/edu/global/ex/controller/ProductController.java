@@ -20,6 +20,7 @@ import edu.global.ex.mapper.ProductMapper;
 import edu.global.ex.service.ProductService;
 import edu.global.ex.service.ShopProductService;
 import edu.global.ex.vo.ProductVO;
+import edu.global.ex.vo.ShopProductVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -61,7 +62,7 @@ public class ProductController {
 	//private static final String UPLOAD_DIR = "/static/img/";
 
 	@PostMapping("/admin/product_new")
-	public String PostadminProduct(@RequestParam("file") MultipartFile file, ProductVO pvo) {
+	public String PostadminProduct(@RequestParam("file") MultipartFile file, ProductVO pvo,Model model) {
 
 	    if (!file.isEmpty()) {
 	        try {
@@ -81,8 +82,33 @@ public class ProductController {
 	    }
 	    // ProductVO 객체를 DB에 저장
 	    pmp.insert(pvo);
+	    model.addAttribute("list", spService.getList());
+	    return "/admin/product/product_list";
+	}
+	
+	@PostMapping("/admin/product_update")
+	public String PostadminProductUpdate(@RequestParam("file") MultipartFile file, ProductVO pvo,Model model) {
 
-	    return "/admin/product/product_new";
+	    if (!file.isEmpty()) {
+	        try {
+	            byte[] bytes = file.getBytes();
+	            Path path = Paths.get("src/main/resources/static/img/" + file.getOriginalFilename());
+	            Files.write(path, bytes);
+	            // 파일 업로드 성공 처리
+	            // 파일 이름을 ProductVO 객체에 설정
+	            pvo.setProduct_img(file.getOriginalFilename());
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	            // 파일 업로드 실패 처리
+	            // 여기서 실패 처리를 하는 것이 좋습니다.
+	            // 파일 업로드 실패 시에는 pvo 객체를 DB에 저장하지 않아야 합니다.
+	            return "upload_failure_view"; // 실패 시 보여줄 뷰 페이지
+	        }
+	    }
+	    // ProductVO 객체를 DB에 저장
+	    pmp.update(pvo);
+	    model.addAttribute("list", spService.getList());
+	    return "/admin/product/product_list";
 	}
 
 	@GetMapping("/admin/product/delete/{productCategory}/{productCode}")
@@ -94,17 +120,13 @@ public class ProductController {
 		return "/admin/product/product_list";
 	}
 
-
-	@PostMapping("/product/update")
-	public String updateProductInfo(@RequestParam("stock_quantity") int newQuantity,
-			@RequestParam("Price") double newPrice) {
-		// 재고와 가격 업데이트
-		stock_quantity = newQuantity;
-		Price = newPrice;
-
-		return "redirect:admin/product";
+	@GetMapping("/admin/product/update/{productCategory}/{productCode}")
+	public String updateProduct(@PathVariable("productCategory") String product_category, 
+            @PathVariable("productCode") int product_code,ShopProductVO productVO, Model model) {
+		log.info("updateProduct");
+		model.addAttribute("product", spService.read(product_category, product_code));
+		log.info(spService.read(product_category, product_code).toString());
+		return "admin/product/product_update";
 	}
-
-	
 
 }

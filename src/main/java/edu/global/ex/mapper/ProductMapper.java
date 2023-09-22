@@ -18,6 +18,8 @@ public interface ProductMapper {
 	    void delete(String product_category, int product_code);
 
 	    void updateProduct(ProductVO pvo);
+
+		public void update(ProductVO pvo);
 }
 	    
 	           

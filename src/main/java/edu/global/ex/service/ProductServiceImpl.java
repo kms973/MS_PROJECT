@@ -25,4 +25,11 @@ public class ProductServiceImpl implements ProductService {
 	productMapper.delete(product_category, product_code);
 	}
 
+
+	@Override
+	public void update(ProductVO pvo) {
+		
+		productMapper.update(pvo);
+	}
+
 }
