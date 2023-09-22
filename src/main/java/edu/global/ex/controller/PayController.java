@@ -56,7 +56,7 @@ public class PayController {
 		
 		return "/pay";
 	}
-	
+	//
 	@PostMapping("/insertpay")
     public String InsertPay(Principal principal,@ModelAttribute List<CartVO> listCart, PayVO payVO, Model model) {
         payVO.setUsername(principal.getName());
