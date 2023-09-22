@@ -44,7 +44,7 @@
                 <span class="input-wrap"><input type="checkbox" id="checkId" name="checkId" class="form-check-input" value="remember-me" style="position:relative; top: -2px;"><label for="checkId"></label>아이디 저장</span>
                 <ul class="find d-flex align-items-center mb-0" style="list-style-type: none; padding-left: 0;">
                     <!-- 아이디 찾기, 비밀번호 찾기 및 회원가입 링크 -->
-                    <li class="idSearch mr-4" id="idSearch" style="cursor: pointer"><a href="/login/idsearch" data-bs-toggle="modal" data-bs-target="#searchId" id="id-btn">아이디 찾기</a></li>
+                    <li class="idSearch mr-4" id="idSearch" style="cursor: pointer"><a href="/login/idsearch" id="id-btn">아이디 찾기</a></li>
                     <li class="pwSearch mr-4" id="pwSearch" style="cursor: pointer">비밀번호 찾기</li>
                     <li class="signUp" id="signUp" style="cursor: pointer"><a href="/login/signup">회원가입</a></li>
                 </ul>
@@ -64,7 +64,7 @@
     <!-- 로그인 폼 종료 -->
     
     <!-- 모달 창 -->
-    <div class="modal fade" id="searchId" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="searchIdLabel" aria-hidden="true">
+    <%-- <div class="modal fade" id="searchId" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="searchIdLabel" aria-hidden="true">
   		<div class="modal-dialog modal-dialog-centered">
     		<div class="modal-content">
 		    	<c:set var="userList" value="${userList}" />
@@ -95,24 +95,8 @@
 		        </form>
    			</div>
 	  	</div>
-	</div>
-	
-	<div class="modal fade" id="searchId2" aria-hidden="true" aria-labelledby="searchId2" tabindex="-1">
-	  <div class="modal-dialog modal-dialog-centered">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
-	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-	      </div>
-	      <div class="modal-body">
-	        	일치하는 사용자의 아이디는: ${user.username} 입니다.
-	      </div>
-	      <div class="modal-footer">
-	        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
-	      </div>
-	    </div>
-	  </div>
-	</div>
+	</div> --%>
+
 </section>
 
 <script>
@@ -176,7 +160,7 @@ function checkDuplicate() {
     }());
 </script>
 <script>
-const myModalEl = document.getElementById('searchId')
+// const myModalEl = document.getElementById('searchId')
 </script>
 <!-- 페이지 푸터를 포함합니다. -->
 <jsp:include page="/WEB-INF/views/footer.jsp" />
