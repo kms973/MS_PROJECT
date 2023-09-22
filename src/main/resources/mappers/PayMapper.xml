@@ -8,17 +8,17 @@
 
    <select id="listPay" resultType="PayVO">
     <![CDATA[
-      select * from ms_pay
+      select * from ms_pay where username = #{username}
    ]]>    
     </select>
 
    <insert id="insert">
     <![CDATA[
-  INSERT INTO ms_pay (order_number, stock_quantity, payment_method, username, product_name, 
-  product_code, product_img, price, cname, caddress1, caddress2, caddress3, caddress4, caddress5)
-  VALUES (#{order_number}, #{stock_quantity}, #{payment_method}, #{username}, #{product_name}, 
+  INSERT INTO ms_pay (order_number, stock_quantity, username, product_name, 
+  product_code, product_img, price, cname, caddress1, caddress2, caddress3, caddress4, caddress5, phone1, phone2)
+  VALUES (#{order_number}, #{stock_quantity}, #{username}, #{product_name}, 
   #{product_code}, #{product_img}, #{price}, #{cname}, #{caddress1}, #{caddress2}, #{caddress3}, 
-  #{caddress4}, #{caddress5})
+  #{caddress4}, #{caddress5}, #{phone1}, #{phone2})
   ]]>    
     </insert>
 </mapper>

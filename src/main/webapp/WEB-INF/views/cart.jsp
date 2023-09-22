@@ -5,7 +5,9 @@
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
 <section id="pay" class="container wrap">
+	
 	<div id="sub-bnr"><h5>Cart</h5></div>
+	
 	
 	<div class="row mt-1 justify-content-between hello">
 		<div class="col-8 left px-0">
@@ -84,12 +86,14 @@
 			<div class="costlinee" id="sum_p_price"><strong>결제예정금액<span class="paytext float-end" id="totalPrice"></span></strong></div>
 		</div>
 		
-		<div class="px-1"><button type="button" class="btn btn-sm btn-outline-dark" id="btttn"><a href="/pay" class="text-center">전체상품주문</button></div>
-	    <div class="px-1"><button type="button" class="btn btn-sm btn-outline-dark" id="btttn"><a href="/pay" class="text-center">선택상품주문</button></div>
+		<div class="px-1"><button type="button" class="btn btn-sm btn-outline-dark" id="btttn" class="wholeorder" onclick="location.href='/pay/'">전체상품주문</button></div>
+	    <div class="px-1"><button type="button" class="btn btn-sm btn-outline-dark" id="btttn" class="selectorder">선택상품주문</button></div>
 		</div>		
 </div>
 </div>
+
 </section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
   // 페이지 로드 시에 초기 총 가격 계산
   document.addEventListener('DOMContentLoaded', function () {
@@ -191,13 +195,21 @@
 	    deleteRow(row); // 행 삭제
 	    deleteProduct(product_code, options); // 제품 삭제
 	}
+  
+	//각각의 tr 요소의 체크박스에 이벤트 리스너 등록
+	  for (let i = 1; i <= 100; i++) {
+	    const checkbox = document.querySelector('#product' + i + ' .form-check-input');
+	    checkbox.addEventListener('change', function() {
+	      onRowCheckboxChange(i);
+	    });
+	  }
+	
   //각각의 tr 요소의 체크박스가 변경될 때 호출되는 함수
   function onRowCheckboxChange(row) {
     const checkbox = document.querySelector('#product' + row + ' .form-check-input');
-
+    const checkAll = document.getElementById('checkAll');
     if (!checkbox.checked) {
       // 하나의 체크박스라도 체크 해제되면 전체 선택 체크박스도 체크 해제
-      const checkAll = document.getElementById('checkAll');
       checkAll.checked = false;
     } else {
       // 모든 tr 요소의 체크박스가 체크되었는지 확인
@@ -211,20 +223,11 @@
 
       if (allChecked) {
         // 모든 tr 요소의 체크박스가 체크되었으면 전체 선택 체크박스도 체크
-        const checkAll = document.getElementById('checkAll');
         checkAll.checked = true;
       }
     }
 
     updateTotalPrice(); // 총 가격 업데이트
-  }
-
-  // 각각의 tr 요소의 체크박스에 이벤트 리스너 등록
-  for (let i = 1; i <= 100; i++) {
-    const checkbox = document.querySelector('#product' + i + ' .form-check-input');
-    checkbox.addEventListener('change', function() {
-      onRowCheckboxChange(i);
-    });
   }
 
   // "체크 해제" 이벤트 처리
@@ -287,7 +290,9 @@
   function checkAllTbodyCheckboxes() {
     const tbodyCheckboxes = document.querySelectorAll('tbody input[type="checkbox"]');
     const theadCheckbox = document.getElementById('checkAll');
-
+    tbodyCheckboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', checkAllTbodyCheckboxes);
+      });
     // 모든 tbody 체크박스가 체크되었는지 확인
     let allChecked = true;
     tbodyCheckboxes.forEach(function(checkbox) {
@@ -303,11 +308,6 @@
     updateTotalPrice();
   }
 
-  // tbody 내의 각 체크박스에 이벤트 리스너 등록
-  const tbodyCheckboxes = document.querySelectorAll('tbody input[type="checkbox"]');
-  tbodyCheckboxes.forEach(function(checkbox) {
-    checkbox.addEventListener('change', checkAllTbodyCheckboxes);
-  });
 </script>
 <script>
 success: function (response) {

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 <!-- header 시작 -->
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
@@ -22,7 +23,7 @@
 	    <tr class="product${loop.index}" id="product${loop.index}">
 	      <td class="col-4">
 	   		<div class="product-img d-flex">
-	   			<img src="/img/2.jpg" class="img-fluid" width="30%" alt="제품 이미지">
+	   			<img src="/img/${listPay.product_img }" class="img-fluid" width="30%" alt="제품 이미지">
 	   			<div class="pname row mx-2 mt-4">${listPay.product_name}</div>
 	   		</div>
 	      </td>
@@ -46,7 +47,7 @@
 	    	<h5>주문자 정보 입력</h5>
 	     <div class="orderline"></div>
 		     <div class="mt-3">
-		     	<div class="row mx-2 my-3">주문자<input class="form-control form-control-sm w-25 orbox" type="text"></div>
+		     	<div class="row mx-2 my-3">주문자<input class="form-control form-control-sm w-25 orbox" type="text" value="${msUserVO.cname }"></div>
 		     	<div class="row mx-2 my-3">휴대전화
 		     		<select class="form-select form-select-sm phbox" aria-label="Default select example">
                             <option selected="selected">010</option>
@@ -56,16 +57,16 @@
                             <option value="4">018</option>
                             <option value="5">019</option>                  
                     </select>-
-                    <input class="form-control form-control-sm phboxx" type="text">-
-                    <input class="form-control form-control-sm phboxxx" type="text"></div>
+                    <input class="form-control form-control-sm phboxx" type="text" value="${msUserVO.phone1 }">-
+                    <input class="form-control form-control-sm phboxxx" type="text" value="${msUserVO.phone2 }"></div>
 		     	<div class="row mx-2 my-3">이메일
-		     		<input class="form-control form-control-sm embox" type="text">
+		     		<input class="form-control form-control-sm embox" type="text" value="${msUserVO.username }">
 		     	</div>
-		     	<div class="row mx-2 my-2">주소<input class="form-control form-control-sm adbox" id="sample6_postcode" type="text"><button type="button" class="btn btn-sm btn-secondary butt" onclick="sample6_execDaumPostcode()">우편번호</button></div>
-		     	<div class="row mx-2 my-2"><input class="form-control form-control-sm adboxx" id="sample6_address" type="text"></div>
-		     	<div class="row mx-2 my-2"><input class="form-control form-control-sm adboxxx" id="sample6_detailAddress" type="text"></div>
-		     	<div class="row mx-2 my-2"><input class="form-control form-control-sm adboxxxx" id="sample6_extraAddress" type="text"></div>
-		     	<div class="row mx-2 my-2"><input class="form-control form-control-sm adboxxxxx" id="sample6_extraAddress" type="text"></div>		     	
+		     	<div class="row mx-2 my-2">주소<input class="form-control form-control-sm adbox" id="sample6_postcode" type="text" value="${msUserVO.caddress1 }"><button type="button" class="btn btn-sm btn-secondary butt" onclick="sample6_execDaumPostcode()">우편번호</button></div>
+		     	<div class="row mx-2 my-2"><input class="form-control form-control-sm adboxx" id="sample6_address" type="text" value="${msUserVO.caddress2 }"></div>
+		     	<div class="row mx-2 my-2"><input class="form-control form-control-sm adboxxx" id="sample6_detailAddress" type="text" value="${msUserVO.caddress3 }"></div>
+		     	<div class="row mx-2 my-2"><input class="form-control form-control-sm adboxxxx" id="sample6_extraAddress" type="text" value="${msUserVO.caddress4 }"></div>
+		     	<div class="row mx-2 my-2"><input class="form-control form-control-sm adboxxxxx" id="sample6_extraAddress" type="text" value="${msUserVO.caddress5 }"></div>		     	
 			</div>
 		</div>
 		
@@ -74,8 +75,7 @@
 		 <div class="orderline"></div>
 		 	<div class="mt-3">
 		 		<div class="row mx-2">
-		 	<button type="button" class="btn w-25 btn-secondary btn-lg div2" id="buttt">무통장 입금</button>
-		 	<button type="button" class="btn w-25 btn-secondary btn-lg div2" id="butttt">카드결제</button>
+		 	<button type="button" class="btn w-25 btn-secondary btn-lg div2" id="buttt">카드결제</button>
 		 		</div>		 		
 		 	</div>
 		 	<div class="mt-3">
@@ -339,13 +339,29 @@
 			<div class="lineeeee"></div>
 			<div class="costdeli" id="sum_p_price"><strong>결제예정금액<span class="paytext float-end"></span></strong></div>
 		</div>
-		<div class="btn-box"><button type="button" class="btn btn-sm text-white" id="vatn">
-		<a href="pay/payment" class="text-center">
-		주문하기</button></div>		
+		<div class="btn-box"><button type="button" class="btn btn-sm text-white" id="vatn" onclick="requestPay()">주문하기</button></div>		
 	</div>
 </div>
 </div>
 </section>
+<script>
+const userCode = "imp14397622";
+IMP.init(userCode);
+
+function requestPay() {
+  IMP.request_pay({
+    pg: "html5_inicis",
+    pay_method: "card",
+    merchant_uid: "test_lmsshfh5",
+    name: "MS Shop",
+    amount: 100,
+    buyer_email: "MSShop@MSShop.MSShop",
+    buyer_name: "MSShop",
+    buyer_tel: "010-0000-0000",
+    m_redirect_url: "/http://localhost:8008",
+  });
+}
+</script>
 <script>
 function sample6_execDaumPostcode() {
         new daum.Postcode({

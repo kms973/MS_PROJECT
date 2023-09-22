@@ -17,12 +17,14 @@ import edu.global.ex.service.BoardService;
 import edu.global.ex.service.CartService;
 import edu.global.ex.service.CompanyService;
 import edu.global.ex.service.MsUserService;
+import edu.global.ex.service.PayService;
 import edu.global.ex.service.ShopProductService;
 import edu.global.ex.vo.BoardVO;
 import edu.global.ex.vo.CartVO;
 import edu.global.ex.vo.CompanyVO;
 import edu.global.ex.vo.CustomUserDetailsVO;
 import edu.global.ex.vo.MsUserVO;
+import edu.global.ex.vo.PayVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -59,6 +61,9 @@ public class HomeController {
 	
 	@Autowired
 	private CartService cartService;
+	
+	@Autowired
+	private PayService payService;
 	
 	@Autowired
 	private MsUserService msUserService;
@@ -365,6 +370,8 @@ public class HomeController {
 	public String cart(Principal principal,Model model) {
 		log.info("cart()..");
 		List<CartVO> listCart = cartService.listCart(principal.getName());
+		MsUserVO user = msUserService.read(principal.getName());
+		 model.addAttribute("msUserVO", user);
 		log.info(listCart.toString());
 		model.addAttribute("listCart", listCart);
 		return "/cart";
@@ -376,13 +383,7 @@ public class HomeController {
 		model.addAttribute("delete", cartService.delete(product_code, options));
 		return "/cart";
 	}
-		
-	// 결제 페이지
-	@GetMapping("/pay")
-	public String pay() {
-		log.info("pay()..");
-		return "/pay";
-	}
+	
 
 	// 링 페이지
 	@GetMapping("/ring")
