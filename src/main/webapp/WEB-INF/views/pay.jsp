@@ -12,29 +12,29 @@
 	<table class="table mb-5" >
 	  <thead>
 	    <tr>       
-	      <th scope="col" class="col-4"><strong>상품명</strong></th>
+	      <th scope="col" class="col-6"><strong>상품명</strong></th>
 	      <th scope="col" class="col-2"><strong>수량</strong></th>
-	      <th scope="col" class="col-3"><strong>판매가</strong></th>
-	      <th scope="col" class="col-3"><strong>구매금액</strong></th>
+	      <th scope="col" class="col-2"><strong>판매가</strong></th>
+	      <th scope="col" class="col-2"><strong>구매금액</strong></th>
 	    </tr>
 	  </thead>
 	  <tbody>
 	  	<c:forEach items="${listPay}" var="listPay" varStatus="loop">
 	    <tr class="product${loop.index}" id="product${loop.index}">
-	      <td class="col-4">
+	      <td class="col-6">
 	   		<div class="product-img d-flex">
 	   			<img src="/img/${listPay.product_img }" class="img-fluid" width="30%" alt="제품 이미지">
-	   			<div class="pname row mx-2 mt-4">${listPay.product_name}</div>
+	   			<div class="ppname row mx-2 mt-5">${listPay.product_name}</div>
 	   		</div>
 	      </td>
 	      <td class="col-2">
-	      	<div class="quantity-controls mt-4">
+	      	<div class="quantity-controls mt-5">
 	      		<div class="pronum" id='result${loop.index}'>${listPay.stock_quantity}</div>
 	      	</div>
 	      </td>
-	      <td class="col-3"><div class="mt-4 gaaap">${listPay.price}</div></td>
-	      <td class="col-3">
-	      	<div class="mt-4 mx-2">
+	      <td class="col-2"><div class="mt-5 gaaap">${listPay.price}</div></td>
+	      <td class="col-2">
+	      	<div class="mt-5 mx-2">
 	      		<div name="pp_price" id="pp_price${loop.index}" class="pp_price product-price" data-price="${listPay.price}" data-stock-quantity="${listPay.stock_quantity}">${listPay.price * listPay.stock_quantity}</div>
 	      	</div>
 	      	</td>
@@ -345,22 +345,38 @@
 </div>
 </section>
 <script>
-const userCode = "imp14397622";
+userCode = "imp14397622";
 IMP.init(userCode);
-
 function requestPay() {
-  IMP.request_pay({
-    pg: "html5_inicis",
-    pay_method: "card",
-    merchant_uid: "test_lmsshfh5",
-    name: "MS Shop",
-    amount: 100,
-    buyer_email: "MSShop@MSShop.MSShop",
-    buyer_name: "MSShop",
-    buyer_tel: "010-0000-0000",
-    m_redirect_url: "/http://localhost:8008",
-  });
-}
+	  // 모든 체크박스를 선택합니다.
+	  var checkboxes = document.querySelectorAll('.form-check-inputt');
+	  var allChecked = true;
+
+	  // 모든 체크박스가 체크되었는지 확인합니다.
+	  checkboxes.forEach(function (checkbox) {
+	    if (!checkbox.checked) {
+	      allChecked = false;
+	    }
+	  });
+
+	  if (!allChecked) {
+	    // 하나 이상의 체크박스가 선택되지 않은 경우
+	    alert("약관에 동의해주세요.");
+	  } else {
+	    // 모든 체크박스가 선택되었을 경우 결제 요청을 실행합니다.
+	    IMP.request_pay({
+	      pg: "html5_inicis",
+	      pay_method: "card",
+	      merchant_uid: "test_lmsshfh5",
+	      name: "MS Shop",
+	      amount: 100,
+	      buyer_email: "MSShop@MSShop.MSShop",
+	      buyer_name: "MSShop",
+	      buyer_tel: "010-0000-0000",
+	      m_redirect_url: "/http://localhost:8008",
+	    });
+	  }
+	}
 </script>
 <script>
 function sample6_execDaumPostcode() {

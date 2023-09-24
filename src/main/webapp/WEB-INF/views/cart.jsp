@@ -18,11 +18,11 @@
 			      <input type="hidden" name="cmd" value="order">  
 				      <div class="form-check col-1"><input class="form-check-input mt-1" type="checkbox" id="checkAll" onclick="toggleCheckAll()"></div>
 			      </th>     
-			      <th scope="col" class="col-3"><strong>상품명</strong></th>
+			      <th scope="col" class="col-6"><strong>상품명</strong></th>
 			      <th scope="col" class="col-2"><div class="mx-2"><strong>수량</strong></div></th>
-			      <th scope="col" class="col-2"><strong>판매가</strong></th>
-			      <th scope="col" class="col-2"><strong>구매금액</strong></th>
-			      <th scope="col" class="col-2"><strong>선택</strong></th>
+			      <th scope="col" class="col-1"><strong>판매가</strong></th>
+			      <th scope="col" class="col-1"><strong>구매금액</strong></th>
+			      <th scope="col" class="col-1"><strong>선택</strong></th>
 			    </tr>
 			  </thead>
 			  <tbody>			  
@@ -31,12 +31,12 @@
 			      <th scope="row">
 			      	<div class="form-check col-1"><input class="form-check-input" type="checkbox" onclick="updateTotalPrice()"></div>
 			      </th>
-			      <td class="col-3">
+			      <td class="col-6">
 			   		<div class="product-img d-flex">
-			   			<img src="/img/${listCart.product_img }" class="img-fluid" width="40%" alt="제품 이미지">
+			   			<img src="/img/${listCart.product_img }" class="img-fluid" width="30%" alt="제품 이미지">
 			   			<div>
 			   			<div class="pname row mx-2 mt-4">${listCart.product_name}</div> 			   			
-			   			<div style="font-size:6px; color: red; padding:0;">&#45; 옵션명: <span class="poptions">${listCart.options }</span></div>
+			   			<div style="font-size:6px; color: red; padding:0; margin:10px;">&#45; 옵션명: <span class="poptions">${listCart.options }</span></div>
 			   			</div>
 			   			</div>
 			   		
@@ -48,9 +48,9 @@
 			      		<i class="bi bi-plus-circle mx-1" type='button' onclick='count("plus", ${loop.index})'></i>
 			      	</div>
 			      </td>
-			      <td class="col-2"><div class="mt-4 gaap">${listCart.price}</div></td>
-			      <td class="col-2"><div class="mt-4 mx-2"><div name="p_price" id="p_price${loop.index}" class="p_price product-price" data-price="${listCart.price}" data-stock-quantity="${listCart.stock_quantity}">${listCart.price * listCart.stock_quantity}</div></div></td>
-			      <td class="col-2"><div class="mt-4 mx-2"><i class="delete_btn fa-regular fa-trash-can" type="button" onclick='deleteRowAndProduct(${listCart.product_code}, ${loop.index}, "${listCart.options}")'></i></div></td>
+			      <td class="col-1"><div class="mt-4 gaap">${listCart.price}</div></td>
+			      <td class="col-1"><div class="mt-4 mx-2"><div name="p_price" id="p_price${loop.index}" class="p_price product-price" data-price="${listCart.price}" data-stock-quantity="${listCart.stock_quantity}">${listCart.price * listCart.stock_quantity}</div></div></td>
+			      <td class="col-1"><div class="mt-4 mx-2"><i class="delete_btn fa-regular fa-trash-can" type="button" onclick='deleteRowAndProduct(${listCart.product_code}, ${loop.index}, "${listCart.options}")'></i></div></td>
 			    </tr>
 			     </c:forEach>
 			    </tbody>
@@ -87,7 +87,7 @@
 		</div>
 		
 		<div class="px-1"><button type="button" class="btn btn-sm btn-outline-dark" id="btttn" class="wholeorder" onclick="location.href='/pay/'">전체상품주문</button></div>
-	    <div class="px-1"><button type="button" class="btn btn-sm btn-outline-dark" id="btttn" class="selectorder">선택상품주문</button></div>
+	    <!-- <div class="px-1"><button type="button" class="btn btn-sm btn-outline-dark" id="btttn" class="selectorder">선택상품주문</button></div> -->
 		</div>		
 </div>
 </div>
@@ -197,11 +197,11 @@
 	}
   
 	//각각의 tr 요소의 체크박스에 이벤트 리스너 등록
-	  for (let i = 1; i <= 100; i++) {
+	  for (let i = 0; i <= 100; i++) {
 	    const checkbox = document.querySelector('#product' + i + ' .form-check-input');
 	    checkbox.addEventListener('change', function() {
 	      onRowCheckboxChange(i);
-	    });
+	    });	
 	  }
 	
   //각각의 tr 요소의 체크박스가 변경될 때 호출되는 함수
@@ -277,7 +277,7 @@
 
   // "선택상품주문" 버튼 클릭 시 선택된 상품만 주문
   function orderSelectedProducts() {
-    for (let i = 1; i <= 100; i++) {
+    for (let i = 0; i <= 100; i++) {
       const checkbox = document.querySelector('#product' + i + ' .form-check-input');
 
       if (checkbox.checked) {

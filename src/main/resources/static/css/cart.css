@@ -3,6 +3,8 @@
 	line-height:16px;
 }
 
+.pname{font-size:12px;}
+
 .quantity-controlss {
     display: flex;
     align-items: center;
