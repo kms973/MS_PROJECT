@@ -34,7 +34,7 @@ public class LoginController {
 	private CartService cartService;
 	
 	// 로그인 페이지로 이동하는 핸들러
-	@GetMapping("/admin")
+	@GetMapping("/adminlogin")
 	public String login() {
 		return "/admin/login";
 	}
@@ -81,33 +81,6 @@ public class LoginController {
 		return "/login";
 	}
 
-	// Google 로그인 페이지로 이동하는 핸들러
-	@GetMapping("/login/google")
-	public String googlelogin() {
-		log.info("googlelogin");
-		return "/login/googleLogin";
-	}
-
-	// 소셜 로그인 페이지로 이동하는 핸들러
-	@GetMapping("/login/social")
-	public String sociallogin() {
-		log.info("sociallogin");
-		return "/login/google-login";
-	}
-
-	// Google 로그인 콜백 페이지로 이동하는 핸들러
-	// @RequestMapping("/login/google-callback")
-	// public String callback() {
-	// return "/login/google-callback";
-	// }
-
-	// Google2 로그인 페이지로 이동하는 핸들러
-	@GetMapping("/login/google2")
-	public String google2() {
-		log.info("google2");
-		return "/login/google2";
-	}
-
 	// 회원 가입 페이지로 이동하는 핸들러
 	@GetMapping("/login/signup")
 	public String signuptest(MsUserVO user, Model model) {
@@ -136,7 +109,7 @@ public class LoginController {
 	}
 
 	// 사용자 프로필 페이지로 이동하는 핸들러
-	@GetMapping("/login/userprofile")
+	@GetMapping("/userprofile")
 	public String userprofile(Principal principal, Model model) {
 		
 		log.info("userprofile");
@@ -145,14 +118,14 @@ public class LoginController {
 		return "/myPage/myPage";
 	}
 	
-	@PostMapping("/login/userprofile")
+	@PostMapping("/userprofile")
 	public String userprofilePost(MsUserVO msUser) {
 		log.info("update user profile");
 		log.info(""+ msUser);
 		
 		userMapper.update(msUser);
 		
-		return "redirect:/login/userprofile";
+		return "redirect:/userprofile";
 	}
 	
 //	// 사용자 장바구니로 이동하는 핸들러
@@ -191,4 +164,13 @@ public class LoginController {
 	    return "/login/idsearch";
 	}
 
+	@GetMapping("/login/googlelogin")
+	public String googlelogin() {
+		return "GoogleLogin";
+	}
+
+	@GetMapping("/login/googleindex")
+	public String googleindex() {
+		return "GoogleIndex";
+	}
 }
