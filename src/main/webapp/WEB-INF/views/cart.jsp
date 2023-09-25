@@ -10,7 +10,7 @@
 	
 	
 	<div class="row mt-1 justify-content-between hello">
-		<div class="col-8 left px-0">
+		<div class="col-8 left pe-0">
 			<table class="table" >
 			  <thead>
 			    <tr>    
