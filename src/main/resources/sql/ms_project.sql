@@ -244,13 +244,11 @@ CREATE SEQUENCE cart_order_seq
   INCREMENT BY 1
   NOCACHE
   NOCYCLE;
-  
-alter table ms_cart modify column number_of_order number after username;
 
 CREATE OR REPLACE TRIGGER ms_cart_before_insert
 BEFORE INSERT ON ms_cart
 FOR EACH ROW
 BEGIN
-  SELECT order_number_sequence.NEXTVAL INTO :NEW.number_of_order FROM dual;
+  SELECT order_number_seq.NEXTVAL INTO :NEW.number_of_order FROM dual;
 END;
 /
