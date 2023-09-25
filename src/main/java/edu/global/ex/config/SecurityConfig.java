@@ -34,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		// web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
-		web.ignoring().antMatchers("/css/**", "/js/**", "/images/**", "/lib/**","/fonts/**","/admin/**"); // "/admin/**/"지워야 admin페이지로그인할수있습니다.
+		web.ignoring().antMatchers("/css/**", "/js/**", "/images/**", "/lib/**","/fonts/**"); // "/admin/**/"지워야 admin페이지로그인할수있습니다.
 	}
 
 	/*~~(Migrate manually based on https://spring.io/blog/2022/02/21/spring-security-without-the-websecurityconfigureradapter)~~>*/@Override
