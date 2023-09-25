@@ -58,6 +58,5 @@ public class CartServiceImpl implements CartService {
         cart.setOptions(shopProductVO.getOptions());
         cart.setStock_quantity(shopProductVO.getStock());
         cartMapper.insert(cart);
-        log.info("intoCart...");
     }   
 }

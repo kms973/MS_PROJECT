@@ -8,6 +8,6 @@ import edu.global.ex.vo.CartVO;
 import edu.global.ex.vo.PayVO;
 
 public interface PayService {
-	public List<PayVO> listPay(String username);
+	public List<PayVO> listPay();
 	public void insert(PayVO payVO);
 }

@@ -66,7 +66,14 @@
 				</div>
 				<div class="d-flex justify-content-center align-items-center mt-4 px-0">
 					<div class="px-2 w-50 ps-1">					
-					<button type="submit" class="btn cartbtn" id="bttn" >CART</button>					
+					<!-- <button type="submit" class="btn cartbtn" id="bttn" >CART</button> -->
+					<sec:authorize access="isAuthenticated()">
+				    <a href="/cart" class="d-block link-dark" id="dropdownUser2" aria-expanded="false"><button type="submit" class="btn cartbtn" id="bttn" >CART</button></a>
+				    </sec:authorize>
+			    	<!-- 로그인 안 한 익명일 경우 -->
+				    <sec:authorize access="isAnonymous()">
+				    <a href="/login" class="d-block link-dark" id="dropdownUser2" aria-expanded="false"><button type="submit" class="btn cartbtn" id="bttn" >CART</button></a>
+				    </sec:authorize>					
 					</div>
 				
 					<div class="px-2 w-50 pe-1">
@@ -316,24 +323,22 @@ $(document).ready(function() {
 
 <script>
 $("#bttn").click(function(event) {
-    const selectedQuantity = parseInt($("#quantity").text());
-    const selectedOption = $("#selectBox").val();
-    var principal = <%= request.getUserPrincipal() != null %>;
-    
-   
-    if (!principal) {
-        
-        alert("로그인이 필요합니다.");
-        event.preventDefault();
-    } else {
-       if (!selectedOption || selectedOption === "옵션을 선택해주세요.") {
+    const selectedQuantity = parseInt($("#quantity").text()); // 선택한 수량 가져오기
+    const selectedOption = $("#selectBox").val(); // 선택한 옵션 가져오기
+
+
+    // 옵션이 선택되었는지 확인
+    if (!selectedOption || selectedOption === "옵션을 선택해주세요.") {
+        // 옵션이 선택되지 않았을 경우 알림 창을 띄웁니다.
         alert("옵션을 선택해주세요.");
         event.preventDefault();
     } else {
+        // 옵션이 선택되었다면, 선택한 수량을 hidden input 필드에 저장
         $("input[name='selectedQuantity']").val(selectedQuantity);
+
+        // 모달 창을 띄웁니다.
         $('#cartModal').modal('show');
         event.preventDefault();
-    	}
     }
 });
 

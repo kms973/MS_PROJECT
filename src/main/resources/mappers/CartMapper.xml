@@ -21,8 +21,8 @@
     <insert id="insert">
     <![CDATA[
   
-    INSERT INTO ms_cart ( username,product_img, product_name, price, product_code, stock_quantity , options, number_of_order)
-  VALUES ( #{username},#{product_img}, #{product_name}, #{price}, #{product_code}, #{stock_quantity}, #{options}, #{number_of_order})
+    INSERT INTO ms_cart ( username,product_img, product_name, price, product_code, stock_quantity , options)
+  VALUES ( #{username},#{product_img}, #{product_name}, #{price}, #{product_code}, #{stock_quantity}, #{options})
   
   ]]>    
     </insert>    

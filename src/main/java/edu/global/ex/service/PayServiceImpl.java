@@ -19,9 +19,9 @@ public class PayServiceImpl implements PayService {
     private PayMapper payMapper;
 
     @Override
-    public List<PayVO> listPay(String username) {
+    public List<PayVO> listPay() {
     	log.info("listPay()..");
-        return payMapper.listPay(username);
+        return payMapper.listPay();
     }
     
     @Override

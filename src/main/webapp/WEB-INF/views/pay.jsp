@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 <!-- header 시작 -->
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
@@ -12,29 +11,29 @@
 	<table class="table mb-5" >
 	  <thead>
 	    <tr>       
-	      <th scope="col" class="col-6"><strong>상품명</strong></th>
+	      <th scope="col" class="col-4"><strong>상품명</strong></th>
 	      <th scope="col" class="col-2"><strong>수량</strong></th>
-	      <th scope="col" class="col-2"><strong>판매가</strong></th>
-	      <th scope="col" class="col-2"><strong>구매금액</strong></th>
+	      <th scope="col" class="col-3"><strong>판매가</strong></th>
+	      <th scope="col" class="col-3"><strong>구매금액</strong></th>
 	    </tr>
 	  </thead>
 	  <tbody>
 	  	<c:forEach items="${listPay}" var="listPay" varStatus="loop">
 	    <tr class="product${loop.index}" id="product${loop.index}">
-	      <td class="col-6">
+	      <td class="col-4">
 	   		<div class="product-img d-flex">
-	   			<img src="/img/${listPay.product_img }" class="img-fluid" width="30%" alt="제품 이미지">
-	   			<div class="ppname row mx-2 mt-5">${listPay.product_name}</div>
+	   			<img src="/img/2.jpg" class="img-fluid" width="30%" alt="제품 이미지">
+	   			<div class="pname row mx-2 mt-4">${listPay.product_name}</div>
 	   		</div>
 	      </td>
 	      <td class="col-2">
-	      	<div class="quantity-controls mt-5">
+	      	<div class="quantity-controls mt-4">
 	      		<div class="pronum" id='result${loop.index}'>${listPay.stock_quantity}</div>
 	      	</div>
 	      </td>
-	      <td class="col-2"><div class="mt-5 gaaap">${listPay.price}</div></td>
-	      <td class="col-2">
-	      	<div class="mt-5 mx-2">
+	      <td class="col-3"><div class="mt-4 gaaap">${listPay.price}</div></td>
+	      <td class="col-3">
+	      	<div class="mt-4 mx-2">
 	      		<div name="pp_price" id="pp_price${loop.index}" class="pp_price product-price" data-price="${listPay.price}" data-stock-quantity="${listPay.stock_quantity}">${listPay.price * listPay.stock_quantity}</div>
 	      	</div>
 	      	</td>
@@ -47,7 +46,7 @@
 	    	<h5>주문자 정보 입력</h5>
 	     <div class="orderline"></div>
 		     <div class="mt-3">
-		     	<div class="row mx-2 my-3">주문자<input class="form-control form-control-sm w-25 orbox" type="text" value="${msUserVO.cname }"></div>
+		     	<div class="row mx-2 my-3">주문자<input class="form-control form-control-sm w-25 orbox" type="text"></div>
 		     	<div class="row mx-2 my-3">휴대전화
 		     		<select class="form-select form-select-sm phbox" aria-label="Default select example">
                             <option selected="selected">010</option>
@@ -57,16 +56,16 @@
                             <option value="4">018</option>
                             <option value="5">019</option>                  
                     </select>-
-                    <input class="form-control form-control-sm phboxx" type="text" value="${msUserVO.phone1 }">-
-                    <input class="form-control form-control-sm phboxxx" type="text" value="${msUserVO.phone2 }"></div>
+                    <input class="form-control form-control-sm phboxx" type="text">-
+                    <input class="form-control form-control-sm phboxxx" type="text"></div>
 		     	<div class="row mx-2 my-3">이메일
-		     		<input class="form-control form-control-sm embox" type="text" value="${msUserVO.username }">
+		     		<input class="form-control form-control-sm embox" type="text">
 		     	</div>
-		     	<div class="row mx-2 my-2">주소<input class="form-control form-control-sm adbox" id="sample6_postcode" type="text" value="${msUserVO.caddress1 }"><button type="button" class="btn btn-sm btn-secondary butt" onclick="sample6_execDaumPostcode()">우편번호</button></div>
-		     	<div class="row mx-2 my-2"><input class="form-control form-control-sm adboxx" id="sample6_address" type="text" value="${msUserVO.caddress2 }"></div>
-		     	<div class="row mx-2 my-2"><input class="form-control form-control-sm adboxxx" id="sample6_detailAddress" type="text" value="${msUserVO.caddress3 }"></div>
-		     	<div class="row mx-2 my-2"><input class="form-control form-control-sm adboxxxx" id="sample6_extraAddress" type="text" value="${msUserVO.caddress4 }"></div>
-		     	<div class="row mx-2 my-2"><input class="form-control form-control-sm adboxxxxx" id="sample6_extraAddress" type="text" value="${msUserVO.caddress5 }"></div>		     	
+		     	<div class="row mx-2 my-2">주소<input class="form-control form-control-sm adbox" id="sample6_postcode" type="text"><button type="button" class="btn btn-sm btn-secondary butt" onclick="sample6_execDaumPostcode()">우편번호</button></div>
+		     	<div class="row mx-2 my-2"><input class="form-control form-control-sm adboxx" id="sample6_address" type="text"></div>
+		     	<div class="row mx-2 my-2"><input class="form-control form-control-sm adboxxx" id="sample6_detailAddress" type="text"></div>
+		     	<div class="row mx-2 my-2"><input class="form-control form-control-sm adboxxxx" id="sample6_extraAddress" type="text"></div>
+		     	<div class="row mx-2 my-2"><input class="form-control form-control-sm adboxxxxx" id="sample6_extraAddress" type="text"></div>		     	
 			</div>
 		</div>
 		
@@ -75,7 +74,8 @@
 		 <div class="orderline"></div>
 		 	<div class="mt-3">
 		 		<div class="row mx-2">
-		 	<button type="button" class="btn w-25 btn-secondary btn-lg div2" id="buttt">카드결제</button>
+		 	<button type="button" class="btn w-25 btn-secondary btn-lg div2" id="buttt">무통장 입금</button>
+		 	<button type="button" class="btn w-25 btn-secondary btn-lg div2" id="butttt">카드결제</button>
 		 		</div>		 		
 		 	</div>
 		 	<div class="mt-3">
@@ -339,45 +339,13 @@
 			<div class="lineeeee"></div>
 			<div class="costdeli" id="sum_p_price"><strong>결제예정금액<span class="paytext float-end"></span></strong></div>
 		</div>
-		<div class="btn-box"><button type="button" class="btn btn-sm text-white" id="vatn" onclick="requestPay()">주문하기</button></div>		
+		<div class="btn-box"><button type="button" class="btn btn-sm text-white" id="vatn">
+		<a href="pay/payment" class="text-center">
+		주문하기</button></div>		
 	</div>
 </div>
 </div>
 </section>
-<script>
-userCode = "imp14397622";
-IMP.init(userCode);
-function requestPay() {
-	  // 모든 체크박스를 선택합니다.
-	  var checkboxes = document.querySelectorAll('.form-check-inputt');
-	  var allChecked = true;
-
-	  // 모든 체크박스가 체크되었는지 확인합니다.
-	  checkboxes.forEach(function (checkbox) {
-	    if (!checkbox.checked) {
-	      allChecked = false;
-	    }
-	  });
-
-	  if (!allChecked) {
-	    // 하나 이상의 체크박스가 선택되지 않은 경우
-	    alert("약관에 동의해주세요.");
-	  } else {
-	    // 모든 체크박스가 선택되었을 경우 결제 요청을 실행합니다.
-	    IMP.request_pay({
-	      pg: "html5_inicis",
-	      pay_method: "card",
-	      merchant_uid: "test_lmsshfh5",
-	      name: "MS Shop",
-	      amount: 100,
-	      buyer_email: "MSShop@MSShop.MSShop",
-	      buyer_name: "MSShop",
-	      buyer_tel: "010-0000-0000",
-	      m_redirect_url: "/http://localhost:8008",
-	    });
-	  }
-	}
-</script>
 <script>
 function sample6_execDaumPostcode() {
         new daum.Postcode({

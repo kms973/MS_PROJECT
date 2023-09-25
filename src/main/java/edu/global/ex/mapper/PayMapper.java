@@ -16,6 +16,6 @@ import edu.global.ex.vo.PayVO;
 @Mapper
 public interface PayMapper {
 
-	public List<PayVO> listPay(String username);
+	public List<PayVO> listPay();
 	public void insert(PayVO payVO);
 }

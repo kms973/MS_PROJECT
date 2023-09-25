@@ -2,8 +2,6 @@
     display: flex;
     align-items: center;
 }
-
-.ppname{font-size:14px;}
 .pronum {margin-left: 10px;}
 table{border-top: 1px solid #000000;
 border-color: #000 !important;
@@ -31,6 +29,7 @@ thead th {
 		height: 28.38px;}
 .butt{width: 100px !important; background-color:#e9e9e9 !important;}
 #buttt{margin-right:15px; background-color:#cccccc !important;}
+#butttt{background-color:#cccccc !important;}
 .adboxx{margin-left:82px; width: 395px !important; background-color:#e9e9e9 !important;}
 .adboxxx{margin-left:82px; width: 395px !important; background-color:#e9e9e9 !important;}
 .adboxxxx{margin-left:82px; width: 395px !important; background-color:#e9e9e9 !important;}
