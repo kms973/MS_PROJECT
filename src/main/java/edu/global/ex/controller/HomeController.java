@@ -1,6 +1,7 @@
 package edu.global.ex.controller;
 
 import java.security.Principal;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+
+
 import edu.global.ex.mapper.CompanyMapper;
 import edu.global.ex.page.Criteria;
 import edu.global.ex.page.PageVO;
@@ -17,6 +20,7 @@ import edu.global.ex.service.BoardService;
 import edu.global.ex.service.CartService;
 import edu.global.ex.service.CompanyService;
 import edu.global.ex.service.MsUserService;
+import edu.global.ex.service.PayService;
 import edu.global.ex.service.ShopProductService;
 import edu.global.ex.vo.BoardVO;
 import edu.global.ex.vo.CartVO;
@@ -56,13 +60,16 @@ public class HomeController {
 
 	@Autowired
 	private ShopProductService spService;
-	
+
 	@Autowired
 	private CartService cartService;
+
+	@Autowired
+	private PayService payService;
 	
 	@Autowired
 	private MsUserService msUserService;
-	
+
 	// 홈 페이지
 	@GetMapping("/")
 	public String home(@AuthenticationPrincipal CustomUserDetailsVO customUserDetailsVO) {
@@ -95,9 +102,9 @@ public class HomeController {
 	@GetMapping("/admin/admin")
 	public String adminHome(Model model) {
 		log.info("adminHome()..");
-		
+
 		model.addAttribute("boardList", boardService.getList());
-		
+
 		return "/admin/admin";
 	}
 
@@ -131,12 +138,12 @@ public class HomeController {
 	public String adminBoardHome(Criteria cri, Model model) {
 		log.info("adminBoardHome");
 		model.addAttribute("boardList", boardService.getListWithPaging(cri));
-		
+
 		int total = boardService.getTotal();
 		log.info("list() 게시판 전체 갯수" + total);
 
 		model.addAttribute("pageMaker", new PageVO(cri, total));
-		
+
 		return "/admin/board/list";
 	}
 
@@ -146,15 +153,14 @@ public class HomeController {
 		log.info("community()..");
 		log.info("community() 크리테리아값 확인" + cri);
 
-
 		model.addAttribute("boardList_Notice", boardService.getNoticeWithPaging(cri));
 		model.addAttribute("boardList_Qna", boardService.getQnaWithPaging(cri));
 		model.addAttribute("boardList_Review", boardService.getReviewWithPaging(cri));
-		
+
 		int total = boardService.getTotal();
 		log.info("list() 게시판 전체 갯수" + total);
-		
-		//notice지만 아무튼 qna용임
+
+		// notice지만 아무튼 qna용임
 		int totaln = boardService.getTotalNotice();
 		int totalr = boardService.getTotalReview();
 
@@ -164,16 +170,16 @@ public class HomeController {
 
 		return "/community";
 	}
-	
+
 	// user 게시판 delete
 	@GetMapping("/delete")
 	public String delete(BoardVO boardVO) {
 		log.info("delete()..");
-		
+
 		int rn = boardService.delete(boardVO);
-		
+
 		log.info("delete().." + rn);
-		
+
 		return "redirect:community";
 	}
 
@@ -181,11 +187,11 @@ public class HomeController {
 
 	// user 게시판 작성 페이지
 	@GetMapping("/write_view")
-	public String write_view1(Principal principal,Model model) {
+	public String write_view1(Principal principal, Model model) {
 
 		log.info("write_view()..");
-		
-		model.addAttribute("username",principal.getName());
+
+		model.addAttribute("username", principal.getName());
 
 		return "write_view";
 	}
@@ -200,8 +206,8 @@ public class HomeController {
 
 		return "redirect:community";
 	}
-	
-	//유저화면 게시판 내용 수정 페이지
+
+	// 유저화면 게시판 내용 수정 페이지
 	@GetMapping("/modify")
 	public String modify() {
 
@@ -238,14 +244,13 @@ public class HomeController {
 		log.info("modify().. result number :: " + rn);
 		return "redirect:board";
 	}
-	
+
 	// 관리자 공지사항 게시판 페이지
 	@GetMapping("/admin/login")
 	public String adminLogin() {
 		log.info("adminLogin");
 		return "/admin/login";
 	}
-
 
 	// 게시판 내용 보기 페이지
 	@GetMapping("/admin/content_view")
@@ -256,7 +261,7 @@ public class HomeController {
 		return "/admin/board/content_view";
 	}
 
-	//유저화면 게시판 내용 보기 페이지
+	// 유저화면 게시판 내용 보기 페이지
 	@GetMapping("/content_view")
 	public String Usercontent_view(BoardVO boardVO, Model model) {
 		log.info("content_view()..");
@@ -305,8 +310,7 @@ public class HomeController {
 	@GetMapping("/admin/product/list")
 	public String adminProductList(Model model) {
 		log.info("adminProductList");
-		
-		
+
 		model.addAttribute("list", spService.getList());
 		return "/admin/product/product_list";
 	}
@@ -329,9 +333,9 @@ public class HomeController {
 	@GetMapping("/admin/customer/mgr")
 	public String adminCustomerMGR(Model model) {
 		log.info("adminCustomerMGR");
-		
+
 		model.addAttribute("ms_users", msUserService.getUsers());
-		
+
 		return "/admin/customer/mgr";
 	}
 
@@ -339,44 +343,49 @@ public class HomeController {
 	@GetMapping("/admin/customer/delete")
 	public String adminCustomerDelete(MsUserVO username, Model model) {
 		log.info("adminCustomerDelete()..");
-		
+
 		model.addAttribute("delete", msUserService.delete(username));
-		
+
 		return "redirect:mgr";
 	}
-	
+
 	// 상품관리
 	@GetMapping("/admin/product/mgr")
 	public String adminProductMGR() {
 		log.info("adminProductMGR");
-		
+
 		return "/admin/product/product_mgr";
 	}
 
-	/*// 쇼핑 페이지
-	@GetMapping("/shop")
-	public String shop() {
-		log.info("shop()..");
-		return "/shop/home";
-	}*/
-	
+	/*
+	 * // 쇼핑 페이지
+	 * 
+	 * @GetMapping("/shop")
+	 * public String shop() {
+	 * log.info("shop()..");
+	 * return "/shop/home";
+	 * }
+	 */
+
 	// 장바구니 페이지
 	@GetMapping("/cart/")
-	public String cart(Principal principal,Model model) {
+	public String cart(Principal principal, Model model) {
 		log.info("cart()..");
 		List<CartVO> listCart = cartService.listCart(principal.getName());
+		MsUserVO user = msUserService.read(principal.getName());
+		 model.addAttribute("msUserVO", user);
 		log.info(listCart.toString());
 		model.addAttribute("listCart", listCart);
 		return "/cart";
 	}
-	
+
 	@GetMapping("/cart/delete")
 	public String delete(int product_code, String options, Model model) {
 		log.info("delete()..");
 		model.addAttribute("delete", cartService.delete(product_code, options));
 		return "/cart";
 	}
-		
+
 	// 결제 페이지
 	@GetMapping("/pay")
 	public String pay() {
