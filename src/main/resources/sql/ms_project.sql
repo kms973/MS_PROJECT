@@ -1,3 +1,40 @@
+-- 결제 테이블
+create table ms_pay (
+    order_number number PRIMARY KEY,    -- 주문 번호
+    stock_quantity NUMBER,                          -- 상품 수량
+    username varchar2(50), -- 유저 id
+    product_name varchar2(50), -- 상품명
+    product_code NUMBER, -- 상품코드
+       product_img varchar2(50),
+    price number,
+    cname varchar2(50),
+    caddress1 varchar2(100),
+    caddress2 varchar2(100),
+    caddress3 varchar2(100),
+    caddress4 varchar2(100),
+    caddress5 varchar2(100),
+    phone1 number(4),
+    phone2 number(4)
+    );
+
+CREATE SEQUENCE order_number_sequence
+  START WITH 10000000 -- 시작 값
+  INCREMENT BY 1     -- 증가 값
+  MAXVALUE 99999999  -- 최대 값
+  NOCYCLE;
+  
+  CREATE OR REPLACE TRIGGER ms_pay_before_insert
+BEFORE INSERT ON ms_pay
+FOR EACH ROW
+BEGIN
+  SELECT order_number_sequence.NEXTVAL INTO :NEW.order_number FROM dual;
+END;
+/
+    
+drop table ms_pay;
+Select * from ms_pay;
+desc ms_pay;
+
 -- 게시판 테이블
 create table ms_board (
     bid number(6) primary key,      -- 게시물 식별자
@@ -79,22 +116,6 @@ drop table ms_customer;
 
 INSERT INTO ms_customer (cid, cpw, cname, cbirthdate, caddress, cgrade)
 VALUES ('user123', 'password123', '홍길동', TO_DATE('1990-01-15', 'YYYY-MM-DD'), '서울시 강남구', 1);
-
-
--- 결제
-create table ms_pay (
-    order_number number PRIMARY KEY,    -- 주문 번호
-    stock_quantity NUMBER,                          -- 상품 수량
-    payment_method VARCHAR2(50),              -- 결제 수단
-    shipping_address VARCHAR2(100),           -- 배송지 주소
-    username varchar2(50), -- 유저 id
-    product_name varchar2(50), -- 상품명
-    product_code NUMBER -- 상품코드
-    );
-    
-drop table ms_pay;
-Select * from ms_pay;
-desc ms_pay;
 
 -- 상품
 create table ms_product (
@@ -205,3 +226,31 @@ insert into ms_AUTHORITIES (username,AUTHORITY) values('admin','ROLE_MANAGER');
 desc ms_authorities;
 
 select * from users;
+
+-- 장바구니
+create table ms_cart(
+    number_of_order number,
+    username varchar(50),
+    product_img varchar2(200),
+    product_name varchar2(100),
+    price number,
+    stock_quantity number,
+    product_code number,
+    options varchar2(200)
+);
+
+CREATE SEQUENCE cart_order_seq
+  START WITH 10000000  -- 8자리 무작위 숫자의 시작 값
+  INCREMENT BY 1
+  NOCACHE
+  NOCYCLE;
+  
+alter table ms_cart modify column number_of_order number after username;
+
+CREATE OR REPLACE TRIGGER ms_cart_before_insert
+BEFORE INSERT ON ms_cart
+FOR EACH ROW
+BEGIN
+  SELECT order_number_sequence.NEXTVAL INTO :NEW.number_of_order FROM dual;
+END;
+/

@@ -6,9 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import com.azul.tooling.in.Model;
 
 import edu.global.ex.mapper.CompanyMapper;
 import edu.global.ex.page.Criteria;
@@ -17,6 +18,7 @@ import edu.global.ex.service.BoardService;
 import edu.global.ex.service.CartService;
 import edu.global.ex.service.CompanyService;
 import edu.global.ex.service.MsUserService;
+import edu.global.ex.service.PayService;
 import edu.global.ex.service.ShopProductService;
 import edu.global.ex.vo.BoardVO;
 import edu.global.ex.vo.CartVO;
@@ -60,6 +62,9 @@ public class HomeController {
 	@Autowired
 	private CartService cartService;
 
+	@Autowired
+	private PayService payService;
+	
 	@Autowired
 	private MsUserService msUserService;
 
@@ -365,6 +370,8 @@ public class HomeController {
 	public String cart(Principal principal, Model model) {
 		log.info("cart()..");
 		List<CartVO> listCart = cartService.listCart(principal.getName());
+		MsUserVO user = msUserService.read(principal.getName());
+		 model.addAttribute("msUserVO", user);
 		log.info(listCart.toString());
 		model.addAttribute("listCart", listCart);
 		return "/cart";

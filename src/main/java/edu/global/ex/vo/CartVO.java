@@ -30,4 +30,5 @@ public class CartVO {
 	private int stock_quantity; // 유저가 담은 갯수
 	private int product_code;
 	private String options;
+	private int number_of_order;
 }
