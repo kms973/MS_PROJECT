@@ -33,6 +33,12 @@ public class MsUserServiceImpl implements MsUserService {
 		// TODO Auto-generated method stub
 		return msUserMapper.read(cname);
 	}
+	
+	@Override
+	public MsUserVO read(String username) {
+		// TODO Auto-generated method stub
+		return msUserMapper.read(username);
+	}
 
 	@Override
 	public int modify(MsUserVO msUserVO) {

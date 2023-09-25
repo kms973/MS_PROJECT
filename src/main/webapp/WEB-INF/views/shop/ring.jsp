@@ -19,7 +19,7 @@
 		<div class="col-6 left mb-4"><img src="/img/${spVO.img}" class="img-fluid" width="500" alt="제품 이미지"></div>
 		<div class="right col-6 row align-content-between py-2 mb-4">
 			<div class="right-top row align-content-between w-100">
-				<h3 class="p-1 pname"><strong>${spVO.productName}</strong></h3>
+				<h3 class="p-1 pppname"><strong>${spVO.productName}</strong></h3>
 				<div class="d-flex justify-content-between align-items-center pt-4 py-2 px-1 w-100">
 					<div class="price d-flex justify-content-start align-items-center">
 						<div class="price-tit">가격</div>
