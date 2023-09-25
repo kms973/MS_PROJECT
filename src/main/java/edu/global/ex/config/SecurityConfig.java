@@ -1,84 +1,103 @@
 package edu.global.ex.config;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.core.env.Environment;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.client.registration.ClientRegistration;
+import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
+import org.springframework.security.oauth2.client.registration.InMemoryClientRegistrationRepository;
+import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
+import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
+import org.springframework.security.oauth2.client.userinfo.OAuth2UserService;
+import org.springframework.security.oauth2.core.AuthorizationGrantType;
+import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.SecurityFilterChain;
 
-import edu.global.ex.security.MsCustomUserDetailsService;
-import lombok.extern.slf4j.Slf4j;
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
 
-@Configuration // @component + 설정
-@EnableWebSecurity // 스프링 시큐리티 필터가 스프린 필터체인데 등록됨.
-@Slf4j
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    @Autowired
+    private Environment env;
 
-	@Autowired
-	private MsCustomUserDetailsService customUserDetailsService;
+    @Bean
+    public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .authorizeRequests(authorizeRequests -> authorizeRequests
+                        .antMatchers("/login/**").permitAll()
+                        .antMatchers("/user/**").hasAnyRole("USER")
+                        .antMatchers("/admin/**").hasAnyRole("ADMIN")
+                        .antMatchers("/**").permitAll())
+                .formLogin(formLogin -> formLogin
+                        .loginPage("/login"))
+                .oauth2Login(login -> login
+                        .userInfoEndpoint(userInfoEndpoint -> userInfoEndpoint
+                                .userService(oAuth2UserService()))
+                        .clientRegistrationRepository(clientRegistrationRepository()))
+                .logout(logout -> logout
+                        .logoutSuccessUrl("/login"))
+                .csrf(csrf -> csrf.disable());
+        return http.build();
+    }
 
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+    @Bean
+    public ClientRegistrationRepository clientRegistrationRepository() {
+        return new InMemoryClientRegistrationRepository(clientRegistration());
+    }
 
-	@Override
-	public void configure(WebSecurity web) throws Exception {
-		// web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
-		web.ignoring().antMatchers("/css/**", "/js/**", "/images/**", "/lib/**","/fonts/**","/admin/**"); // "/admin/**/"지워야 admin페이지로그인할수있습니다.
-	}
+    private ClientRegistration clientRegistration() {
+        String clientId = env.getProperty("google.client.id");
+        String clientSecret = env.getProperty("google.secret");
+        String redirectUri = env.getProperty("google.redirect.url");
 
-	/*~~(Migrate manually based on https://spring.io/blog/2022/02/21/spring-security-without-the-websecurityconfigureradapter)~~>*/@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//		auth.inMemoryAuthentication().withUser("user").password("{noop}user").roles("USER").and().withUser("admin")
-//				.password("{noop}admin").roles("ADMIN");
+        return ClientRegistration.withRegistrationId("google")
+                .clientId(clientId)
+                .clientSecret(clientSecret)
+                .redirectUri(redirectUri)
+                .authorizationUri(env.getProperty("google.auth.url") + "/authorize") // 여기에 authorization URI를 설정해야 합니다.
+                .tokenUri(env.getProperty("google.auth.url") + "/token")
+                .userInfoUri(env.getProperty("google.auth.url") + "/userinfo")
+                .userNameAttributeName("sub")
+                .jwkSetUri(env.getProperty("google.auth.url") + "/certs")
+                .clientName("Google")
+                .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE) // 여기에 authorization grant type을
+                                                                                   // 설정하세요.
+                .build();
+    }
 
-		auth.userDetailsService(customUserDetailsService).passwordEncoder(new BCryptPasswordEncoder());
-	}
+    @Bean
+    public OAuth2UserService<OAuth2UserRequest, OAuth2User> oAuth2UserService() {
+        return new DefaultOAuth2UserService();
+    }
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		// 우선 CSRF설정을 해제한다.
-		// 초기 개발시만 해주는게 좋다.
-		http.csrf().disable();
-		
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
-		http.authorizeRequests()
-	    .antMatchers("/user/**").hasAnyRole("USER")
-	    .antMatchers("/admin/**").hasAnyRole("ADMIN")
-	    .antMatchers("/**").permitAll();
+    @Bean
+    public UserDetailsService userDetailsService() {
+        UserDetails user = User.builder()
+                .username("user")
+                .password(passwordEncoder().encode("password"))
+                .roles("USER")
+                .build();
 
+        UserDetails admin = User.builder()
+                .username("admin")
+                .password(passwordEncoder().encode("adminpassword"))
+                .roles("ADMIN")
+                .build();
 
-		http.formLogin()
-			.loginPage("/login")
-			.defaultSuccessUrl("/") // 로그인 성공 후 공통 URL
-			.successHandler((request, response, authentication) -> {
-            // 권한에 따른 개별 URL 처리
-
-			List<String> authList=new ArrayList<>();
-			for(GrantedAuthority auth: authentication.getAuthorities()) {
-				authList.add(auth.toString());
-			}
-			
-			if(authList.contains("ROLE_ADMIN")) {
-				response.sendRedirect("/admin/admin");
-			} else {
-				response.sendRedirect("/");
-			}
-
-		});// loginPage()는 말 그대로 로그인 할 페이지 url
-		http.logout().logoutSuccessUrl("/login");
-			
-			
-
-	}
+        return new InMemoryUserDetailsManager(user, admin);
+    }
 }
