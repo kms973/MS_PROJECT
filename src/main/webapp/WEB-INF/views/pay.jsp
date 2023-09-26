@@ -12,10 +12,10 @@
 	<table class="table mb-5" >
 	  <thead>
 	    <tr>       
-	      <th scope="col" class="col-6"><strong>상품명</strong></th>
+	      <th scope="col" class="col-6"><div class="mx-2"><strong>상품명</strong></div></th>
 	      <th scope="col" class="col-2"><strong>수량</strong></th>
 	      <th scope="col" class="col-2"><strong>판매가</strong></th>
-	      <th scope="col" class="col-2"><strong>구매금액</strong></th>
+	      <th scope="col" class="col-2"><div class="mx-1"><strong>구매금액</strong></div></th>
 	    </tr>
 	  </thead>
 	  <tbody>

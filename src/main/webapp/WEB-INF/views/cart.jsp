@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+ㅈ<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- header 시작 -->
@@ -18,10 +18,10 @@
 			      <input type="hidden" name="cmd" value="order">  
 				      <div class="form-check col-1"><input class="form-check-input mt-1" type="checkbox" id="checkAll" onclick="toggleCheckAll()"></div>
 			      </th>     
-			      <th scope="col" class="col-6"><strong>상품명</strong></th>
+			      <th scope="col" class="col-6"><div class="mx-2"><strong>상품명</strong></div></th>
 			      <th scope="col" class="col-2"><div class="mx-2"><strong>수량</strong></div></th>
 			      <th scope="col" class="col-1"><strong>판매가</strong></th>
-			      <th scope="col" class="col-1"><strong>구매금액</strong></th>
+			      <th scope="col" class="col-1"><div class="mx-1"><strong>구매금액</strong></div></th>
 			      <th scope="col" class="col-1"><strong>선택</strong></th>
 			    </tr>
 			  </thead>
