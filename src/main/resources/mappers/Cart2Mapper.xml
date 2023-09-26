@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.global.ex.mapper.Cart2Mapper">
+
+
+   <select id="listCart2" resultType="Cart2VO">
+    <![CDATA[
+      select * from ms_cart2 where username = #{username} and number_of_order = (SELECT MAX(number_of_order) FROM ms_cart2)
+   ]]>    
+    </select>
+ 
+    <insert id="insert">
+    <![CDATA[
+  
+    INSERT INTO ms_cart2 ( username,product_img, product_name, price, product_code, stock_quantity , options, number_of_order)
+  VALUES ( #{username},#{product_img}, #{product_name}, #{price}, #{product_code}, #{stock_quantity}, #{options}, #{number_of_order})
+  
+  ]]>    
+    </insert>    
+
+
+</mapper>

@@ -17,12 +17,14 @@ import edu.global.ex.mapper.CompanyMapper;
 import edu.global.ex.page.Criteria;
 import edu.global.ex.page.PageVO;
 import edu.global.ex.service.BoardService;
+import edu.global.ex.service.Cart2Service;
 import edu.global.ex.service.CartService;
 import edu.global.ex.service.CompanyService;
 import edu.global.ex.service.MsUserService;
 import edu.global.ex.service.PayService;
 import edu.global.ex.service.ShopProductService;
 import edu.global.ex.vo.BoardVO;
+import edu.global.ex.vo.Cart2VO;
 import edu.global.ex.vo.CartVO;
 import edu.global.ex.vo.CompanyVO;
 import edu.global.ex.vo.CustomUserDetailsVO;
@@ -69,6 +71,9 @@ public class HomeController {
 	
 	@Autowired
 	private MsUserService msUserService;
+	
+	@Autowired
+	private Cart2Service cart2Service;
 
 	// 홈 페이지
 	@GetMapping("/")
@@ -378,6 +383,7 @@ public class HomeController {
 		model.addAttribute("listCart", listCart);
 		return "/cart";
 	}
+	
 
 	@GetMapping("/cart/delete")
 	public String delete(int product_code, String options, Model model) {
@@ -391,6 +397,17 @@ public class HomeController {
 	public String pay() {
 		log.info("pay()..");
 		return "/pay";
+	}
+	
+	@GetMapping("/buypay")
+	public String buypay(Principal principal, Model model) {
+		log.info("buypay()..");
+		List<Cart2VO> listCart2 = cart2Service.listCart2(principal.getName());
+		MsUserVO user = msUserService.read(principal.getName());
+		 model.addAttribute("msUserVO", user);
+		log.info(listCart2.toString());
+		model.addAttribute("listCart2", listCart2);
+		return "/buypay";
 	}
 
 	// 링 페이지

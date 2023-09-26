@@ -252,3 +252,29 @@ BEGIN
   SELECT order_number_seq.NEXTVAL INTO :NEW.number_of_order FROM dual;
 END;
 /
+
+-- BUY IT NOW
+create table ms_cart2(
+    number_of_order number,
+    username varchar(50),
+    product_img varchar2(200),
+    product_name varchar2(100),
+    price number,
+    stock_quantity number,
+    product_code number,
+    options varchar2(200)
+);
+
+CREATE SEQUENCE pay_order_seq
+  START WITH 20000000  -- 8자리 무작위 숫자의 시작 값
+  INCREMENT BY 1
+  NOCACHE
+  NOCYCLE;
+
+CREATE OR REPLACE TRIGGER ms_cart2_before_insert
+BEFORE INSERT ON ms_cart2
+FOR EACH ROW
+BEGIN
+  SELECT pay_order_seq.NEXTVAL INTO :NEW.number_of_order FROM dual;
+END;
+/

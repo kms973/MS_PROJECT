@@ -7,14 +7,22 @@
 <!-- 메인 시작 -->
 
  <section id="detail" class="container wrap">
-
-	<form method="post" action="/cart/insertcart">
+ 	<form method="post" action="/buypay/insertbuypay" name="buypaygogo">
+	<input type="hidden" name="product_img" value="${spVO.img }" >
+	<input type="hidden" name="product_name" value="${spVO.productName }" >
+	<input type="hidden" name="price" value="${spVO.price }" >
+	<input type="hidden" name="product_code" value="${spVO.productCode }" >
+	<input type="hidden" name="selectedQuantity" value="${selectedQuantity}">
+	<input type="hidden" id="optionsInput2" name="options" value="">
+	</form>
+	<form method="post" action="/cart/insertcart" name="cartgogo">
 	<input type="hidden" name="product_img" value="${spVO.img }" >
 	<input type="hidden" name="product_name" value="${spVO.productName }" >
 	<input type="hidden" name="price" value="${spVO.price }" >
 	<input type="hidden" name="product_code" value="${spVO.productCode }" >
 	<input type="hidden" name="selectedQuantity" value="${selectedQuantity}">
 	<input type="hidden" id="optionsInput" name="options" value="">
+	</form>
 	<div class="row mt-4 justify-content-between">
 		<div class="col-6 left mb-4"><img src="/img/${spVO.img}" class="img-fluid" width="500" alt="제품 이미지"></div>
 		<div class="right col-6 row align-content-between py-2 mb-4">
@@ -64,20 +72,19 @@
 						<div id="totalPrice"><h5 class="mb-0"><strong>₩ ${spVO.price }</strong></h5></div>
 					</div>
 				</div>
-				<div class="d-flex justify-content-center align-items-center mt-4 px-0">
-					<div class="px-2 w-50 ps-1">					
+				<div class="d-flex justify-content-center align-items-center mt-4 px-0">				
+					<div class="px-2 w-50 ps-1">				
 					<!-- <button type="submit" class="btn cartbtn" id="bttn" >CART</button> -->
-					<button type="submit" class="btn cartbtn" id="bttn" >CART</button>					
-					</div>
-				
-					<div class="px-2 w-50 pe-1">
-					<button type="button" class="btn paybtn" id="bttn">BUY IT NOW</button>
-					</div>
+					<button type="submit" class="btn cartbtn" id="bttn" >CART</button>	
+										
+					</div>	
+					<div class="px-2 w-50 pe-1">						
+					<button type="submit" class="btn paybtn" id="bttn">BUY IT NOW</button>
+					</div>					
 				</div>
 			</div><!-- <div class="right-bottom"> -->
 		</div><!-- <div class="right"> -->
 	</div><!-- <div class="row"> -->
-</form>
 	<div class="rec-title d-flex justify-content-center mt-5"><strong><h5> Recommand Item</h5></strong></div>
 	<div class="container mt-5">
 		<div id="blogCarousel1" class="carousel slide" data-bs-ride="carousel">
@@ -158,7 +165,7 @@
 		<!-- detail TAB contents -->
 	</div>
 	
-	<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+	<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -177,6 +184,8 @@
 
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 	$(document).ready(function() {
 		// 초기화: 모든 데이터 아이템을 표시
@@ -314,9 +323,20 @@ $(document).ready(function() {
     });
 });
 </script>
-
 <script>
-$("#bttn").click(function(event) {
+$(document).ready(function() {
+    // 셀렉트 박스에서 옵션을 선택할 때 이벤트 핸들러를 추가합니다.
+    $("#selectBox").on("change", function(e) {
+        // 선택한 옵션의 값을 가져옵니다.
+        var selectedOptionsValuee = $(this).val();
+
+        // 선택한 옵션 값을 input 태그에 설정합니다.
+        $("#optionsInput2").val(selectedOptionsValue);
+    });
+});
+</script>
+<script>
+$(".cartbtn").click(function(event) {
 	const selectedQuantity = parseInt($("#quantity").text());
     const selectedOption = $("#selectBox").val();
     var principal = <%= request.getUserPrincipal() != null %>;
@@ -343,16 +363,40 @@ $("#bttn").click(function(event) {
 
 // 장바구니 확인 버튼 클릭 시 form을 제출하도록 설정
 $("#cartConfirmation").click(function() {
-    $("form").submit();
+	$("form[name='cartgogo']").submit();
 });
 
 $("#continueShopping").click(function() {
-    $("form").submit();
+	$("form[name='cartgogo']").submit();
     setTimeout(function() {
         window.location.href = "/shop/*";
     }, 10); 
 });
 
+</script>
+<script>
+$(".paybtn").click(function(event) {
+	const selectedQuantity = parseInt($("#quantity").text());
+    const selectedOption = $("#selectBox").val();
+    var principal = <%= request.getUserPrincipal() != null %>;
+    
+   
+    if (!principal) {
+        
+        alert("로그인이 필요합니다.");
+        event.preventDefault();
+    } else {
+       if (!selectedOption || selectedOption === "옵션을 선택해주세요.") {
+        alert("옵션을 선택해주세요.");
+        event.preventDefault();
+    } else {
+        // 옵션이 선택되었다면, 선택한 수량을 hidden input 필드에 저장
+        $("input[name='selectedQuantity']").val(selectedQuantity);
+        $("input[name='options']").val(selectedOption);
+        $("form[name='buypaygogo']").submit();
+    }
+    }
+});
 </script>
 <!-- footer 시작 -->
 <jsp:include page="/WEB-INF/views/footer.jsp" />
