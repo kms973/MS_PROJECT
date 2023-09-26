@@ -58,11 +58,11 @@
 		
 		<sec:authorize access="hasRole('ROLE_ADMIN')">
        <div class="option">
-       	<a class="btn btn-sm btn-primary" href="modify?bid=${boardList.bid}"><i class="fas fa-edit">상품수정</i></a>
+       	<a class="btn btn-sm btn-primary" href="modify?bid=${content_view.bid}"><i class="fas fa-edit">상품수정</i></a>
        	
        	<!-- 본인이 쓴 글만 삭제가능 -->
        	<%-- <c:if test="${nextBid ne null}"> --%>
-      	<a class="btn btn-sm btn-danger" href="delete?bid=${boardList.bid}"><i class="fas fa-trash">삭제</i></a>
+      	<a class="btn btn-sm btn-danger" href="delete?bid=${content_view.bid}"><i class="fas fa-trash">삭제</i></a>
        	<%-- </c:if> --%>
        </div>
        </sec:authorize>
