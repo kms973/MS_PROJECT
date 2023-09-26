@@ -24,7 +24,10 @@
 	      <td class="col-6">
 	   		<div class="product-img d-flex">
 	   			<img src="/img/${listPay.product_img }" class="img-fluid" width="30%" alt="제품 이미지">
+	   			<div>
 	   			<div class="ppname row mx-2 mt-5">${listPay.product_name}</div>
+	   			<div style="font-size:6px; color: red; padding:0; margin:10px;">&#45; 옵션명: <span class="poptions">${listPay.options }</span></div>
+	   			</div>
 	   		</div>
 	      </td>
 	      <td class="col-2">
@@ -45,18 +48,11 @@
 	    
 	    <div class="orderinfo mt-5">
 	    	<h5>주문자 정보 입력</h5>
-	     <div class="orderline"></div>
+	     <div class="orderline mt-2"></div>
 		     <div class="mt-3">
 		     	<div class="row mx-2 my-3">주문자<input class="form-control form-control-sm w-25 orbox" type="text" value="${msUserVO.cname }"></div>
 		     	<div class="row mx-2 my-3">휴대전화
-		     		<select class="form-select form-select-sm phbox" aria-label="Default select example">
-                            <option selected="selected">010</option>
-                            <option value="1">011</option>
-                            <option value="2">016</option>
-                            <option value="3">017</option>
-                            <option value="4">018</option>
-                            <option value="5">019</option>                  
-                    </select>-
+                    <input class="form-control form-control-sm phbox" type="text" value="010" disabled>-                   
                     <input class="form-control form-control-sm phboxx" type="text" value="${msUserVO.phone1 }">-
                     <input class="form-control form-control-sm phboxxx" type="text" value="${msUserVO.phone2 }"></div>
 		     	<div class="row mx-2 my-3">이메일
@@ -72,7 +68,7 @@
 		
 		<div class="payinfo mt-5">
 			<h5>결제 수단</h5>
-		 <div class="orderline"></div>
+		 <div class="orderline mt-2"></div>
 		 	<div class="mt-3">
 		 		<div class="row mx-2">
 		 	<button type="button" class="btn w-25 btn-secondary btn-lg div2" id="buttt">카드결제</button>
@@ -81,9 +77,9 @@
 		 	<div class="mt-3">
 		 	<div class="oorderline"></div>
 		 		<div class="row mt-3 mx-2 mb-5">
-		 		<div><input class="form-check-inputt cb" type="checkbox" id="checkAlll">  모든 약관 동의</div>
-		 		<div><input class="form-check-inputt cbb" type="checkbox" id="checkk">  [필수] 개인정보처리방침<button type="button" class="modalbtn"data-bs-toggle="modal" data-bs-target="#exampleModal">></button></div>
-		 		<div><input class="form-check-inputt cbbb" type="checkbox" id="checkk">  [필수] 이용약관<button type="button" class="modalbtn"data-bs-toggle="modal" data-bs-target="#exampleeModal">></button></div>
+		 		<div><input class="form-check-inputt cb" type="checkbox" id="checkAlll">  <span class="general_conditions">모든 약관 동의</span></div>
+		 		<div><input class="form-check-inputt cbb" type="checkbox" id="checkk">  <span class="general_conditions">[필수] 개인정보처리방침</span><button type="button" class="modalbtn"data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="xi-angle-right-thin"></i></button></div>
+		 		<div><input class="form-check-inputt cbbb" type="checkbox" id="checkkk">  <span class="general_conditions">[필수] 이용약관</span><button type="button" class="modalbtn"data-bs-toggle="modal" data-bs-target="#exampleeModal"><i class="xi-angle-right-thin"></i></button></div>
 		 		</div>
 		 		
 		 		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
